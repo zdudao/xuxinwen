@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>老许聊实体 - 每日行业资讯</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 50%, #fdbb2d 100%);
+            min-height: 100vh;
+            padding: 0;
+            position: relative;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            z-index: 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+        .header .logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .header .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .header h1 {
+            color: white;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+        .header .contact-info {
+            color: rgba(255,255,255,0.9);
+            font-size: 16px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.1);
+            padding: 12px 24px;
+            border-radius: 25px;
+            display: inline-block;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .header .contact-info span {
+            margin: 0 10px;
+        }
+        .header .contact-info .icon {
+            margin-right: 5px;
+        }
+        .header .tags {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .header .tag {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .articles-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            color: white;
+        }
+        .card-header h2 {
+            font-size: 24px;
+            font-weight: 500;
+            margin: 0;
+        }
+        .card-content {
+            padding: 40px;
+        }
+        .article-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 24px 0;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .article-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.3s ease;
+        }
+        .article-item:hover {
+            background: #f8f9fa;
+            transform: translateX(10px);
+        }
+        .article-item:hover::before {
+            transform: scaleY(1);
+        }
+        .article-item:last-child {
+            border-bottom: none;
+        }
+        .article-date {
+            flex: 0 0 140px;
+            padding-right: 20px;
+        }
+        .article-date .date-main {
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        .article-date .article-time {
+            font-size: 12px;
+            color: #999;
+        }
+        .article-content {
+            flex: 1;
+            padding: 0 30px;
+        }
+        .article-title {
+            color: #333;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+        .article-title:hover {
+            color: #667eea;
+        }
+        .article-stats {
+            display: flex;
+            gap: 16px;
+            margin: 8px 0;
+        }
+        .article-stats .stat-item {
+            font-size: 14px;
+            color: #666;
+            background: #f5f5f5;
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+        .article-desc {
+            font-size: 14px;
+            color: #999;
+            line-height: 1.4;
+        }
+        .article-arrow {
+            color: #999;
+            font-size: 24px;
+            margin-top: 4px;
+            transition: color 0.3s ease;
+        }
+        .article-item:hover .article-arrow {
+            color: #667eea;
+            transform: translateX(5px);
+        }
+        .empty-state {
+            padding: 80px 40px;
+            text-align: center;
+            color: #666;
+        }
+        .empty-state p {
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+        .empty-state code {
+            background: #f5f5f5;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            color: rgba(255,255,255,0.8);
+            font-size: 16px;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+        .update-time {
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+            .header h1 {
+                font-size: 28px;
+            }
+            .header .tags {
+                flex-direction: column;
+                align-items: center;
+            }
+            .card-content {
+                padding: 30px;
+            }
+            .article-item {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px 0;
+            }
+            .article-date {
+                margin-bottom: 10px;
+            }
+            .article-content {
+                padding: 0;
+                margin-bottom: 10px;
+            }
+            .article-arrow {
+                align-self: flex-end;
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="logo.jpg" alt="老许聊实体">
+            </div>
+            <h1>老许聊实体</h1>
+            <p class="contact-info">
+                <span><span class="icon">🎵</span>抖音：168198020</span>
+                <span>|</span>
+                <span><span class="icon">💬</span>微信：xuyang2946</span>
+            </p>
+            <div class="tags">
+                <div class="tag">🏪 选址趋势</div>
+                <div class="tag">🔄 店铺转让</div>
+                <div class="tag">🤝 招商加盟</div>
+                <div class="tag">💡 实体创业</div>
+            </div>
+        </div>
+
+        <div class="articles-card">
+            <div class="card-header">
+                <h2>📅 每日资讯汇总</h2>
+            </div>
+            <div class="card-content">
+
+        <div class="article-item">
+            <div class="article-date">
+                <div class="date-main">2026年04月05日</div>
+                <div class="article-time">16-01</div>
+            </div>
+            <div class="article-content">
+                <a href="output/html/2026-04-05/16-01.html" class="article-title" target="_blank">每日行业资讯汇总</a>
+                
+                <div class="article-desc">涵盖选址趋势、店铺转让、招商加盟、实体创业等领域资讯</div>
+            </div>
+            <div class="article-arrow">→</div>
+        </div>
+
+        <div class="article-item">
+            <div class="article-date">
+                <div class="date-main">2026年04月04日</div>
+                <div class="article-time">22-00</div>
+            </div>
+            <div class="article-content">
+                <a href="output/html/2026-04-04/22-00.html" class="article-title" target="_blank">每日行业资讯汇总</a>
+                
+                <div class="article-desc">涵盖选址趋势、店铺转让、招商加盟、实体创业等领域资讯</div>
+            </div>
+            <div class="article-arrow">→</div>
+        </div>
+
+            </div>
+        </div>
+
+        <div class="update-time">
+            最后更新: 2026年04月05日
+        </div>
+
+        <div class="footer">
+            <p>关注「老许聊实体」，每天五分钟，带你看透行业趋势</p>
+        </div>
+    </div>
+</body>
+</html>
