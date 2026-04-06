@@ -652,6 +652,54 @@
                     width: 100%;
                     border-radius: 6px 0 0 6px;
                 }
+                /* 新增：进一步优化手机屏幕显示 */
+                .header-title {
+                    font-size: 18px;
+                }
+                .header-contact {
+                    position: static;
+                    margin-bottom: 16px;
+                    align-items: center;
+                }
+                .contact-item {
+                    font-size: 11px;
+                }
+                .word-name {
+                    font-size: 15px;
+                }
+                .news-title {
+                    font-size: 14px;
+                }
+                .news-summary {
+                    font-size: 12px;
+                }
+                .news-tags {
+                    gap: 4px;
+                }
+                .news-tag {
+                    font-size: 10px;
+                }
+                .ai-section-title {
+                    font-size: 16px;
+                }
+                .ai-block-title {
+                    font-size: 13px;
+                }
+                .ai-block-content {
+                    font-size: 13px;
+                }
+                .rss-section-title {
+                    font-size: 16px;
+                }
+                .feed-name {
+                    font-size: 14px;
+                }
+                .rss-title {
+                    font-size: 13px;
+                }
+                .rss-summary {
+                    font-size: 12px;
+                }
             }
 
             /* RSS 订阅内容样式 */
@@ -1267,22 +1315,6 @@
         <div class="container">
             <div class="header">
                 <div class="header-watermark">老许</div>
-                <div class="header-contact">
-                    <div class="contact-item"><span class="contact-icon">🎵</span> 抖音: 168198020</div>
-                    <div class="contact-item"><span class="contact-icon">💬</span> 微信: xuyang2946</div>
-                </div>
-                <div class="save-buttons">
-                    <button class="toggle-wide-btn" onclick="toggleWideMode()" title="切换宽屏/窄屏">⛶</button>
-                    <button class="toggle-dark-btn" onclick="toggleDarkMode()" title="切换暗色/亮色">☽</button>
-                    <div class="save-btn-group">
-                        <button class="save-btn" onclick="saveAsImage()">导出</button>
-                        <button class="save-dropdown-trigger">▾</button>
-                        <div class="save-dropdown-menu">
-                            <button class="save-dropdown-item" onclick="saveAsImage()"><svg class="dropdown-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="2"/><circle cx="8" cy="7.5" r="2.5"/><path d="M12 4h.01"/></svg>整页截图</button>
-                            <button class="save-dropdown-item" onclick="saveAsMultipleImages()"><svg class="dropdown-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="10" height="10" rx="1.5"/><path d="M5 4V2.5A1.5 1.5 0 016.5 1h7A1.5 1.5 0 0115 2.5v7a1.5 1.5 0 01-1.5 1.5H12"/></svg>分段截图</button>
-                        </div>
-                    </div>
-                </div>
                 <div class="header-title">老许聊实体 - 每日行业资讯</div>
                 <div class="header-info">
                     <div class="info-item">
