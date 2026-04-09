@@ -207,11 +207,13 @@
             }
 
             .header-title {
-                font-size: 22px;
+                font-size: 30px;
                 font-weight: 700;
                 margin: 0 0 20px 0;
                 position: relative;
                 z-index: 2;
+                color: #FFFFFF;
+                text-shadow: 0 2px 4px rgba(0,0,0,0.3);
             }
 
             .header-info {
@@ -221,7 +223,10 @@
                 grid-template-columns: 1fr 1fr;
                 gap: 16px;
                 font-size: 14px;
-                opacity: 0.95;
+                background: rgba(183, 141, 119, 0.3);
+                padding: 16px;
+                border-radius: 16px;
+                border: 1px solid #B78D77;
             }
 
             .info-item {
@@ -1278,22 +1283,6 @@
         <div class="container">
             <div class="header">
                 <div class="header-watermark">老许</div>
-                <div class="header-contact">
-                    <div class="contact-item"><span class="contact-icon">🎵</span> 抖音: 168198020</div>
-                    <div class="contact-item"><span class="contact-icon">💬</span> 微信: xuyang2946</div>
-                </div>
-                <div class="save-buttons">
-                    <button class="toggle-wide-btn" onclick="toggleWideMode()" title="切换宽屏/窄屏">⛶</button>
-                    <button class="toggle-dark-btn" onclick="toggleDarkMode()" title="切换暗色/亮色">☽</button>
-                    <div class="save-btn-group">
-                        <button class="save-btn" onclick="saveAsImage()">导出</button>
-                        <button class="save-dropdown-trigger">▾</button>
-                        <div class="save-dropdown-menu">
-                            <button class="save-dropdown-item" onclick="saveAsImage()"><svg class="dropdown-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="2"/><circle cx="8" cy="7.5" r="2.5"/><path d="M12 4h.01"/></svg>整页截图</button>
-                            <button class="save-dropdown-item" onclick="saveAsMultipleImages()"><svg class="dropdown-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="10" height="10" rx="1.5"/><path d="M5 4V2.5A1.5 1.5 0 016.5 1h7A1.5 1.5 0 0115 2.5v7a1.5 1.5 0 01-1.5 1.5H12"/></svg>分段截图</button>
-                        </div>
-                    </div>
-                </div>
                 <div class="header-title">老许聊实体 - 每日行业资讯</div>
                 <div class="header-info">
                     <div class="info-item">
@@ -1316,9 +1305,6 @@
             </div>
 
             <div class="content">
-                <div class="search-bar">
-                    <input type="text" class="search-input" placeholder="搜索新闻标题..." oninput="handleSearch(this.value)">
-                </div>
                 <div class="hotlist-section"><div class="tab-bar"><button class="tab-btn" data-tab-index="0">招商加盟<span class="tab-count">2</span></button><button class="tab-btn" data-tab-index="1">创业开店<span class="tab-count">1</span></button><button class="tab-btn" data-tab-index="2">运营创新<span class="tab-count">1</span></button><button class="tab-btn" data-tab-index="3">餐饮行业<span class="tab-count">4</span></button><button class="tab-btn" data-tab-index="all">全部</button></div>
                 <div class="word-group" data-tab-index="0">
                     <div class="word-header">

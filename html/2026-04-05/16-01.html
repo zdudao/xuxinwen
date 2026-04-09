@@ -204,11 +204,13 @@
             }
 
             .header-title {
-                font-size: 22px;
+                font-size: 30px;
                 font-weight: 700;
                 margin: 0 0 20px 0;
                 position: relative;
                 z-index: 2;
+                color: #FFFFFF;
+                text-shadow: 0 2px 4px rgba(0,0,0,0.3);
             }
 
             .header-info {
@@ -218,7 +220,10 @@
                 grid-template-columns: 1fr 1fr;
                 gap: 16px;
                 font-size: 14px;
-                opacity: 0.95;
+                background: rgba(183, 141, 119, 0.3);
+                padding: 16px;
+                border-radius: 16px;
+                border: 1px solid #B78D77;
             }
 
             .info-item {
@@ -1344,9 +1349,6 @@
             </div>
 
             <div class="content">
-                <div class="search-bar">
-                    <input type="text" class="search-input" placeholder="搜索新闻标题..." oninput="handleSearch(this.value)">
-                </div>
                 <div class="rss-section">
                     <div class="rss-section-header">
                         <div class="rss-section-title">RSS 新增更新</div>
