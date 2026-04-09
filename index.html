@@ -161,7 +161,7 @@
             border-bottom: none;
         }
         .article-date {
-            flex: 0 0 180px;
+            flex: 0 0 200px;
             padding-right: 20px;
         }
         .article-date .date-main {
@@ -169,14 +169,17 @@
             color: #666;
             font-weight: 500;
             margin-bottom: 4px;
-        }
-        .article-date .article-time {
-            font-size: 12px;
-            color: #999;
+            white-space: nowrap;
         }
         .article-content {
             flex: 1;
             padding: 0 30px;
+        }
+        .article-content::before {
+            content: "今日要点：";
+            font-weight: bold;
+            margin-right: 8px;
+            color: #667eea;
         }
         .article-title {
             color: #333;
