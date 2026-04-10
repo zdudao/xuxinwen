@@ -34,13 +34,28 @@
             }
 
             .header {
-                background: #0175CC;
                 color: #FFFFFF;
                 padding: 32px 24px;
                 text-align: center;
                 position: relative;
                 overflow: hidden;
                 border-radius: 16px 16px 0 0;
+                background-image: url('../../images/background.svg');
+                background-size: cover;
+                background-position: center;
+            }
+
+            .header::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.3);
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
+                z-index: 1;
             }
 
             .header-contact {
@@ -211,7 +226,7 @@
                 font-weight: 700;
                 margin: 0 0 20px 0;
                 position: relative;
-                z-index: 2;
+                z-index: 3;
                 color: #FFFFFF;
                 text-shadow: 0 2px 4px rgba(0,0,0,0.3);
             }
@@ -224,11 +239,13 @@
                 align-items: center;
                 gap: 24px;
                 font-size: 14px;
-                background: rgba(183, 141, 119, 0.3);
+                background: rgba(255, 255, 255, 0.2);
                 padding: 16px;
                 border-radius: 16px;
-                border: 1px solid #B78D77;
+                border: 1px solid rgba(255, 255, 255, 0.3);
                 text-align: center;
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
             }
 
             .info-item {
@@ -512,6 +529,159 @@
             /* 热榜统计区样式 */
             .hotlist-section {
                 /* 默认无边框，由 section-divider 动态添加 */
+                margin-bottom: 32px;
+            }
+
+            .card-container {
+                position: relative;
+                overflow-x: auto;
+                overflow-y: hidden;
+                padding: 20px 0;
+                scrollbar-width: thin;
+                scrollbar-color: #e5e7eb #f3f4f6;
+            }
+
+            .card-container::-webkit-scrollbar {
+                height: 6px;
+            }
+
+            .card-container::-webkit-scrollbar-track {
+                background: #f3f4f6;
+                border-radius: 3px;
+            }
+
+            .card-container::-webkit-scrollbar-thumb {
+                background: #e5e7eb;
+                border-radius: 3px;
+            }
+
+            .card-container::-webkit-scrollbar-thumb:hover {
+                background: #d1d5db;
+            }
+
+            .card-wrapper {
+                display: flex;
+                gap: 16px;
+                padding: 0 24px;
+                min-width: min-content;
+            }
+
+            .news-card {
+                flex: 0 0 300px;
+                background: #ffffff;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                transition: all 0.3s ease;
+                border: 1px solid #f0f0f0;
+            }
+
+            .news-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            }
+
+            .news-card-header {
+                padding: 16px;
+                border-bottom: 1px solid #f5f5f5;
+            }
+
+            .news-card-meta {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-bottom: 12px;
+                flex-wrap: wrap;
+            }
+
+            .news-card-title {
+                font-size: 16px;
+                font-weight: 600;
+                color: #1a1a1a;
+                line-height: 1.4;
+                margin: 0;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            .news-card-content {
+                padding: 16px;
+            }
+
+            .news-card-summary {
+                font-size: 14px;
+                color: #666666;
+                line-height: 1.5;
+                margin: 0 0 12px 0;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            .news-card-tags {
+                display: flex;
+                gap: 6px;
+                flex-wrap: wrap;
+            }
+
+            .news-card-tag {
+                font-size: 12px;
+                color: #6b7280;
+                background: #f3f4f6;
+                padding: 2px 8px;
+                border-radius: 4px;
+            }
+
+            .news-card-footer {
+                padding: 12px 16px;
+                background: #f9fafb;
+                border-top: 1px solid #f5f5f5;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .news-card-source {
+                font-size: 12px;
+                color: #9ca3af;
+            }
+
+            .news-card-link {
+                color: #4f46e5;
+                text-decoration: none;
+                font-size: 12px;
+                font-weight: 500;
+                transition: color 0.2s ease;
+            }
+
+            .news-card-link:hover {
+                color: #4338ca;
+                text-decoration: underline;
+            }
+
+            .scroll-indicators {
+                display: flex;
+                gap: 4px;
+                justify-content: center;
+                margin-top: 16px;
+            }
+
+            .scroll-indicator {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: #e5e7eb;
+                transition: all 0.3s ease;
+                cursor: pointer;
+            }
+
+            .scroll-indicator.active {
+                background: #4f46e5;
+                width: 24px;
+                border-radius: 4px;
             }
 
             .new-section {
@@ -1312,163 +1482,393 @@
             </div>
 
             <div class="content">
-                <div class="hotlist-section"><div class="tab-bar"><button class="tab-btn" data-tab-index="0">招商加盟<span class="tab-count">2</span></button><button class="tab-btn" data-tab-index="1">创业开店<span class="tab-count">1</span></button><button class="tab-btn" data-tab-index="2">运营创新<span class="tab-count">1</span></button><button class="tab-btn" data-tab-index="3">餐饮行业<span class="tab-count">4</span></button><button class="tab-btn" data-tab-index="all">全部</button></div>
-                <div class="word-group" data-tab-index="0">
-                    <div class="word-header">
-                        <div class="word-info">
-                            <div class="word-name">招商加盟</div>
-                            <div class="word-count ">2 条</div>
-                        </div>
-                        <div class="word-index"><span class="collapse-icon">▼</span>1/4</div>
+                <div class="hotlist-section">
+                    <div class="tab-bar">
+                        <button class="tab-btn" data-tab-index="0">招商加盟<span class="tab-count">2</span></button>
+                        <button class="tab-btn" data-tab-index="1">创业开店<span class="tab-count">1</span></button>
+                        <button class="tab-btn" data-tab-index="2">运营创新<span class="tab-count">1</span></button>
+                        <button class="tab-btn active" data-tab-index="3">餐饮行业<span class="tab-count">4</span></button>
+                        <button class="tab-btn" data-tab-index="all">全部</button>
                     </div>
-                    <div class="news-item new">
-                        <div class="news-number">1</div>
-                        <div class="news-content">
-                            <div class="news-header"><span class="source-name">知乎</span><span class="rank-num top">1</span><span class="time-info">12:41</span>
+                    
+                    <div class="card-container" data-tab-content="0" style="display: none;">
+                        <div class="card-wrapper">
+                            <div class="news-card">
+                                <div class="news-card-header">
+                                    <div class="news-card-meta">
+                                        <span class="source-name">知乎</span>
+                                        <span class="rank-num top">1</span>
+                                        <span class="time-info">12:41</span>
+                                    </div>
+                                    <h3 class="news-card-title">河南三地曝出巨额数据造假，舞阳 77 亿省外资金全靠编，暴露了哪些问题？怎么才能根治这种乱象？</h3>
+                                </div>
+                                <div class="news-card-content">
+                                    <p class="news-card-summary">河南三地曝出巨额数据造假，舞阳 77 亿省外资金全靠编，暴露了哪些问题？怎么才能根治这种乱象？</p>
+                                    <div class="news-card-tags">
+                                        <span class="news-card-tag">招商加盟</span>
+                                        <span class="news-card-tag">知乎</span>
+                                    </div>
+                                </div>
+                                <div class="news-card-footer">
+                                    <span class="news-card-source">知乎</span>
+                                    <a href="https://www.zhihu.com/question/2025331901515259928" target="_blank" class="news-card-link">查看详情 →</a>
+                                </div>
                             </div>
-                            <div class="news-title">
-                                <a href="https://www.zhihu.com/question/2025331901515259928" target="_blank" class="news-link">河南三地曝出巨额数据造假，舞阳 77 亿省外资金全靠编，暴露了哪些问题？怎么才能根治这种乱象？</a>
-                            </div>
-                            <div class="news-summary">河南三地曝出巨额数据造假，舞阳 77 亿省外资金全靠编，暴露了哪些问题？怎么才能根治这种乱象？</div>
-                            <div class="news-tags">
-                                <span class="news-tag">招商加盟</span>
-                                <span class="news-tag">知乎</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="news-item new">
-                        <div class="news-number">2</div>
-                        <div class="news-content">
-                            <div class="news-header"><span class="source-name">抖音</span><span class="rank-num top">2</span><span class="time-info">12:41</span>
-                            </div>
-                            <div class="news-title">
-                                <a href="https://www.douyin.com/hot/2460071" target="_blank" class="news-link">河南三地招商数据造假</a>
-                            </div>
-                            <div class="news-summary">河南三地招商数据造假</div>
-                            <div class="news-tags">
-                                <span class="news-tag">招商加盟</span>
-                                <span class="news-tag">抖音</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="word-group" data-tab-index="1">
-                    <div class="word-header">
-                        <div class="word-info">
-                            <div class="word-name">创业开店</div>
-                            <div class="word-count ">1 条</div>
-                        </div>
-                        <div class="word-index"><span class="collapse-icon">▼</span>2/4</div>
-                    </div>
-                    <div class="news-item new">
-                        <div class="news-number">1</div>
-                        <div class="news-content">
-                            <div class="news-header"><span class="source-name">贴吧</span><span class="rank-num ">25</span><span class="time-info">12:41</span>
-                            </div>
-                            <div class="news-title">
-                                <a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E9%80%9A%E5%AE%B5%E5%8F%AA%E5%8D%961%E4%B8%AA%E5%A0%A1%2C%E6%91%86%E6%91%8A%E9%9A%BE%E8%87%B4%E5%AF%8C&amp;topic_id=28352885" target="_blank" class="news-link">通宵只卖1个堡,摆摊难致富</a>
-                            </div>
-                            <div class="news-summary">通宵只卖1个堡,摆摊难致富</div>
-                            <div class="news-tags">
-                                <span class="news-tag">创业开店</span>
-                                <span class="news-tag">贴吧</span>
+                            <div class="news-card">
+                                <div class="news-card-header">
+                                    <div class="news-card-meta">
+                                        <span class="source-name">抖音</span>
+                                        <span class="rank-num top">2</span>
+                                        <span class="time-info">12:41</span>
+                                    </div>
+                                    <h3 class="news-card-title">河南三地招商数据造假</h3>
+                                </div>
+                                <div class="news-card-content">
+                                    <p class="news-card-summary">河南三地招商数据造假</p>
+                                    <div class="news-card-tags">
+                                        <span class="news-card-tag">招商加盟</span>
+                                        <span class="news-card-tag">抖音</span>
+                                    </div>
+                                </div>
+                                <div class="news-card-footer">
+                                    <span class="news-card-source">抖音</span>
+                                    <a href="https://www.douyin.com/hot/2460071" target="_blank" class="news-card-link">查看详情 →</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="word-group" data-tab-index="2">
-                    <div class="word-header">
-                        <div class="word-info">
-                            <div class="word-name">运营创新</div>
-                            <div class="word-count ">1 条</div>
-                        </div>
-                        <div class="word-index"><span class="collapse-icon">▼</span>3/4</div>
-                    </div>
-                    <div class="news-item new">
-                        <div class="news-number">1</div>
-                        <div class="news-content">
-                            <div class="news-header"><span class="source-name">bilibili 热搜</span><span class="rank-num ">25</span><span class="time-info">12:41</span>
-                            </div>
-                            <div class="news-title">
-                                <a href="https://search.bilibili.com/all?keyword=UP%E4%B8%BB%E6%8E%A2%E5%BA%97%E7%88%86%E7%81%AB%E7%9A%84%E8%8E%AB%E6%B0%8F%E9%B8%A1%E7%85%B2" target="_blank" class="news-link">UP主探店爆火的莫氏鸡煲</a>
-                            </div>
-                            <div class="news-summary">UP主探店爆火的莫氏鸡煲</div>
-                            <div class="news-tags">
-                                <span class="news-tag">运营创新</span>
-                                <span class="news-tag">bilibili 热搜</span>
-                            </div>
+                        <div class="scroll-indicators">
+                            <div class="scroll-indicator active"></div>
                         </div>
                     </div>
-                </div>
-                <div class="word-group" data-tab-index="3">
-                    <div class="word-header">
-                        <div class="word-info">
-                            <div class="word-name">餐饮行业</div>
-                            <div class="word-count ">4 条</div>
-                        </div>
-                        <div class="word-index"><span class="collapse-icon">▼</span>4/4</div>
-                    </div>
-                    <div class="news-item new">
-                        <div class="news-number">1</div>
-                        <div class="news-content">
-                            <div class="news-header"><span class="source-name">今日头条</span><span class="rank-num ">9</span><span class="time-info">12:41</span>
-                            </div>
-                            <div class="news-title">
-                                <a href="https://www.toutiao.com/trending/7626584957674065417/" target="_blank" class="news-link">莫氏鸡煲为何爆火</a>
-                            </div>
-                            <div class="news-summary">莫氏鸡煲为何爆火</div>
-                            <div class="news-tags">
-                                <span class="news-tag">餐饮行业</span>
-                                <span class="news-tag">今日头条</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="news-item new">
-                        <div class="news-number">2</div>
-                        <div class="news-content">
-                            <div class="news-header"><span class="source-name">百度热搜</span><span class="rank-num ">18</span><span class="time-info">12:41</span>
-                            </div>
-                            <div class="news-title">
-                                <a href="https://www.baidu.com/s?wd=%E8%8E%AB%E6%B0%8F%E9%B8%A1%E7%85%B2%E6%B1%A4%E5%BA%95%E5%A4%A7%E6%8F%AD%E7%A7%98+%E5%8C%BB%E7%94%9F%E6%8F%90%E9%86%92" target="_blank" class="news-link">莫氏鸡煲汤底大揭秘 医生提醒</a>
-                            </div>
-                            <div class="news-summary">莫氏鸡煲汤底大揭秘 医生提醒</div>
-                            <div class="news-tags">
-                                <span class="news-tag">餐饮行业</span>
-                                <span class="news-tag">百度热搜</span>
+                    
+                    <div class="card-container" data-tab-content="1" style="display: none;">
+                        <div class="card-wrapper">
+                            <div class="news-card">
+                                <div class="news-card-header">
+                                    <div class="news-card-meta">
+                                        <span class="source-name">贴吧</span>
+                                        <span class="rank-num">25</span>
+                                        <span class="time-info">12:41</span>
+                                    </div>
+                                    <h3 class="news-card-title">通宵只卖1个堡,摆摊难致富</h3>
+                                </div>
+                                <div class="news-card-content">
+                                    <p class="news-card-summary">通宵只卖1个堡,摆摊难致富</p>
+                                    <div class="news-card-tags">
+                                        <span class="news-card-tag">创业开店</span>
+                                        <span class="news-card-tag">贴吧</span>
+                                    </div>
+                                </div>
+                                <div class="news-card-footer">
+                                    <span class="news-card-source">贴吧</span>
+                                    <a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E9%80%9A%E5%AE%B5%E5%8F%AA%E5%8D%961%E4%B8%AA%E5%A0%A1%2C%E6%91%86%E6%91%8A%E9%9A%BE%E8%87%B4%E5%AF%8C&amp;topic_id=28352885" target="_blank" class="news-card-link">查看详情 →</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="news-item new">
-                        <div class="news-number">3</div>
-                        <div class="news-content">
-                            <div class="news-header"><span class="source-name">今日头条</span><span class="rank-num ">30</span><span class="time-info">12:41</span>
-                            </div>
-                            <div class="news-title">
-                                <a href="https://www.toutiao.com/trending/7626345961590177798/" target="_blank" class="news-link">卤菜店使用“四姐”二字被索赔50万</a>
-                            </div>
-                            <div class="news-summary">卤菜店使用“四姐”二字被索赔50万</div>
-                            <div class="news-tags">
-                                <span class="news-tag">餐饮行业</span>
-                                <span class="news-tag">今日头条</span>
-                            </div>
+                        <div class="scroll-indicators">
+                            <div class="scroll-indicator active"></div>
                         </div>
                     </div>
-                    <div class="news-item new">
-                        <div class="news-number">4</div>
-                        <div class="news-content">
-                            <div class="news-header"><span class="source-name">微博</span><span class="rank-num ">8</span><span class="time-info">12:41</span>
-                            </div>
-                            <div class="news-title">
-                                <a href="https://s.weibo.com/weibo?q=%23%E5%8D%A4%E8%8F%9C%E5%BA%97%E4%BD%BF%E7%94%A8%E5%9B%9B%E5%A7%90%E4%BA%8C%E5%AD%97%E8%A2%AB%E7%B4%A2%E8%B5%9450%E4%B8%87%23" target="_blank" class="news-link">卤菜店使用四姐二字被索赔50万</a>
-                            </div>
-                            <div class="news-summary">卤菜店使用四姐二字被索赔50万</div>
-                            <div class="news-tags">
-                                <span class="news-tag">餐饮行业</span>
-                                <span class="news-tag">微博</span>
+                    
+                    <div class="card-container" data-tab-content="2" style="display: none;">
+                        <div class="card-wrapper">
+                            <div class="news-card">
+                                <div class="news-card-header">
+                                    <div class="news-card-meta">
+                                        <span class="source-name">bilibili 热搜</span>
+                                        <span class="rank-num">25</span>
+                                        <span class="time-info">12:41</span>
+                                    </div>
+                                    <h3 class="news-card-title">UP主探店爆火的莫氏鸡煲</h3>
+                                </div>
+                                <div class="news-card-content">
+                                    <p class="news-card-summary">UP主探店爆火的莫氏鸡煲</p>
+                                    <div class="news-card-tags">
+                                        <span class="news-card-tag">运营创新</span>
+                                        <span class="news-card-tag">bilibili 热搜</span>
+                                    </div>
+                                </div>
+                                <div class="news-card-footer">
+                                    <span class="news-card-source">bilibili</span>
+                                    <a href="https://search.bilibili.com/all?keyword=UP%E4%B8%BB%E6%8E%A2%E5%BA%97%E7%88%86%E7%81%AB%E7%9A%84%E8%8E%AB%E6%B0%8F%E9%B8%A1%E7%85%B2" target="_blank" class="news-card-link">查看详情 →</a>
+                                </div>
                             </div>
                         </div>
+                        <div class="scroll-indicators">
+                            <div class="scroll-indicator active"></div>
+                        </div>
                     </div>
-                </div>
+                    
+                    <div class="card-container" data-tab-content="3" style="display: block;">
+                        <div class="card-wrapper">
+                            <div class="news-card">
+                                <div class="news-card-header">
+                                    <div class="news-card-meta">
+                                        <span class="source-name">今日头条</span>
+                                        <span class="rank-num">9</span>
+                                        <span class="time-info">12:41</span>
+                                    </div>
+                                    <h3 class="news-card-title">莫氏鸡煲为何爆火</h3>
+                                </div>
+                                <div class="news-card-content">
+                                    <p class="news-card-summary">莫氏鸡煲为何爆火</p>
+                                    <div class="news-card-tags">
+                                        <span class="news-card-tag">餐饮行业</span>
+                                        <span class="news-card-tag">今日头条</span>
+                                    </div>
+                                </div>
+                                <div class="news-card-footer">
+                                    <span class="news-card-source">今日头条</span>
+                                    <a href="https://www.toutiao.com/trending/7626584957674065417/" target="_blank" class="news-card-link">查看详情 →</a>
+                                </div>
+                            </div>
+                            <div class="news-card">
+                                <div class="news-card-header">
+                                    <div class="news-card-meta">
+                                        <span class="source-name">百度热搜</span>
+                                        <span class="rank-num">18</span>
+                                        <span class="time-info">12:41</span>
+                                    </div>
+                                    <h3 class="news-card-title">莫氏鸡煲汤底大揭秘 医生提醒</h3>
+                                </div>
+                                <div class="news-card-content">
+                                    <p class="news-card-summary">莫氏鸡煲汤底大揭秘 医生提醒</p>
+                                    <div class="news-card-tags">
+                                        <span class="news-card-tag">餐饮行业</span>
+                                        <span class="news-card-tag">百度热搜</span>
+                                    </div>
+                                </div>
+                                <div class="news-card-footer">
+                                    <span class="news-card-source">百度热搜</span>
+                                    <a href="https://www.baidu.com/s?wd=%E8%8E%AB%E6%B0%8F%E9%B8%A1%E7%85%B2%E6%B1%A4%E5%BA%95%E5%A4%A7%E6%8F%AD%E7%A7%98+%E5%8C%BB%E7%94%9F%E6%8F%90%E9%86%92" target="_blank" class="news-card-link">查看详情 →</a>
+                                </div>
+                            </div>
+                            <div class="news-card">
+                                <div class="news-card-header">
+                                    <div class="news-card-meta">
+                                        <span class="source-name">今日头条</span>
+                                        <span class="rank-num">30</span>
+                                        <span class="time-info">12:41</span>
+                                    </div>
+                                    <h3 class="news-card-title">卤菜店使用"四姐"二字被索赔50万</h3>
+                                </div>
+                                <div class="news-card-content">
+                                    <p class="news-card-summary">卤菜店使用"四姐"二字被索赔50万</p>
+                                    <div class="news-card-tags">
+                                        <span class="news-card-tag">餐饮行业</span>
+                                        <span class="news-card-tag">今日头条</span>
+                                    </div>
+                                </div>
+                                <div class="news-card-footer">
+                                    <span class="news-card-source">今日头条</span>
+                                    <a href="https://www.toutiao.com/trending/7626345961590177798/" target="_blank" class="news-card-link">查看详情 →</a>
+                                </div>
+                            </div>
+                            <div class="news-card">
+                                <div class="news-card-header">
+                                    <div class="news-card-meta">
+                                        <span class="source-name">微博</span>
+                                        <span class="rank-num">8</span>
+                                        <span class="time-info">12:41</span>
+                                    </div>
+                                    <h3 class="news-card-title">卤菜店使用四姐二字被索赔50万</h3>
+                                </div>
+                                <div class="news-card-content">
+                                    <p class="news-card-summary">卤菜店使用四姐二字被索赔50万</p>
+                                    <div class="news-card-tags">
+                                        <span class="news-card-tag">餐饮行业</span>
+                                        <span class="news-card-tag">微博</span>
+                                    </div>
+                                </div>
+                                <div class="news-card-footer">
+                                    <span class="news-card-source">微博</span>
+                                    <a href="https://s.weibo.com/weibo?q=%23%E5%8D%A4%E8%8F%9C%E5%BA%97%E4%BD%BF%E7%94%A8%E5%9B%9B%E5%A7%90%E4%BA%8C%E5%AD%97%E8%A2%AB%E7%B4%A2%E8%B5%9450%E4%B8%87%23" target="_blank" class="news-card-link">查看详情 →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scroll-indicators">
+                            <div class="scroll-indicator active"></div>
+                            <div class="scroll-indicator"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-container" data-tab-content="all" style="display: none;">
+                        <div class="card-wrapper">
+                            <div class="news-card">
+                                <div class="news-card-header">
+                                    <div class="news-card-meta">
+                                        <span class="source-name">知乎</span>
+                                        <span class="rank-num top">1</span>
+                                        <span class="time-info">12:41</span>
+                                    </div>
+                                    <h3 class="news-card-title">河南三地曝出巨额数据造假，舞阳 77 亿省外资金全靠编，暴露了哪些问题？怎么才能根治这种乱象？</h3>
+                                </div>
+                                <div class="news-card-content">
+                                    <p class="news-card-summary">河南三地曝出巨额数据造假，舞阳 77 亿省外资金全靠编，暴露了哪些问题？怎么才能根治这种乱象？</p>
+                                    <div class="news-card-tags">
+                                        <span class="news-card-tag">招商加盟</span>
+                                        <span class="news-card-tag">知乎</span>
+                                    </div>
+                                </div>
+                                <div class="news-card-footer">
+                                    <span class="news-card-source">知乎</span>
+                                    <a href="https://www.zhihu.com/question/2025331901515259928" target="_blank" class="news-card-link">查看详情 →</a>
+                                </div>
+                            </div>
+                            <div class="news-card">
+                                <div class="news-card-header">
+                                    <div class="news-card-meta">
+                                        <span class="source-name">抖音</span>
+                                        <span class="rank-num top">2</span>
+                                        <span class="time-info">12:41</span>
+                                    </div>
+                                    <h3 class="news-card-title">河南三地招商数据造假</h3>
+                                </div>
+                                <div class="news-card-content">
+                                    <p class="news-card-summary">河南三地招商数据造假</p>
+                                    <div class="news-card-tags">
+                                        <span class="news-card-tag">招商加盟</span>
+                                        <span class="news-card-tag">抖音</span>
+                                    </div>
+                                </div>
+                                <div class="news-card-footer">
+                                    <span class="news-card-source">抖音</span>
+                                    <a href="https://www.douyin.com/hot/2460071" target="_blank" class="news-card-link">查看详情 →</a>
+                                </div>
+                            </div>
+                            <div class="news-card">
+                                <div class="news-card-header">
+                                    <div class="news-card-meta">
+                                        <span class="source-name">贴吧</span>
+                                        <span class="rank-num">25</span>
+                                        <span class="time-info">12:41</span>
+                                    </div>
+                                    <h3 class="news-card-title">通宵只卖1个堡,摆摊难致富</h3>
+                                </div>
+                                <div class="news-card-content">
+                                    <p class="news-card-summary">通宵只卖1个堡,摆摊难致富</p>
+                                    <div class="news-card-tags">
+                                        <span class="news-card-tag">创业开店</span>
+                                        <span class="news-card-tag">贴吧</span>
+                                    </div>
+                                </div>
+                                <div class="news-card-footer">
+                                    <span class="news-card-source">贴吧</span>
+                                    <a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E9%80%9A%E5%AE%B5%E5%8F%AA%E5%8D%961%E4%B8%AA%E5%A0%A1%2C%E6%91%86%E6%91%8A%E9%9A%BE%E8%87%B4%E5%AF%8C&amp;topic_id=28352885" target="_blank" class="news-card-link">查看详情 →</a>
+                                </div>
+                            </div>
+                            <div class="news-card">
+                                <div class="news-card-header">
+                                    <div class="news-card-meta">
+                                        <span class="source-name">bilibili 热搜</span>
+                                        <span class="rank-num">25</span>
+                                        <span class="time-info">12:41</span>
+                                    </div>
+                                    <h3 class="news-card-title">UP主探店爆火的莫氏鸡煲</h3>
+                                </div>
+                                <div class="news-card-content">
+                                    <p class="news-card-summary">UP主探店爆火的莫氏鸡煲</p>
+                                    <div class="news-card-tags">
+                                        <span class="news-card-tag">运营创新</span>
+                                        <span class="news-card-tag">bilibili 热搜</span>
+                                    </div>
+                                </div>
+                                <div class="news-card-footer">
+                                    <span class="news-card-source">bilibili</span>
+                                    <a href="https://search.bilibili.com/all?keyword=UP%E4%B8%BB%E6%8E%A2%E5%BA%97%E7%88%86%E7%81%AB%E7%9A%84%E8%8E%AB%E6%B0%8F%E9%B8%A1%E7%85%B2" target="_blank" class="news-card-link">查看详情 →</a>
+                                </div>
+                            </div>
+                            <div class="news-card">
+                                <div class="news-card-header">
+                                    <div class="news-card-meta">
+                                        <span class="source-name">今日头条</span>
+                                        <span class="rank-num">9</span>
+                                        <span class="time-info">12:41</span>
+                                    </div>
+                                    <h3 class="news-card-title">莫氏鸡煲为何爆火</h3>
+                                </div>
+                                <div class="news-card-content">
+                                    <p class="news-card-summary">莫氏鸡煲为何爆火</p>
+                                    <div class="news-card-tags">
+                                        <span class="news-card-tag">餐饮行业</span>
+                                        <span class="news-card-tag">今日头条</span>
+                                    </div>
+                                </div>
+                                <div class="news-card-footer">
+                                    <span class="news-card-source">今日头条</span>
+                                    <a href="https://www.toutiao.com/trending/7626584957674065417/" target="_blank" class="news-card-link">查看详情 →</a>
+                                </div>
+                            </div>
+                            <div class="news-card">
+                                <div class="news-card-header">
+                                    <div class="news-card-meta">
+                                        <span class="source-name">百度热搜</span>
+                                        <span class="rank-num">18</span>
+                                        <span class="time-info">12:41</span>
+                                    </div>
+                                    <h3 class="news-card-title">莫氏鸡煲汤底大揭秘 医生提醒</h3>
+                                </div>
+                                <div class="news-card-content">
+                                    <p class="news-card-summary">莫氏鸡煲汤底大揭秘 医生提醒</p>
+                                    <div class="news-card-tags">
+                                        <span class="news-card-tag">餐饮行业</span>
+                                        <span class="news-card-tag">百度热搜</span>
+                                    </div>
+                                </div>
+                                <div class="news-card-footer">
+                                    <span class="news-card-source">百度热搜</span>
+                                    <a href="https://www.baidu.com/s?wd=%E8%8E%AB%E6%B0%8F%E9%B8%A1%E7%85%B2%E6%B1%A4%E5%BA%95%E5%A4%A7%E6%8F%AD%E7%A7%98+%E5%8C%BB%E7%94%9F%E6%8F%90%E9%86%92" target="_blank" class="news-card-link">查看详情 →</a>
+                                </div>
+                            </div>
+                            <div class="news-card">
+                                <div class="news-card-header">
+                                    <div class="news-card-meta">
+                                        <span class="source-name">今日头条</span>
+                                        <span class="rank-num">30</span>
+                                        <span class="time-info">12:41</span>
+                                    </div>
+                                    <h3 class="news-card-title">卤菜店使用"四姐"二字被索赔50万</h3>
+                                </div>
+                                <div class="news-card-content">
+                                    <p class="news-card-summary">卤菜店使用"四姐"二字被索赔50万</p>
+                                    <div class="news-card-tags">
+                                        <span class="news-card-tag">餐饮行业</span>
+                                        <span class="news-card-tag">今日头条</span>
+                                    </div>
+                                </div>
+                                <div class="news-card-footer">
+                                    <span class="news-card-source">今日头条</span>
+                                    <a href="https://www.toutiao.com/trending/7626345961590177798/" target="_blank" class="news-card-link">查看详情 →</a>
+                                </div>
+                            </div>
+                            <div class="news-card">
+                                <div class="news-card-header">
+                                    <div class="news-card-meta">
+                                        <span class="source-name">微博</span>
+                                        <span class="rank-num">8</span>
+                                        <span class="time-info">12:41</span>
+                                    </div>
+                                    <h3 class="news-card-title">卤菜店使用四姐二字被索赔50万</h3>
+                                </div>
+                                <div class="news-card-content">
+                                    <p class="news-card-summary">卤菜店使用四姐二字被索赔50万</p>
+                                    <div class="news-card-tags">
+                                        <span class="news-card-tag">餐饮行业</span>
+                                        <span class="news-card-tag">微博</span>
+                                    </div>
+                                </div>
+                                <div class="news-card-footer">
+                                    <span class="news-card-source">微博</span>
+                                    <a href="https://s.weibo.com/weibo?q=%23%E5%8D%A4%E8%8F%9C%E5%BA%97%E4%BD%BF%E7%94%A8%E5%9B%9B%E5%A7%90%E4%BA%8C%E5%AD%97%E8%A2%AB%E7%B4%A2%E8%B5%9450%E4%B8%87%23" target="_blank" class="news-card-link">查看详情 →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scroll-indicators">
+                            <div class="scroll-indicator active"></div>
+                            <div class="scroll-indicator"></div>
+                            <div class="scroll-indicator"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="section-divider rss-section">
                     <div class="rss-section-header">
@@ -1674,7 +2074,7 @@
                 var tabBar = document.querySelector('.tab-bar');
                 if (!tabBar) return;
                 var tabs = tabBar.querySelectorAll('.tab-btn');
-                var groups = document.querySelectorAll('.word-group[data-tab-index]');
+                var cardContainers = document.querySelectorAll('.card-container[data-tab-content]');
                 initTabVisibility();
 
                 function activateTab(index) {
@@ -1682,7 +2082,9 @@
                     if (index === 'all') {
                         var allBtn = tabBar.querySelector('[data-tab-index="all"]');
                         if (allBtn) allBtn.classList.add('active');
-                        groups.forEach(function(g) { g.style.display = ''; });
+                        cardContainers.forEach(function(container) {
+                            container.style.display = container.dataset.tabContent === 'all' ? 'block' : 'none';
+                        });
                         try { history.replaceState(null, '', '#all'); } catch(e) {}
                         return;
                     }
@@ -1690,11 +2092,9 @@
                     tabs.forEach(function(t) {
                         if (parseInt(t.dataset.tabIndex) === idx) t.classList.add('active');
                     });
-                    if (document.body.classList.contains('wide-mode') && !tabBar.classList.contains('tab-hidden')) {
-                        groups.forEach(function(g) {
-                            g.style.display = (parseInt(g.dataset.tabIndex) === idx) ? '' : 'none';
-                        });
-                    }
+                    cardContainers.forEach(function(container) {
+                        container.style.display = parseInt(container.dataset.tabContent) === idx ? 'block' : 'none';
+                    });
                     try { history.replaceState(null, '', '#tab-' + idx); } catch(e) {}
                 }
 
@@ -1727,11 +2127,17 @@
             function initTabVisibility() {
                 var tabBar = document.querySelector('.tab-bar');
                 if (!tabBar) return;
-                var groups = document.querySelectorAll('.word-group[data-tab-index]');
+                var cardContainers = document.querySelectorAll('.card-container[data-tab-content]');
                 var isWide = document.body.classList.contains('wide-mode');
-                if (!isWide || groups.length <= 2) {
+                if (!isWide || cardContainers.length <= 2) {
                     tabBar.classList.add('tab-hidden');
-                    groups.forEach(function(g) { g.style.display = ''; });
+                    cardContainers.forEach(function(container) { 
+                        if (container.dataset.tabContent === 'all') {
+                            container.style.display = 'block';
+                        } else {
+                            container.style.display = 'none';
+                        }
+                    });
                 } else {
                     tabBar.classList.remove('tab-hidden');
                     var activeTab = tabBar.querySelector('.tab-btn.active');
@@ -1748,6 +2154,10 @@
                 document.querySelectorAll('.news-item').forEach(function(item) {
                     var title = (item.querySelector('.news-title') || {}).textContent || '';
                     item.style.display = (!query || title.toLowerCase().indexOf(query) !== -1) ? '' : 'none';
+                });
+                document.querySelectorAll('.news-card').forEach(function(card) {
+                    var title = (card.querySelector('.news-card-title') || {}).textContent || '';
+                    card.style.display = (!query || title.toLowerCase().indexOf(query) !== -1) ? '' : 'none';
                 });
                 document.querySelectorAll('.rss-item').forEach(function(item) {
                     var title = (item.querySelector('.rss-title') || {}).textContent || '';
