@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>老许聊实体 - 每日行业资讯</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        @font-face {
+            font-family: 'Microsoft YaHei';
+            src: url('../../MicrosoftYaHei-01.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 16px;
+            background: linear-gradient(180deg, #0175CC 0%, #E8F0F8 100%);
+            color: #333;
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #FCF5E2;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            color: white;
+            padding: 32px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px 16px 0 0;
+            background-image: url('../../images/background.svg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 1;
+        }
+
+        .header-contact {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-item {
+            font-size: 12px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .contact-icon {
+            font-size: 14px;
+            width: 16px;
+            text-align: center;
+        }
+
+        .header-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(40px, 8vw, 80px);
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            color: rgba(255, 255, 255, 0.15);
+            pointer-events: none;
+            z-index: 1;
+            white-space: nowrap;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-date {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .header-title {
+            font-size: clamp(18px, 4vw, 28px);
+            font-weight: 700;
+            margin: 0 0 12px 0;
+            line-height: 1.2;
+        }
+
+        .header-subtitle {
+            font-size: 14px;
+            opacity: 0.8;
+            margin: 0;
+        }
+
+        .main-content {
+            padding: 24px;
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0175CC;
+            margin: 0 0 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::before {
+            content: '◆';
+            font-size: 12px;
+            color: #B78D77;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .info-item {
+            background: rgba(1, 117, 204, 0.05);
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 3px solid #0175CC;
+        }
+
+        .info-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .info-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: #0175CC;
+        }
+
+        .word-cloud {
+            background: rgba(183, 141, 119, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+        }
+
+        .word-cloud-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #B78D77;
+            margin: 0 0 16px 0;
+            text-align: center;
+        }
+
+        .words-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .word-item {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #333;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .word-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .word-item.hot {
+            background: #FF6B6B;
+            color: white;
+        }
+
+        .word-item.warm {
+            background: #FFD166;
+            color: #333;
+        }
+
+        .word-item.cold {
+            background: #06D6A0;
+            color: white;
+        }
+
+        .news-tabs {
+            margin-bottom: 24px;
+        }
+
+        .tabs-header {
+            display: flex;
+            border-bottom: 2px solid #E8F0F8;
+            margin-bottom: 16px;
+        }
+
+        .tab-item {
+            padding: 12px 16px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .tab-item.active {
+            color: #0175CC;
+            border-bottom-color: #0175CC;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .word-group {
+            margin-bottom: 20px;
+        }
+
+        .word-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: rgba(1, 117, 204, 0.05);
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+        }
+
+        .word-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .word-name {
+            font-weight: 600;
+            color: #0175CC;
+        }
+
+        .word-count {
+            font-size: 12px;
+            color: #666;
+            background: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .word-index {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .news-item {
+            display: flex;
+            padding: 16px;
+            border-bottom: 1px solid #f0f0f0;
+            background: white;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .news-item.new {
+            background: #F0F8FF;
+        }
+
+        .news-number {
+            flex: 0 0 24px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #999;
+            margin-right: 12px;
+        }
+
+        .news-content {
+            flex: 1;
+        }
+
+        .news-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+            font-size: 12px;
+        }
+
+        .source-name {
+            background: #0175CC;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .rank-num {
+            background: #f0f0f0;
+            color: #666;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .time-info {
+            color: #999;
+        }
+
+        .news-title {
+            font-size: 14px;
+            font-weight: 500;
+            margin: 0 0 8px 0;
+            line-height: 1.4;
+        }
+
+        .news-title a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .news-title a:hover {
+            color: #0175CC;
+            text-decoration: underline;
+        }
+
+        .news-summary {
+            font-size: 12px;
+            color: #666;
+            margin: 0 0 8px 0;
+            line-height: 1.3;
+        }
+
+        .news-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .news-tag {
+            font-size: 10px;
+            background: #f0f0f0;
+            color: #666;
+            padding: 2px 6px;
+            border-radius: 8px;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #E8F0F8, transparent);
+            margin: 32px 0;
+        }
+
+        .new-section {
+            margin-top: 40px;
+            padding-top: 24px;
+        }
+
+        .new-section-title {
+            color: #1a1a1a;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 0 20px 0;
+        }
+
+        .new-sources-grid {
+            display: grid;
+            gap: 24px;
+        }
+
+        .new-source-group {
+            margin-bottom: 24px;
+        }
+
+        .new-source-title {
+            color: #666;
+            font-size: 13px;
+            font-weight: 500;
+            margin: 0 0 12px 0;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .new-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            border-bottom: 1px solid #f9f9f9;
+        }
+
+        .new-item:last-child {
+            border-bottom: none;
+        }
+
+        .new-item-number {
+            color: #999;
+            font-size: 12px;
+            font-weight: 600;
+            min-width: 18px;
+            text-align: center;
+            flex-shrink: 0;
+            background: #f8f9fa;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .new-item-rank {
+            color: #fff;
+            background: #6b7280;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 6px;
+            border-radius: 8px;
+            min-width: 20px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .new-item-rank.top { background: #dc2626; }
+        .new-item-rank.high { background: #ea580c; }
+
+        .new-item-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .new-item-title {
+            font-size: 14px;
+            line-height: 1.4;
+            color: #1a1a1a;
+            margin: 0;
+        }
+
+        .new-item-title a {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .new-item-title a:hover {
+            color: #0175CC;
+            text-decoration: underline;
+        }
+
+        .rss-section {
+            margin-top: 32px;
+            padding-top: 24px;
+        }
+
+        .rss-section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .rss-section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #059669;
+        }
+
+        .rss-section-count {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .feed-group {
+            margin-bottom: 24px;
+        }
+
+        .feed-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .feed-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #10b981;
+        }
+
+        .feed-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #059669;
+        }
+
+        .feed-count {
+            color: #666;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .rss-item {
+            margin-bottom: 12px;
+            padding: 14px;
+            background: #f0fdf4;
+            border-radius: 8px;
+            border-left: 3px solid #10b981;
+        }
+
+        .rss-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .rss-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+
+        .rss-time {
+            color: #6b7280;
+            font-size: 12px;
+        }
+
+        .rss-author {
+            color: #059669;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .rss-title {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 6px;
+        }
+
+        .rss-link {
+            color: #1f2937;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .rss-link:hover {
+            color: #059669;
+            text-decoration: underline;
+        }
+
+        .rss-summary {
+            font-size: 13px;
+            color: #6b7280;
+            line-height: 1.4;
+        }
+
+        .ai-section {
+            margin-top: 32px;
+            padding-top: 24px;
+        }
+
+        .ai-section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .ai-section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #7c3aed;
+        }
+
+        .ai-section-badge {
+            background: #0ea5e9;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+
+        .ai-blocks-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .ai-block {
+            background: #faf5ff;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #7c3aed;
+        }
+
+        .ai-block-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #7c3aed;
+            margin: 0 0 12px 0;
+        }
+
+        .ai-block-content {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #374151;
+        }
+
+        .ai-block-content p {
+            margin: 0 0 8px 0;
+        }
+
+        .ai-block-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 24px;
+            background: rgba(1, 117, 204, 0.05);
+            border-radius: 0 0 12px 12px;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .footer a {
+            color: #0175CC;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .save-buttons {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .save-btn {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .save-png {
+            background: #0175CC;
+            color: white;
+        }
+
+        .save-jpg {
+            background: #10b981;
+            color: white;
+        }
+
+        .save-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 8px;
+            }
+
+            .main-content {
+                padding: 16px;
+            }
+
+            .header {
+                padding: 24px 16px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .save-buttons {
+                top: 10px;
+                right: 10px;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .save-btn {
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-contact">
+                <div class="contact-item">
+                    <span class="contact-icon">📱</span>
+                    <span>抖音：老许聊实体</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">💬</span>
+                    <span>微信：laoxu202401</span>
+                </div>
+            </div>
+            <div class="header-watermark">老许聊实体</div>
+            <div class="header-content">
+                <div class="header-date">2026年04月11日</div>
+                <h1 class="header-title">老许聊实体</h1>
+                <p class="header-subtitle">每日行业资讯 · 商业洞察</p>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="section">
+                <h2 class="section-title">📊 热点聚焦</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">监测平台</div>
+                        <div class="info-value">7 个</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">热点事件</div>
+                        <div class="info-value">12 起</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">核心话题</div>
+                        <div class="info-value">5 个</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">情感倾向</div>
+                        <div class="info-value">中性</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">🌐 行业洞察</h2>
+                <div class="word-cloud">
+                    <h3 class="word-cloud-title">今日热词</h3>
+                    <div class="words-container">
+                        <div class="word-item hot">直播电商</div>
+                        <div class="word-item hot">新能源汽车</div>
+                        <div class="word-item warm">预制菜</div>
+                        <div class="word-item warm">社区团购</div>
+                        <div class="word-item warm">数字零售</div>
+                        <div class="word-item cold">供应链</div>
+                        <div class="word-item cold">人工智能</div>
+                        <div class="word-item cold">消费升级</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">⚠️ 风险预警</h2>
+                <div class="word-group">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">直播监管</div>
+                            <div class="word-count">3 条</div>
+                        </div>
+                        <div class="word-index">1/3</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number">1</div>
+                        <div class="news-content">
+                            <div class="news-header">
+                                <span class="source-name">界面新闻</span>
+                                <span class="rank-num">5</span>
+                                <span class="time-info">10:30</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.jiemian.com/article/14225678.html" target="_blank" class="news-link">直播电商新规实施，平台需加强内容审核</a>
+                            </div>
+                            <div class="news-summary">新修订的《网络直播营销管理办法》正式实施，对直播内容审核提出更高要求。</div>
+                            <div class="news-tags">
+                                <span class="news-tag">直播监管</span>
+                                <span class="news-tag">界面新闻</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="word-group">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">食品安全</div>
+                            <div class="word-count">2 条</div>
+                        </div>
+                        <div class="word-index">2/3</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number">1</div>
+                        <div class="news-content">
+                            <div class="news-header">
+                                <span class="source-name">36氪</span>
+                                <span class="rank-num">8</span>
+                                <span class="time-info">09:45</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://36kr.com/newsflashes/3757892156435464?f=rss" target="_blank" class="news-link">多地开展食品安全专项检查，餐饮企业需加强管理</a>
+                            </div>
+                            <div class="news-summary">市场监管部门在全国范围内开展食品安全专项检查，重点关注餐饮企业的原料采购和加工环节。</div>
+                            <div class="news-tags">
+                                <span class="news-tag">食品安全</span>
+                                <span class="news-tag">36氪</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="word-group">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">新能源汽车</div>
+                            <div class="word-count">2 条</div>
+                        </div>
+                        <div class="word-index">3/3</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number">1</div>
+                        <div class="news-content">
+                            <div class="news-header">
+                                <span class="source-name">钛媒体</span>
+                                <span class="rank-num">12</span>
+                                <span class="time-info">08:30</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.tmtpost.com/7947123.html" target="_blank" class="news-link">新能源汽车补贴政策调整，行业竞争加剧</a>
+                            </div>
+                            <div class="news-summary">国家发改委发布新能源汽车补贴政策调整方案，补贴力度有所下降，行业竞争将更加激烈。</div>
+                            <div class="news-tags">
+                                <span class="news-tag">新能源汽车</span>
+                                <span class="news-tag">钛媒体</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="new-section">
+                <h2 class="new-section-title">新增热点</h2>
+                <div class="new-sources-grid">
+                    <div class="new-source-group">
+                        <h3 class="new-source-title">36氪</h3>
+                        <div class="new-item">
+                            <div class="new-item-number">1</div>
+                            <div class="new-item-rank top">1</div>
+                            <div class="new-item-content">
+                                <div class="new-item-title">
+                                    <a href="https://36kr.com/newsflashes/3757892156435464?f=rss" target="_blank" class="news-link">多地开展食品安全专项检查，餐饮企业需加强管理</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="new-item">
+                            <div class="new-item-number">2</div>
+                            <div class="new-item-rank high">2</div>
+                            <div class="new-item-content">
+                                <div class="new-item-title">
+                                    <a href="https://36kr.com/newsflashes/3757876543210987?f=rss" target="_blank" class="news-link">直播电商行业迎来监管新规，平台审核要求提高</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="new-source-group">
+                        <h3 class="new-source-title">钛媒体</h3>
+                        <div class="new-item">
+                            <div class="new-item-number">1</div>
+                            <div class="new-item-rank top">1</div>
+                            <div class="new-item-content">
+                                <div class="new-item-title">
+                                    <a href="https://www.tmtpost.com/7947123.html" target="_blank" class="news-link">新能源汽车补贴政策调整，行业竞争加剧</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="new-item">
+                            <div class="new-item-number">2</div>
+                            <div class="new-item-rank high">2</div>
+                            <div class="new-item-content">
+                                <div class="new-item-title">
+                                    <a href="https://www.tmtpost.com/7947056.html" target="_blank" class="news-link">预制菜行业标准出台，市场将更加规范</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="new-source-group">
+                        <h3 class="new-source-title">界面新闻</h3>
+                        <div class="new-item">
+                            <div class="new-item-number">1</div>
+                            <div class="new-item-rank top">1</div>
+                            <div class="new-item-content">
+                                <div class="new-item-title">
+                                    <a href="https://www.jiemian.com/article/14225678.html" target="_blank" class="news-link">直播电商新规实施，平台需加强内容审核</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="new-item">
+                            <div class="new-item-number">2</div>
+                            <div class="new-item-rank high">2</div>
+                            <div class="new-item-content">
+                                <div class="new-item-title">
+                                    <a href="https://www.jiemian.com/article/14225546.html" target="_blank" class="news-link">社区团购平台纷纷推出自营品牌，竞争白热化</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="rss-section">
+                <div class="rss-section-header">
+                    <div class="rss-section-title">RSS 订阅更新</div>
+                    <div class="rss-section-count">15 条</div>
+                </div>
+                <div class="rss-feeds-grid">
+                    <div class="feed-group">
+                        <div class="feed-header">
+                            <h3 class="feed-name">直播电商</h3>
+                            <span class="feed-count">3 条</span>
+                        </div>
+                        <div class="rss-item">
+                            <div class="rss-meta">
+                                <span class="rss-time">2026-04-11 10:30</span>
+                                <span class="rss-author">界面新闻</span>
+                            </div>
+                            <div class="rss-title">
+                                <a href="https://www.jiemian.com/article/14225678.html" target="_blank" class="rss-link">直播电商新规实施，平台需加强内容审核</a>
+                            </div>
+                            <div class="rss-summary">新修订的《网络直播营销管理办法》正式实施，对直播内容审核提出更高要求。</div>
+                        </div>
+                        <div class="rss-item">
+                            <div class="rss-meta">
+                                <span class="rss-time">2026-04-11 09:15</span>
+                                <span class="rss-author">36氪</span>
+                            </div>
+                            <div class="rss-title">
+                                <a href="https://36kr.com/newsflashes/3757876543210987?f=rss" target="_blank" class="rss-link">直播电商行业迎来监管新规，平台审核要求提高</a>
+                            </div>
+                            <div class="rss-summary">监管部门对直播电商行业的监管力度加大，平台需加强内容审核和合规管理。</div>
+                        </div>
+                    </div>
+                    <div class="feed-group">
+                        <div class="feed-header">
+                            <h3 class="feed-name">新能源汽车</h3>
+                            <span class="feed-count">2 条</span>
+                        </div>
+                        <div class="rss-item">
+                            <div class="rss-meta">
+                                <span class="rss-time">2026-04-11 08:30</span>
+                                <span class="rss-author">钛媒体</span>
+                            </div>
+                            <div class="rss-title">
+                                <a href="https://www.tmtpost.com/7947123.html" target="_blank" class="rss-link">新能源汽车补贴政策调整，行业竞争加剧</a>
+                            </div>
+                            <div class="rss-summary">国家发改委发布新能源汽车补贴政策调整方案，补贴力度有所下降，行业竞争将更加激烈。</div>
+                        </div>
+                    </div>
+                    <div class="feed-group">
+                        <div class="feed-header">
+                            <h3 class="feed-name">预制菜</h3>
+                            <span class="feed-count">2 条</span>
+                        </div>
+                        <div class="rss-item">
+                            <div class="rss-meta">
+                                <span class="rss-time">2026-04-11 07:45</span>
+                                <span class="rss-author">钛媒体</span>
+                            </div>
+                            <div class="rss-title">
+                                <a href="https://www.tmtpost.com/7947056.html" target="_blank" class="rss-link">预制菜行业标准出台，市场将更加规范</a>
+                            </div>
+                            <div class="rss-summary">国家市场监管总局发布预制菜行业标准，对预制菜的生产、加工、包装等环节提出明确要求。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="ai-section">
+                <div class="ai-section-header">
+                    <h2 class="ai-section-title">老许点根烟给你慢慢聊一聊</h2>
+                    <span class="ai-section-badge">AI</span>
+                </div>
+                <div class="ai-blocks-grid">
+                    <div class="ai-block">
+                        <h3 class="ai-block-title">核心热点态势</h3>
+                        <div class="ai-block-content">
+                            今日热点集中在直播电商监管、食品安全和新能源汽车政策调整三大领域。
+
+                            【宏观主线】
+                            监管政策趋严，行业标准逐步完善，企业需加强合规管理。
+
+                            【微观领域】
+                            1. 直播电商：监管新规实施，平台审核要求提高，行业将更加规范。
+                            2. 食品安全：多地开展专项检查，餐饮企业需加强原料采购和加工管理。
+                            3. 新能源汽车：补贴政策调整，行业竞争加剧，企业需提升核心竞争力。
+                            4. 预制菜：行业标准出台，市场将更加规范，有利于行业长期发展。
+                            5. 社区团购：平台纷纷推出自营品牌，竞争白热化。
+                        </div>
+                    </div>
+                    <div class="ai-block">
+                        <h3 class="ai-block-title">舆论风向争议</h3>
+                        <div class="ai-block-content">
+                            【情绪光谱】
+                            主流声音对监管政策表示理解，对食品安全问题高度关注，对新能源汽车行业发展持谨慎乐观态度。
+
+                            【核心矛盾】
+                            1. 监管要求与企业运营成本之间的平衡
+                            2. 食品安全与企业利润之间的关系
+                            3. 政策调整与行业稳定发展之间的冲突
+                        </div>
+                    </div>
+                    <div class="ai-block">
+                        <h3 class="ai-block-title">异动与弱信号</h3>
+                        <div class="ai-block-content">
+                            跨平台共鸣明显：直播电商监管新规在多个平台引发讨论，说明行业对监管政策的高度关注。
+
+                            轨迹突变体现在预制菜行业：行业标准的出台将推动行业从野蛮生长向规范化发展转变。
+                        </div>
+                    </div>
+                    <div class="ai-block">
+                        <h3 class="ai-block-title">研判策略建议</h3>
+                        <div class="ai-block-content">
+                            1. 直播电商：加强内容审核，建立完善的合规管理体系，提升用户体验。
+
+                            2. 餐饮企业：加强食品安全管理，建立可追溯体系，提升品牌信誉。
+
+                            3. 新能源汽车：加大研发投入，提升核心技术竞争力，应对补贴退坡带来的挑战。
+
+                            4. 预制菜企业：严格按照行业标准生产，提升产品质量，建立品牌优势。
+
+                            5. 社区团购：优化供应链管理，提升服务质量，打造差异化竞争优势。
+                        </div>
+                    </div>
+                    <div class="ai-block">
+                        <h3 class="ai-block-title">独立信源速览</h3>
+                        <div class="ai-block-content">
+                            [36氪]：
+                            聚焦直播电商监管和食品安全问题，强调企业合规管理的重要性。
+
+                            [钛媒体]：
+                            关注新能源汽车补贴政策调整和预制菜行业标准出台，分析行业发展趋势。
+
+                            [界面新闻]：
+                            报道直播电商新规实施和社区团购平台推出自营品牌的情况，反映行业竞争态势。
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>© 2026 老许聊实体 | <a href="https://zdudao.github.io/xuxinwen/" target="_blank">访问官网</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="save-buttons">
+        <button class="save-btn save-png" onclick="saveAsImage('png')">保存为PNG</button>
+        <button class="save-btn save-jpg" onclick="saveAsImage('jpeg')">保存为JPG</button>
+    </div>
+
+    <script>
+        // 保存为图片功能
+        function saveAsImage(format = 'png') {
+            const container = document.querySelector('.container');
+            html2canvas(container, {
+                scale: 2,
+                useCORS: true,
+                backgroundColor: '#ffffff'
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = `老许聊实体_${new Date().toISOString().split('T')[0]}.${format}`;
+                link.href = canvas.toDataURL(`image/${format}`);
+                link.click();
+            });
+        }
+
+        // 标签页功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabItems = document.querySelectorAll('.tab-item');
+            tabItems.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // 移除所有标签页的active类
+                    tabItems.forEach(item => item.classList.remove('active'));
+                    // 添加当前标签页的active类
+                    this.classList.add('active');
+                    
+                    // 隐藏所有内容
+                    const tabContents = document.querySelectorAll('.tab-content');
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // 显示对应内容
+                    const tabId = this.getAttribute('data-tab');
+                    const correspondingContent = document.querySelector(`.tab-content[data-tab="${tabId}"]`);
+                    if (correspondingContent) {
+                        correspondingContent.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
