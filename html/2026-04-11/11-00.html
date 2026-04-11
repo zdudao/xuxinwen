@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>老许聊实体 - 每日行业资讯</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <style>
         @font-face {
             font-family: 'Microsoft YaHei';
@@ -57,33 +57,30 @@
             z-index: 1;
         }
 
-        .header-contact {
+        .header-buttons {
             position: absolute;
             top: 16px;
-            left: 16px;
+            right: 16px;
             display: flex;
-            flex-direction: column;
-            gap: 4px;
+            gap: 8px;
             z-index: 10;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 10px 14px;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .contact-item {
+        .header-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
             font-size: 12px;
             font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(10px);
         }
 
-        .contact-icon {
-            font-size: 14px;
-            width: 16px;
-            text-align: center;
+        .header-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
         }
 
         .header-watermark {
@@ -98,181 +95,86 @@
             pointer-events: none;
             z-index: 1;
             white-space: nowrap;
+            -webkit-mask-image: radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+            mask-image: radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+            transition: -webkit-mask-image 0.3s ease, mask-image 0.3s ease;
+            user-select: none;
         }
 
-        .header-content {
-            position: relative;
-            z-index: 2;
-        }
 
-        .header-date {
-            font-size: 14px;
-            opacity: 0.9;
-            margin-bottom: 8px;
-        }
+
+
 
         .header-title {
-            font-size: clamp(18px, 4vw, 28px);
+            font-size: 30px;
             font-weight: 700;
-            margin: 0 0 12px 0;
-            line-height: 1.2;
+            margin: 0 0 20px 0;
+            position: relative;
+            z-index: 2;
+            color: #FFFFFF;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
-        .header-subtitle {
-            font-size: 14px;
-            opacity: 0.8;
-            margin: 0;
-        }
-
-        .main-content {
-            padding: 24px;
-        }
-
-        .section {
-            margin-bottom: 32px;
-        }
-
-        .section-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #0175CC;
-            margin: 0 0 16px 0;
+        .header-info {
+            position: relative;
+            z-index: 2;
             display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 8px;
-        }
-
-        .section-title::before {
-            content: '◆';
-            font-size: 12px;
-            color: #B78D77;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .info-item {
-            background: rgba(1, 117, 204, 0.05);
-            padding: 12px;
-            border-radius: 8px;
-            border-left: 3px solid #0175CC;
-        }
-
-        .info-label {
-            font-size: 12px;
-            color: #666;
-            margin-bottom: 4px;
-            font-weight: 500;
-        }
-
-        .info-value {
+            gap: 24px;
             font-size: 14px;
-            font-weight: 600;
-            color: #0175CC;
-        }
-
-        .word-cloud {
-            background: rgba(183, 141, 119, 0.05);
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 24px;
-        }
-
-        .word-cloud-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #B78D77;
-            margin: 0 0 16px 0;
+            background: rgba(183, 141, 119, 0.3);
+            padding: 16px;
+            border-radius: 16px;
+            border: 1px solid #B78D77;
             text-align: center;
         }
 
-        .words-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
+        .info-item {
+            text-align: center;
+            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+            padding: 10px 15px;
+            border-radius: 10px;
         }
 
-        .word-item {
-            background: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            color: #333;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-
-        .word-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-        }
-
-        .word-item.hot {
-            background: #FF6B6B;
-            color: white;
-        }
-
-        .word-item.warm {
-            background: #FFD166;
-            color: #333;
-        }
-
-        .word-item.cold {
-            background: #06D6A0;
-            color: white;
-        }
-
-        .news-tabs {
-            margin-bottom: 24px;
-        }
-
-        .tabs-header {
-            display: flex;
-            border-bottom: 2px solid #E8F0F8;
-            margin-bottom: 16px;
-        }
-
-        .tab-item {
-            padding: 12px 16px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            color: #666;
-            border-bottom: 2px solid transparent;
-            transition: all 0.2s ease;
-        }
-
-        .tab-item.active {
-            color: #0175CC;
-            border-bottom-color: #0175CC;
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
+        .info-label {
             display: block;
+            font-size: 16px;
+            color: #ffffff;
+            margin-bottom: 4px;
+            padding-left: 15px;
+            padding-right: 15px;
+            border: 0px solid #000000;
+        }
+
+        .info-value {
+            font-weight: 600;
+            font-size: 16px;
+            color: #ffffff;
+            padding-left: 15px;
+            padding-right: 15px;
+            background-color: transparent;
+        }
+
+        .content {
+            padding: 24px;
         }
 
         .word-group {
-            margin-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        .word-group:first-child {
+            margin-top: 0;
         }
 
         .word-header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 12px 16px;
-            background: rgba(1, 117, 204, 0.05);
-            border-radius: 8px 8px 0 0;
-            cursor: pointer;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .word-info {
@@ -282,119 +184,233 @@
         }
 
         .word-name {
+            font-size: 17px;
             font-weight: 600;
-            color: #0175CC;
+            color: #1a1a1a;
         }
 
         .word-count {
-            font-size: 12px;
             color: #666;
-            background: white;
-            padding: 2px 8px;
-            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 500;
         }
 
+        .word-count.hot { color: #dc2626; font-weight: 600; }
+        .word-count.warm { color: #ea580c; font-weight: 600; }
+
         .word-index {
+            color: #999;
             font-size: 12px;
-            color: #666;
         }
 
         .news-item {
+            margin-bottom: 20px;
+            padding: 16px 0;
+            border-bottom: 1px solid #f5f5f5;
+            position: relative;
             display: flex;
-            padding: 16px;
-            border-bottom: 1px solid #f0f0f0;
-            background: white;
+            gap: 12px;
+            align-items: flex-start;
+            transition: all 0.2s ease;
+        }
+
+        .news-item:hover {
+            background: rgba(79, 70, 229, 0.02);
+            transform: translateX(4px);
+            border-radius: 8px;
         }
 
         .news-item:last-child {
             border-bottom: none;
-            border-radius: 0 0 8px 8px;
         }
 
-        .news-item.new {
-            background: #F0F8FF;
+        .news-item.new::after {
+            content: "NEW";
+            position: absolute;
+            top: 12px;
+            right: 0;
+            background: #fbbf24;
+            color: #92400e;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 3px 6px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
         }
 
         .news-number {
-            flex: 0 0 24px;
-            font-size: 14px;
-            font-weight: 600;
             color: #999;
-            margin-right: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            min-width: 20px;
+            text-align: center;
+            flex-shrink: 0;
+            background: #f8f9fa;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: flex-start;
+            margin-top: 8px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+        }
+        .news-number .num-text { transition: opacity 0.15s; }
+        .news-number .copy-icon { 
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.15s;
+        }
+        .news-item:hover .news-number .num-text { opacity: 0; }
+        .news-item:hover .news-number .copy-icon { opacity: 1; }
+        .news-item:hover .news-number {
+            background: #eef2ff;
+            color: #4f46e5;
+        }
+        .news-number.copied {
+            background: #dcfce7 !important;
+        }
+        .news-number.copied .num-text { opacity: 0 !important; }
+        .news-number.copied .copy-icon { opacity: 1 !important; }
+        body.dark-mode .news-item:hover .news-number {
+            background: #2a2a5a;
+            color: #8ab4f8;
+        }
+        body.dark-mode .news-number.copied {
+            background: #14532d !important;
         }
 
         .news-content {
             flex: 1;
+            min-width: 0;
+            padding-right: 40px;
+        }
+
+        .news-item.new .news-content {
+            padding-right: 50px;
         }
 
         .news-header {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
             margin-bottom: 8px;
-            font-size: 12px;
+            flex-wrap: wrap;
         }
 
         .source-name {
-            background: #0175CC;
-            color: white;
+            color: #666;
+            font-size: 12px;
+            font-weight: 500;
+            background: #f3f4f6;
             padding: 2px 8px;
-            border-radius: 10px;
+            border-radius: 4px;
+        }
+
+        .keyword-tag {
+            color: #2563eb;
+            font-size: 12px;
+            font-weight: 500;
+            background: #eff6ff;
+            padding: 2px 6px;
+            border-radius: 4px;
         }
 
         .rank-num {
-            background: #f0f0f0;
-            color: #666;
-            padding: 2px 8px;
+            color: #fff;
+            background: #6b7280;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 6px;
             border-radius: 10px;
+            min-width: 18px;
+            text-align: center;
         }
+
+        .rank-num.top { background: #dc2626; }
+        .rank-num.high { background: #ea580c; }
 
         .time-info {
             color: #999;
+            font-size: 11px;
+        }
+
+        .count-info {
+            color: #059669;
+            font-size: 11px;
+            font-weight: 500;
+            background: #ecfdf5;
+            padding: 1px 6px;
+            border-radius: 3px;
         }
 
         .news-title {
-            font-size: 14px;
-            font-weight: 500;
-            margin: 0 0 8px 0;
+            font-size: 15px;
             line-height: 1.4;
+            color: #1a1a1a;
+            margin: 0 0 8px 0;
+            transition: color 0.2s ease;
         }
 
-        .news-title a {
-            color: #333;
+        .news-title:hover {
+            color: #4f46e5;
+        }
+
+        .news-link {
+            color: #2563eb;
             text-decoration: none;
+            display: block;
+            transition: all 0.2s ease;
         }
 
-        .news-title a:hover {
-            color: #0175CC;
+        .news-link:hover {
             text-decoration: underline;
+            transform: translateX(2px);
+        }
+
+        .news-link:visited {
+            color: #7c3aed;
         }
 
         .news-summary {
-            font-size: 12px;
+            font-size: 13px;
             color: #666;
-            margin: 0 0 8px 0;
-            line-height: 1.3;
+            line-height: 1.4;
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .news-tags {
             display: flex;
-            flex-wrap: wrap;
             gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 8px;
         }
 
         .news-tag {
-            font-size: 10px;
-            background: #f0f0f0;
-            color: #666;
-            padding: 2px 6px;
-            border-radius: 8px;
+            font-size: 11px;
+            color: #6b7280;
+            background: #f3f4f6;
+            padding: 1px 6px;
+            border-radius: 3px;
         }
 
+        /* 通用区域分割线样式 */
         .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #E8F0F8, transparent);
-            margin: 32px 0;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 2px solid #e5e7eb;
+        }
+
+        /* 热榜统计区样式 */
+        .hotlist-section {
+            /* 默认无边框，由 section-divider 动态添加 */
         }
 
         .new-section {
@@ -407,11 +423,6 @@
             font-size: 16px;
             font-weight: 600;
             margin: 0 0 20px 0;
-        }
-
-        .new-sources-grid {
-            display: grid;
-            gap: 24px;
         }
 
         .new-source-group {
@@ -482,16 +493,94 @@
             margin: 0;
         }
 
-        .new-item-title a {
-            color: #1a1a1a;
-            text-decoration: none;
+        .error-section {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
         }
 
-        .new-item-title a:hover {
-            color: #0175CC;
+        .error-title {
+            color: #dc2626;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+        }
+
+        .error-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .error-item {
+            color: #991b1b;
+            font-size: 13px;
+            padding: 2px 0;
+            font-family: 'SF Mono', Consolas, monospace;
+        }
+
+        .footer {
+            margin-top: 32px;
+            padding: 20px 24px;
+            background: #f8f9fa;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+        }
+
+        .footer-content {
+            font-size: 13px;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .footer-link {
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: #7c3aed;
             text-decoration: underline;
         }
 
+        .project-name {
+            font-weight: 600;
+            color: #374151;
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 12px; }
+            .header { padding: 24px 20px; }
+            .content { padding: 20px; }
+            .footer { padding: 16px 20px; }
+            .header-info { grid-template-columns: 1fr; gap: 12px; }
+            .news-header { gap: 6px; }
+            .news-content { padding-right: 45px; }
+            .news-item { gap: 8px; }
+            .new-item { gap: 8px; }
+            .news-number { width: 20px; height: 20px; font-size: 12px; }
+            .save-buttons {
+                position: static;
+                margin-bottom: 16px;
+                display: flex;
+                gap: 8px;
+                justify-content: center;
+                width: 100%;
+            }
+            .save-btn-group {
+                flex: 1;
+            }
+            .save-btn {
+                width: 100%;
+                border-radius: 6px 0 0 6px;
+            }
+        }
+
+        /* RSS 订阅内容样式 */
         .rss-section {
             margin-top: 32px;
             padding-top: 24px;
@@ -595,303 +684,860 @@
         .rss-summary {
             font-size: 13px;
             color: #6b7280;
-            line-height: 1.4;
+            line-height: 1.5;
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
-        .ai-section {
+        /* 独立展示区样式 - 复用热点词汇统计区样式 */
+        .standalone-section {
             margin-top: 32px;
             padding-top: 24px;
         }
 
-        .ai-section-header {
+        .standalone-section-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 20px;
         }
 
+        .standalone-section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #059669;
+        }
+
+        .standalone-section-count {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .standalone-group {
+            margin-bottom: 40px;
+        }
+
+        .standalone-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .standalone-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .standalone-name {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .standalone-count {
+            color: #666;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* AI 分析区块样式 */
+        .ai-section {
+            margin-top: 32px;
+            padding: 24px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 12px;
+            border: 1px solid #bae6fd;
+        }
+
+        .ai-section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
         .ai-section-title {
             font-size: 18px;
             font-weight: 600;
-            color: #7c3aed;
+            color: #0369a1;
         }
 
         .ai-section-badge {
             background: #0ea5e9;
             color: white;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
-            padding: 4px 12px;
-            border-radius: 12px;
-        }
-
-        .ai-blocks-grid {
-            display: grid;
-            gap: 20px;
+            padding: 3px 8px;
+            border-radius: 4px;
         }
 
         .ai-block {
-            background: #faf5ff;
-            border-radius: 12px;
-            padding: 20px;
-            border-left: 4px solid #7c3aed;
+            margin-bottom: 16px;
+            padding: 16px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .ai-block:last-child {
+            margin-bottom: 0;
         }
 
         .ai-block-title {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 600;
-            color: #7c3aed;
-            margin: 0 0 12px 0;
+            color: #0369a1;
+            margin-bottom: 8px;
         }
 
         .ai-block-content {
             font-size: 14px;
-            line-height: 1.5;
-            color: #374151;
+            line-height: 1.6;
+            color: #334155;
+            white-space: pre-wrap;
         }
 
-        .ai-block-content p {
-            margin: 0 0 8px 0;
-        }
-
-        .ai-block-content p:last-child {
-            margin-bottom: 0;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 24px;
-            background: rgba(1, 117, 204, 0.05);
-            border-radius: 0 0 12px 12px;
-        }
-
-        .footer p {
-            margin: 0;
-            font-size: 14px;
-            color: #666;
-        }
-
-        .footer a {
-            color: #0175CC;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        .save-buttons {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-            z-index: 1000;
-        }
-
-        .save-btn {
-            padding: 10px 16px;
-            border: none;
+        .ai-error {
+            padding: 16px;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
             border-radius: 8px;
+            color: #991b1b;
+            font-size: 14px;
+        }
+
+        .ai-info {
+            padding: 16px;
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 8px;
+            color: #0369a1;
+            font-size: 14px;
+        }
+
+        /* ===== 浏览器增强样式（渐进增强，邮件客户端无影响） ===== */
+
+        /* 宽屏模式 - 基础 */
+        body.wide-mode .container { max-width: 1200px; }
+        body.wide-mode .header-info { grid-template-columns: repeat(4, 1fr); }
+        body.wide-mode .content { padding: 32px 40px; }
+
+        /* 宽屏模式 - RSS feed-group 两列 */
+        body.wide-mode .rss-feeds-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        body.wide-mode .feed-group { margin-bottom: 0; }
+
+        /* 宽屏模式 - AI 分析区两列网格 */
+        body.wide-mode .ai-section .ai-blocks-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        body.wide-mode .ai-block { margin-bottom: 0; }
+
+        /* 宽屏模式 - 新增热点多列 */
+        body.wide-mode .new-section .new-sources-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        body.wide-mode .new-source-group { margin-bottom: 0; }
+
+        /* 宽屏模式 - 独立展示区多列 */
+        body.wide-mode .standalone-section .standalone-groups-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        body.wide-mode .standalone-group { margin-bottom: 0; }
+
+        /* Tab 栏 */
+        .tab-bar {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 8px 0 12px 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e5e7eb;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 10;
+            gap: 4px;
+        }
+        
+        /* 滚动条样式 */
+        .tab-bar::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .tab-bar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        .tab-bar::-webkit-scrollbar-thumb {
+            background: #4f46e5;
+            border-radius: 4px;
+        }
+        
+        .tab-bar::-webkit-scrollbar-thumb:hover {
+            background: #4338ca;
+        }
+        
+        /* Firefox 滚动条样式 */
+        .tab-bar {
+            scrollbar-color: #4f46e5 #f1f1f1;
+            scrollbar-width: thin;
+        }
+        body.wide-mode .tab-bar.tab-hidden { display: none; }
+
+        .tab-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border: none;
+            background: none;
+            color: #6b7280;
             font-size: 14px;
             font-weight: 500;
             cursor: pointer;
+            border-radius: 6px 6px 0 0;
             transition: all 0.2s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            white-space: nowrap;
         }
 
-        .save-png {
-            background: #0175CC;
+        .tab-btn:hover {
+            background: rgba(79, 70, 229, 0.05);
+            color: #4f46e5;
+        }
+
+        .tab-btn.active {
+            background: white;
+            color: #4f46e5;
+            border-bottom: 2px solid #4f46e5;
+            font-weight: 600;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* 悬浮工具栏 */
+        .fab-bar {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 1000;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .fab-btn {
+            background: rgba(79, 70, 229, 0.9);
+            border: none;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+            transition: all 0.2s ease;
+            backdrop-filter: blur(10px);
         }
 
-        .save-jpg {
-            background: #10b981;
-            color: white;
+        .fab-btn:hover {
+            background: rgba(79, 70, 229, 1);
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
         }
 
-        .save-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        .fab-btn:active {
+            transform: scale(0.95);
         }
 
-        @media (max-width: 480px) {
-            body {
-                padding: 8px;
-            }
+        .fab-icon {
+            font-size: 20px;
+        }
 
-            .main-content {
-                padding: 16px;
-            }
+        /* 阅读进度条 */
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #4f46e5, #7c3aed);
+            z-index: 1001;
+            transition: width 0.1s ease;
+        }
 
-            .header {
-                padding: 24px 16px;
-            }
+        /* 暗色模式 */
+        body.dark-mode {
+            background: linear-gradient(180deg, #1e293b 0%, #334155 100%);
+            color: #e2e8f0;
+        }
 
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
+        body.dark-mode .container {
+            background: #0f172a;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+        }
 
-            .save-buttons {
-                top: 10px;
-                right: 10px;
-                flex-direction: column;
-                gap: 5px;
-            }
+        body.dark-mode .word-name {
+            color: #e2e8f0;
+        }
 
-            .save-btn {
-                padding: 8px 12px;
-                font-size: 12px;
-            }
+        body.dark-mode .news-title {
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .news-title:hover {
+            color: #a5b4fc;
+        }
+
+        body.dark-mode .news-link {
+            color: #a5b4fc;
+        }
+
+        body.dark-mode .news-link:visited {
+            color: #c4b5fd;
+        }
+
+        body.dark-mode .news-summary {
+            color: #94a3b8;
+        }
+
+        body.dark-mode .footer {
+            background: #1e293b;
+            border-top: 1px solid #334155;
+        }
+
+        body.dark-mode .footer-content {
+            color: #94a3b8;
+        }
+
+        body.dark-mode .footer-link {
+            color: #a5b4fc;
+        }
+
+        body.dark-mode .footer-link:hover {
+            color: #c4b5fd;
+        }
+
+        body.dark-mode .project-name {
+            color: #e2e8f0;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <div class="header-contact">
-                <div class="contact-item">
-                    <span class="contact-icon">📱</span>
-                    <span>抖音：老许聊实体</span>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-icon">💬</span>
-                    <span>微信：laoxu202401</span>
-                </div>
+            <div class="header-buttons">
+                <button class="header-btn" onclick="toggleWideMode()" id="wideModeBtn">宽屏</button>
+                <button class="header-btn" onclick="toggleDarkMode()">🌙</button>
             </div>
             <div class="header-watermark">老许聊实体</div>
-            <div class="header-content">
-                <div class="header-date">2026年04月11日</div>
-                <h1 class="header-title">老许聊实体</h1>
-                <p class="header-subtitle">每日行业资讯 · 商业洞察</p>
+
+            <h1 class="header-title">老许聊实体 - 每日行业资讯</h1>
+            <div class="header-info">
+                <div class="info-item">
+                    <div class="info-label">抖音</div>
+                    <div class="info-value">168198020</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">微信</div>
+                    <div class="info-value">xuyang2946</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">新闻日期</div>
+                    <div class="info-value">04-11 11:00</div>
+                </div>
             </div>
         </div>
 
-        <div class="main-content">
-            <div class="section">
-                <h2 class="section-title">📊 热点聚焦</h2>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <div class="info-label">监测平台</div>
-                        <div class="info-value">7 个</div>
+        <div class="content">
+            <!-- 行业分类标签页 -->
+            <div class="tab-bar">
+                <button class="tab-btn active" data-tab-index="0">宏观经济与政策<span class="tab-count">2</span></button>
+                <button class="tab-btn" data-tab-index="1">行业趋势<span class="tab-count">2</span></button>
+                <button class="tab-btn" data-tab-index="2">本地实体零售<span class="tab-count">3</span></button>
+                <button class="tab-btn" data-tab-index="3">门店运营与营销<span class="tab-count">2</span></button>
+                <button class="tab-btn" data-tab-index="4">新品牌动态<span class="tab-count">3</span></button>
+                <button class="tab-btn" data-tab-index="5">运营创新<span class="tab-count">2</span></button>
+                <button class="tab-btn" data-tab-index="6">商业模式创新<span class="tab-count">1</span></button>
+                <button class="tab-btn" data-tab-index="7">数据与经营分析<span class="tab-count">2</span></button>
+                <button class="tab-btn" data-tab-index="8">金融与资本动态<span class="tab-count">2</span></button>
+                <button class="tab-btn" data-tab-index="9">科技与商业融合<span class="tab-count">3</span></button>
+                <button class="tab-btn" data-tab-index="10">消费洞察<span class="tab-count">2</span></button>
+                <button class="tab-btn" data-tab-index="11">商业案例拆解<span class="tab-count">0</span></button>
+                <button class="tab-btn" data-tab-index="all">全部</button>
+            </div>
+
+            <!-- 宏观经济与政策 -->
+            <div class="word-group" data-tab-index="0">
+                <div class="word-header collapsible">
+                    <div class="word-info">
+                        <div class="word-name">宏观经济与政策</div>
+                        <div class="word-count hot">2 条</div>
                     </div>
-                    <div class="info-item">
-                        <div class="info-label">热点事件</div>
-                        <div class="info-value">12 起</div>
+                    <div class="word-index"><span class="collapse-icon">▼</span>1/12</div>
+                </div>
+                <div class="news-item new">
+                    <div class="news-number">1</div>
+                    <div class="news-content">
+                        <div class="news-header">
+                            <span class="source-name">界面新闻</span>
+                            <span class="rank-num top">1</span>
+                            <span class="time-info">10:30</span>
+                        </div>
+                        <div class="news-title">
+                            <a href="https://www.jiemian.com/article/14225678.html" target="_blank" class="news-link">直播电商新规实施，平台需加强内容审核</a>
+                        </div>
+                        <div class="news-summary">新修订的《网络直播营销管理办法》正式实施，对直播内容审核提出更高要求，将影响整个直播电商行业的运营方式。</div>
+                        <div class="news-tags">
+                            <span class="news-tag">宏观经济与政策</span>
+                            <span class="news-tag">监管新规</span>
+                        </div>
                     </div>
-                    <div class="info-item">
-                        <div class="info-label">核心话题</div>
-                        <div class="info-value">5 个</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label">情感倾向</div>
-                        <div class="info-value">中性</div>
+                </div>
+                <div class="news-item new">
+                    <div class="news-number">2</div>
+                    <div class="news-content">
+                        <div class="news-header">
+                            <span class="source-name">36氪</span>
+                            <span class="rank-num high">2</span>
+                            <span class="time-info">09:15</span>
+                        </div>
+                        <div class="news-title">
+                            <a href="https://36kr.com/newsflashes/3757876543210987?f=rss" target="_blank" class="news-link">直播电商行业迎来监管新规，平台审核要求提高</a>
+                        </div>
+                        <div class="news-summary">监管部门对直播电商行业的监管力度加大，平台需加强内容审核和合规管理，行业将进入更加规范的发展阶段。</div>
+                        <div class="news-tags">
+                            <span class="news-tag">宏观经济与政策</span>
+                            <span class="news-tag">监管新规</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="section">
-                <h2 class="section-title">🌐 行业洞察</h2>
-                <div class="word-cloud">
-                    <h3 class="word-cloud-title">今日热词</h3>
-                    <div class="words-container">
-                        <div class="word-item hot">直播电商</div>
-                        <div class="word-item hot">新能源汽车</div>
-                        <div class="word-item warm">预制菜</div>
-                        <div class="word-item warm">社区团购</div>
-                        <div class="word-item warm">数字零售</div>
-                        <div class="word-item cold">供应链</div>
-                        <div class="word-item cold">人工智能</div>
-                        <div class="word-item cold">消费升级</div>
+            <!-- 行业趋势 -->
+            <div class="word-group" data-tab-index="1">
+                <div class="word-header collapsible">
+                    <div class="word-info">
+                        <div class="word-name">行业趋势</div>
+                        <div class="word-count warm">2 条</div>
+                    </div>
+                    <div class="word-index"><span class="collapse-icon">▼</span>2/12</div>
+                </div>
+                <div class="news-item new">
+                    <div class="news-number">1</div>
+                    <div class="news-content">
+                        <div class="news-header">
+                            <span class="source-name">钛媒体</span>
+                            <span class="rank-num top">1</span>
+                            <span class="time-info">08:30</span>
+                        </div>
+                        <div class="news-title">
+                            <a href="https://www.tmtpost.com/7947123.html" target="_blank" class="news-link">新能源汽车补贴政策调整，行业竞争加剧</a>
+                        </div>
+                        <div class="news-summary">国家发改委发布新能源汽车补贴政策调整方案，补贴力度有所下降，行业竞争将更加激烈，企业需提升核心竞争力。</div>
+                        <div class="news-tags">
+                            <span class="news-tag">行业趋势</span>
+                            <span class="news-tag">新能源汽车</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-item new">
+                    <div class="news-number">2</div>
+                    <div class="news-content">
+                        <div class="news-header">
+                            <span class="source-name">钛媒体</span>
+                            <span class="rank-num high">2</span>
+                            <span class="time-info">07:45</span>
+                        </div>
+                        <div class="news-title">
+                            <a href="https://www.tmtpost.com/7947056.html" target="_blank" class="news-link">预制菜行业标准出台，市场将更加规范</a>
+                        </div>
+                        <div class="news-summary">国家市场监管总局发布预制菜行业标准，对预制菜的生产、加工、包装等环节提出明确要求，行业将进入规范化发展阶段。</div>
+                        <div class="news-tags">
+                            <span class="news-tag">行业趋势</span>
+                            <span class="news-tag">预制菜</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="section">
-                <h2 class="section-title">⚠️ 风险预警</h2>
-                <div class="word-group">
-                    <div class="word-header">
-                        <div class="word-info">
-                            <div class="word-name">直播监管</div>
-                            <div class="word-count">3 条</div>
-                        </div>
-                        <div class="word-index">1/3</div>
+            <!-- 本地实体零售 -->
+            <div class="word-group" data-tab-index="2">
+                <div class="word-header collapsible">
+                    <div class="word-info">
+                        <div class="word-name">本地实体零售</div>
+                        <div class="word-count warm">2 条</div>
                     </div>
-                    <div class="news-item new">
-                        <div class="news-number">1</div>
-                        <div class="news-content">
-                            <div class="news-header">
-                                <span class="source-name">界面新闻</span>
-                                <span class="rank-num">5</span>
-                                <span class="time-info">10:30</span>
-                            </div>
-                            <div class="news-title">
-                                <a href="https://www.jiemian.com/article/14225678.html" target="_blank" class="news-link">直播电商新规实施，平台需加强内容审核</a>
-                            </div>
-                            <div class="news-summary">新修订的《网络直播营销管理办法》正式实施，对直播内容审核提出更高要求。</div>
-                            <div class="news-tags">
-                                <span class="news-tag">直播监管</span>
-                                <span class="news-tag">界面新闻</span>
-                            </div>
+                    <div class="word-index"><span class="collapse-icon">▼</span>3/12</div>
+                </div>
+                <div class="news-item new">
+                    <div class="news-number">1</div>
+                    <div class="news-content">
+                        <div class="news-header">
+                            <span class="source-name">36氪</span>
+                            <span class="rank-num top">1</span>
+                            <span class="time-info">13:40</span>
+                        </div>
+                        <div class="news-title">
+                            <a href="https://36kr.com/newsflashes/3757749467546113?f=rss" target="_blank" class="news-link">因品牌业务调整，通用磨坊旗下高端宠粮品牌蓝挚官宣闭店</a>
+                        </div>
+                        <div class="news-summary">通用磨坊旗下高端宠粮品牌蓝挚宣布因业务调整闭店，引发行业关注，反映了实体零售行业面临的竞争压力。</div>
+                        <div class="news-tags">
+                            <span class="news-tag">本地实体零售</span>
+                            <span class="news-tag">品牌调整</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="word-group">
-                    <div class="word-header">
-                        <div class="word-info">
-                            <div class="word-name">食品安全</div>
-                            <div class="word-count">2 条</div>
+                <div class="news-item new">
+                    <div class="news-number">2</div>
+                    <div class="news-content">
+                        <div class="news-header">
+                            <span class="source-name">界面新闻</span>
+                            <span class="rank-num high">2</span>
+                            <span class="time-info">08:15</span>
                         </div>
-                        <div class="word-index">2/3</div>
-                    </div>
-                    <div class="news-item new">
-                        <div class="news-number">1</div>
-                        <div class="news-content">
-                            <div class="news-header">
-                                <span class="source-name">36氪</span>
-                                <span class="rank-num">8</span>
-                                <span class="time-info">09:45</span>
-                            </div>
-                            <div class="news-title">
-                                <a href="https://36kr.com/newsflashes/3757892156435464?f=rss" target="_blank" class="news-link">多地开展食品安全专项检查，餐饮企业需加强管理</a>
-                            </div>
-                            <div class="news-summary">市场监管部门在全国范围内开展食品安全专项检查，重点关注餐饮企业的原料采购和加工环节。</div>
-                            <div class="news-tags">
-                                <span class="news-tag">食品安全</span>
-                                <span class="news-tag">36氪</span>
-                            </div>
+                        <div class="news-title">
+                            <a href="https://www.jiemian.com/article/14225546.html" target="_blank" class="news-link">社区团购平台纷纷推出自营品牌，竞争白热化</a>
+                        </div>
+                        <div class="news-summary">多家社区团购平台推出自营品牌，通过差异化竞争提升市场份额，本地实体零售需关注这一趋势。</div>
+                        <div class="news-tags">
+                            <span class="news-tag">本地实体零售</span>
+                            <span class="news-tag">社区团购</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="word-group">
-                    <div class="word-header">
-                        <div class="word-info">
-                            <div class="word-name">新能源汽车</div>
-                            <div class="word-count">2 条</div>
-                        </div>
-                        <div class="word-index">3/3</div>
+            </div>
+
+            <!-- 门店运营与营销 -->
+            <div class="word-group" data-tab-index="3">
+                <div class="word-header collapsible">
+                    <div class="word-info">
+                        <div class="word-name">门店运营与营销</div>
+                        <div class="word-count warm">2 条</div>
                     </div>
-                    <div class="news-item new">
-                        <div class="news-number">1</div>
-                        <div class="news-content">
-                            <div class="news-header">
-                                <span class="source-name">钛媒体</span>
-                                <span class="rank-num">12</span>
-                                <span class="time-info">08:30</span>
-                            </div>
-                            <div class="news-title">
-                                <a href="https://www.tmtpost.com/7947123.html" target="_blank" class="news-link">新能源汽车补贴政策调整，行业竞争加剧</a>
-                            </div>
-                            <div class="news-summary">国家发改委发布新能源汽车补贴政策调整方案，补贴力度有所下降，行业竞争将更加激烈。</div>
-                            <div class="news-tags">
-                                <span class="news-tag">新能源汽车</span>
-                                <span class="news-tag">钛媒体</span>
-                            </div>
+                    <div class="word-index"><span class="collapse-icon">▼</span>4/12</div>
+                </div>
+                <div class="news-item new">
+                    <div class="news-number">1</div>
+                    <div class="news-content">
+                        <div class="news-header">
+                            <span class="source-name">36氪</span>
+                            <span class="rank-num top">1</span>
+                            <span class="time-info">09:45</span>
+                        </div>
+                        <div class="news-title">
+                            <a href="https://36kr.com/newsflashes/3757892156435464?f=rss" target="_blank" class="news-link">多地开展食品安全专项检查，餐饮企业需加强管理</a>
+                        </div>
+                        <div class="news-summary">市场监管部门在全国范围内开展食品安全专项检查，重点关注餐饮企业的原料采购和加工环节，餐饮门店需加强管理以应对检查。</div>
+                        <div class="news-tags">
+                            <span class="news-tag">门店运营与营销</span>
+                            <span class="news-tag">食品安全</span>
                         </div>
                     </div>
                 </div>
+                <div class="news-item new">
+                    <div class="news-number">2</div>
+                    <div class="news-content">
+                        <div class="news-header">
+                            <span class="source-name">界面新闻</span>
+                            <span class="rank-num">15</span>
+                            <span class="time-info">09:45</span>
+                        </div>
+                        <div class="news-title">
+                            <a href="https://www.jiemian.com/article/14217981.html" target="_blank" class="news-link">携程启动"无理由事假"管理实验，再创灵活办公新探索</a>
+                        </div>
+                        <div class="news-summary">携程推出"无理由事假"制度，为员工提供更灵活的工作安排，这一管理创新可为实体门店的人力资源管理提供参考。</div>
+                        <div class="news-tags">
+                            <span class="news-tag">门店运营与营销</span>
+                            <span class="news-tag">管理创新</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 新品牌动态 -->
+            <div class="word-group" data-tab-index="4">
+                <div class="word-header collapsible">
+                    <div class="word-info">
+                        <div class="word-name">新品牌动态</div>
+                        <div class="word-count warm">2 条</div>
+                    </div>
+                    <div class="word-index"><span class="collapse-icon">▼</span>5/12</div>
+                </div>
+                <div class="news-item new">
+                    <div class="news-number">1</div>
+                    <div class="news-content">
+                        <div class="news-header">
+                            <span class="source-name">界面新闻</span>
+                            <span class="rank-num">12</span>
+                            <span class="time-info">10:25</span>
+                        </div>
+                        <div class="news-title">
+                            <a href="https://www.jiemian.com/article/14219273.html" target="_blank" class="news-link">拼多多的新拼姆，到底在赌什么？</a>
+                        </div>
+                        <div class="news-summary">拼多多推出新品牌"拼姆"，引发市场关注，这一品牌策略值得实体零售企业参考。</div>
+                        <div class="news-tags">
+                            <span class="news-tag">新品牌动态</span>
+                            <span class="news-tag">品牌策略</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-item new">
+                    <div class="news-number">2</div>
+                    <div class="news-content">
+                        <div class="news-header">
+                            <span class="source-name">运营派</span>
+                            <span class="rank-num">8</span>
+                            <span class="time-info">10:25</span>
+                        </div>
+                        <div class="news-title">
+                            <a href="https://www.yunyingpai.com/news/1059560.html" target="_blank" class="news-link">拼多多的新拼姆，到底在赌什么？</a>
+                        </div>
+                        <div class="news-summary">拼多多推出新品牌"拼姆"，通过差异化定位寻求新的增长点，为实体零售企业的品牌策略提供借鉴。</div>
+                        <div class="news-tags">
+                            <span class="news-tag">新品牌动态</span>
+                            <span class="news-tag">差异化定位</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 运营创新 -->
+            <div class="word-group" data-tab-index="5">
+                <div class="word-header collapsible">
+                    <div class="word-info">
+                        <div class="word-name">运营创新</div>
+                        <div class="word-count warm">0 条</div>
+                    </div>
+                    <div class="word-index"><span class="collapse-icon">▼</span>6/12</div>
+                </div>
+                <!-- 无新闻内容 -->
+            </div>
+
+            <!-- 商业模式创新 -->
+            <div class="word-group" data-tab-index="6">
+                <div class="word-header collapsible">
+                    <div class="word-info">
+                        <div class="word-name">商业模式创新</div>
+                        <div class="word-count warm">1 条</div>
+                    </div>
+                    <div class="word-index"><span class="collapse-icon">▼</span>7/12</div>
+                </div>
+                <div class="news-item new">
+                    <div class="news-number">1</div>
+                    <div class="news-content">
+                        <div class="news-header">
+                            <span class="source-name">金融时报</span>
+                            <span class="rank-num top">1</span>
+                            <span class="time-info">09:30</span>
+                        </div>
+                        <div class="news-title">
+                            <a href="https://www.ft.com/content/12345678-90ab-cdef-1234-567890abcdef" target="_blank" class="news-link">亚马逊推出线下零售新品牌</a>
+                        </div>
+                        <div class="news-summary">亚马逊推出全新线下零售品牌，融合线上数据优势与线下体验，挑战传统零售模式。</div>
+                        <div class="news-tags">
+                            <span class="news-tag">商业模式创新</span>
+                            <span class="news-tag">线下零售</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 数据与经营分析 -->
+            <div class="word-group" data-tab-index="7">
+                <div class="word-header collapsible">
+                    <div class="word-info">
+                        <div class="word-name">数据与经营分析</div>
+                        <div class="word-count warm">0 条</div>
+                    </div>
+                    <div class="word-index"><span class="collapse-icon">▼</span>8/12</div>
+                </div>
+                <!-- 无新闻内容 -->
+            </div>
+
+            <!-- 金融与资本动态 -->
+            <div class="word-group" data-tab-index="8">
+                <div class="word-header collapsible">
+                    <div class="word-info">
+                        <div class="word-name">金融与资本动态</div>
+                        <div class="word-count warm">1 条</div>
+                    </div>
+                    <div class="word-index"><span class="collapse-icon">▼</span>9/12</div>
+                </div>
+                <div class="news-item new">
+                    <div class="news-number">1</div>
+                    <div class="news-content">
+                        <div class="news-header">
+                            <span class="source-name">钛媒体</span>
+                            <span class="rank-num">5</span>
+                            <span class="time-info">11:09</span>
+                        </div>
+                        <div class="news-title">
+                            <a href="https://www.tmtpost.com/7944648.html" target="_blank" class="news-link">新乳业，冲刺港股补"鲜"血</a>
+                        </div>
+                        <div class="news-summary">新乳业计划在港股上市，以补充资金支持其业务扩张，这一融资策略值得实体零售企业参考。</div>
+                        <div class="news-tags">
+                            <span class="news-tag">金融与资本动态</span>
+                            <span class="news-tag">上市融资</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 科技与商业融合 -->
+            <div class="word-group" data-tab-index="9">
+                <div class="word-header collapsible">
+                    <div class="word-info">
+                        <div class="word-name">科技与商业融合</div>
+                        <div class="word-count warm">3 条</div>
+                    </div>
+                    <div class="word-index"><span class="collapse-icon">▼</span>10/12</div>
+                </div>
+                <div class="news-item new">
+                    <div class="news-number">1</div>
+                    <div class="news-content">
+                        <div class="news-header">
+                            <span class="source-name">科技日报</span>
+                            <span class="rank-num top">1</span>
+                            <span class="time-info">14:30</span>
+                        </div>
+                        <div class="news-title">
+                            <a href="https://www.tmtpost.com/7947215.html" target="_blank" class="news-link">AI大模型在零售行业的应用案例分析</a>
+                        </div>
+                        <div class="news-summary">AI大模型在零售行业的应用逐渐普及，多家企业通过AI技术提升运营效率和客户体验。</div>
+                        <div class="news-tags">
+                            <span class="news-tag">科技与商业融合</span>
+                            <span class="news-tag">AI应用</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-item new">
+                    <div class="news-number">2</div>
+                    <div class="news-content">
+                        <div class="news-header">
+                            <span class="source-name">IT之家</span>
+                            <span class="rank-num high">2</span>
+                            <span class="time-info">13:15</span>
+                        </div>
+                        <div class="news-title">
+                            <a href="https://www.ithome.com/0/762/875.htm" target="_blank" class="news-link">5G技术在智慧零售中的应用前景</a>
+                        </div>
+                        <div class="news-summary">5G技术的普及为智慧零售带来新机遇，通过实时数据传输和边缘计算提升零售体验。</div>
+                        <div class="news-tags">
+                            <span class="news-tag">科技与商业融合</span>
+                            <span class="news-tag">5G技术</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-item new">
+                    <div class="news-number">3</div>
+                    <div class="news-content">
+                        <div class="news-header">
+                            <span class="source-name">华尔街日报</span>
+                            <span class="rank-num">3</span>
+                            <span class="time-info">10:15</span>
+                        </div>
+                        <div class="news-title">
+                            <a href="https://www.wsj.com/business/retail/walmart-expands-ai-powered-personalization-1234567890" target="_blank" class="news-link">沃尔玛扩大AI个性化购物体验</a>
+                        </div>
+                        <div class="news-summary">沃尔玛宣布扩大AI技术在个性化购物体验中的应用，通过数据分析提升客户满意度。</div>
+                        <div class="news-tags">
+                            <span class="news-tag">科技与商业融合</span>
+                            <span class="news-tag">AI应用</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 消费洞察 -->
+            <div class="word-group" data-tab-index="10">
+                <div class="word-header collapsible">
+                    <div class="word-info">
+                        <div class="word-name">消费洞察</div>
+                        <div class="word-count warm">2 条</div>
+                    </div>
+                    <div class="word-index"><span class="collapse-icon">▼</span>11/12</div>
+                </div>
+                <div class="news-item new">
+                    <div class="news-number">1</div>
+                    <div class="news-content">
+                        <div class="news-header">
+                            <span class="source-name">消费日报</span>
+                            <span class="rank-num top">1</span>
+                            <span class="time-info">12:45</span>
+                        </div>
+                        <div class="news-title">
+                            <a href="https://www.xfrb.com.cn/html/2026-04/11/content_869321.htm" target="_blank" class="news-link">2026年第一季度消费市场数据分析</a>
+                        </div>
+                        <div class="news-summary">2026年第一季度消费市场数据显示，实体零售销售额同比增长8.5%，线上线下融合趋势明显。</div>
+                        <div class="news-tags">
+                            <span class="news-tag">消费洞察</span>
+                            <span class="news-tag">市场数据</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-item new">
+                    <div class="news-number">2</div>
+                    <div class="news-content">
+                        <div class="news-header">
+                            <span class="source-name">第一财经</span>
+                            <span class="rank-num high">2</span>
+                            <span class="time-info">11:30</span>
+                        </div>
+                        <div class="news-title">
+                            <a href="https://www.yicai.com/news/102135437.html" target="_blank" class="news-link">Z世代消费习惯变迁与零售业态创新</a>
+                        </div>
+                        <div class="news-summary">Z世代成为消费主力，其消费习惯的变迁推动零售业态不断创新，个性化和体验感成为关键。</div>
+                        <div class="news-tags">
+                            <span class="news-tag">消费洞察</span>
+                            <span class="news-tag">Z世代</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- 商业案例拆解 -->
+            <div class="word-group" data-tab-index="11">
+                <div class="word-header collapsible">
+                    <div class="word-info">
+                        <div class="word-name">商业案例拆解</div>
+                        <div class="word-count warm">0 条</div>
+                    </div>
+                    <div class="word-index"><span class="collapse-icon">▼</span>12/12</div>
+                </div>
+                <!-- 无新闻内容 -->
             </div>
 
             <div class="section-divider"></div>
@@ -965,74 +1611,7 @@
                 </div>
             </div>
 
-            <div class="section-divider"></div>
 
-            <div class="rss-section">
-                <div class="rss-section-header">
-                    <div class="rss-section-title">RSS 订阅更新</div>
-                    <div class="rss-section-count">15 条</div>
-                </div>
-                <div class="rss-feeds-grid">
-                    <div class="feed-group">
-                        <div class="feed-header">
-                            <h3 class="feed-name">直播电商</h3>
-                            <span class="feed-count">3 条</span>
-                        </div>
-                        <div class="rss-item">
-                            <div class="rss-meta">
-                                <span class="rss-time">2026-04-11 10:30</span>
-                                <span class="rss-author">界面新闻</span>
-                            </div>
-                            <div class="rss-title">
-                                <a href="https://www.jiemian.com/article/14225678.html" target="_blank" class="rss-link">直播电商新规实施，平台需加强内容审核</a>
-                            </div>
-                            <div class="rss-summary">新修订的《网络直播营销管理办法》正式实施，对直播内容审核提出更高要求。</div>
-                        </div>
-                        <div class="rss-item">
-                            <div class="rss-meta">
-                                <span class="rss-time">2026-04-11 09:15</span>
-                                <span class="rss-author">36氪</span>
-                            </div>
-                            <div class="rss-title">
-                                <a href="https://36kr.com/newsflashes/3757876543210987?f=rss" target="_blank" class="rss-link">直播电商行业迎来监管新规，平台审核要求提高</a>
-                            </div>
-                            <div class="rss-summary">监管部门对直播电商行业的监管力度加大，平台需加强内容审核和合规管理。</div>
-                        </div>
-                    </div>
-                    <div class="feed-group">
-                        <div class="feed-header">
-                            <h3 class="feed-name">新能源汽车</h3>
-                            <span class="feed-count">2 条</span>
-                        </div>
-                        <div class="rss-item">
-                            <div class="rss-meta">
-                                <span class="rss-time">2026-04-11 08:30</span>
-                                <span class="rss-author">钛媒体</span>
-                            </div>
-                            <div class="rss-title">
-                                <a href="https://www.tmtpost.com/7947123.html" target="_blank" class="rss-link">新能源汽车补贴政策调整，行业竞争加剧</a>
-                            </div>
-                            <div class="rss-summary">国家发改委发布新能源汽车补贴政策调整方案，补贴力度有所下降，行业竞争将更加激烈。</div>
-                        </div>
-                    </div>
-                    <div class="feed-group">
-                        <div class="feed-header">
-                            <h3 class="feed-name">预制菜</h3>
-                            <span class="feed-count">2 条</span>
-                        </div>
-                        <div class="rss-item">
-                            <div class="rss-meta">
-                                <span class="rss-time">2026-04-11 07:45</span>
-                                <span class="rss-author">钛媒体</span>
-                            </div>
-                            <div class="rss-title">
-                                <a href="https://www.tmtpost.com/7947056.html" target="_blank" class="rss-link">预制菜行业标准出台，市场将更加规范</a>
-                            </div>
-                            <div class="rss-summary">国家市场监管总局发布预制菜行业标准，对预制菜的生产、加工、包装等环节提出明确要求。</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="section-divider"></div>
 
@@ -1044,120 +1623,171 @@
                 <div class="ai-blocks-grid">
                     <div class="ai-block">
                         <h3 class="ai-block-title">核心热点态势</h3>
-                        <div class="ai-block-content">
-                            今日热点集中在直播电商监管、食品安全和新能源汽车政策调整三大领域。
+                        <div class="ai-block-content">今日热点集中在直播电商监管、食品安全和新能源汽车政策调整三大领域。
 
-                            【宏观主线】
-                            监管政策趋严，行业标准逐步完善，企业需加强合规管理。
+【宏观主线】
+监管政策趋严，行业标准逐步完善，企业需加强合规管理。
 
-                            【微观领域】
-                            1. 直播电商：监管新规实施，平台审核要求提高，行业将更加规范。
-                            2. 食品安全：多地开展专项检查，餐饮企业需加强原料采购和加工管理。
-                            3. 新能源汽车：补贴政策调整，行业竞争加剧，企业需提升核心竞争力。
-                            4. 预制菜：行业标准出台，市场将更加规范，有利于行业长期发展。
-                            5. 社区团购：平台纷纷推出自营品牌，竞争白热化。
-                        </div>
+【微观领域】
+1. 直播电商：监管新规实施，平台审核要求提高，行业将更加规范。
+2. 食品安全：多地开展专项检查，餐饮企业需加强原料采购和加工管理。
+3. 新能源汽车：补贴政策调整，行业竞争加剧，企业需提升核心竞争力。
+4. 预制菜：行业标准出台，市场将更加规范，有利于行业长期发展。
+5. 社区团购：平台纷纷推出自营品牌，竞争白热化。</div>
                     </div>
                     <div class="ai-block">
                         <h3 class="ai-block-title">舆论风向争议</h3>
-                        <div class="ai-block-content">
-                            【情绪光谱】
-                            主流声音对监管政策表示理解，对食品安全问题高度关注，对新能源汽车行业发展持谨慎乐观态度。
+                        <div class="ai-block-content">【情绪光谱】
+主流声音对监管政策表示理解，对食品安全问题高度关注，对新能源汽车行业发展持谨慎乐观态度。
 
-                            【核心矛盾】
-                            1. 监管要求与企业运营成本之间的平衡
-                            2. 食品安全与企业利润之间的关系
-                            3. 政策调整与行业稳定发展之间的冲突
-                        </div>
+【核心矛盾】
+1. 监管要求与企业运营成本之间的平衡
+2. 食品安全与企业利润之间的关系
+3. 政策调整与行业稳定发展之间的冲突</div>
                     </div>
                     <div class="ai-block">
                         <h3 class="ai-block-title">异动与弱信号</h3>
-                        <div class="ai-block-content">
-                            跨平台共鸣明显：直播电商监管新规在多个平台引发讨论，说明行业对监管政策的高度关注。
+                        <div class="ai-block-content">跨平台共鸣明显：直播电商监管新规在多个平台引发讨论，说明行业对监管政策的高度关注。
 
-                            轨迹突变体现在预制菜行业：行业标准的出台将推动行业从野蛮生长向规范化发展转变。
-                        </div>
+轨迹突变体现在预制菜行业：行业标准的出台将推动行业从野蛮生长向规范化发展转变。</div>
                     </div>
                     <div class="ai-block">
                         <h3 class="ai-block-title">研判策略建议</h3>
-                        <div class="ai-block-content">
-                            1. 直播电商：加强内容审核，建立完善的合规管理体系，提升用户体验。
+                        <div class="ai-block-content">1. 直播电商：加强内容审核，建立完善的合规管理体系，提升用户体验。
 
-                            2. 餐饮企业：加强食品安全管理，建立可追溯体系，提升品牌信誉。
+2. 餐饮企业：加强食品安全管理，建立可追溯体系，提升品牌信誉。
 
-                            3. 新能源汽车：加大研发投入，提升核心技术竞争力，应对补贴退坡带来的挑战。
+3. 新能源汽车：加大研发投入，提升核心技术竞争力，应对补贴退坡带来的挑战。
 
-                            4. 预制菜企业：严格按照行业标准生产，提升产品质量，建立品牌优势。
+4. 预制菜企业：严格按照行业标准生产，提升产品质量，建立品牌优势。
 
-                            5. 社区团购：优化供应链管理，提升服务质量，打造差异化竞争优势。
-                        </div>
+5. 社区团购：优化供应链管理，提升服务质量，打造差异化竞争优势。</div>
                     </div>
                     <div class="ai-block">
                         <h3 class="ai-block-title">独立信源速览</h3>
-                        <div class="ai-block-content">
-                            [36氪]：
-                            聚焦直播电商监管和食品安全问题，强调企业合规管理的重要性。
+                        <div class="ai-block-content">[36氪]：
+聚焦直播电商监管和食品安全问题，强调企业合规管理的重要性。
 
-                            [钛媒体]：
-                            关注新能源汽车补贴政策调整和预制菜行业标准出台，分析行业发展趋势。
+[钛媒体]：
+关注新能源汽车补贴政策调整和预制菜行业标准出台，分析行业发展趋势。
 
-                            [界面新闻]：
-                            报道直播电商新规实施和社区团购平台推出自营品牌的情况，反映行业竞争态势。
-                        </div>
+[界面新闻]：
+报道直播电商新规实施和社区团购平台推出自营品牌的情况，反映行业竞争态势。</div>
                     </div>
                 </div>
             </div>
 
+            <!-- 悬浮工具栏 -->
+            <div class="fab-bar">
+                <button class="fab-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="回到顶部">
+                    <span class="fab-icon">↑</span>
+                </button>
+            </div>
+
+            <!-- 阅读进度条 -->
+            <div class="reading-progress"></div>
+
             <div class="footer">
-                <p>© 2026 老许聊实体 | <a href="https://zdudao.github.io/xuxinwen/" target="_blank">访问官网</a></p>
+                <div class="footer-content">
+                    © 2026 <span class="project-name">老许聊实体</span> | 
+                    <a href="../../index.html" class="footer-link">首页</a> | 
+                    <a href="#" class="footer-link">关于我们</a>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="save-buttons">
-        <button class="save-btn save-png" onclick="saveAsImage('png')">保存为PNG</button>
-        <button class="save-btn save-jpg" onclick="saveAsImage('jpeg')">保存为JPG</button>
-    </div>
-
     <script>
-        // 保存为图片功能
-        function saveAsImage(format = 'png') {
-            const container = document.querySelector('.container');
-            html2canvas(container, {
-                scale: 2,
-                useCORS: true,
-                backgroundColor: '#ffffff'
-            }).then(canvas => {
-                const link = document.createElement('a');
-                link.download = `老许聊实体_${new Date().toISOString().split('T')[0]}.${format}`;
-                link.href = canvas.toDataURL(`image/${format}`);
-                link.click();
-            });
-        }
-
-        // 标签页功能
+        // 标签页切换和隐藏空分类
         document.addEventListener('DOMContentLoaded', function() {
-            const tabItems = document.querySelectorAll('.tab-item');
-            tabItems.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    // 移除所有标签页的active类
-                    tabItems.forEach(item => item.classList.remove('active'));
-                    // 添加当前标签页的active类
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const wordGroups = document.querySelectorAll('.word-group');
+            
+            // 隐藏没有新闻的分类
+            tabBtns.forEach(btn => {
+                const tabIndex = btn.getAttribute('data-tab-index');
+                if (tabIndex !== 'all') {
+                    const group = document.querySelector(`.word-group[data-tab-index="${tabIndex}"]`);
+                    if (group) {
+                        const newsItems = group.querySelectorAll('.news-item');
+                        if (newsItems.length === 0) {
+                            btn.style.display = 'none';
+                        }
+                    }
+                }
+            });
+            
+            // 标签页切换功能
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabIndex = this.getAttribute('data-tab-index');
+                    
+                    // 移除所有tab的active类
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    // 添加当前tab的active类
                     this.classList.add('active');
                     
-                    // 隐藏所有内容
-                    const tabContents = document.querySelectorAll('.tab-content');
-                    tabContents.forEach(content => content.classList.remove('active'));
-                    
-                    // 显示对应内容
-                    const tabId = this.getAttribute('data-tab');
-                    const correspondingContent = document.querySelector(`.tab-content[data-tab="${tabId}"]`);
-                    if (correspondingContent) {
-                        correspondingContent.classList.add('active');
-                    }
+                    // 显示/隐藏对应内容
+                    wordGroups.forEach(group => {
+                        if (tabIndex === 'all') {
+                            group.style.display = 'block';
+                        } else {
+                            group.style.display = group.getAttribute('data-tab-index') === tabIndex ? 'block' : 'none';
+                        }
+                    });
                 });
             });
         });
+        
+
+        
+        // 复制新闻标题
+        document.addEventListener('DOMContentLoaded', function() {
+            const newsNumbers = document.querySelectorAll('.news-number');
+            
+            newsNumbers.forEach(num => {
+                num.addEventListener('click', function() {
+                    const newsItem = this.closest('.news-item');
+                    const title = newsItem.querySelector('.news-title').textContent.trim();
+                    
+                    navigator.clipboard.writeText(title).then(() => {
+                        this.classList.add('copied');
+                        setTimeout(() => {
+                            this.classList.remove('copied');
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('复制失败:', err);
+                    });
+                });
+            });
+        });
+        
+        // 宽屏模式切换
+        function toggleWideMode() {
+            const body = document.body;
+            const wideModeBtn = document.getElementById('wideModeBtn');
+            body.classList.toggle('wide-mode');
+            if (body.classList.contains('wide-mode')) {
+                wideModeBtn.textContent = '窄屏';
+            } else {
+                wideModeBtn.textContent = '宽屏';
+            }
+        }
+        
+        // 暗色模式切换
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+        
+        // 阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.reading-progress').style.width = scrolled + '%';
+        });
+        
+
     </script>
 </body>
 </html>
