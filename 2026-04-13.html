@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>老许聊实体 - 2026-04-13商业资讯</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        * { box-sizing: border-box; }
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #7c3aed;
+            --accent-color: #10b981;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666;
+            --text-tertiary: #999;
+            --border-light: #f5f5f5;
+            --border-medium: #e5e7eb;
+            --border-dark: #d1d5db;
+            --background-white: #ffffff;
+            --background-light: #f8f9fa;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --transition-fast: 0.15s ease;
+            --transition-normal: 0.2s ease;
+            --transition-slow: 0.3s ease;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 16px;
+            background: #fafafa;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 32px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(40px, 8vw, 80px);
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            color: rgba(255, 255, 255, 0.15);
+            pointer-events: none;
+            z-index: 1;
+            white-space: nowrap;
+            -webkit-mask-image: radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+            mask-image: radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+            transition: -webkit-mask-image var(--transition-normal), mask-image var(--transition-normal);
+            user-select: none;
+        }
+
+        .save-buttons {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .toggle-wide-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all var(--transition-normal);
+            backdrop-filter: blur(10px);
+            line-height: 1;
+            min-height: 38px;
+        }
+        .toggle-wide-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .toggle-dark-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all var(--transition-normal);
+            backdrop-filter: blur(10px);
+            line-height: 1;
+            min-height: 38px;
+        }
+        .toggle-dark-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .header-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .content {
+            padding: 24px;
+        }
+
+        .word-group {
+            margin-bottom: 40px;
+        }
+
+        .word-group:first-child {
+            margin-top: 0;
+        }
+
+        .word-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-light);
+            transition: border-color var(--transition-normal);
+        }
+
+        .word-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .word-name {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text-primary);
+            transition: color var(--transition-normal);
+        }
+
+        .word-count {
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
+            transition: color var(--transition-normal);
+        }
+
+        .word-count.hot { color: #dc2626; font-weight: 600; }
+        .word-count.warm { color: #ea580c; font-weight: 600; }
+
+        .word-index {
+            color: var(--text-tertiary);
+            font-size: 12px;
+            transition: color var(--transition-normal);
+        }
+
+        .news-item {
+            margin-bottom: 20px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-light);
+            position: relative;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            transition: border-color var(--transition-normal);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-item.new::after {
+            content: "NEW";
+            position: absolute;
+            top: 12px;
+            right: 0;
+            background: #fbbf24;
+            color: #92400e;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 3px 6px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .news-number {
+            color: var(--text-tertiary);
+            font-size: 13px;
+            font-weight: 600;
+            min-width: 20px;
+            text-align: center;
+            flex-shrink: 0;
+            background: var(--background-light);
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: flex-start;
+            margin-top: 8px;
+            position: relative;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        .news-number .num-text { transition: opacity var(--transition-fast); }
+        .news-number .copy-icon { position: absolute; opacity: 0; transition: opacity var(--transition-fast); }
+        .news-item:hover .news-number .num-text { opacity: 0; }
+        .news-item:hover .news-number .copy-icon { opacity: 1; }
+        .news-item:hover .news-number {
+            background: #eef2ff;
+            color: var(--primary-color);
+        }
+        .news-number.copied {
+            background: #dcfce7 !important;
+        }
+        .news-number.copied .num-text { opacity: 0 !important; }
+        .news-number.copied .copy-icon { opacity: 1 !important; }
+        body.dark-mode .news-item:hover .news-number {
+            background: #2a2a5a;
+            color: #8ab4f8;
+        }
+        body.dark-mode .news-number.copied {
+            background: #14532d !important;
+        }
+
+        .news-content {
+            flex: 1;
+            min-width: 0;
+            padding-right: 40px;
+        }
+
+        .news-item.new .news-content {
+            padding-right: 50px;
+        }
+
+        .news-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .source-name {
+            color: var(--text-secondary);
+            font-size: 12px;
+            font-weight: 500;
+            transition: color var(--transition-normal);
+        }
+
+        .keyword-tag {
+            color: #2563eb;
+            font-size: 12px;
+            font-weight: 500;
+            background: #eff6ff;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .rank-num {
+            color: #fff;
+            background: #6b7280;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 10px;
+            min-width: 18px;
+            text-align: center;
+        }
+
+        .rank-num.top { background: #dc2626; }
+        .rank-num.high { background: #ea580c; }
+
+        .time-info {
+            color: var(--text-tertiary);
+            font-size: 11px;
+            transition: color var(--transition-normal);
+        }
+
+        .count-info {
+            color: #059669;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .news-title {
+            font-size: 15px;
+            line-height: 1.4;
+            color: var(--text-primary);
+            margin: 0 0 8px 0;
+            transition: color var(--transition-normal);
+        }
+
+        .news-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-normal);
+        }
+
+        .news-link:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .news-link:visited {
+            color: var(--secondary-color);
+        }
+
+        .news-summary {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin: 0 0 8px 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            transition: color var(--transition-normal);
+        }
+
+        .news-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .news-tag {
+            color: #6b7280;
+            font-size: 11px;
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 3px;
+            transition: all var(--transition-normal);
+        }
+
+        .section-divider {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 2px solid var(--border-medium);
+        }
+
+        .hotlist-section {
+        }
+
+        .new-section {
+            margin-top: 40px;
+            padding-top: 24px;
+        }
+
+        .new-section-title {
+            color: var(--text-primary);
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 0 20px 0;
+            transition: color var(--transition-normal);
+        }
+
+        .new-source-group {
+            margin-bottom: 24px;
+        }
+
+        .new-source-title {
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
+            margin: 0 0 12px 0;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--border-light);
+            transition: color var(--transition-normal);
+        }
+
+        .new-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-light);
+            transition: border-color var(--transition-normal);
+        }
+
+        .new-item:last-child {
+            border-bottom: none;
+        }
+
+        .new-item-number {
+            color: var(--text-tertiary);
+            font-size: 12px;
+            font-weight: 600;
+            min-width: 18px;
+            text-align: center;
+            flex-shrink: 0;
+            background: var(--background-light);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-normal);
+        }
+
+        .new-item-rank {
+            color: #fff;
+            background: #6b7280;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 6px;
+            border-radius: 8px;
+            min-width: 20px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .new-item-rank.top { background: #dc2626; }
+        .new-item-rank.high { background: #ea580c; }
+
+        .new-item-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .new-item-title {
+            font-size: 14px;
+            line-height: 1.4;
+            color: var(--text-primary);
+            margin: 0;
+            transition: color var(--transition-normal);
+        }
+
+        .new-item-title a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color var(--transition-normal);
+        }
+
+        .new-item-title a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .error-section {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+
+        body.dark-mode .error-section {
+            background: #451a1a;
+            border: 1px solid #7f1d1d;
+        }
+
+        .error-title {
+            color: #dc2626;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+        }
+
+        .error-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .error-item {
+            color: #991b1b;
+            font-size: 13px;
+            padding: 2px 0;
+            font-family: 'SF Mono', Consolas, monospace;
+        }
+
+        body.dark-mode .error-item {
+            color: #fca5a5;
+        }
+
+        .footer {
+            margin-top: 32px;
+            padding: 20px 24px;
+            background: var(--background-light);
+            border-top: 1px solid var(--border-medium);
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+
+        body.dark-mode .footer {
+            background: #0f3460;
+            border-top: 1px solid #1e3a8a;
+        }
+
+        .footer-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 11px;
+            color: #999;
+        }
+
+        body.dark-mode .footer-info {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .footer-info-item {
+            text-align: center;
+        }
+
+        .footer-info-label {
+            display: block;
+            font-size: 10px;
+            margin-bottom: 2px;
+        }
+
+        .footer-info-value {
+            font-weight: 500;
+            font-size: 11px;
+        }
+
+        .footer-content {
+            font-size: 13px;
+            color: #6b7280;
+            line-height: 1.6;
+            transition: color var(--transition-normal);
+        }
+
+        body.dark-mode .footer-content {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color var(--transition-normal);
+        }
+
+        .footer-link:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        .project-name {
+            font-weight: 600;
+            color: #374151;
+            transition: color var(--transition-normal);
+        }
+
+        body.dark-mode .project-name {
+            color: rgba(255,255,255,0.9);
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 12px; }
+            .header { padding: 24px 20px; }
+            .content { padding: 20px; }
+            .footer { padding: 16px 20px; }
+            .news-header { gap: 6px; }
+            .news-content { padding-right: 45px; }
+            .news-item { gap: 8px; }
+            .new-item { gap: 8px; }
+            .news-number { width: 20px; height: 20px; font-size: 12px; }
+            .save-buttons {
+                position: static;
+                margin-bottom: 16px;
+                display: flex;
+                gap: 8px;
+                justify-content: center;
+                width: 100%;
+            }
+        }
+
+        .rss-section {
+            margin-top: 32px;
+            padding-top: 24px;
+        }
+
+        .rss-section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .rss-section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #059669;
+        }
+
+        .rss-section-count {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .feed-group {
+            margin-bottom: 24px;
+        }
+
+        .feed-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .feed-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent-color);
+            transition: border-color var(--transition-normal);
+        }
+
+        .feed-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--accent-color);
+            transition: color var(--transition-normal);
+        }
+
+        .feed-count {
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
+            transition: color var(--transition-normal);
+        }
+
+        .rss-item {
+            margin-bottom: 12px;
+            padding: 14px;
+            background: #f0fdf4;
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--accent-color);
+            transition: all var(--transition-normal);
+        }
+
+        body.dark-mode .rss-item {
+            background: #064e3b;
+            border-left: 3px solid #34d399;
+        }
+
+        .rss-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .rss-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+
+        .rss-time {
+            color: var(--text-tertiary);
+            font-size: 12px;
+            transition: color var(--transition-normal);
+        }
+
+        .rss-author {
+            color: var(--accent-color);
+            font-size: 12px;
+            font-weight: 500;
+            transition: color var(--transition-normal);
+        }
+
+        .rss-title {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 6px;
+        }
+
+        .rss-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-normal);
+        }
+
+        .rss-link:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        body.dark-mode .rss-link {
+            color: var(--text-primary);
+        }
+
+        body.dark-mode .rss-link:hover {
+            color: #34d399;
+        }
+
+        .rss-summary {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            transition: color var(--transition-normal);
+        }
+
+        .ai-section {
+            margin-top: 32px;
+            padding: 24px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: var(--radius-lg);
+            border: 1px solid #bae6fd;
+            transition: all var(--transition-normal);
+        }
+
+        body.dark-mode .ai-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border: 1px solid #334155;
+        }
+
+        .ai-section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .ai-section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0369a1;
+            transition: color var(--transition-normal);
+        }
+
+        body.dark-mode .ai-section-title {
+            color: #38bdf8;
+        }
+
+        .ai-section-badge {
+            background: #0ea5e9;
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .ai-blocks-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .ai-block {
+            padding: 16px;
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+        }
+
+        body.dark-mode .ai-block {
+            background: #1a1a3e;
+            border: 1px solid #2a2a4a;
+        }
+
+        .ai-block-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #0369a1;
+            margin-bottom: 8px;
+            transition: color var(--transition-normal);
+        }
+
+        body.dark-mode .ai-block-title {
+            color: #38bdf8;
+        }
+
+        .ai-block-content {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #334155;
+            white-space: pre-wrap;
+            transition: color var(--transition-normal);
+        }
+
+        body.dark-mode .ai-block-content {
+            color: rgba(255,255,255,0.8);
+        }
+
+        body.wide-mode .container { max-width: 1200px; }
+        body.wide-mode .content { padding: 32px 40px; }
+
+        .tab-bar {
+            display: none;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 8px 0 12px 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border-medium);
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            position: sticky;
+            top: 0;
+            background: var(--background-white);
+            z-index: 10;
+            gap: 4px;
+            transition: all var(--transition-normal);
+        }
+        body.wide-mode .tab-bar { display: flex; }
+        body.wide-mode .tab-bar.tab-hidden { display: none; }
+
+        .tab-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border: none;
+            background: #f3f4f6;
+            color: var(--text-secondary);
+            border-radius: var(--radius-md) var(--radius-md) 0 0;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all var(--transition-normal);
+            flex-shrink: 0;
+        }
+        .tab-btn:hover {
+            background: #e5e7eb;
+            color: #374151;
+        }
+        .tab-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        .tab-count {
+            font-size: 11px;
+            background: rgba(0,0,0,0.1);
+            padding: 1px 6px;
+            border-radius: 10px;
+        }
+        .tab-btn.active .tab-count {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .search-bar { display: none; padding: 0 0 16px 0; }
+        .search-input {
+            width: 100%;
+            padding: 10px 16px;
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+            transition: all var(--transition-normal);
+            box-sizing: border-box;
+            background: var(--background-white);
+            color: var(--text-primary);
+        }
+        
+        .search-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79,70,229,0.1);
+            transform: translateY(-1px);
+        }
+        
+        .search-input::placeholder {
+            color: var(--text-tertiary);
+            transition: color var(--transition-normal);
+        }
+
+        .fab-bar {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 100;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity var(--transition-normal), transform var(--transition-normal);
+            pointer-events: none;
+        }
+        
+        .fab-bar.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        
+        .fab-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fab-btn:hover {
+            transform: scale(1.1);
+            background: var(--secondary-color);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .collapse-icon {
+            display: none;
+            margin-right: 6px;
+            font-size: 12px;
+            color: #9ca3af;
+            transition: transform 0.2s;
+            user-select: none;
+        }
+        .word-header.collapsible { cursor: pointer; }
+        .word-header.collapsible .collapse-icon { display: inline; }
+        .word-header.collapsible:hover {
+            background: #f9fafb;
+            border-radius: 6px;
+            margin: 0 -8px 20px -8px;
+            padding: 8px;
+        }
+        .word-group.collapsed .news-item { display: none; }
+        .word-group.collapsed .collapse-icon { transform: rotate(-90deg); }
+
+        body.wide-mode .word-group[data-tab-index] { animation: tabFadeIn 0.2s ease; }
+        @keyframes tabFadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        body.dark-mode {
+            background: #1a1a2e;
+            color: #e0e0e0;
+        }
+        body.dark-mode .container {
+            background: #16213e;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+        }
+        body.dark-mode .header {
+            background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
+        }
+        body.dark-mode .content {
+            background: #16213e;
+        }
+        body.dark-mode .word-header {
+            border-bottom-color: #2a2a4a;
+        }
+        body.dark-mode .word-header.collapsible:hover {
+            background: #1a1a3e;
+        }
+        body.dark-mode .news-item {
+            border-bottom-color: #2a2a4a;
+        }
+        body.dark-mode .news-title a {
+            color: #8ab4f8;
+        }
+        body.dark-mode .news-title a:visited {
+            color: #c58af9;
+        }
+        body.dark-mode .news-meta {
+            color: #888;
+        }
+        body.dark-mode .tab-bar {
+            background: #16213e;
+            border-bottom-color: #2a2a4a;
+        }
+        body.dark-mode .tab-btn {
+            color: #aaa;
+        }
+        body.dark-mode .tab-btn.active {
+            color: #8ab4f8;
+            border-bottom-color: #8ab4f8;
+        }
+        body.dark-mode .tab-btn:hover {
+            color: #ccc;
+            background: rgba(255,255,255,0.05);
+        }
+        body.dark-mode .search-input {
+            background: #1a1a3e;
+            border-color: #2a2a4a;
+            color: #e0e0e0;
+        }
+        body.dark-mode .search-input:focus {
+            border-color: #8ab4f8;
+        }
+        body.dark-mode .footer {
+            background: #0f3460;
+            color: rgba(255,255,255,0.7);
+        }
+        body.dark-mode .rss-item, body.dark-mode .new-item {
+            border-bottom-color: #2a2a4a;
+        }
+        body.dark-mode .rss-title a, body.dark-mode .new-item a {
+            color: #8ab4f8;
+        }
+        body.dark-mode .ai-block {
+            background: #1a1a3e;
+            border-color: #2a2a4a;
+        }
+
+        .badge-new {
+            display: inline-block;
+            background: linear-gradient(135deg, #f43f5e, #ec4899);
+            color: white;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 1px 6px;
+            border-radius: 3px;
+            margin-left: 6px;
+            vertical-align: middle;
+            letter-spacing: 0.5px;
+        }
+        body.dark-mode .badge-new {
+            background: linear-gradient(135deg, #be185d, #9333ea);
+        }
+    </style>
+</head>
+<body>
+    <div class="reading-progress"></div>
+    <div class="container">
+        <div class="header">
+            <div class="header-watermark">老许</div>
+            <div class="save-buttons">
+                <button class="toggle-wide-btn" onclick="toggleWideMode()" title="切换宽屏/窄屏">⛶</button>
+                <button class="toggle-dark-btn" onclick="toggleDarkMode()" title="切换暗色/亮色">☽</button>
+            </div>
+            <div class="header-title">老许聊实体 - 2026-04-13商业资讯</div>
+        </div>
+
+        <div class="content">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="搜索新闻标题..." oninput="handleSearch(this.value)">
+            </div>
+            
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="搜索新闻标题..." oninput="handleSearch(this.value)">
+                </div>
+                <div class="hotlist-section"><div class="tab-bar"><button class="tab-btn" data-tab-index="0">商业地产<span class="tab-count">2</span></button><button class="tab-btn" data-tab-index="1">招商加盟<span class="tab-count">1</span></button><button class="tab-btn" data-tab-index="2">实体创业<span class="tab-count">3</span></button><button class="tab-btn" data-tab-index="3">消费趋势<span class="tab-count">1</span></button><button class="tab-btn" data-tab-index="4">餐饮行业<span class="tab-count">3</span></button><button class="tab-btn" data-tab-index="5">行业监管<span class="tab-count">1</span></button><button class="tab-btn" data-tab-index="6">供应链<span class="tab-count">1</span></button><button class="tab-btn" data-tab-index="all">全部</button></div>
+                <div class="word-group" data-tab-index="0">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">商业地产</div>
+                            <div class="word-count ">2 条</div>
+                        </div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>1/7</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">1</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">今日头条</span><span class="rank-num ">9</span><span class="time-info">13:10</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.toutiao.com/trending/7627450416918249513/" target="_blank" class="news-link">业主炸锅反对800万豪宅变学生宿舍</a>
+                            </div>
+                            <div class="news-summary">业主炸锅反对800万豪宅变学生宿舍</div>
+                            <div class="news-tags">
+                                <span class="news-tag">商业地产</span>
+                                <span class="news-tag">今日头条</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">2</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">贴吧</span><span class="rank-num ">13</span><span class="time-info">13:10</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E6%B8%AF%E6%98%9F%E6%99%92%E5%8D%83%E4%B8%87%E8%B1%AA%E5%AE%85%E5%93%AD%E7%A9%B7%E8%A2%AB%E6%80%BC&amp;topic_id=28353103" target="_blank" class="news-link">港星晒千万豪宅哭穷被怼</a>
+                            </div>
+                            <div class="news-summary">港星晒千万豪宅哭穷被怼</div>
+                            <div class="news-tags">
+                                <span class="news-tag">商业地产</span>
+                                <span class="news-tag">贴吧</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="word-group" data-tab-index="1">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">招商加盟</div>
+                            <div class="word-count ">1 条</div>
+                        </div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>2/7</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">1</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">贴吧</span><span class="rank-num ">29</span><span class="time-info">13:10</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E8%99%9A%E6%8A%A577%E4%BA%BF%2C%E6%B2%B3%E5%8D%97%E6%8B%9B%E5%95%86%E6%95%B0%E6%8D%AE%E9%80%A0%E5%81%87&amp;topic_id=28353079" target="_blank" class="news-link">虚报77亿,河南招商数据造假</a>
+                            </div>
+                            <div class="news-summary">虚报77亿,河南招商数据造假</div>
+                            <div class="news-tags">
+                                <span class="news-tag">招商加盟</span>
+                                <span class="news-tag">贴吧</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="word-group" data-tab-index="2">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">实体创业</div>
+                            <div class="word-count ">3 条</div>
+                        </div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>3/7</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">1</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">百度热搜</span><span class="rank-num high">4</span><span class="time-info">13:10</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.baidu.com/s?wd=%E4%B8%80%E4%B8%AA%E5%A5%B3%E5%A4%96%E5%8D%96%E9%AA%91%E6%89%8B%E7%9A%84%E4%B8%96%E7%95%8C" target="_blank" class="news-link">一个女外卖骑手的世界</a>
+                            </div>
+                            <div class="news-summary">一个女外卖骑手的世界</div>
+                            <div class="news-tags">
+                                <span class="news-tag">实体创业</span>
+                                <span class="news-tag">百度热搜</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">2</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">百度热搜</span><span class="rank-num top">3</span><span class="time-info">13:10</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.baidu.com/s?wd=%E9%92%B1%E8%A2%8B%E5%AD%90%E5%A6%82%E4%BD%95%E9%BC%93%E8%B5%B7%E6%9D%A5+%E4%B8%89%E5%A4%A7%E6%96%B9%E5%90%91%E6%98%8E%E7%A1%AE" target="_blank" class="news-link">钱袋子如何鼓起来 三大方向明确</a>
+                            </div>
+                            <div class="news-summary">钱袋子如何鼓起来 三大方向明确</div>
+                            <div class="news-tags">
+                                <span class="news-tag">实体创业</span>
+                                <span class="news-tag">百度热搜</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">3</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">百度热搜</span><span class="rank-num ">13</span><span class="time-info">13:10</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.baidu.com/s?wd=%E4%B8%AD%E5%9B%BD%E2%80%9C%E6%89%93%E5%B7%A5%E4%BA%BA%E2%80%9D%E7%AC%AC%E4%B8%80%E5%9F%8E%E8%AF%9E%E7%94%9F" target="_blank" class="news-link">中国“打工人”第一城诞生</a>
+                            </div>
+                            <div class="news-summary">中国“打工人”第一城诞生</div>
+                            <div class="news-tags">
+                                <span class="news-tag">实体创业</span>
+                                <span class="news-tag">百度热搜</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="word-group" data-tab-index="3">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">消费趋势</div>
+                            <div class="word-count ">1 条</div>
+                        </div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>4/7</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">1</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">百度热搜</span><span class="rank-num ">18</span><span class="time-info">13:10</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.baidu.com/s?wd=%E8%BF%99%E5%B1%8A%E5%B9%B4%E8%BD%BB%E4%BA%BA+%E6%8A%8A%E5%8E%8B%E5%8A%9B%E5%85%BB%E6%88%90%E4%BA%86%E5%A7%9C" target="_blank" class="news-link">这届年轻人 把压力养成了姜</a>
+                            </div>
+                            <div class="news-summary">这届年轻人 把压力养成了姜</div>
+                            <div class="news-tags">
+                                <span class="news-tag">消费趋势</span>
+                                <span class="news-tag">百度热搜</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="word-group" data-tab-index="4">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">餐饮行业</div>
+                            <div class="word-count ">3 条</div>
+                        </div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>5/7</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">1</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">微博</span><span class="rank-num ">11</span><span class="time-info">13:10</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://s.weibo.com/weibo?q=%23%E6%96%87%E7%AB%A0%E4%B8%8A%E6%B5%B7%E9%9D%A2%E9%A6%86%E4%BB%B7%E6%A0%BC%23" target="_blank" class="news-link">文章上海面馆价格</a>
+                            </div>
+                            <div class="news-summary">文章上海面馆价格</div>
+                            <div class="news-tags">
+                                <span class="news-tag">餐饮行业</span>
+                                <span class="news-tag">微博</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">2</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">微博</span><span class="rank-num ">26</span><span class="time-info">13:10</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://s.weibo.com/weibo?q=%23%E5%A4%96%E5%8D%96%E9%AA%91%E6%89%8B%E9%A4%90%E7%AE%B1%E5%B8%B8%E5%A4%87%E6%89%93%E6%B0%94%E7%AD%92%E5%92%8C%E6%AD%A2%E6%B3%BB%E8%8D%AF%23" target="_blank" class="news-link">外卖骑手餐箱常备打气筒和止泻药</a>
+                            </div>
+                            <div class="news-summary">外卖骑手餐箱常备打气筒和止泻药</div>
+                            <div class="news-tags">
+                                <span class="news-tag">餐饮行业</span>
+                                <span class="news-tag">微博</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">3</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">抖音</span><span class="rank-num ">9</span><span class="time-info">13:10</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.douyin.com/hot/2464180" target="_blank" class="news-link">“营养点滴”是黑科技还是新套路</a>
+                            </div>
+                            <div class="news-summary">“营养点滴”是黑科技还是新套路</div>
+                            <div class="news-tags">
+                                <span class="news-tag">餐饮行业</span>
+                                <span class="news-tag">抖音</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="word-group" data-tab-index="5">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">行业监管</div>
+                            <div class="word-count ">1 条</div>
+                        </div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>6/7</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">1</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">百度热搜</span><span class="rank-num ">26</span><span class="time-info">13:10</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.baidu.com/s?wd=5%E6%9C%881%E6%97%A5%E8%B5%B7%E5%8C%BB%E7%96%97%E5%9B%9E%E6%89%A3%E5%85%A5%E5%88%91" target="_blank" class="news-link">5月1日起医疗回扣入刑</a>
+                            </div>
+                            <div class="news-summary">5月1日起医疗回扣入刑</div>
+                            <div class="news-tags">
+                                <span class="news-tag">行业监管</span>
+                                <span class="news-tag">百度热搜</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="word-group" data-tab-index="6">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">供应链</div>
+                            <div class="word-count ">1 条</div>
+                        </div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>7/7</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">1</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">财联社热门</span><span class="rank-num high">4</span><span class="time-info">13:10</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.cls.cn/detail/2341583" target="_blank" class="news-link">需求攀升叠加成本上涨 PCB上游覆铜板再现涨价潮 产业链抢滩高端CCL</a>
+                            </div>
+                            <div class="news-summary">需求攀升叠加成本上涨 PCB上游覆铜板再现涨价潮 产业链抢滩高端CCL</div>
+                            <div class="news-tags">
+                                <span class="news-tag">供应链</span>
+                                <span class="news-tag">财联社热门</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="rss-section section-divider">
+                    <div class="rss-section-header">
+                        <h2 class="rss-section-title">RSS 订阅</h2>
+                        <span class="rss-section-count">1 个源</span>
+                    </div>
+                    <div class="rss-feeds-grid">
+                    <div class="feed-group">
+                        <div class="feed-header">
+                            <h3 class="feed-name">未知源</h3>
+                            <span class="feed-count">0 条</span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="ai-section section-divider">
+                    <div class="ai-section-header">
+                        <h2 class="ai-section-title">AI 分析</h2>
+                        <span class="ai-section-badge">GPT</span>
+                    </div>
+                    <div class="ai-blocks-grid">
+                <div class="ai-section">
+                    <div class="ai-section-header">
+                        <div class="ai-section-title">✨ AI 热点分析</div>
+                        <span class="ai-section-badge">AI</span>
+                    </div>
+                    <div class="ai-blocks-grid">
+                    <div class="ai-block">
+                        <div class="ai-block-title">核心热点态势</div>
+                        <div class="ai-block-content">今日实体商业热点呈现圈层热点特征，宏观主线围绕“生存压力”与“成本焦虑”展开，微观领域则具体化为个体奋斗与行业困境。<br><br>【宏观主线】<br>核心情绪是“卷”与“省”。从「一个女外卖骑手的世界」到「上海面馆价格」，再到「PCB上游覆铜板再现涨价潮」，话题链条清晰：上游成本传导（供应链）→ 中游经营承压（餐饮价格）→ 下游个体求生（外卖骑手）。这反映了实体商业当前面临的核心矛盾：成本刚性上涨与消费意愿审慎并存。<br><br>【微观领域】<br>1. 个体生存实录：外卖骑手（含女性）的日常装备（打气筒、止泻药）成为关注点，是“打工人”生存状态的微观投射。<br><br>2. 消费降级与养生并存：「把压力养成了姜」反映年轻人转向低成本、具象化的解压与养生方式。<br><br>3. 经营成本显性化：面馆价格、供应链涨价新闻让经营成本从后台走向前台，成为公众议题。<br><br>对实体商家的启示：必须正视成本压力，并寻找与“省”和“养生”情绪共鸣的切入点。</div>
+                    </div>
+                    <div class="ai-block">
+                        <div class="ai-block-title">舆论风向争议</div>
+                        <div class="ai-block-content">【情绪光谱】<br>主流情绪是对个体奋斗（如女骑手）的共情与对经营成本（如面馆价格、供应链涨价）的焦虑。潜流则是对“数据造假”（如招商数据）和“套路”（如“营养点滴”）的不信任与嘲讽。<br><br>【核心矛盾】<br>1. 个体努力与系统压力：赞赏外卖骑手勤劳的同时，质疑平台规则与收入结构是否合理。<br><br>2. 价格与价值：讨论面馆价格是否匹配品质，背后是对“值不值”的普遍性质疑。<br><br>3. 官方叙事与民间体感：「钱袋子如何鼓起来」的宏观方向与「打工人第一城」的具体压力形成微妙对照。</div>
+                    </div>
+                    <div class="ai-block">
+                        <div class="ai-block-title">异动与弱信号</div>
+                        <div class="ai-block-content">今日信号呈现“民生议题跨平台共振”特征。<br><br>1. 跨平台共振：「一个女外卖骑手的世界」在百度热搜高位（第4），其衍生细节「外卖骑手餐箱常备打气筒和止泻药」在微博（第26）形成呼应。这显示“平台经济下的个体生存”议题正从泛社会新闻（百度）向更垂直、具象的生活观察（微博）扩散，构成一个完整的故事链。<br><br>2. 轨迹突变与关联：供应链端的「PCB覆铜板涨价潮」（财联社第4）是典型的行业硬新闻，与消费端的「上海面馆价格」（微博第11）看似无关，实则构成了“成本传导-终端价格”的潜在逻辑链条。这种从B端产业新闻到C端消费感知的间接关联，是预测未来局部物价波动的弱信号。<br><br>3. 圈层热点固化：「营养点滴是黑科技还是新套路」（抖音第9）反映了健康消费领域的“信息不对称”焦虑，在短视频平台易引发讨论，但难以破圈至综合平台成为大众议题。</div>
+                    </div>
+                    <div class="ai-block">
+                        <div class="ai-block-title">研判策略建议</div>
+                        <div class="ai-block-content">1. 实体商家（餐饮/零售）：立即盘点并透明化你的“抗压包”。借鉴「外卖骑手常备打气筒止泻药」的叙事，将门店应对常见问题（如手机没电、轻微不适、雨天湿滑）的便民措施（共享充电宝、常备药箱、防滑垫/雨伞套）做成宣传点。成本门槛：极低（数百元内），核心是服务细节的显性化表达，与“共情压力”的社会情绪绑定，提升好感与复购。<br><br>2. 创业者（轻食/茶饮）：切入“姜”式养生赛道。围绕「把压力养成了姜」背后的情绪，研发或包装一系列低成本、有明确养生/舒缓概念的单品（如各种姜饮、草本茶、暖身套餐）。强调原料可见、功效明确、价格亲民。成本门槛：低（试错成本可控制在万元内），关键在于产品命名和文案要直接呼应“解压”、“温暖”、“实惠”的消费者心理，进行低成本市场测试。</div>
+                    </div>
+                    <div class="ai-block">
+                        <div class="ai-block-title">独立源点速览</div>
+                        <div class="ai-block-content">[知乎]:<br>知乎热榜被国际政治（美伊冲突、匈牙利选举）、科技伦理（AI配音侵权）、社会事件（法官猥亵、道士非法行医）及文化讨论（书法、德云社）占据。与实体商业直接相关的话题缺失，榜首「古法生育」争议反映了在健康育儿领域存在巨大的信息差与焦虑，这或可侧面印证大健康相关实体服务（如专业、科学的母婴护理）存在市场机会，但需以极强的专业信任背书对抗伪科学。<br><br>[华尔街见闻]:<br>热榜完全被“美伊谈判破裂及霍尔木兹海峡封锁”这一国际地缘政治事件及其对原油市场、全球经济的冲击分析所垄断。话题高度聚焦于宏观风险（油价、供应链中断、资本市场波动），为实体商业提供了严峻的外部环境预警：全球供应链紧张可能加剧，能源及原材料成本存在上行压力。实体经营者需密切关注后续进展，评估对自身采购成本（尤其是进口或能源依赖型行业）的潜在影响。</div>
+                    </div>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            <div class="footer">
+                <div class="footer-info">
+                    <div class="footer-info-item">
+                        <span class="footer-info-label">报告类型</span>
+                        <span class="footer-info-value">全天汇总</span>
+                    </div>
+                    <div class="footer-info-item">
+                        <span class="footer-info-label">抓取总数</span>
+                        <span class="footer-info-value">255 条</span>
+                    </div>
+                    <div class="footer-info-item">
+                        <span class="footer-info-label">筛选结果</span>
+                        <span class="footer-info-value">12 条</span>
+                    </div>
+                    <div class="footer-info-item">
+                        <span class="footer-info-label">新闻日期</span>
+                        <span class="footer-info-value">04-13 13:12</span>
+                    </div>
+                </div>
+                <div class="footer-content">
+                    老许聊实体 - 2026-04-13商业资讯 | 数据抓取时间: 2026-04-13 13:12:38
+                </div>
+            </div>
+
+        </div>
+
+        <div class="fab-bar">
+            <button class="fab-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="返回顶部">↑</button>
+            <button class="fab-btn fab-help">
+                <span>?</span>
+                <div class="fab-tooltip">
+                    <div class="tip-row"><span>切换宽屏</span><span class="tip-key">W</span></div>
+                    <div class="tip-row"><span>暗色模式</span><span class="tip-key">D</span></div>
+                    <div class="tip-row"><span>搜索</span><span class="tip-key">/</span></div>
+                    <div class="tip-row"><span>上一个 Tab</span><span class="tip-key">←</span></div>
+                    <div class="tip-row"><span>下一个 Tab</span><span class="tip-key">→</span></div>
+                    <div class="tip-row"><span>序号可复制</span><span class="tip-key">点击</span></div>
+                </div>
+            </button>
+        </div>
+
+        <script>
+            // ===== 浏览器增强功能 =====
+
+            function toggleWideMode() {
+                document.body.classList.toggle('wide-mode');
+                var isWide = document.body.classList.contains('wide-mode');
+                try { localStorage.setItem('trendradar-wide-mode', isWide ? '1' : '0'); } catch(e) {}
+                var btn = document.querySelector('.toggle-wide-btn');
+                if (btn) btn.textContent = isWide ? '⊡' : '⛶';
+                initTabVisibility();
+                initCollapseVisibility();
+            }
+
+            function toggleDarkMode() {
+                var isDark = document.body.classList.toggle('dark-mode');
+                try { localStorage.setItem('trendradar-dark-mode', isDark ? '1' : '0'); } catch(e) {}
+                var btn = document.querySelector('.toggle-dark-btn');
+                if (btn) btn.textContent = isDark ? '☀' : '☽';
+            }
+
+            function initTabs() {
+                var tabBar = document.querySelector('.tab-bar');
+                if (!tabBar) return;
+                var tabs = tabBar.querySelectorAll('.tab-btn');
+                var groups = document.querySelectorAll('.word-group[data-tab-index]');
+                initTabVisibility();
+
+                function activateTab(index) {
+                    tabs.forEach(function(t) { t.classList.remove('active'); });
+                    if (index === 'all') {
+                        var allBtn = tabBar.querySelector('[data-tab-index="all"]');
+                        if (allBtn) allBtn.classList.add('active');
+                        groups.forEach(function(g) { g.style.display = ''; });
+                        try { history.replaceState(null, '', '#all'); } catch(e) {}
+                        return;
+                    }
+                    var idx = parseInt(index);
+                    tabs.forEach(function(t) {
+                        if (parseInt(t.dataset.tabIndex) === idx) t.classList.add('active');
+                    });
+                    if (document.body.classList.contains('wide-mode') && !tabBar.classList.contains('tab-hidden')) {
+                        groups.forEach(function(g) {
+                            g.style.display = (parseInt(g.dataset.tabIndex) === idx) ? '' : 'none';
+                        });
+                    }
+                    try { history.replaceState(null, '', '#tab-' + idx); } catch(e) {}
+                }
+
+                tabs.forEach(function(tab) {
+                    tab.addEventListener('click', function() {
+                        var idx = tab.dataset.tabIndex;
+                        activateTab(idx === 'all' ? 'all' : parseInt(idx));
+                    });
+                });
+
+                tabBar.addEventListener('keydown', function(e) {
+                    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                        var tabsArr = Array.from(tabs);
+                        var ci = tabsArr.findIndex(function(t) { return t.classList.contains('active'); });
+                        var dir = e.key === 'ArrowRight' ? 1 : -1;
+                        var ni = Math.max(0, Math.min(tabsArr.length - 1, ci + dir));
+                        var nt = tabsArr[ni];
+                        activateTab(nt.dataset.tabIndex === 'all' ? 'all' : parseInt(nt.dataset.tabIndex));
+                        nt.focus();
+                        e.preventDefault();
+                    }
+                });
+
+                var hash = window.location.hash;
+                if (hash === '#all') { activateTab('all'); }
+                else if (hash.indexOf('#tab-') === 0) { activateTab(parseInt(hash.replace('#tab-', ''))); }
+                else { activateTab(0); }
+            }
+
+            function initTabVisibility() {
+                var tabBar = document.querySelector('.tab-bar');
+                if (!tabBar) return;
+                var groups = document.querySelectorAll('.word-group[data-tab-index]');
+                var isWide = document.body.classList.contains('wide-mode');
+                if (!isWide || groups.length <= 2) {
+                    tabBar.classList.add('tab-hidden');
+                    groups.forEach(function(g) { g.style.display = ''; });
+                } else {
+                    tabBar.classList.remove('tab-hidden');
+                    var activeTab = tabBar.querySelector('.tab-btn.active');
+                    if (activeTab) { activeTab.click(); }
+                    else {
+                        var firstTab = tabBar.querySelector('.tab-btn');
+                        if (firstTab) firstTab.click();
+                    }
+                }
+            }
+
+            function handleSearch(query) {
+                query = query.toLowerCase();
+                document.querySelectorAll('.news-item').forEach(function(item) {
+                    var title = (item.querySelector('.news-title') || {}).textContent || '';
+                    item.style.display = (!query || title.toLowerCase().indexOf(query) !== -1) ? '' : 'none';
+                });
+                document.querySelectorAll('.rss-item').forEach(function(item) {
+                    var title = (item.querySelector('.rss-title') || {}).textContent || '';
+                    item.style.display = (!query || title.toLowerCase().indexOf(query) !== -1) ? '' : 'none';
+                });
+            }
+
+            function initBackToTop() {
+                var fabBar = document.querySelector('.fab-bar');
+                if (!fabBar) return;
+                window.addEventListener('scroll', function() {
+                    fabBar.classList.toggle('visible', window.scrollY > 300);
+                });
+            }
+
+            function initCollapse() {
+                document.querySelectorAll('.word-header').forEach(function(header) {
+                    header.addEventListener('click', function() {
+                        var tabBar = document.querySelector('.tab-bar');
+                        if (document.body.classList.contains('wide-mode') && tabBar && !tabBar.classList.contains('tab-hidden')) return;
+                        var group = header.closest('.word-group');
+                        if (group) group.classList.toggle('collapsed');
+                    });
+                });
+                initCollapseVisibility();
+            }
+
+            function initCollapseVisibility() {
+                var headers = document.querySelectorAll('.word-header');
+                var tabBar = document.querySelector('.tab-bar');
+                var isTabMode = document.body.classList.contains('wide-mode') && tabBar && !tabBar.classList.contains('tab-hidden');
+                headers.forEach(function(h) {
+                    if (isTabMode) { h.classList.remove('collapsible'); }
+                    else { h.classList.add('collapsible'); }
+                });
+                if (isTabMode) {
+                    document.querySelectorAll('.word-group.collapsed').forEach(function(g) {
+                        g.classList.remove('collapsed');
+                    });
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                window.scrollTo(0, 0);
+
+                // 自动检测宽屏模式
+                var savedMode = null;
+                try { savedMode = localStorage.getItem('trendradar-wide-mode'); } catch(e) {}
+                if (savedMode === '1' || (savedMode === null && window.innerWidth > 768)) {
+                    document.body.classList.add('wide-mode');
+                    var btn = document.querySelector('.toggle-wide-btn');
+                    if (btn) btn.textContent = '⊡';
+                }
+
+                // 暗色模式恢复
+                var savedDark = null;
+                try { savedDark = localStorage.getItem('trendradar-dark-mode'); } catch(e) {}
+                if (savedDark === '1') {
+                    document.body.classList.add('dark-mode');
+                    var darkBtn = document.querySelector('.toggle-dark-btn');
+                    if (darkBtn) darkBtn.textContent = '☀';
+                }
+
+                // 启用搜索栏
+                var searchBar = document.querySelector('.search-bar');
+                if (searchBar) searchBar.style.display = 'block';
+
+                // 初始化增强功能
+                initTabs();
+                initBackToTop();
+                initCollapse();
+
+                // 键盘快捷键
+                document.addEventListener('keydown', function(e) {
+                    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+                    var helpBtn = document.querySelector('.fab-help');
+                    switch(e.key) {
+                        case '?':
+                            if (helpBtn) {
+                                helpBtn.classList.toggle('show-tip');
+                                var fabBar = document.querySelector('.fab-bar');
+                                if (fabBar) fabBar.classList.add('visible');
+                            }
+                            break;
+                        case 'Escape':
+                            if (helpBtn) helpBtn.classList.remove('show-tip');
+                            break;
+                        case 'w': case 'W': toggleWideMode(); break;
+                        case 'd': case 'D': toggleDarkMode(); break;
+                        case '/': e.preventDefault(); var si = document.querySelector('.search-input'); if (si) si.focus(); break;
+                    }
+                });
+
+                // 阅读进度条
+                var progressBar = document.querySelector('.reading-progress');
+                if (progressBar) {
+                    window.addEventListener('scroll', function() {
+                        var h = document.documentElement.scrollHeight - window.innerHeight;
+                        progressBar.style.width = (h > 0 ? (window.scrollY / h * 100) : 0) + '%';
+                    });
+                }
+
+                // 一键复制：hover 时数字变复制图标
+                var copySvg = '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M5 11H3.5A1.5 1.5 0 012 9.5v-7A1.5 1.5 0 013.5 1h7A1.5 1.5 0 0112 2.5V5"/></svg>';
+                var checkSvg = '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#22c55e" stroke-width="2"><path d="M3 8.5l3.5 3.5 7-7"/></svg>';
+                document.querySelectorAll('.news-item .news-number').forEach(function(numEl) {
+                    var item = numEl.closest('.news-item');
+                    var titleEl = item ? item.querySelector('.news-title a') : null;
+                    if (!titleEl) return;
+                    var numText = numEl.textContent.trim();
+                    numEl.innerHTML = '<span class="num-text">' + numText + '</span><span class="copy-icon">' + copySvg + '</span>';
+                    numEl.title = '点击复制标题和链接';
+                    numEl.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        var text = titleEl.textContent.trim() + ' ' + titleEl.href;
+                        navigator.clipboard.writeText(text).then(function() {
+                            numEl.classList.add('copied');
+                            numEl.querySelector('.copy-icon').innerHTML = checkSvg;
+                            setTimeout(function() {
+                                numEl.classList.remove('copied');
+                                numEl.querySelector('.copy-icon').innerHTML = copySvg;
+                            }, 1500);
+                        });
+                    });
+                });
+
+                // Header watermark 鼠标跟随揭示
+                (function() {
+                    var header = document.querySelector('.header');
+                    var watermark = document.querySelector('.header-watermark');
+                    if (!header || !watermark) return;
+
+                    var radius = 100;
+
+                    header.addEventListener('mousemove', function(e) {
+                        var rect = watermark.getBoundingClientRect();
+                        var x = e.clientX - rect.left;
+                        var y = e.clientY - rect.top;
+                        var maskVal = 'radial-gradient(circle ' + radius + 'px at ' + x + 'px ' + y + 'px, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%)';
+                        watermark.style.webkitMaskImage = maskVal;
+                        watermark.style.maskImage = maskVal;
+                        watermark.style.color = 'rgba(255, 255, 255, 0.25)';
+                    });
+
+                    header.addEventListener('mouseleave', function() {
+                        watermark.style.webkitMaskImage = 'radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)';
+                        watermark.style.maskImage = 'radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)';
+                        watermark.style.color = 'rgba(255, 255, 255, 0.15)';
+                    });
+                })();
+            });
+        </script>
+    </body>
+    </html>
