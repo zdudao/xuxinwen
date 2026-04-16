@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>老许聊实体 - 2026-04-16商业资讯</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        * { box-sizing: border-box; }
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #7c3aed;
+            --accent-color: #10b981;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666;
+            --text-tertiary: #999;
+            --border-light: #f5f5f5;
+            --border-medium: #e5e7eb;
+            --border-dark: #d1d5db;
+            --background-white: #ffffff;
+            --background-light: #f8f9fa;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --transition-fast: 0.15s ease;
+            --transition-normal: 0.2s ease;
+            --transition-slow: 0.3s ease;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 16px;
+            background: #fafafa;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 32px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(40px, 8vw, 80px);
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            color: rgba(255, 255, 255, 0.15);
+            pointer-events: none;
+            z-index: 1;
+            white-space: nowrap;
+            -webkit-mask-image: radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+            mask-image: radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+            transition: -webkit-mask-image var(--transition-normal), mask-image var(--transition-normal);
+            user-select: none;
+        }
+
+        .save-buttons {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .toggle-wide-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all var(--transition-normal);
+            backdrop-filter: blur(10px);
+            line-height: 1;
+            min-height: 38px;
+        }
+        .toggle-wide-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .toggle-dark-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all var(--transition-normal);
+            backdrop-filter: blur(10px);
+            line-height: 1;
+            min-height: 38px;
+        }
+        .toggle-dark-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .header-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .content {
+            padding: 24px;
+        }
+
+        .word-group {
+            margin-bottom: 40px;
+        }
+
+        .word-group:first-child {
+            margin-top: 0;
+        }
+
+        .word-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-light);
+            transition: border-color var(--transition-normal);
+        }
+
+        .word-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .word-name {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text-primary);
+            transition: color var(--transition-normal);
+        }
+
+        .word-count {
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
+            transition: color var(--transition-normal);
+        }
+
+        .word-count.hot { color: #dc2626; font-weight: 600; }
+        .word-count.warm { color: #ea580c; font-weight: 600; }
+
+        .word-index {
+            color: var(--text-tertiary);
+            font-size: 12px;
+            transition: color var(--transition-normal);
+        }
+
+        .news-item {
+            margin-bottom: 20px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-light);
+            position: relative;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            transition: border-color var(--transition-normal);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-item.new::after {
+            content: "NEW";
+            position: absolute;
+            top: 12px;
+            right: 0;
+            background: #fbbf24;
+            color: #92400e;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 3px 6px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .news-number {
+            color: var(--text-tertiary);
+            font-size: 13px;
+            font-weight: 600;
+            min-width: 20px;
+            text-align: center;
+            flex-shrink: 0;
+            background: var(--background-light);
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: flex-start;
+            margin-top: 8px;
+            position: relative;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        .news-number .num-text { transition: opacity var(--transition-fast); }
+        .news-number .copy-icon {
+            position: absolute;
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+        .news-item:hover .news-number .num-text { opacity: 0; }
+        .news-item:hover .news-number .copy-icon { opacity: 1; }
+        .news-item:hover .news-number {
+            background: #eef2ff;
+            color: var(--primary-color);
+        }
+        .news-number.copied {
+            background: #dcfce7 !important;
+        }
+        .news-number.copied .num-text { opacity: 0 !important; }
+        .news-number.copied .copy-icon { opacity: 1 !important; }
+        body.dark-mode .news-item:hover .news-number {
+            background: #2a2a5a;
+            color: #8ab4f8;
+        }
+        body.dark-mode .news-number.copied {
+            background: #14532d !important;
+        }
+
+        .news-content {
+            flex: 1;
+            min-width: 0;
+            padding-right: 40px;
+        }
+
+        .news-item.new .news-content {
+            padding-right: 50px;
+        }
+
+        .news-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .source-name {
+            color: var(--text-secondary);
+            font-size: 12px;
+            font-weight: 500;
+            transition: color var(--transition-normal);
+        }
+
+        .keyword-tag {
+            color: #2563eb;
+            font-size: 12px;
+            font-weight: 500;
+            background: #eff6ff;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .rank-num {
+            color: #fff;
+            background: #6b7280;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 10px;
+            min-width: 18px;
+            text-align: center;
+        }
+
+        .rank-num.top { background: #dc2626; }
+        .rank-num.high { background: #ea580c; }
+
+        .time-info {
+            color: var(--text-tertiary);
+            font-size: 11px;
+            transition: color var(--transition-normal);
+        }
+
+        .count-info {
+            color: #059669;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .news-title {
+            font-size: 15px;
+            line-height: 1.4;
+            color: var(--text-primary);
+            margin: 0 0 8px 0;
+            transition: color var(--transition-normal);
+        }
+
+        .news-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-normal);
+        }
+
+        .news-link:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .news-link:visited {
+            color: var(--secondary-color);
+        }
+
+        .news-summary {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin: 0 0 8px 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            transition: color var(--transition-normal);
+        }
+
+        .news-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .news-tag {
+            color: #6b7280;
+            font-size: 11px;
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 3px;
+            transition: all var(--transition-normal);
+        }
+
+        /* 通用区域分割线样式 */
+        .section-divider {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 2px solid var(--border-medium);
+        }
+
+        /* 热榜统计区样式 */
+        .hotlist-section {
+            /* 默认无边框，由section-divider动态添加 */
+        }
+
+        .new-section {
+            margin-top: 40px;
+            padding-top: 24px;
+        }
+
+        .new-section-title {
+            color: var(--text-primary);
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 0 20px 0;
+            transition: color var(--transition-normal);
+        }
+
+        .new-source-group {
+            margin-bottom: 24px;
+        }
+
+        .new-source-title {
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
+            margin: 0 0 12px 0;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--border-light);
+            transition: color var(--transition-normal);
+        }
+
+        .new-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-light);
+            transition: border-color var(--transition-normal);
+        }
+
+        .new-item:last-child {
+            border-bottom: none;
+        }
+
+        .new-item-number {
+            color: var(--text-tertiary);
+            font-size: 12px;
+            font-weight: 600;
+            min-width: 18px;
+            text-align: center;
+            flex-shrink: 0;
+            background: var(--background-light);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-normal);
+        }
+
+        .new-item-rank {
+            color: #fff;
+            background: #6b7280;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 6px;
+            border-radius: 8px;
+            min-width: 20px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .new-item-rank.top { background: #dc2626; }
+        .new-item-rank.high { background: #ea580c; }
+
+        .new-item-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .new-item-title {
+            font-size: 14px;
+            line-height: 1.4;
+            color: var(--text-primary);
+            margin: 0;
+            transition: color var(--transition-normal);
+        }
+
+        .new-item-title a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color var(--transition-normal);
+        }
+
+        .new-item-title a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .error-section {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+
+        body.dark-mode .error-section {
+            background: #451a1a;
+            border: 1px solid #7f1d1d;
+        }
+
+        .error-title {
+            color: #dc2626;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+        }
+
+        .error-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .error-item {
+            color: #991b1b;
+            font-size: 13px;
+            padding: 2px 0;
+            font-family: 'SF Mono', Consolas, monospace;
+        }
+
+        body.dark-mode .error-item {
+            color: #fca5a5;
+        }
+
+        .footer {
+            margin-top: 32px;
+            padding: 20px 24px;
+            background: var(--background-light);
+            border-top: 1px solid var(--border-medium);
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+
+        body.dark-mode .footer {
+            background: #0f3460;
+            border-top: 1px solid #1e3a8a;
+        }
+
+        .footer-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 11px;
+            color: #999;
+        }
+
+        body.dark-mode .footer-info {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .footer-info-item {
+            text-align: center;
+        }
+
+        .footer-info-label {
+            display: block;
+            font-size: 10px;
+            margin-bottom: 2px;
+        }
+
+        .footer-info-value {
+            font-weight: 500;
+            font-size: 11px;
+        }
+
+        .footer-content {
+            font-size: 13px;
+            color: #6b7280;
+            line-height: 1.6;
+            transition: color var(--transition-normal);
+        }
+
+        body.dark-mode .footer-content {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color var(--transition-normal);
+        }
+
+        .footer-link:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        .project-name {
+            font-weight: 600;
+            color: #374151;
+            transition: color var(--transition-normal);
+        }
+
+        body.dark-mode .project-name {
+            color: rgba(255,255,255,0.9);
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 12px; }
+            .header { padding: 24px 20px; }
+            .content { padding: 20px; }
+            .footer { padding: 16px 20px; }
+            .news-header { gap: 6px; }
+            .news-content { padding-right: 45px; }
+            .news-item { gap: 8px; }
+            .new-item { gap: 8px; }
+            .news-number { width: 20px; height: 20px; font-size: 12px; }
+            .save-buttons {
+                position: static;
+                margin-bottom: 16px;
+                display: flex;
+                gap: 8px;
+                justify-content: center;
+                width: 100%;
+            }
+        }
+
+        /* RSS 订阅内容样式 */
+        .rss-section {
+            margin-top: 32px;
+            padding-top: 24px;
+        }
+
+        .rss-section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .rss-section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #059669;
+        }
+
+        .rss-section-count {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .feed-group {
+            margin-bottom: 24px;
+        }
+
+        .feed-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .feed-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent-color);
+            transition: border-color var(--transition-normal);
+        }
+
+        .feed-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--accent-color);
+            transition: color var(--transition-normal);
+        }
+
+        .feed-count {
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
+            transition: color var(--transition-normal);
+        }
+
+        .rss-item {
+            margin-bottom: 12px;
+            padding: 14px;
+            background: #f0fdf4;
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--accent-color);
+            transition: all var(--transition-normal);
+        }
+
+        body.dark-mode .rss-item {
+            background: #064e3b;
+            border-left: 3px solid #34d399;
+        }
+
+        .rss-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .rss-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+
+        .rss-time {
+            color: var(--text-tertiary);
+            font-size: 12px;
+            transition: color var(--transition-normal);
+        }
+
+        .rss-author {
+            color: var(--accent-color);
+            font-size: 12px;
+            font-weight: 500;
+            transition: color var(--transition-normal);
+        }
+
+        .rss-title {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 6px;
+        }
+
+        .rss-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-normal);
+        }
+
+        .rss-link:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        body.dark-mode .rss-link {
+            color: var(--text-primary);
+        }
+
+        body.dark-mode .rss-link:hover {
+            color: #34d399;
+        }
+
+        .rss-summary {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            transition: color var(--transition-normal);
+        }
+
+        /* 独立展示区样式 - 复用热点词汇统计区样式 */
+        .standalone-section {
+            margin-top: 32px;
+            padding-top: 24px;
+        }
+
+        .standalone-section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .standalone-section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #059669;
+        }
+
+        .standalone-section-count {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .standalone-group {
+            margin-bottom: 40px;
+        }
+
+        .standalone-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .standalone-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .standalone-name {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .standalone-count {
+            color: #666;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* AI 分析区块样式 */
+        .ai-section {
+            margin-top: 32px;
+            padding: 24px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: var(--radius-lg);
+            border: 1px solid #bae6fd;
+            transition: all var(--transition-normal);
+        }
+
+        body.dark-mode .ai-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border: 1px solid #334155;
+        }
+
+        .ai-section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .ai-section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0369a1;
+            transition: color var(--transition-normal);
+        }
+
+        body.dark-mode .ai-section-title {
+            color: #38bdf8;
+        }
+
+        .ai-section-badge {
+            background: #0ea5e9;
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .ai-blocks-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .ai-block {
+            padding: 16px;
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+        }
+
+        body.dark-mode .ai-block {
+            background: #1a1a3e;
+            border: 1px solid #2a2a4a;
+        }
+
+        .ai-block-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #0369a1;
+            margin-bottom: 8px;
+            transition: color var(--transition-normal);
+        }
+
+        body.dark-mode .ai-block-title {
+            color: #38bdf8;
+        }
+
+        .ai-block-content {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #334155;
+            white-space: pre-wrap;
+            transition: color var(--transition-normal);
+        }
+
+        body.dark-mode .ai-block-content {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .ai-error {
+            padding: 16px;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: var(--radius-md);
+            color: #991b1b;
+            font-size: 14px;
+        }
+
+        body.dark-mode .ai-error {
+            background: #451a1a;
+            border: 1px solid #7f1d1d;
+            color: #fca5a5;
+        }
+
+        .ai-info {
+            padding: 16px;
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: var(--radius-md);
+            color: #0369a1;
+            font-size: 14px;
+            transition: all var(--transition-normal);
+        }
+
+        body.dark-mode .ai-info {
+            background: #0c4a6e;
+            border: 1px solid #1e40af;
+            color: #93c5fd;
+        }
+
+        /* ===== 浏览器增强样式（渐进增强，邮件客户端无影响） ===== */
+
+        /* 宽屏模式 - 基础 */
+        body.wide-mode .container { max-width: 1200px; }
+        body.wide-mode .content { padding: 32px 40px; }
+
+        /* 宽屏模式 - RSS feed-group 两列 */
+        body.wide-mode .rss-feeds-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        body.wide-mode .feed-group { margin-bottom: 0; }
+
+        /* 宽屏模式 - AI 分析区两列网格 */
+        body.wide-mode .ai-section .ai-blocks-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        body.wide-mode .ai-block { margin-bottom: 0; }
+
+        /* 宽屏模式 - 新增热点多列 */
+        body.wide-mode .new-section .new-sources-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        body.wide-mode .new-source-group { margin-bottom: 0; }
+
+        /* 宽屏模式 - 独立展示区多列 */
+        body.wide-mode .standalone-section .standalone-groups-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        body.wide-mode .standalone-group { margin-bottom: 0; }
+
+        /* Tab 栏 */
+        .tab-bar {
+            display: none;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 8px 0 12px 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border-medium);
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            position: sticky;
+            top: 0;
+            background: var(--background-white);
+            z-index: 10;
+            gap: 4px;
+            transition: all var(--transition-normal);
+        }
+        body.wide-mode .tab-bar { display: flex; }
+        body.wide-mode .tab-bar.tab-hidden { display: none; }
+
+        .tab-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border: none;
+            background: #f3f4f6;
+            color: var(--text-secondary);
+            border-radius: var(--radius-md) var(--radius-md) 0 0;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all var(--transition-normal);
+            flex-shrink: 0;
+        }
+        .tab-btn:hover {
+            background: #e5e7eb;
+            color: #374151;
+        }
+        .tab-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        .tab-count {
+            font-size: 11px;
+            background: rgba(0,0,0,0.1);
+            padding: 1px 6px;
+            border-radius: 10px;
+        }
+        .tab-btn.active .tab-count {
+            background: rgba(255,255,255,0.3);
+        }
+        .tab-bar::-webkit-scrollbar {
+            height: 4px;
+        }
+        .tab-bar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 2px;
+        }
+        .tab-bar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+            opacity: 0.6;
+            transition: opacity var(--transition-normal);
+        }
+        .tab-bar::-webkit-scrollbar-thumb:hover {
+            opacity: 1;
+        }
+        
+        body.dark-mode .tab-bar::-webkit-scrollbar {
+            background: #2a2a4a;
+        }
+        
+        body.dark-mode .tab-bar::-webkit-scrollbar-track {
+            background: #2a2a4a;
+        }
+        
+        body.dark-mode .tab-bar::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+        }
+
+        /* 搜索栏 */
+        .search-bar { display: none; padding: 0 0 16px 0; }
+        .search-input {
+            width: 100%;
+            padding: 10px 16px;
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+            transition: all var(--transition-normal);
+            box-sizing: border-box;
+            background: var(--background-white);
+            color: var(--text-primary);
+        }
+        
+        .search-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79,70,229,0.1);
+            transform: translateY(-1px);
+        }
+        
+        .search-input::placeholder {
+            color: var(--text-tertiary);
+            transition: color var(--transition-normal);
+        }
+        
+        body.dark-mode .search-input {
+            background: #2a2a4a;
+            border-color: #333366;
+            color: var(--text-primary);
+        }
+        
+        body.dark-mode .search-input:focus {
+            box-shadow: 0 0 0 3px rgba(138, 180, 248, 0.2);
+        }
+
+        /* 右下角悬浮工具栏 */
+        .fab-bar {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 100;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity var(--transition-normal), transform var(--transition-normal);
+            pointer-events: none;
+        }
+        
+        .fab-bar.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        
+        .fab-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fab-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left var(--transition-slow);
+        }
+        
+        .fab-btn:hover {
+            transform: scale(1.1);
+            background: var(--secondary-color);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .fab-btn:hover::before {
+            left: 100%;
+        }
+        
+        body.dark-mode .fab-btn {
+            background: var(--primary-color);
+        }
+        
+        body.dark-mode .fab-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        /* 快捷键 tooltip */
+        .fab-tooltip {
+            position: absolute;
+            bottom: 0;
+            right: 52px;
+            background: rgba(30, 30, 50, 0.92);
+            backdrop-filter: blur(12px);
+            color: white;
+            border-radius: 10px;
+            padding: 12px 16px;
+            white-space: nowrap;
+            font-size: 12px;
+            line-height: 1.8;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(6px);
+            transition: all 0.2s ease;
+            pointer-events: none;
+        }
+        .fab-btn:hover .fab-tooltip,
+        .fab-btn.show-tip .fab-tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        .fab-tooltip .tip-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            align-items: center;
+        }
+        .fab-tooltip .tip-key {
+            background: rgba(255,255,255,0.15);
+            border-radius: 3px;
+            padding: 1px 6px;
+            font-family: monospace;
+            font-size: 11px;
+            margin-left: 8px;
+        }
+
+        /* 折叠/展开 */
+        .collapse-icon {
+            display: none;
+            margin-right: 6px;
+            font-size: 12px;
+            color: #9ca3af;
+            transition: transform 0.2s;
+            user-select: none;
+        }
+        .word-header.collapsible { cursor: pointer; }
+        .word-header.collapsible .collapse-icon { display: inline; }
+        .word-header.collapsible:hover {
+            background: #f9fafb;
+            border-radius: 6px;
+            margin: 0 -8px 20px -8px;
+            padding: 8px;
+        }
+        .word-group.collapsed .news-item { display: none; }
+        .word-group.collapsed .collapse-icon { transform: rotate(-90deg); }
+
+        /* Tab 切换动画 */
+        body.wide-mode .word-group[data-tab-index] { animation: tabFadeIn 0.2s ease; }
+        @keyframes tabFadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 暗色模式 */
+        body.dark-mode {
+            background: #1a1a2e;
+            color: #e0e0e0;
+        }
+        body.dark-mode .container {
+            background: #16213e;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+        }
+        body.dark-mode .header {
+            background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
+        }
+        body.dark-mode .content {
+            background: #16213e;
+        }
+        body.dark-mode .word-header {
+            border-bottom-color: #2a2a4a;
+        }
+        body.dark-mode .word-header.collapsible:hover {
+            background: #1a1a3e;
+        }
+        body.dark-mode .news-item {
+            border-bottom-color: #2a2a4a;
+        }
+        body.dark-mode .news-title a {
+            color: #8ab4f8;
+        }
+        body.dark-mode .news-title a:visited {
+            color: #c58af9;
+        }
+        body.dark-mode .news-meta {
+            color: #888;
+        }
+        body.dark-mode .tab-bar {
+            background: #16213e;
+            border-bottom-color: #2a2a4a;
+        }
+        body.dark-mode .tab-btn {
+            color: #aaa;
+        }
+        body.dark-mode .tab-btn.active {
+            color: #8ab4f8;
+            border-bottom-color: #8ab4f8;
+        }
+        body.dark-mode .tab-btn:hover {
+            color: #ccc;
+            background: rgba(255,255,255,0.05);
+        }
+        body.dark-mode .search-input {
+            background: #1a1a3e;
+            border-color: #2a2a4a;
+            color: #e0e0e0;
+        }
+        body.dark-mode .search-input:focus {
+            border-color: #8ab4f8;
+        }
+        /* dark fab-btn 已在 .fab-btn 中处理 */
+        body.dark-mode .footer {
+            background: #0f3460;
+            color: rgba(255,255,255,0.7);
+        }
+        body.dark-mode .rss-item,
+        body.dark-mode .new-item,
+        body.dark-mode .standalone-item {
+            border-bottom-color: #2a2a4a;
+        }
+        body.dark-mode .rss-title a,
+        body.dark-mode .new-item a,
+        body.dark-mode .standalone-item a {
+            color: #8ab4f8;
+        }
+        body.dark-mode .ai-block {
+            background: #1a1a3e;
+            border-color: #2a2a4a;
+        }
+        body.dark-mode .info-value {
+            color: white;
+        }
+
+        /* 新上榜标记 */
+        .badge-new {
+            display: inline-block;
+            background: linear-gradient(135deg, #f43f5e, #ec4899);
+            color: white;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 1px 6px;
+            border-radius: 3px;
+            margin-left: 6px;
+            vertical-align: middle;
+            letter-spacing: 0.5px;
+        }
+        body.dark-mode .badge-new {
+            background: linear-gradient(135deg, #be185d, #9333ea);
+        }
+    </style>
+</head>
+<body>
+    <div class="reading-progress"></div>
+    <div class="container">
+        <div class="header">
+            <div class="header-watermark">老许</div>
+            <div class="save-buttons">
+                <button class="toggle-wide-btn" onclick="toggleWideMode()" title="切换宽屏/窄屏">⛶</button>
+                <button class="toggle-dark-btn" onclick="toggleDarkMode()" title="切换暗色/亮色">☽</button>
+            </div>
+            <div class="header-title">老许聊实体 - 2026-04-16商业资讯</div>
+        </div>
+
+        <div class="content">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="搜索新闻标题..." oninput="handleSearch(this.value)">
+            </div>
+            
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="搜索新闻标题..." oninput="handleSearch(this.value)">
+                </div>
+                <div class="hotlist-section"><div class="tab-bar"><button class="tab-btn" data-tab-index="0">实体零售<span class="tab-count">2</span></button><button class="tab-btn" data-tab-index="1">餐饮行业<span class="tab-count">1</span></button><button class="tab-btn" data-tab-index="2">商业趋势<span class="tab-count">1</span></button><button class="tab-btn" data-tab-index="all">全部</button></div>
+                <div class="word-group" data-tab-index="0">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">实体零售</div>
+                            <div class="word-count ">2 条</div>
+                        </div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>1/3</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">1</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">界面新闻</span><span class="rank-num high">5</span><span class="time-info">13:02</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.jiemian.com/article/14252350.html" target="_blank" class="news-link">永辉超市38亿追款获胜，王健林等承担连带保证责任</a>
+                            </div>
+                            <div class="news-summary">永辉超市38亿追款获胜，王健林等承担连带保证责任</div>
+                            <div class="news-tags">
+                                <span class="news-tag">实体零售</span>
+                                <span class="news-tag">界面新闻</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">2</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">澎湃新闻</span><span class="rank-num ">12</span><span class="time-info">13:02</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.thepaper.cn/newsDetail_forward_32969086" target="_blank" class="news-link">深圳楼盘大降价千人排队，开发商称回款压力大</a>
+                            </div>
+                            <div class="news-summary">深圳楼盘大降价千人排队，开发商称回款压力大</div>
+                            <div class="news-tags">
+                                <span class="news-tag">实体零售</span>
+                                <span class="news-tag">澎湃新闻</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="word-group" data-tab-index="1">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">餐饮行业</div>
+                            <div class="word-count ">1 条</div>
+                        </div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>2/3</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">1</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">澎湃新闻</span><span class="rank-num ">8</span><span class="time-info">13:02</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.thepaper.cn/newsDetail_forward_32968075" target="_blank" class="news-link">拆解茶饮"六小龙"2025年成绩单，外卖大战影响有多大</a>
+                            </div>
+                            <div class="news-summary">拆解茶饮"六小龙"2025年成绩单，外卖大战影响有多大</div>
+                            <div class="news-tags">
+                                <span class="news-tag">餐饮行业</span>
+                                <span class="news-tag">澎湃新闻</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="word-group" data-tab-index="2">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">商业趋势</div>
+                            <div class="word-count ">1 条</div>
+                        </div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>3/3</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">1</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">钛媒体</span><span class="rank-num ">15</span><span class="time-info">13:02</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.tmtpost.com/7929522.html" target="_blank" class="news-link">报废机江湖野战：内存比黄金"值钱"的100天</a>
+                            </div>
+                            <div class="news-summary">报废机江湖野战：内存比黄金"值钱"的100天</div>
+                            <div class="news-tags">
+                                <span class="news-tag">商业趋势</span>
+                                <span class="news-tag">钛媒体</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="rss-section section-divider">
+                    <div class="rss-section-header">
+                        <h2 class="rss-section-title">RSS 订阅</h2>
+                        <span class="rss-section-count">3 个源</span>
+                    </div>
+                    <div class="rss-feeds-grid">
+                    <div class="feed-group">
+                        <div class="feed-header">
+                            <h3 class="feed-name">界面新闻</h3>
+                            <span class="feed-count">1 条</span>
+                        </div>
+                        <div class="rss-item">
+                            <div class="rss-meta">
+                                <span class="rss-time"></span>
+                                <span class="rss-author"></span>
+                            </div>
+                            <div class="rss-title">
+                                <a href="https://www.jiemian.com/article/14252350.html" target="_blank" class="rss-link">永辉超市38亿追款获胜，王健林等承担连带保证责任</a>
+                            </div>
+                            <div class="rss-summary"></div>
+                        </div>
+                    </div>
+                    <div class="feed-group">
+                        <div class="feed-header">
+                            <h3 class="feed-name">运营派</h3>
+                            <span class="feed-count">1 条</span>
+                        </div>
+                        <div class="rss-item">
+                            <div class="rss-meta">
+                                <span class="rss-time">04-16 12:44</span>
+                                <span class="rss-author"></span>
+                            </div>
+                            <div class="rss-title">
+                                <a href="https://www.yunyingpai.com/news/1059688.html" target="_blank" class="rss-link">做亚马逊电商要花多少钱？我用一轮最低成本试错给了个答案</a>
+                            </div>
+                            <div class="rss-summary"></div>
+                        </div>
+                    </div>
+                    <div class="feed-group">
+                        <div class="feed-header">
+                            <h3 class="feed-name">钛媒体</h3>
+                            <span class="feed-count">1 条</span>
+                        </div>
+                        <div class="rss-item">
+                            <div class="rss-meta">
+                                <span class="rss-time">04-16 11:49</span>
+                                <span class="rss-author"></span>
+                            </div>
+                            <div class="rss-title">
+                                <a href="https://www.tmtpost.com/7929522.html" target="_blank" class="rss-link">报废机江湖野战：内存比黄金"值钱"的100天</a>
+                            </div>
+                            <div class="rss-summary"></div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="ai-section section-divider">
+                    <div class="ai-section-header">
+                        <h2 class="ai-section-title">AI 分析</h2>
+                        <span class="ai-section-badge">GPT</span>
+                    </div>
+                    <div class="ai-blocks-grid">
+                <div class="ai-block">
+                    <div class="ai-block-title">核心热点态势</div>
+                    <div class="ai-block-content">今日实体商业领域热点集中在零售、房地产和餐饮三大板块，核心主题围绕成本压力与市场竞争展开。<br><br>【实体零售】<br>永辉超市38亿追款案胜诉，暴露了大型零售企业在扩张过程中的财务风险，同时反映出当前实体零售行业资金链紧张的普遍现状。<br><br>【房地产市场】<br>深圳楼盘大降价引发千人排队，开发商面临回款压力，显示房地产市场仍在调整期，价格战成为重要竞争手段。<br><br>【餐饮行业】<br>茶饮"六小龙"2025年成绩单被拆解，外卖大战对行业影响成为焦点，反映出餐饮企业在流量获取和成本控制方面的挑战。<br><br>【商业趋势】<br>报废机回收市场的兴起，特别是内存价格的上涨，显示出电子废弃物回收利用的商业价值，为循环经济提供新机遇。</div>
+                </div>
+                <div class="ai-block">
+                    <div class="ai-block-title">舆论风向争议</div>
+                    <div class="ai-block-content">【情绪光谱】<br>主流舆论对实体商业面临的成本压力和市场竞争表示关注，对永辉超市的胜诉持中性态度，对深圳楼盘降价则表现出消费者的观望情绪。<br><br>【核心矛盾】<br>1. 成本与利润的平衡：实体企业如何在高成本环境下保持盈利能力？<br><br>2. 市场竞争与可持续发展：价格战是否是实体企业的最优选择？<br><br>3. 传统行业与新兴趋势：如何在保持传统优势的同时拥抱新的商业机会？</div>
+                </div>
+                <div class="ai-block">
+                    <div class="ai-block-title">异动与弱信号</div>
+                    <div class="ai-block-content">1. 电子废弃物回收市场的兴起：报废机内存价格超过黄金，显示出循环经济在电子领域的巨大潜力，可能成为实体商业的新增长点。<br><br>2. 茶饮行业的外卖依赖：外卖大战对茶饮企业的影响，反映出餐饮行业对线上渠道的依赖程度加深，可能导致利润进一步压缩。<br><br>3. 房地产市场的价格调整：深圳楼盘大降价引发排队抢购，显示出消费者对价格敏感，可能预示着房地产市场进入新的调整阶段。</div>
+                </div>
+                <div class="ai-block">
+                    <div class="ai-block-title">研判策略建议</div>
+                    <div class="ai-block-content">1. 实体零售企业：加强财务风险管理，优化供应链，探索线上线下融合的新零售模式。可考虑与社区团购、直播电商等新兴渠道合作，降低获客成本。<br><br>2. 餐饮企业：在参与外卖大战的同时，注重提升堂食体验，打造差异化竞争优势。可通过会员体系、私域流量运营等方式提高客户忠诚度，降低对平台的依赖。<br><br>3. 房地产开发商：在价格调整的同时，注重提升产品品质和服务水平，探索多元化的销售模式，如现房销售、定制化服务等，增强市场竞争力。<br><br>4. 创业者：关注电子废弃物回收等循环经济领域，利用技术手段提高回收效率和附加值，寻找新的商业机会。</div>
+                </div>
+                <div class="ai-block">
+                    <div class="ai-block-title">独立源点速览</div>
+                    <div class="ai-block-content">【运营派】<br>运营派关注亚马逊电商的成本结构，通过实际试错案例分析了做亚马逊电商的最低成本，为跨境电商创业者提供了参考。这与实体商业的成本控制主题形成呼应，显示出线上线下企业都面临成本管理的挑战。<br><br>【钛媒体】<br>钛媒体聚焦报废机回收市场，详细报道了内存价格上涨的现象，为实体商业提供了新的视角：传统行业的废弃物可能成为新的利润来源，循环经济正在成为实体商业的新增长点。</div>
+                </div>
+                    </div>
+                </div>
+            <div class="footer">
+                <div class="footer-info">
+                    <div class="footer-info-item">
+                        <span class="footer-info-label">报告类型</span>
+                        <span class="footer-info-value">全天汇总</span>
+                    </div>
+                    <div class="footer-info-item">
+                        <span class="footer-info-label">抓取总数</span>
+                        <span class="footer-info-value">255 条</span>
+                    </div>
+                    <div class="footer-info-item">
+                        <span class="footer-info-label">筛选结果</span>
+                        <span class="footer-info-value">4 条</span>
+                    </div>
+                    <div class="footer-info-item">
+                        <span class="footer-info-label">新闻日期</span>
+                        <span class="footer-info-value">04-16 13:04</span>
+                    </div>
+                </div>
+                <div class="footer-content">
+                    老许聊实体 - 2026-04-16商业资讯 | 数据抓取时间: 2026-04-16 13:04:31
+                </div>
+            </div>
+        </div>
+
+        <div class="fab-bar">
+            <button class="fab-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="返回顶部">↑</button>
+            <button class="fab-btn fab-help">
+                <span>?</span>
+                <div class="fab-tooltip">
+                    <div class="tip-row"><span>切换宽屏</span><span class="tip-key">W</span></div>
+                    <div class="tip-row"><span>暗色模式</span><span class="tip-key">D</span></div>
+                    <div class="tip-row"><span>搜索</span><span class="tip-key">/</span></div>
+                    <div class="tip-row"><span>上一个 Tab</span><span class="tip-key">←</span></div>
+                    <div class="tip-row"><span>下一个 Tab</span><span class="tip-key">→</span></div>
+                    <div class="tip-row"><span>序号可复制</span><span class="tip-key">点击</span></div>
+                </div>
+            </button>
+        </div>
+
+        <script>
+            // ===== 浏览器增强功能 =====
+
+            function toggleWideMode() {
+                document.body.classList.toggle('wide-mode');
+                var isWide = document.body.classList.contains('wide-mode');
+                try { localStorage.setItem('trendradar-wide-mode', isWide ? '1' : '0'); } catch(e) {}
+                var btn = document.querySelector('.toggle-wide-btn');
+                if (btn) btn.textContent = isWide ? '⊡' : '⛶';
+                initTabVisibility();
+                initCollapseVisibility();
+                initStandaloneTabVisibility();
+            }
+
+            function toggleDarkMode() {
+                var isDark = document.body.classList.toggle('dark-mode');
+                try { localStorage.setItem('trendradar-dark-mode', isDark ? '1' : '0'); } catch(e) {}
+                var btn = document.querySelector('.toggle-dark-btn');
+                if (btn) btn.textContent = isDark ? '☀' : '☽';
+            }
+
+            function initTabs() {
+                var tabBar = document.querySelector('.tab-bar');
+                if (!tabBar) return;
+                var tabs = tabBar.querySelectorAll('.tab-btn');
+                var groups = document.querySelectorAll('.word-group[data-tab-index]');
+                initTabVisibility();
+
+                function activateTab(index) {
+                    tabs.forEach(function(t) { t.classList.remove('active'); });
+                    if (index === 'all') {
+                        var allBtn = tabBar.querySelector('[data-tab-index="all"]');
+                        if (allBtn) allBtn.classList.add('active');
+                        groups.forEach(function(g) { g.style.display = ''; });
+                        try { history.replaceState(null, '', '#all'); } catch(e) {}
+                        return;
+                    }
+                    var idx = parseInt(index);
+                    tabs.forEach(function(t) {
+                        if (parseInt(t.dataset.tabIndex) === idx) t.classList.add('active');
+                    });
+                    if (document.body.classList.contains('wide-mode') && !tabBar.classList.contains('tab-hidden')) {
+                        groups.forEach(function(g) {
+                            g.style.display = (parseInt(g.dataset.tabIndex) === idx) ? '' : 'none';
+                        });
+                    }
+                    try { history.replaceState(null, '', '#tab-' + idx); } catch(e) {}
+                }
+
+                tabs.forEach(function(tab) {
+                    tab.addEventListener('click', function() {
+                        var idx = tab.dataset.tabIndex;
+                        activateTab(idx === 'all' ? 'all' : parseInt(idx));
+                    });
+                });
+
+                tabBar.addEventListener('keydown', function(e) {
+                    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                        var tabsArr = Array.from(tabs);
+                        var ci = tabsArr.findIndex(function(t) { return t.classList.contains('active'); });
+                        var dir = e.key === 'ArrowRight' ? 1 : -1;
+                        var ni = Math.max(0, Math.min(tabsArr.length - 1, ci + dir));
+                        var nt = tabsArr[ni];
+                        activateTab(nt.dataset.tabIndex === 'all' ? 'all' : parseInt(nt.dataset.tabIndex));
+                        nt.focus();
+                        e.preventDefault();
+                    }
+                });
+
+                var hash = window.location.hash;
+                if (hash === '#all') { activateTab('all'); }
+                else if (hash.indexOf('#tab-') === 0) { activateTab(parseInt(hash.replace('#tab-', ''))); }
+                else { activateTab(0); }
+            }
+
+            function initTabVisibility() {
+                var tabBar = document.querySelector('.tab-bar');
+                if (!tabBar) return;
+                var groups = document.querySelectorAll('.word-group[data-tab-index]');
+                var isWide = document.body.classList.contains('wide-mode');
+                if (!isWide || groups.length <= 2) {
+                    tabBar.classList.add('tab-hidden');
+                    groups.forEach(function(g) { g.style.display = ''; });
+                } else {
+                    tabBar.classList.remove('tab-hidden');
+                    var activeTab = tabBar.querySelector('.tab-btn.active');
+                    if (activeTab) { activeTab.click(); }
+                    else {
+                        var firstTab = tabBar.querySelector('.tab-btn');
+                        if (firstTab) firstTab.click();
+                    }
+                }
+            }
+
+            function handleSearch(query) {
+                query = query.toLowerCase();
+                document.querySelectorAll('.news-item').forEach(function(item) {
+                    var title = (item.querySelector('.news-title') || {}).textContent || '';
+                    item.style.display = (!query || title.toLowerCase().indexOf(query) !== -1) ? '' : 'none';
+                });
+                document.querySelectorAll('.rss-item').forEach(function(item) {
+                    var title = (item.querySelector('.rss-title') || {}).textContent || '';
+                    item.style.display = (!query || title.toLowerCase().indexOf(query) !== -1) ? '' : 'none';
+                });
+            }
+
+            function initBackToTop() {
+                var fabBar = document.querySelector('.fab-bar');
+                if (!fabBar) return;
+                window.addEventListener('scroll', function() {
+                    fabBar.classList.toggle('visible', window.scrollY > 300);
+                });
+            }
+
+            function initCollapse() {
+                document.querySelectorAll('.word-header').forEach(function(header) {
+                    header.addEventListener('click', function() {
+                        var tabBar = document.querySelector('.tab-bar');
+                        if (document.body.classList.contains('wide-mode') && tabBar && !tabBar.classList.contains('tab-hidden')) return;
+                        var group = header.closest('.word-group');
+                        if (group) group.classList.toggle('collapsed');
+                    });
+                });
+                initCollapseVisibility();
+            }
+
+            function initCollapseVisibility() {
+                var headers = document.querySelectorAll('.word-header');
+                var tabBar = document.querySelector('.tab-bar');
+                var isTabMode = document.body.classList.contains('wide-mode') && tabBar && !tabBar.classList.contains('tab-hidden');
+                headers.forEach(function(h) {
+                    if (isTabMode) { h.classList.remove('collapsible'); }
+                    else { h.classList.add('collapsible'); }
+                });
+                if (isTabMode) {
+                    document.querySelectorAll('.word-group.collapsed').forEach(function(g) {
+                        g.classList.remove('collapsed');
+                    });
+                }
+            }
+
+            // 独立展示区 Tab 切换
+            function initStandaloneTabs() {
+                var tabBar = document.querySelector('.standalone-tab-bar');
+                if (!tabBar) return;
+                var groups = document.querySelectorAll('.standalone-group[data-standalone-tab]');
+                var btns = tabBar.querySelectorAll('.tab-btn[data-standalone-tab]');
+
+                function activateStandaloneTab(val) {
+                    btns.forEach(function(b) {
+                        var bVal = b.getAttribute('data-standalone-tab');
+                        b.classList.toggle('active', bVal === String(val));
+                    });
+                    groups.forEach(function(g) {
+                        var gVal = g.getAttribute('data-standalone-tab');
+                        g.style.display = (val === 'all' || gVal === String(val)) ? '' : 'none';
+                    });
+                }
+
+                btns.forEach(function(btn) {
+                    btn.addEventListener('click', function() {
+                        activateStandaloneTab(btn.getAttribute('data-standalone-tab'));
+                    });
+                });
+
+                // 初始状态
+                initStandaloneTabVisibility();
+            }
+
+            function initStandaloneTabVisibility() {
+                var tabBar = document.querySelector('.standalone-tab-bar');
+                if (!tabBar) return;
+                var groups = document.querySelectorAll('.standalone-group[data-standalone-tab]');
+                var isWide = document.body.classList.contains('wide-mode');
+                if (!isWide || groups.length <= 1) {
+                    tabBar.classList.add('tab-hidden');
+                    groups.forEach(function(g) { g.style.display = ''; });
+                } else {
+                    tabBar.classList.remove('tab-hidden');
+                    var activeBtn = tabBar.querySelector('.tab-btn.active');
+                    if (activeBtn) activeBtn.click();
+                    else { var first = tabBar.querySelector('.tab-btn'); if (first) first.click(); }
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                window.scrollTo(0, 0);
+
+                // 自动检测宽屏模式
+                var savedMode = null;
+                try { savedMode = localStorage.getItem('trendradar-wide-mode'); } catch(e) {}
+                if (savedMode === '1' || (savedMode === null && window.innerWidth > 768)) {
+                    document.body.classList.add('wide-mode');
+                    var btn = document.querySelector('.toggle-wide-btn');
+                    if (btn) btn.textContent = '⊡';
+                }
+
+                // 暗色模式恢复
+                var savedDark = null;
+                try { savedDark = localStorage.getItem('trendradar-dark-mode'); } catch(e) {}
+                if (savedDark === '1') {
+                    document.body.classList.add('dark-mode');
+                    var darkBtn = document.querySelector('.toggle-dark-btn');
+                    if (darkBtn) darkBtn.textContent = '☀';
+                }
+
+                // 启用搜索栏
+                var searchBar = document.querySelector('.search-bar');
+                if (searchBar) searchBar.style.display = 'block';
+
+                // 初始化增强功能
+                initTabs();
+                initBackToTop();
+                initCollapse();
+                initStandaloneTabs();
+
+                // 键盘快捷键
+                document.addEventListener('keydown', function(e) {
+                    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+                    var helpBtn = document.querySelector('.fab-help');
+                    switch(e.key) {
+                        case '?':
+                            if (helpBtn) {
+                                helpBtn.classList.toggle('show-tip');
+                                var fabBar = document.querySelector('.fab-bar');
+                                if (fabBar) fabBar.classList.add('visible');
+                            }
+                            break;
+                        case 'Escape':
+                            if (helpBtn) helpBtn.classList.remove('show-tip');
+                            break;
+                        case 'w': case 'W': toggleWideMode(); break;
+                        case 'd': case 'D': toggleDarkMode(); break;
+                        case '/': e.preventDefault(); var si = document.querySelector('.search-input'); if (si) si.focus(); break;
+                    }
+                });
+
+                // 阅读进度条
+                var progressBar = document.querySelector('.reading-progress');
+                if (progressBar) {
+                    window.addEventListener('scroll', function() {
+                        var h = document.documentElement.scrollHeight - window.innerHeight;
+                        progressBar.style.width = (h > 0 ? (window.scrollY / h * 100) : 0) + '%';
+                    });
+                }
+
+                // 一键复制：hover 时数字变复制图标
+                var copySvg = '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M5 11H3.5A1.5 1.5 0 012 9.5v-7A1.5 1.5 0 013.5 1h7A1.5 1.5 0 0112 2.5V5"/></svg>';
+                var checkSvg = '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#22c55e" stroke-width="2"><path d="M3 8.5l3.5 3.5 7-7"/></svg>';
+                document.querySelectorAll('.news-item .news-number').forEach(function(numEl) {
+                    var item = numEl.closest('.news-item');
+                    var titleEl = item ? item.querySelector('.news-title a') : null;
+                    if (!titleEl) return;
+                    var numText = numEl.textContent.trim();
+                    numEl.innerHTML = '<span class="num-text">' + numText + '</span><span class="copy-icon">' + copySvg + '</span>';
+                    numEl.title = '点击复制标题和链接';
+                    numEl.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        var text = titleEl.textContent.trim() + ' ' + titleEl.href;
+                        navigator.clipboard.writeText(text).then(function() {
+                            numEl.classList.add('copied');
+                            numEl.querySelector('.copy-icon').innerHTML = checkSvg;
+                            setTimeout(function() {
+                                numEl.classList.remove('copied');
+                                numEl.querySelector('.copy-icon').innerHTML = copySvg;
+                            }, 1500);
+                        });
+                    });
+                });
+
+                // Header watermark 鼠标跟随揭示
+                (function() {
+                    var header = document.querySelector('.header');
+                    var watermark = document.querySelector('.header-watermark');
+                    if (!header || !watermark) return;
+
+                    var radius = 100;
+
+                    header.addEventListener('mousemove', function(e) {
+                        var rect = watermark.getBoundingClientRect();
+                        var x = e.clientX - rect.left;
+                        var y = e.clientY - rect.top;
+                        var maskVal = 'radial-gradient(circle ' + radius + 'px at ' + x + 'px ' + y + 'px, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%)';
+                        watermark.style.webkitMaskImage = maskVal;
+                        watermark.style.maskImage = maskVal;
+                        watermark.style.color = 'rgba(255, 255, 255, 0.25)';
+                    });
+
+                    header.addEventListener('mouseleave', function() {
+                        watermark.style.webkitMaskImage = 'radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)';
+                        watermark.style.maskImage = 'radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)';
+                        watermark.style.color = 'rgba(255, 255, 255, 0.15)';
+                    });
+                })();
+            });
+        </script>
+    </body>
+</html>
