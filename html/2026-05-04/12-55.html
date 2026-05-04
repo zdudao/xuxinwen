@@ -1,0 +1,3235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>老许聊实体 - 2026-05-04商业资讯</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        * { box-sizing: border-box; }
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #7c3aed;
+            --accent-color: #10b981;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666;
+            --text-tertiary: #999;
+            --border-light: #f5f5f5;
+            --border-medium: #e5e7eb;
+            --border-dark: #d1d5db;
+            --background-white: #ffffff;
+            --background-light: #f8f9fa;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --transition-fast: 0.15s ease;
+            --transition-normal: 0.2s ease;
+            --transition-slow: 0.3s ease;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 16px;
+            background: #fafafa;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 32px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(40px, 8vw, 80px);
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            color: rgba(255, 255, 255, 0.15);
+            pointer-events: none;
+            z-index: 1;
+            white-space: nowrap;
+            -webkit-mask-image: radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+            mask-image: radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+            transition: -webkit-mask-image var(--transition-normal), mask-image var(--transition-normal);
+            user-select: none;
+        }
+
+        .save-buttons {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .toggle-wide-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all var(--transition-normal);
+            backdrop-filter: blur(10px);
+            line-height: 1;
+            min-height: 38px;
+        }
+        .toggle-wide-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .toggle-dark-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all var(--transition-normal);
+            backdrop-filter: blur(10px);
+            line-height: 1;
+            min-height: 38px;
+        }
+        .toggle-dark-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .header-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .content {
+            padding: 24px;
+        }
+
+        .word-group {
+            margin-bottom: 40px;
+        }
+
+        .word-group:first-child {
+            margin-top: 0;
+        }
+
+        .word-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-light);
+            transition: border-color var(--transition-normal);
+        }
+
+        .word-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .word-name {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text-primary);
+            transition: color var(--transition-normal);
+        }
+
+        .word-count {
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
+            transition: color var(--transition-normal);
+        }
+
+        .word-count.hot { color: #dc2626; font-weight: 600; }
+        .word-count.warm { color: #ea580c; font-weight: 600; }
+
+        .word-index {
+            color: var(--text-tertiary);
+            font-size: 12px;
+            transition: color var(--transition-normal);
+        }
+
+        .news-item {
+            margin-bottom: 20px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-light);
+            position: relative;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            transition: border-color var(--transition-normal);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-item.new::after {
+            content: "NEW";
+            position: absolute;
+            top: 12px;
+            right: 0;
+            background: #fbbf24;
+            color: #92400e;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 3px 6px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .news-number {
+            color: var(--text-tertiary);
+            font-size: 13px;
+            font-weight: 600;
+            min-width: 20px;
+            text-align: center;
+            flex-shrink: 0;
+            background: var(--background-light);
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: flex-start;
+            margin-top: 8px;
+            position: relative;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        .news-number .num-text { transition: opacity var(--transition-fast); }
+        .news-number .copy-icon {
+            position: absolute;
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+        .news-item:hover .news-number .num-text { opacity: 0; }
+        .news-item:hover .news-number .copy-icon { opacity: 1; }
+        .news-item:hover .news-number {
+            background: #eef2ff;
+            color: var(--primary-color);
+        }
+        .news-number.copied {
+            background: #dcfce7 !important;
+        }
+        .news-number.copied .num-text { opacity: 0 !important; }
+        .news-number.copied .copy-icon { opacity: 1 !important; }
+        body.dark-mode .news-item:hover .news-number {
+            background: #2a2a5a;
+            color: #8ab4f8;
+        }
+        body.dark-mode .news-number.copied {
+            background: #14532d !important;
+        }
+
+        .news-content {
+            flex: 1;
+            min-width: 0;
+            padding-right: 40px;
+        }
+
+        .news-item.new .news-content {
+            padding-right: 50px;
+        }
+
+        .news-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .source-name {
+            color: var(--text-secondary);
+            font-size: 12px;
+            font-weight: 500;
+            transition: color var(--transition-normal);
+        }
+
+        .keyword-tag {
+            color: #2563eb;
+            font-size: 12px;
+            font-weight: 500;
+            background: #eff6ff;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .rank-num {
+            color: #fff;
+            background: #6b7280;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 10px;
+            min-width: 18px;
+            text-align: center;
+        }
+
+        .rank-num.top { background: #dc2626; }
+        .rank-num.high { background: #ea580c; }
+
+        .time-info {
+            color: var(--text-tertiary);
+            font-size: 11px;
+            transition: color var(--transition-normal);
+        }
+
+        .count-info {
+            color: #059669;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .news-title {
+            font-size: 15px;
+            line-height: 1.4;
+            color: var(--text-primary);
+            margin: 0 0 8px 0;
+            transition: color var(--transition-normal);
+        }
+
+        .news-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-normal);
+        }
+
+        .news-link:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .news-link:visited {
+            color: var(--secondary-color);
+        }
+
+        .news-summary {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin: 0 0 8px 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            transition: color var(--transition-normal);
+        }
+
+        .news-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .news-tag {
+            color: #6b7280;
+            font-size: 11px;
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 3px;
+            transition: all var(--transition-normal);
+        }
+
+        /* 通用区域分割线样式 */
+        .section-divider {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 2px solid var(--border-medium);
+        }
+
+        /* 热榜统计区样式 */
+        .hotlist-section {
+            /* 默认无边框，由section-divider动态添加 */
+        }
+
+        .new-section {
+            margin-top: 40px;
+            padding-top: 24px;
+        }
+
+        .new-section-title {
+            color: var(--text-primary);
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 0 20px 0;
+            transition: color var(--transition-normal);
+        }
+
+        .new-source-group {
+            margin-bottom: 24px;
+        }
+
+        .new-source-title {
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
+            margin: 0 0 12px 0;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--border-light);
+            transition: color var(--transition-normal);
+        }
+
+        .new-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-light);
+            transition: border-color var(--transition-normal);
+        }
+
+        .new-item:last-child {
+            border-bottom: none;
+        }
+
+        .new-item-number {
+            color: var(--text-tertiary);
+            font-size: 12px;
+            font-weight: 600;
+            min-width: 18px;
+            text-align: center;
+            flex-shrink: 0;
+            background: var(--background-light);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-normal);
+        }
+
+        .new-item-rank {
+            color: #fff;
+            background: #6b7280;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 6px;
+            border-radius: 8px;
+            min-width: 20px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .new-item-rank.top { background: #dc2626; }
+        .new-item-rank.high { background: #ea580c; }
+
+        .new-item-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .new-item-title {
+            font-size: 14px;
+            line-height: 1.4;
+            color: var(--text-primary);
+            margin: 0;
+            transition: color var(--transition-normal);
+        }
+
+        .new-item-title a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color var(--transition-normal);
+        }
+
+        .new-item-title a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .error-section {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+
+        body.dark-mode .error-section {
+            background: #451a1a;
+            border: 1px solid #7f1d1d;
+        }
+
+        .error-title {
+            color: #dc2626;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+        }
+
+        .error-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .error-item {
+            color: #991b1b;
+            font-size: 13px;
+            padding: 2px 0;
+            font-family: 'SF Mono', Consolas, monospace;
+        }
+
+        body.dark-mode .error-item {
+            color: #fca5a5;
+        }
+
+        .footer {
+            margin-top: 32px;
+            padding: 20px 24px;
+            background: var(--background-light);
+            border-top: 1px solid var(--border-medium);
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+
+        body.dark-mode .footer {
+            background: #0f3460;
+            border-top: 1px solid #1e3a8a;
+        }
+
+        .footer-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 11px;
+            color: #999;
+        }
+
+        body.dark-mode .footer-info {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .footer-info-item {
+            text-align: center;
+        }
+
+        .footer-info-label {
+            display: block;
+            font-size: 10px;
+            margin-bottom: 2px;
+        }
+
+        .footer-info-value {
+            font-weight: 500;
+            font-size: 11px;
+        }
+
+        .footer-content {
+            font-size: 13px;
+            color: #6b7280;
+            line-height: 1.6;
+            transition: color var(--transition-normal);
+        }
+
+        body.dark-mode .footer-content {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color var(--transition-normal);
+        }
+
+        .footer-link:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        .project-name {
+            font-weight: 600;
+            color: #374151;
+            transition: color var(--transition-normal);
+        }
+
+        body.dark-mode .project-name {
+            color: rgba(255,255,255,0.9);
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 12px; }
+            .header { padding: 24px 20px; }
+            .content { padding: 20px; }
+            .footer { padding: 16px 20px; }
+            .news-header { gap: 6px; }
+            .news-content { padding-right: 45px; }
+            .news-item { gap: 8px; }
+            .new-item { gap: 8px; }
+            .news-number { width: 20px; height: 20px; font-size: 12px; }
+            .save-buttons {
+                position: static;
+                margin-bottom: 16px;
+                display: flex;
+                gap: 8px;
+                justify-content: center;
+                width: 100%;
+            }
+        }
+
+        /* RSS 订阅内容样式 */
+        .rss-section {
+            margin-top: 32px;
+            padding-top: 24px;
+        }
+
+        .rss-section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .rss-section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #059669;
+        }
+
+        .rss-section-count {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .feed-group {
+            margin-bottom: 24px;
+        }
+
+        .feed-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .feed-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent-color);
+            transition: border-color var(--transition-normal);
+        }
+
+        .feed-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--accent-color);
+            transition: color var(--transition-normal);
+        }
+
+        .feed-count {
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
+            transition: color var(--transition-normal);
+        }
+
+        .rss-item {
+            margin-bottom: 12px;
+            padding: 14px;
+            background: #f0fdf4;
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--accent-color);
+            transition: all var(--transition-normal);
+        }
+
+        body.dark-mode .rss-item {
+            background: #064e3b;
+            border-left: 3px solid #34d399;
+        }
+
+        .rss-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .rss-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+
+        .rss-time {
+            color: var(--text-tertiary);
+            font-size: 12px;
+            transition: color var(--transition-normal);
+        }
+
+        .rss-author {
+            color: var(--accent-color);
+            font-size: 12px;
+            font-weight: 500;
+            transition: color var(--transition-normal);
+        }
+
+        .rss-title {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 6px;
+        }
+
+        .rss-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-normal);
+        }
+
+        .rss-link:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        body.dark-mode .rss-link {
+            color: var(--text-primary);
+        }
+
+        body.dark-mode .rss-link:hover {
+            color: #34d399;
+        }
+
+        .rss-summary {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            transition: color var(--transition-normal);
+        }
+
+        /* 独立展示区样式 - 复用热点词汇统计区样式 */
+        .standalone-section {
+            margin-top: 32px;
+            padding-top: 24px;
+        }
+
+        .standalone-section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .standalone-section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #059669;
+        }
+
+        .standalone-section-count {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .standalone-group {
+            margin-bottom: 40px;
+        }
+
+        .standalone-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .standalone-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .standalone-name {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .standalone-count {
+            color: #666;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* AI 分析区块样式 */
+        .ai-section {
+            margin-top: 32px;
+            padding: 24px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: var(--radius-lg);
+            border: 1px solid #bae6fd;
+            transition: all var(--transition-normal);
+        }
+
+        body.dark-mode .ai-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border: 1px solid #334155;
+        }
+
+        .ai-section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .ai-section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0369a1;
+            transition: color var(--transition-normal);
+        }
+
+        body.dark-mode .ai-section-title {
+            color: #38bdf8;
+        }
+
+        .ai-section-badge {
+            background: #0ea5e9;
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .ai-blocks-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .ai-block {
+            padding: 16px;
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+        }
+
+        body.dark-mode .ai-block {
+            background: #1a1a3e;
+            border: 1px solid #2a2a4a;
+        }
+
+        .ai-block-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #0369a1;
+            margin-bottom: 8px;
+            transition: color var(--transition-normal);
+        }
+
+        body.dark-mode .ai-block-title {
+            color: #38bdf8;
+        }
+
+        .ai-block-content {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #334155;
+            white-space: pre-wrap;
+            transition: color var(--transition-normal);
+        }
+
+        body.dark-mode .ai-block-content {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .ai-error {
+            padding: 16px;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: var(--radius-md);
+            color: #991b1b;
+            font-size: 14px;
+        }
+
+        body.dark-mode .ai-error {
+            background: #451a1a;
+            border: 1px solid #7f1d1d;
+            color: #fca5a5;
+        }
+
+        .ai-info {
+            padding: 16px;
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: var(--radius-md);
+            color: #0369a1;
+            font-size: 14px;
+            transition: all var(--transition-normal);
+        }
+
+        body.dark-mode .ai-info {
+            background: #0c4a6e;
+            border: 1px solid #1e40af;
+            color: #93c5fd;
+        }
+
+        /* ===== 浏览器增强样式（渐进增强，邮件客户端无影响） ===== */
+
+        /* 宽屏模式 - 基础 */
+        body.wide-mode .container { max-width: 1200px; }
+        body.wide-mode .content { padding: 32px 40px; }
+
+        /* 宽屏模式 - RSS feed-group 两列 */
+        body.wide-mode .rss-feeds-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        body.wide-mode .feed-group { margin-bottom: 0; }
+
+        /* 宽屏模式 - AI 分析区两列网格 */
+        body.wide-mode .ai-section .ai-blocks-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        body.wide-mode .ai-block { margin-bottom: 0; }
+
+        /* 宽屏模式 - 新增热点多列 */
+        body.wide-mode .new-section .new-sources-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        body.wide-mode .new-source-group { margin-bottom: 0; }
+
+        /* 宽屏模式 - 独立展示区多列 */
+        body.wide-mode .standalone-section .standalone-groups-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        body.wide-mode .standalone-group { margin-bottom: 0; }
+
+        /* Tab 栏 */
+        .tab-bar {
+            display: none;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 8px 0 12px 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border-medium);
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            position: sticky;
+            top: 0;
+            background: var(--background-white);
+            z-index: 10;
+            gap: 4px;
+            transition: all var(--transition-normal);
+        }
+        body.wide-mode .tab-bar { display: flex; }
+        body.wide-mode .tab-bar.tab-hidden { display: none; }
+
+        .tab-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border: none;
+            background: #f3f4f6;
+            color: var(--text-secondary);
+            border-radius: var(--radius-md) var(--radius-md) 0 0;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all var(--transition-normal);
+            flex-shrink: 0;
+        }
+        .tab-btn:hover {
+            background: #e5e7eb;
+            color: #374151;
+        }
+        .tab-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        .tab-count {
+            font-size: 11px;
+            background: rgba(0,0,0,0.1);
+            padding: 1px 6px;
+            border-radius: 10px;
+        }
+        .tab-btn.active .tab-count {
+            background: rgba(255,255,255,0.3);
+        }
+        .tab-bar::-webkit-scrollbar {
+            height: 4px;
+        }
+        .tab-bar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 2px;
+        }
+        .tab-bar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+            opacity: 0.6;
+            transition: opacity var(--transition-normal);
+        }
+        .tab-bar::-webkit-scrollbar-thumb:hover {
+            opacity: 1;
+        }
+        
+        body.dark-mode .tab-bar::-webkit-scrollbar {
+            background: #2a2a4a;
+        }
+        
+        body.dark-mode .tab-bar::-webkit-scrollbar-track {
+            background: #2a2a4a;
+        }
+        
+        body.dark-mode .tab-bar::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+        }
+
+        /* 搜索栏 */
+        .search-bar { display: none; padding: 0 0 16px 0; }
+        .search-input {
+            width: 100%;
+            padding: 10px 16px;
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+            transition: all var(--transition-normal);
+            box-sizing: border-box;
+            background: var(--background-white);
+            color: var(--text-primary);
+        }
+        
+        .search-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79,70,229,0.1);
+            transform: translateY(-1px);
+        }
+        
+        .search-input::placeholder {
+            color: var(--text-tertiary);
+            transition: color var(--transition-normal);
+        }
+        
+        body.dark-mode .search-input {
+            background: #2a2a4a;
+            border-color: #333366;
+            color: var(--text-primary);
+        }
+        
+        body.dark-mode .search-input:focus {
+            box-shadow: 0 0 0 3px rgba(138, 180, 248, 0.2);
+        }
+
+        /* 右下角悬浮工具栏 */
+        .fab-bar {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 100;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity var(--transition-normal), transform var(--transition-normal);
+            pointer-events: none;
+        }
+        
+        .fab-bar.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        
+        .fab-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fab-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left var(--transition-slow);
+        }
+        
+        .fab-btn:hover {
+            transform: scale(1.1);
+            background: var(--secondary-color);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .fab-btn:hover::before {
+            left: 100%;
+        }
+        
+        body.dark-mode .fab-btn {
+            background: var(--primary-color);
+        }
+        
+        body.dark-mode .fab-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        /* 快捷键 tooltip */
+        .fab-tooltip {
+            position: absolute;
+            bottom: 0;
+            right: 52px;
+            background: rgba(30, 30, 50, 0.92);
+            backdrop-filter: blur(12px);
+            color: white;
+            border-radius: 10px;
+            padding: 12px 16px;
+            white-space: nowrap;
+            font-size: 12px;
+            line-height: 1.8;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(6px);
+            transition: all 0.2s ease;
+            pointer-events: none;
+        }
+        .fab-btn:hover .fab-tooltip,
+        .fab-btn.show-tip .fab-tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        .fab-tooltip .tip-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            align-items: center;
+        }
+        .fab-tooltip .tip-key {
+            background: rgba(255,255,255,0.15);
+            border-radius: 3px;
+            padding: 1px 6px;
+            font-family: monospace;
+            font-size: 11px;
+            margin-left: 8px;
+        }
+
+        /* 折叠/展开 */
+        .collapse-icon {
+            display: none;
+            margin-right: 6px;
+            font-size: 12px;
+            color: #9ca3af;
+            transition: transform 0.2s;
+            user-select: none;
+        }
+        .word-header.collapsible { cursor: pointer; }
+        .word-header.collapsible .collapse-icon { display: inline; }
+        .word-header.collapsible:hover {
+            background: #f9fafb;
+            border-radius: 6px;
+            margin: 0 -8px 20px -8px;
+            padding: 8px;
+        }
+        .word-group.collapsed .news-item { display: none; }
+        .word-group.collapsed .collapse-icon { transform: rotate(-90deg); }
+
+        /* Tab 切换动画 */
+        body.wide-mode .word-group[data-tab-index] { animation: tabFadeIn 0.2s ease; }
+        @keyframes tabFadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 暗色模式 */
+        body.dark-mode {
+            background: #1a1a2e;
+            color: #e0e0e0;
+        }
+        body.dark-mode .container {
+            background: #16213e;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+        }
+        body.dark-mode .header {
+            background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
+        }
+        body.dark-mode .content {
+            background: #16213e;
+        }
+        body.dark-mode .word-header {
+            border-bottom-color: #2a2a4a;
+        }
+        body.dark-mode .word-header.collapsible:hover {
+            background: #1a1a3e;
+        }
+        body.dark-mode .news-item {
+            border-bottom-color: #2a2a4a;
+        }
+        body.dark-mode .news-title a {
+            color: #8ab4f8;
+        }
+        body.dark-mode .news-title a:visited {
+            color: #c58af9;
+        }
+        body.dark-mode .news-meta {
+            color: #888;
+        }
+        body.dark-mode .tab-bar {
+            background: #16213e;
+            border-bottom-color: #2a2a4a;
+        }
+        body.dark-mode .tab-btn {
+            color: #aaa;
+        }
+        body.dark-mode .tab-btn.active {
+            color: #8ab4f8;
+            border-bottom-color: #8ab4f8;
+        }
+        body.dark-mode .tab-btn:hover {
+            color: #ccc;
+            background: rgba(255,255,255,0.05);
+        }
+        body.dark-mode .search-input {
+            background: #1a1a3e;
+            border-color: #2a2a4a;
+            color: #e0e0e0;
+        }
+        body.dark-mode .search-input:focus {
+            border-color: #8ab4f8;
+        }
+        /* dark fab-btn 已在 .fab-btn 中处理 */
+        body.dark-mode .footer {
+            background: #0f3460;
+            color: rgba(255,255,255,0.7);
+        }
+        body.dark-mode .rss-item,
+        body.dark-mode .new-item,
+        body.dark-mode .standalone-item {
+            border-bottom-color: #2a2a4a;
+        }
+        body.dark-mode .rss-title a,
+        body.dark-mode .new-item a,
+        body.dark-mode .standalone-item a {
+            color: #8ab4f8;
+        }
+        body.dark-mode .ai-block {
+            background: #1a1a3e;
+            border-color: #2a2a4a;
+        }
+        body.dark-mode .info-value {
+            color: white;
+        }
+
+        /* 新上榜标记 */
+        .badge-new {
+            display: inline-block;
+            background: linear-gradient(135deg, #f43f5e, #ec4899);
+            color: white;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 1px 6px;
+            border-radius: 3px;
+            margin-left: 6px;
+            vertical-align: middle;
+            letter-spacing: 0.5px;
+        }
+        body.dark-mode .badge-new {
+            background: linear-gradient(135deg, #be185d, #9333ea);
+        }
+    </style>
+</head>
+<body>
+    <div class="reading-progress"></div>
+    <div class="container">
+        <div class="header">
+            <div class="header-watermark">老许</div>
+            <div class="save-buttons">
+                <button class="toggle-wide-btn" onclick="toggleWideMode()" title="切换宽屏/窄屏">⛶</button>
+                <button class="toggle-dark-btn" onclick="toggleDarkMode()" title="切换暗色/亮色">☽</button>
+            </div>
+            <div class="header-title">老许聊实体 - 2026-05-04商业资讯</div>
+        </div>
+
+        <div class="content">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="搜索新闻标题..." oninput="handleSearch(this.value)">
+            </div>
+            
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="搜索新闻标题..." oninput="handleSearch(this.value)">
+                </div>
+                <div class="hotlist-section"><div class="tab-bar"><button class="tab-btn" data-tab-index="0">选址与商业地产<span class="tab-count">2</span></button><button class="tab-btn" data-tab-index="1">店铺经营状态<span class="tab-count">1</span></button><button class="tab-btn" data-tab-index="2">实体创业开店<span class="tab-count">1</span></button><button class="tab-btn" data-tab-index="3">门店运营新模式<span class="tab-count">1</span></button><button class="tab-btn" data-tab-index="4">消费与流量趋势<span class="tab-count">4</span></button><button class="tab-btn" data-tab-index="5">餐饮专项<span class="tab-count">6</span></button><button class="tab-btn" data-tab-index="6">成本与经营风险<span class="tab-count">3</span></button><button class="tab-btn" data-tab-index="7">行业监管与政策<span class="tab-count">5</span></button><button class="tab-btn" data-tab-index="8">电商与平台规则<span class="tab-count">1</span></button><button class="tab-btn" data-tab-index="9">人力资源与用工<span class="tab-count">2</span></button><button class="tab-btn" data-tab-index="10">数据与行业报告<span class="tab-count">9</span></button><button class="tab-btn" data-tab-index="all">全部</button></div>
+                <div class="word-group" data-tab-index="0">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">选址与商业地产</div>
+                            <div class="word-count ">2 条</div>
+                        </div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>1/11</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">1</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">财联社热门</span><span class="rank-num top">2</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.cls.cn/detail/2362120" target="_blank" class="news-link">深圳、广州、天津、武汉、苏州，接连发布楼市新政</a>
+                            </div>
+                            <div class="news-summary">深圳、广州、天津、武汉、苏州，接连发布楼市新政</div>
+                            <div class="news-tags">
+                                <span class="news-tag">选址与商业地产</span>
+                                <span class="news-tag">财联社热门</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">2</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">今日头条</span><span class="rank-num ">24</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.toutiao.com/trending/7635818471338544703/" target="_blank" class="news-link">雅戈尔为何做衣服不行投资凑</a>
+                            </div>
+                            <div class="news-summary">雅戈尔为何做衣服不行投资凑</div>
+                            <div class="news-tags">
+                                <span class="news-tag">选址与商业地产</span>
+                                <span class="news-tag">今日头条</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="word-group" data-tab-index="1">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">店铺经营状态</div>
+                            <div class="word-count ">1 条</div>
+                        </div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>2/11</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">1</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">百度热搜</span><span class="rank-num ">10</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.baidu.com/s?wd=%E7%83%A7%E7%83%A4%E6%91%8A%E8%80%81%E6%9D%BF%E5%81%9C%E4%B8%9A13%E5%A4%A9%E5%90%8E%E5%BC%80%E5%BC%A0%E5%85%A8%E5%9F%8E%E6%8D%A7%E5%9C%BA" target="_blank" class="news-link">烧烤摊老板停业13天后开张全城捧场</a>
+                            </div>
+                            <div class="news-summary">烧烤摊老板停业13天后开张全城捧场</div>
+                            <div class="news-tags">
+                                <span class="news-tag">店铺经营状态</span>
+                                <span class="news-tag">百度热搜</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="word-group" data-tab-index="2">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">实体创业开店</div>
+                            <div class="word-count ">1 条</div>
+                        </div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>3/11</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">1</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">百度热搜</span><span class="rank-num ">17</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.baidu.com/s?wd=%E8%A5%BF%E6%B9%96%E8%BE%B900%E5%90%8E%E9%99%AA%E6%8B%8D%E5%B8%88%E4%B8%80%E5%A4%A9%E8%83%BD%E8%B5%9A%E5%A4%A7%E5%87%A0%E7%99%BE" target="_blank" class="news-link">西湖边00后陪拍师一天能赚大几百</a>
+                            </div>
+                            <div class="news-summary">西湖边00后陪拍师一天能赚大几百</div>
+                            <div class="news-tags">
+                                <span class="news-tag">实体创业开店</span>
+                                <span class="news-tag">百度热搜</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="word-group" data-tab-index="3">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">门店运营新模式</div>
+                            <div class="word-count ">1 条</div>
+                        </div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>4/11</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">1</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">知乎</span><span class="rank-num top">2</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.zhihu.com/question/664060181" target="_blank" class="news-link">各位大佬都说「国内一哥」是银环蛇，为什么不是眼镜王呢？</a>
+                            </div>
+                            <div class="news-summary">各位大佬都说「国内一哥」是银环蛇，为什么不是眼镜王呢？</div>
+                            <div class="news-tags">
+                                <span class="news-tag">门店运营新模式</span>
+                                <span class="news-tag">知乎</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="word-group" data-tab-index="4">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">消费与流量趋势</div>
+                            <div class="word-count ">4 条</div>
+                        </div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>5/11</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">1</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">百度热搜</span><span class="rank-num high">4</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.baidu.com/s?wd=%E4%B8%80%E5%8F%AA%E6%B5%81%E6%B5%AA%E7%8B%97%E8%AE%A9%E8%BF%99%E5%BA%A7%E5%B0%8F%E5%9F%8E%E6%94%B6%E8%8E%B7%E6%B3%BC%E5%A4%A9%E6%B5%81%E9%87%8F" target="_blank" class="news-link">一只流浪狗让这座小城收获泼天流量</a>
+                            </div>
+                            <div class="news-summary">一只流浪狗让这座小城收获泼天流量</div>
+                            <div class="news-tags">
+                                <span class="news-tag">消费与流量趋势</span>
+                                <span class="news-tag">百度热搜</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">2</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">百度热搜</span><span class="rank-num ">19</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.baidu.com/s?wd=%E5%A4%A7%E7%99%BD%E5%85%94%E5%A5%B6%E8%8C%B6%E5%BA%97%E7%81%AB%E4%BA%86+%E6%8E%92%E9%98%9F1%E5%B0%8F%E6%97%B6%E8%B5%B7%E6%AD%A5" target="_blank" class="news-link">大白兔奶茶店火了 排队1小时起步</a>
+                            </div>
+                            <div class="news-summary">大白兔奶茶店火了 排队1小时起步</div>
+                            <div class="news-tags">
+                                <span class="news-tag">消费与流量趋势</span>
+                                <span class="news-tag">百度热搜</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">3</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">微博</span><span class="rank-num ">6</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://s.weibo.com/weibo?q=%E4%BA%94%E4%B8%80%E6%8E%92%E9%98%9F%E7%8E%B0%E7%8A%B6" target="_blank" class="news-link">五一排队现状</a>
+                            </div>
+                            <div class="news-summary">五一排队现状</div>
+                            <div class="news-tags">
+                                <span class="news-tag">消费与流量趋势</span>
+                                <span class="news-tag">微博</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">4</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">贴吧</span><span class="rank-num ">24</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E5%A4%96%E5%AE%A3%E7%BF%BB%E8%BD%A6%2C%E6%97%A5%E5%BC%8F%E8%90%A5%E9%94%80%E9%81%AD%E7%BE%A4%E5%98%B2&amp;topic_id=28353953" target="_blank" class="news-link">外宣翻车,日式营销遭群嘲</a>
+                            </div>
+                            <div class="news-summary">外宣翻车,日式营销遭群嘲</div>
+                            <div class="news-tags">
+                                <span class="news-tag">消费与流量趋势</span>
+                                <span class="news-tag">贴吧</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="word-group" data-tab-index="5">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">餐饮专项</div>
+                            <div class="word-count warm">6 条</div>
+                        </div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>6/11</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">1</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">微博</span><span class="rank-num high">5</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://s.weibo.com/weibo?q=%E5%89%8D%E7%94%B7%E5%8F%8B%E9%A6%99%E8%BE%A3%E8%9F%B9" target="_blank" class="news-link">前男友香辣蟹</a>
+                            </div>
+                            <div class="news-summary">前男友香辣蟹</div>
+                            <div class="news-tags">
+                                <span class="news-tag">餐饮专项</span>
+                                <span class="news-tag">微博</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">2</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">抖音</span><span class="rank-num high">5</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.douyin.com/hot/2488173" target="_blank" class="news-link">昆明5毛钱一串的烧烤有多香</a>
+                            </div>
+                            <div class="news-summary">昆明5毛钱一串的烧烤有多香</div>
+                            <div class="news-tags">
+                                <span class="news-tag">餐饮专项</span>
+                                <span class="news-tag">抖音</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">3</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">百度热搜</span><span class="rank-num ">18</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.baidu.com/s?wd=%E5%B0%8F%E4%BC%99%E5%90%83100%E4%B8%AA%E6%8A%84%E6%89%8B%E5%90%8E%E5%8F%88%E6%9D%A5%E4%BA%86+%E8%80%81%E6%9D%BF%E6%85%8C%E4%BA%86" target="_blank" class="news-link">小伙吃100个抄手后又来了 老板慌了</a>
+                            </div>
+                            <div class="news-summary">小伙吃100个抄手后又来了 老板慌了</div>
+                            <div class="news-tags">
+                                <span class="news-tag">餐饮专项</span>
+                                <span class="news-tag">百度热搜</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">4</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">贴吧</span><span class="rank-num ">10</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E4%B8%93%E5%9D%91%E5%9B%BD%E4%BA%BA%2C%E6%97%A5%E6%9C%AC%E9%98%B4%E9%98%B3%E8%8F%9C%E5%8D%95%E8%A2%AB%E6%89%92&amp;topic_id=28353968" target="_blank" class="news-link">专坑国人,日本阴阳菜单被扒</a>
+                            </div>
+                            <div class="news-summary">专坑国人,日本阴阳菜单被扒</div>
+                            <div class="news-tags">
+                                <span class="news-tag">餐饮专项</span>
+                                <span class="news-tag">贴吧</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">5</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">微博</span><span class="rank-num top">1</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://s.weibo.com/weibo?q=%23%E7%94%A8%E7%83%A7%E7%83%A4%E7%AD%BE%E7%BB%99%E7%8B%97%E6%92%B8%E4%B8%B2%E9%A1%BE%E5%AE%A2%E8%B4%A6%E5%8F%B7%E5%B7%B2%E7%A7%81%E5%AF%86%23" target="_blank" class="news-link">用烧烤签给狗撸串顾客账号已私密</a>
+                            </div>
+                            <div class="news-summary">用烧烤签给狗撸串顾客账号已私密</div>
+                            <div class="news-tags">
+                                <span class="news-tag">餐饮专项</span>
+                                <span class="news-tag">微博</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">6</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">微博</span><span class="rank-num ">11</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://s.weibo.com/weibo?q=%23%E7%8E%8B%E5%AE%89%E5%AE%87%E5%90%83%E7%81%AB%E9%94%85%E8%A2%AB%E9%97%AE%E6%98%AF%E5%A4%A7%E5%AD%A6%E7%94%9F%E5%90%97%23" target="_blank" class="news-link">王安宇吃火锅被问是大学生吗</a>
+                            </div>
+                            <div class="news-summary">王安宇吃火锅被问是大学生吗</div>
+                            <div class="news-tags">
+                                <span class="news-tag">餐饮专项</span>
+                                <span class="news-tag">微博</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="word-group" data-tab-index="6">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">成本与经营风险</div>
+                            <div class="word-count ">3 条</div>
+                        </div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>7/11</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">1</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">百度热搜</span><span class="rank-num ">6</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.baidu.com/s?wd=%E4%BF%9D%E6%97%B6%E6%8D%B7%E5%9C%A8%E5%8D%8E%E5%9D%9A%E6%8C%81%E4%B8%8D%E9%99%8D%E4%BB%B7%E4%B8%8D%E5%9B%BD%E4%BA%A7" target="_blank" class="news-link">保时捷在华坚持不降价不国产</a>
+                            </div>
+                            <div class="news-summary">保时捷在华坚持不降价不国产</div>
+                            <div class="news-tags">
+                                <span class="news-tag">成本与经营风险</span>
+                                <span class="news-tag">百度热搜</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">2</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">知乎</span><span class="rank-num high">4</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.zhihu.com/question/2033186558321354284" target="_blank" class="news-link">浙江一公司食堂无座椅员工站着吃饭，公司回应是效仿国外可提高效率，如何看待此做法？</a>
+                            </div>
+                            <div class="news-summary">浙江一公司食堂无座椅员工站着吃饭，公司回应是效仿国外可提高效率，如何看待此做法？</div>
+                            <div class="news-tags">
+                                <span class="news-tag">成本与经营风险</span>
+                                <span class="news-tag">知乎</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">3</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">今日头条</span><span class="rank-num ">9</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.toutiao.com/trending/7635639850271542830/" target="_blank" class="news-link">部分航线机票价格是之前的零头</a>
+                            </div>
+                            <div class="news-summary">部分航线机票价格是之前的零头</div>
+                            <div class="news-tags">
+                                <span class="news-tag">成本与经营风险</span>
+                                <span class="news-tag">今日头条</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="word-group" data-tab-index="7">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">行业监管与政策</div>
+                            <div class="word-count warm">5 条</div>
+                        </div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>8/11</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">1</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">澎湃新闻</span><span class="rank-num top">3</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.thepaper.cn/newsDetail_forward_33095006" target="_blank" class="news-link">打完脉不跳了！特大假劣医美案告破：涉案1.5亿，55人被抓获</a>
+                            </div>
+                            <div class="news-summary">打完脉不跳了！特大假劣医美案告破：涉案1.5亿，55人被抓获</div>
+                            <div class="news-tags">
+                                <span class="news-tag">行业监管与政策</span>
+                                <span class="news-tag">澎湃新闻</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">2</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">澎湃新闻</span><span class="rank-num high">5</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.thepaper.cn/newsDetail_forward_33095444" target="_blank" class="news-link">九江多地倡议公职人员党员干部带头缴纳物业费：杜绝拒缴激化矛盾</a>
+                            </div>
+                            <div class="news-summary">九江多地倡议公职人员党员干部带头缴纳物业费：杜绝拒缴激化矛盾</div>
+                            <div class="news-tags">
+                                <span class="news-tag">行业监管与政策</span>
+                                <span class="news-tag">澎湃新闻</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">3</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">财联社热门</span><span class="rank-num top">1</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.cls.cn/detail/2362348" target="_blank" class="news-link">林园投资被查，事出违规打新</a>
+                            </div>
+                            <div class="news-summary">林园投资被查，事出违规打新</div>
+                            <div class="news-tags">
+                                <span class="news-tag">行业监管与政策</span>
+                                <span class="news-tag">财联社热门</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">4</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">澎湃新闻</span><span class="rank-num ">18</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.thepaper.cn/newsDetail_forward_33095259" target="_blank" class="news-link">打新涉及定价依据不充分等十项违规，林园投资遭中证协“点名”</a>
+                            </div>
+                            <div class="news-summary">打新涉及定价依据不充分等十项违规，林园投资遭中证协“点名”</div>
+                            <div class="news-tags">
+                                <span class="news-tag">行业监管与政策</span>
+                                <span class="news-tag">澎湃新闻</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">5</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">抖音</span><span class="rank-num ">6</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.douyin.com/hot/2488190" target="_blank" class="news-link">天津消防拉爆花小龙的一天</a>
+                            </div>
+                            <div class="news-summary">天津消防拉爆花小龙的一天</div>
+                            <div class="news-tags">
+                                <span class="news-tag">行业监管与政策</span>
+                                <span class="news-tag">抖音</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="word-group" data-tab-index="8">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">电商与平台规则</div>
+                            <div class="word-count ">1 条</div>
+                        </div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>9/11</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">1</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">百度热搜</span><span class="rank-num ">14</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.baidu.com/s?wd=%E4%BA%BA%E6%B0%91%E6%97%A5%E6%8A%A5%EF%BC%9A%E4%BB%98%E8%B4%B9%E5%88%A0%E5%B7%AE%E8%AF%84%EF%BC%9F%E5%B7%AE%E8%AF%84%EF%BC%81" target="_blank" class="news-link">人民日报：付费删差评？差评！</a>
+                            </div>
+                            <div class="news-summary">人民日报：付费删差评？差评！</div>
+                            <div class="news-tags">
+                                <span class="news-tag">电商与平台规则</span>
+                                <span class="news-tag">百度热搜</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="word-group" data-tab-index="9">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">人力资源与用工</div>
+                            <div class="word-count ">2 条</div>
+                        </div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>10/11</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">1</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">微博</span><span class="rank-num ">10</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://s.weibo.com/weibo?q=%23%E5%85%AC%E5%8F%B8%E5%BC%95%E8%BF%9BAI%E5%90%8E%E5%B0%86%E5%91%98%E5%B7%A5%E9%99%8D%E8%96%AA%E8%A3%81%E5%91%98%23" target="_blank" class="news-link">公司引进AI后将员工降薪裁员</a>
+                            </div>
+                            <div class="news-summary">公司引进AI后将员工降薪裁员</div>
+                            <div class="news-tags">
+                                <span class="news-tag">人力资源与用工</span>
+                                <span class="news-tag">微博</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">2</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">贴吧</span><span class="rank-num high">5</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=AI%E4%B8%BB%E6%92%AD%E4%B8%8A%E7%94%B5%E8%A7%86%2C%E8%99%9A%E6%8B%9F%E4%BA%BA%E6%8A%A2%E9%A5%AD%E7%A2%97%3F&amp;topic_id=28353984" target="_blank" class="news-link">AI主播上电视,虚拟人抢饭碗?</a>
+                            </div>
+                            <div class="news-summary">AI主播上电视,虚拟人抢饭碗?</div>
+                            <div class="news-tags">
+                                <span class="news-tag">人力资源与用工</span>
+                                <span class="news-tag">贴吧</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="word-group" data-tab-index="10">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <div class="word-name">数据与行业报告</div>
+                            <div class="word-count warm">9 条</div>
+                        </div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>11/11</div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">1</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">百度热搜</span><span class="rank-num ">28</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.baidu.com/s?wd=%E9%A1%B6%E7%BA%A7%E9%87%8F%E5%8C%96%E5%B7%A8%E5%A4%B4%E5%91%98%E5%B7%A5%E4%BA%BA%E5%9D%87%E5%B9%B4%E8%96%AA1800%E4%B8%87" target="_blank" class="news-link">顶级量化巨头员工人均年薪1800万</a>
+                            </div>
+                            <div class="news-summary">顶级量化巨头员工人均年薪1800万</div>
+                            <div class="news-tags">
+                                <span class="news-tag">数据与行业报告</span>
+                                <span class="news-tag">百度热搜</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">2</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">澎湃新闻</span><span class="rank-num ">19</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.thepaper.cn/newsDetail_forward_33095220" target="_blank" class="news-link">巴菲特场外访谈警告股市“赌场化”：投机风气已达顶峰</a>
+                            </div>
+                            <div class="news-summary">巴菲特场外访谈警告股市“赌场化”：投机风气已达顶峰</div>
+                            <div class="news-tags">
+                                <span class="news-tag">数据与行业报告</span>
+                                <span class="news-tag">澎湃新闻</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">3</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">财联社热门</span><span class="rank-num ">6</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.cls.cn/detail/2360769" target="_blank" class="news-link">社保基金最新持仓动向揭秘！Q1新进282只个股前十大流通股东榜，圣农发展获增持家数最多</a>
+                            </div>
+                            <div class="news-summary">社保基金最新持仓动向揭秘！Q1新进282只个股前十大流通股东榜，圣农发展获增持家数最多</div>
+                            <div class="news-tags">
+                                <span class="news-tag">数据与行业报告</span>
+                                <span class="news-tag">财联社热门</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">4</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">澎湃新闻</span><span class="rank-num ">15</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.thepaper.cn/newsDetail_forward_33095008" target="_blank" class="news-link">为何手握3800亿美元不投资？巴菲特：没有想投的，那就什么都不做，入行60年里真正肥美的机会就五年</a>
+                            </div>
+                            <div class="news-summary">为何手握3800亿美元不投资？巴菲特：没有想投的，那就什么都不做，入行60年里真正肥美的机会就五年</div>
+                            <div class="news-tags">
+                                <span class="news-tag">数据与行业报告</span>
+                                <span class="news-tag">澎湃新闻</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">5</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">财联社热门</span><span class="rank-num ">7</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.cls.cn/detail/2362294" target="_blank" class="news-link">余额宝，破“1”</a>
+                            </div>
+                            <div class="news-summary">余额宝，破“1”</div>
+                            <div class="news-tags">
+                                <span class="news-tag">数据与行业报告</span>
+                                <span class="news-tag">财联社热门</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">6</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">贴吧</span><span class="rank-num ">27</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E8%B5%9B%E9%81%93%E6%8C%A4%E7%88%86%2CAI%E7%9F%AD%E5%89%A7%E6%94%B6%E7%9B%8A%E4%B8%8D%E5%A4%9F%E7%94%B5%E8%B4%B9&amp;topic_id=28353950" target="_blank" class="news-link">赛道挤爆,AI短剧收益不够电费</a>
+                            </div>
+                            <div class="news-summary">赛道挤爆,AI短剧收益不够电费</div>
+                            <div class="news-tags">
+                                <span class="news-tag">数据与行业报告</span>
+                                <span class="news-tag">贴吧</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">7</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">微博</span><span class="rank-num ">20</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://s.weibo.com/weibo?q=%23%E7%8E%B0%E8%B4%A7%E9%BB%84%E9%87%91%E4%B8%8B%E7%A0%B44600%E7%BE%8E%E5%85%83%23" target="_blank" class="news-link">现货黄金下破4600美元</a>
+                            </div>
+                            <div class="news-summary">现货黄金下破4600美元</div>
+                            <div class="news-tags">
+                                <span class="news-tag">数据与行业报告</span>
+                                <span class="news-tag">微博</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">8</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">澎湃新闻</span><span class="rank-num high">4</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.thepaper.cn/newsDetail_forward_33094458" target="_blank" class="news-link">铁路12306回应热门车次开售即售罄</a>
+                            </div>
+                            <div class="news-summary">铁路12306回应热门车次开售即售罄</div>
+                            <div class="news-tags">
+                                <span class="news-tag">数据与行业报告</span>
+                                <span class="news-tag">澎湃新闻</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number"><span class="num-text">9</span><span class="copy-icon">📋</span></div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">财联社热门</span><span class="rank-num ">10</span><span class="time-info">12:54</span>
+                            </div>
+                            <div class="news-title">
+                                <a href="https://www.cls.cn/detail/2362404" target="_blank" class="news-link">【早报】特朗普：伊朗的“新提议”不可接受；余额宝收益率跌破1%</a>
+                            </div>
+                            <div class="news-summary">【早报】特朗普：伊朗的“新提议”不可接受；余额宝收益率跌破1%</div>
+                            <div class="news-tags">
+                                <span class="news-tag">数据与行业报告</span>
+                                <span class="news-tag">财联社热门</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="rss-section section-divider">
+                    <div class="rss-section-header">
+                        <h2 class="rss-section-title">RSS 订阅</h2>
+                        <span class="rss-section-count">7 个源</span>
+                    </div>
+                    <div class="rss-feeds-grid">
+                    <div class="feed-group">
+                        <div class="feed-header">
+                            <h3 class="feed-name">澎湃新闻</h3>
+                            <span class="feed-count">1 条</span>
+                        </div>
+                        <div class="rss-item">
+                            <div class="rss-meta">
+                                <span class="rss-time"></span>
+                                <span class="rss-author"></span>
+                            </div>
+                            <div class="rss-title">
+                                <a href="https://mp.weixin.qq.com/s?__biz=MjM5MzI5NTU3MQ==&amp;mid=2652532523&amp;idx=1&amp;sn=f2b6d29cb99df568f03fb0b08199269e" target="_blank" class="rss-link">&quot;停止运营&quot;，油价最新受害者，出现了</a>
+                            </div>
+                            <div class="rss-summary"></div>
+                        </div>
+                    </div>
+                    <div class="feed-group">
+                        <div class="feed-header">
+                            <h3 class="feed-name">人都是产品经理</h3>
+                            <span class="feed-count">2 条</span>
+                        </div>
+                        <div class="rss-item">
+                            <div class="rss-meta">
+                                <span class="rss-time">05-03 15:38</span>
+                                <span class="rss-author"></span>
+                            </div>
+                            <div class="rss-title">
+                                <a href="https://www.woshipm.com/it/6387982.html" target="_blank" class="rss-link">十年了，为什么无人机还是送不了外卖？</a>
+                            </div>
+                            <div class="rss-summary"></div>
+                        </div>
+                        <div class="rss-item">
+                            <div class="rss-meta">
+                                <span class="rss-time">05-03 16:17</span>
+                                <span class="rss-author"></span>
+                            </div>
+                            <div class="rss-title">
+                                <a href="https://www.woshipm.com/share/6387773.html" target="_blank" class="rss-link">一篇文章讲透：小红书电商选品全链路！建议收藏</a>
+                            </div>
+                            <div class="rss-summary"></div>
+                        </div>
+                    </div>
+                    <div class="feed-group">
+                        <div class="feed-header">
+                            <h3 class="feed-name">虎嗅24小时</h3>
+                            <span class="feed-count">2 条</span>
+                        </div>
+                        <div class="rss-item">
+                            <div class="rss-meta">
+                                <span class="rss-time">05-04 00:03</span>
+                                <span class="rss-author"></span>
+                            </div>
+                            <div class="rss-title">
+                                <a href="https://www.huxiu.com/article/4855608.html" target="_blank" class="rss-link">超市里的水果越来越好看，为什么却越来越没味儿了？</a>
+                            </div>
+                            <div class="rss-summary"></div>
+                        </div>
+                        <div class="rss-item">
+                            <div class="rss-meta">
+                                <span class="rss-time">05-04 08:17</span>
+                                <span class="rss-author"></span>
+                            </div>
+                            <div class="rss-title">
+                                <a href="https://www.huxiu.com/article/4855615.html" target="_blank" class="rss-link">&quot;幽灵外卖&quot;引发35.97亿罚单，七大平台为何系统性失守？如何重拾市场信任？</a>
+                            </div>
+                            <div class="rss-summary"></div>
+                        </div>
+                    </div>
+                    <div class="feed-group">
+                        <div class="feed-header">
+                            <h3 class="feed-name">运营派</h3>
+                            <span class="feed-count">1 条</span>
+                        </div>
+                        <div class="rss-item">
+                            <div class="rss-meta">
+                                <span class="rss-time">05-03 15:36</span>
+                                <span class="rss-author"></span>
+                            </div>
+                            <div class="rss-title">
+                                <a href="https://www.yunyingpai.com/news/1059891.html" target="_blank" class="rss-link">短剧激励政策大盘点：30亿资本狂飙，创作者迎来最好时代</a>
+                            </div>
+                            <div class="rss-summary"></div>
+                        </div>
+                    </div>
+                    <div class="feed-group">
+                        <div class="feed-header">
+                            <h3 class="feed-name">界面新闻</h3>
+                            <span class="feed-count">3 条</span>
+                        </div>
+                        <div class="rss-item">
+                            <div class="rss-meta">
+                                <span class="rss-time"></span>
+                                <span class="rss-author"></span>
+                            </div>
+                            <div class="rss-title">
+                                <a href="https://www.jiemian.com/article/14380411.html" target="_blank" class="rss-link">胖东来发最新声明称已起诉，博主&quot;惊梦人&quot;回应</a>
+                            </div>
+                            <div class="rss-summary"></div>
+                        </div>
+                        <div class="rss-item">
+                            <div class="rss-meta">
+                                <span class="rss-time"></span>
+                                <span class="rss-author"></span>
+                            </div>
+                            <div class="rss-title">
+                                <a href="https://www.jiemian.com/article/14380949.html" target="_blank" class="rss-link">&quot;一天能签六单以上&quot;，涨价风声搅动&quot;五一&quot;车市，观望人群加速下单</a>
+                            </div>
+                            <div class="rss-summary"></div>
+                        </div>
+                        <div class="rss-item">
+                            <div class="rss-meta">
+                                <span class="rss-time"></span>
+                                <span class="rss-author"></span>
+                            </div>
+                            <div class="rss-title">
+                                <a href="https://www.jiemian.com/article/14380959.html" target="_blank" class="rss-link">一周新车盘点 | 大众首发ID系列首款小型车，乐道全尺寸SUV下探至16万元以下</a>
+                            </div>
+                            <div class="rss-summary"></div>
+                        </div>
+                    </div>
+                    <div class="feed-group">
+                        <div class="feed-header">
+                            <h3 class="feed-name">创业邦</h3>
+                            <span class="feed-count">1 条</span>
+                        </div>
+                        <div class="rss-item">
+                            <div class="rss-meta">
+                                <span class="rss-time">05-04 08:27</span>
+                                <span class="rss-author"></span>
+                            </div>
+                            <div class="rss-title">
+                                <a href="https://www.cyzone.cn/article/832269.html" target="_blank" class="rss-link">&quot;月薪最高&quot;的建筑业，四年流失超1400万农民工</a>
+                            </div>
+                            <div class="rss-summary"></div>
+                        </div>
+                    </div>
+                    <div class="feed-group">
+                        <div class="feed-header">
+                            <h3 class="feed-name">钛媒体</h3>
+                            <span class="feed-count">1 条</span>
+                        </div>
+                        <div class="rss-item">
+                            <div class="rss-meta">
+                                <span class="rss-time">05-04 09:42</span>
+                                <span class="rss-author"></span>
+                            </div>
+                            <div class="rss-title">
+                                <a href="https://www.tmtpost.com/7975995.html" target="_blank" class="rss-link">先涨后降、航班取消，五一机票&quot;背刺&quot;打工人</a>
+                            </div>
+                            <div class="rss-summary"></div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="ai-section section-divider">
+                    <div class="ai-section-header">
+                        <h2 class="ai-section-title">AI 分析</h2>
+                        <span class="ai-section-badge">GPT</span>
+                    </div>
+                    <div class="ai-blocks-grid">
+                <div class="ai-block">
+                    <div class="ai-block-title">核心热点态势</div>
+                    <div class="ai-block-content">今日线下实体商业属于圈层热点，核心态势是「流量红利波动大，信任成本是关键」。<br><br>【宏观主线】<br>消费情绪趋于谨慎与理性：宏观数据（余额宝破1%、黄金回落、巴菲特警告）与消费端（五一排队、机票跳水）形成反差，说明消费者更精打细算，「高性价比」仍是王道。<br><br>【微观领域】<br>1. 「情绪价值」催生瞬时流量：西湖陪拍师、大白兔奶茶、流浪狗带火小城、烧烤摊主复业全城捧场，这四件事都指向「非标、有趣、有故事」的体验能低成本获取爆发式流量，但热度周期极短。<br><br>2. 「信任危机」是隐形炸弹：假劣医美案、日式营销被群嘲、阴阳菜单、付费删差评被官媒批评，都暴露了实体商家现阶段的致命软肋——失去口碑，生意寸步难行。<br><br>3. 「降本增效」撕开内部矛盾：公司用AI降薪裁员、食堂无座椅被骂、公职人员被要求带头交物业费，线下实体在压缩人力成本时，粗暴手段会引发反噬。</div>
+                </div>
+                <div class="ai-block">
+                    <div class="ai-block-title">舆论风向争议</div>
+                    <div class="ai-block-content">【情绪光谱】<br>主流情绪是厌恶「割韭菜」与追捧「淳朴真诚」。「前男友香辣蟹」「5毛钱烧烤」「小伙吃100个抄手」等事件获得高赞，说明大众渴望「童叟无欺」的消费体验。潜流暗涌是对「资本化」和「工业化」的反感，如雅戈尔不务正业。<br><br>【核心矛盾】<br>1. 「AI降本」 vs 「人情温度」：商家想降本，消费者却更在意服务体验中的情感交流。<br><br>2. 「网红流量」 vs 「长期口碑」：流量来得快，消耗得更快，实体商家在「追热点」和「守底盘」之间摇摆。</div>
+                </div>
+                <div class="ai-block">
+                    <div class="ai-block-title">异动与弱信号</div>
+                    <div class="ai-block-content">【跨平台共振】<br>「AI主播/降薪」话题在知乎（热榜3）和贴吧（热榜5）同时发酵，从纯粹的技术讨论转向「挤压打工人生存空间」的社会议题，这信号对实体商家意义重大：切忌盲目上AI工具而得罪老员工，引发劳资负面舆情。<br><br>【轨迹突变】<br>「余额宝破1%」在财联社和微博同步出现，热度虽不高但信号极强：低风险理财收益归零，意味着大量闲置资金将寻求出路，优质低风险的实体生意可能会迎来一波「小老板投资潮」。<br><br>【僵尸话题复活】<br>「巴菲特不投资」在澎湃新闻出现，与宏观风险信号呼应，暗示实体老板当前「不瞎投资就是赚钱」。</div>
+                </div>
+                <div class="ai-block">
+                    <div class="ai-block-title">研判策略建议</div>
+                    <div class="ai-block-content">1. 实体商家：策划「温情事件」做低成本口碑裂变。参考「烧烤摊停业13天全城捧场」，本质是老板与顾客建立了情感联结。你可以在本地社群（如小区群、吃货群）里，尝试做一次「答谢老客——因XX原因停业N天，现在请你回来」的活动。成本：几百元物料费+老板亲自出镜讲故事。<br><br>2. 创业者：盯紧「余额宝破1%」后的小老板闲钱。如果你的项目属于「高确定性、低毛利率、现金流好、有本地护城河」的类型（如社区生鲜折扣店、高频洗鞋洗衣），现在去银行或理财渠道找找那些「求稳」的小投资客，你的生意可能是他们的好去处，融资门槛更低。<br><br>3. 所有实体人：立刻自查口碑风险。参考「日式营销被群嘲」「阴阳菜单」，检查你的门店是否存在任何「看起来在区别对待顾客」的行为（如不同口音不同报价、两套价目表），这条红线碰不得，一旦被拍上网，救不回。成本：零，只需老板走一遍顾客动线。</div>
+                </div>
+                <div class="ai-block">
+                    <div class="ai-block-title">独立源点速览</div>
+                    <div class="ai-block-content">[知乎]:<br>除银环蛇偏门外，知乎热点集中于社会民生和教育，对实体直接参考价值低。但「AI主播」上电视的讨论与「孩子抱AI聊三小时」形成互补，警示实体商家：AI目前只能做工具，不能替代人的情感判断和灵活应变。<br><br>[华尔街见闻]:<br>数据偏宏观和金融，与线下实体直接关联弱。但一条信息值得注意：OPEC+增产导致油价下跌预期，对依赖物流配送的实体（如生鲜、餐饮）是短期利好，成本端可以稍稍松口气。</div>
+                </div>
+                    </div>
+                </div>
+            <div class="footer">
+                <div class="footer-info">
+                    <div class="footer-info-item">
+                        <span class="footer-info-label">报告类型</span>
+                        <span class="footer-info-value">全天汇总</span>
+                    </div>
+                    <div class="footer-info-item">
+                        <span class="footer-info-label">抓取总数</span>
+                        <span class="footer-info-value">255 条</span>
+                    </div>
+                    <div class="footer-info-item">
+                        <span class="footer-info-label">筛选结果</span>
+                        <span class="footer-info-value">35 条</span>
+                    </div>
+                    <div class="footer-info-item">
+                        <span class="footer-info-label">新闻日期</span>
+                        <span class="footer-info-value">05-04 12:55</span>
+                    </div>
+                </div>
+                <div class="footer-content">
+                    老许聊实体 - 2026-05-04商业资讯 | 数据抓取时间: 2026-05-04 12:55:49
+                </div>
+            </div>
+        </div>
+
+        <div class="fab-bar">
+            <button class="fab-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="返回顶部">↑</button>
+            <button class="fab-btn fab-help">
+                <span>?</span>
+                <div class="fab-tooltip">
+                    <div class="tip-row"><span>切换宽屏</span><span class="tip-key">W</span></div>
+                    <div class="tip-row"><span>暗色模式</span><span class="tip-key">D</span></div>
+                    <div class="tip-row"><span>搜索</span><span class="tip-key">/</span></div>
+                    <div class="tip-row"><span>上一个 Tab</span><span class="tip-key">←</span></div>
+                    <div class="tip-row"><span>下一个 Tab</span><span class="tip-key">→</span></div>
+                    <div class="tip-row"><span>序号可复制</span><span class="tip-key">点击</span></div>
+                </div>
+            </button>
+        </div>
+
+        <script>
+            // ===== 浏览器增强功能 =====
+
+            function toggleWideMode() {
+                document.body.classList.toggle('wide-mode');
+                var isWide = document.body.classList.contains('wide-mode');
+                try { localStorage.setItem('trendradar-wide-mode', isWide ? '1' : '0'); } catch(e) {}
+                var btn = document.querySelector('.toggle-wide-btn');
+                if (btn) btn.textContent = isWide ? '⊡' : '⛶';
+                initTabVisibility();
+                initCollapseVisibility();
+                initStandaloneTabVisibility();
+            }
+
+            function toggleDarkMode() {
+                var isDark = document.body.classList.toggle('dark-mode');
+                try { localStorage.setItem('trendradar-dark-mode', isDark ? '1' : '0'); } catch(e) {}
+                var btn = document.querySelector('.toggle-dark-btn');
+                if (btn) btn.textContent = isDark ? '☀' : '☽';
+            }
+
+            function initTabs() {
+                var tabBar = document.querySelector('.tab-bar');
+                if (!tabBar) return;
+                var tabs = tabBar.querySelectorAll('.tab-btn');
+                var groups = document.querySelectorAll('.word-group[data-tab-index]');
+                initTabVisibility();
+
+                function activateTab(index) {
+                    tabs.forEach(function(t) { t.classList.remove('active'); });
+                    if (index === 'all') {
+                        var allBtn = tabBar.querySelector('[data-tab-index="all"]');
+                        if (allBtn) allBtn.classList.add('active');
+                        groups.forEach(function(g) { g.style.display = ''; });
+                        try { history.replaceState(null, '', '#all'); } catch(e) {}
+                        return;
+                    }
+                    var idx = parseInt(index);
+                    tabs.forEach(function(t) {
+                        if (parseInt(t.dataset.tabIndex) === idx) t.classList.add('active');
+                    });
+                    if (document.body.classList.contains('wide-mode') && !tabBar.classList.contains('tab-hidden')) {
+                        groups.forEach(function(g) {
+                            g.style.display = (parseInt(g.dataset.tabIndex) === idx) ? '' : 'none';
+                        });
+                    }
+                    try { history.replaceState(null, '', '#tab-' + idx); } catch(e) {}
+                }
+
+                tabs.forEach(function(tab) {
+                    tab.addEventListener('click', function() {
+                        var idx = tab.dataset.tabIndex;
+                        activateTab(idx === 'all' ? 'all' : parseInt(idx));
+                    });
+                });
+
+                tabBar.addEventListener('keydown', function(e) {
+                    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                        var tabsArr = Array.from(tabs);
+                        var ci = tabsArr.findIndex(function(t) { return t.classList.contains('active'); });
+                        var dir = e.key === 'ArrowRight' ? 1 : -1;
+                        var ni = Math.max(0, Math.min(tabsArr.length - 1, ci + dir));
+                        var nt = tabsArr[ni];
+                        activateTab(nt.dataset.tabIndex === 'all' ? 'all' : parseInt(nt.dataset.tabIndex));
+                        nt.focus();
+                        e.preventDefault();
+                    }
+                });
+
+                var hash = window.location.hash;
+                if (hash === '#all') { activateTab('all'); }
+                else if (hash.indexOf('#tab-') === 0) { activateTab(parseInt(hash.replace('#tab-', ''))); }
+                else { activateTab(0); }
+            }
+
+            function initTabVisibility() {
+                var tabBar = document.querySelector('.tab-bar');
+                if (!tabBar) return;
+                var groups = document.querySelectorAll('.word-group[data-tab-index]');
+                var isWide = document.body.classList.contains('wide-mode');
+                if (!isWide || groups.length <= 2) {
+                    tabBar.classList.add('tab-hidden');
+                    groups.forEach(function(g) { g.style.display = ''; });
+                } else {
+                    tabBar.classList.remove('tab-hidden');
+                    var activeTab = tabBar.querySelector('.tab-btn.active');
+                    if (activeTab) { activeTab.click(); }
+                    else {
+                        var firstTab = tabBar.querySelector('.tab-btn');
+                        if (firstTab) firstTab.click();
+                    }
+                }
+            }
+
+            function handleSearch(query) {
+                query = query.toLowerCase();
+                document.querySelectorAll('.news-item').forEach(function(item) {
+                    var title = (item.querySelector('.news-title') || {}).textContent || '';
+                    item.style.display = (!query || title.toLowerCase().indexOf(query) !== -1) ? '' : 'none';
+                });
+                document.querySelectorAll('.rss-item').forEach(function(item) {
+                    var title = (item.querySelector('.rss-title') || {}).textContent || '';
+                    item.style.display = (!query || title.toLowerCase().indexOf(query) !== -1) ? '' : 'none';
+                });
+            }
+
+            function initBackToTop() {
+                var fabBar = document.querySelector('.fab-bar');
+                if (!fabBar) return;
+                window.addEventListener('scroll', function() {
+                    fabBar.classList.toggle('visible', window.scrollY > 300);
+                });
+            }
+
+            function initCollapse() {
+                document.querySelectorAll('.word-header').forEach(function(header) {
+                    header.addEventListener('click', function() {
+                        var tabBar = document.querySelector('.tab-bar');
+                        if (document.body.classList.contains('wide-mode') && tabBar && !tabBar.classList.contains('tab-hidden')) return;
+                        var group = header.closest('.word-group');
+                        if (group) group.classList.toggle('collapsed');
+                    });
+                });
+                initCollapseVisibility();
+            }
+
+            function initCollapseVisibility() {
+                var headers = document.querySelectorAll('.word-header');
+                var tabBar = document.querySelector('.tab-bar');
+                var isTabMode = document.body.classList.contains('wide-mode') && tabBar && !tabBar.classList.contains('tab-hidden');
+                headers.forEach(function(h) {
+                    if (isTabMode) { h.classList.remove('collapsible'); }
+                    else { h.classList.add('collapsible'); }
+                });
+                if (isTabMode) {
+                    document.querySelectorAll('.word-group.collapsed').forEach(function(g) {
+                        g.classList.remove('collapsed');
+                    });
+                }
+            }
+
+            // 独立展示区 Tab 切换
+            function initStandaloneTabs() {
+                var tabBar = document.querySelector('.standalone-tab-bar');
+                if (!tabBar) return;
+                var groups = document.querySelectorAll('.standalone-group[data-standalone-tab]');
+                var btns = tabBar.querySelectorAll('.tab-btn[data-standalone-tab]');
+
+                function activateStandaloneTab(val) {
+                    btns.forEach(function(b) {
+                        var bVal = b.getAttribute('data-standalone-tab');
+                        b.classList.toggle('active', bVal === String(val));
+                    });
+                    groups.forEach(function(g) {
+                        var gVal = g.getAttribute('data-standalone-tab');
+                        g.style.display = (val === 'all' || gVal === String(val)) ? '' : 'none';
+                    });
+                }
+
+                btns.forEach(function(btn) {
+                    btn.addEventListener('click', function() {
+                        activateStandaloneTab(btn.getAttribute('data-standalone-tab'));
+                    });
+                });
+
+                // 初始状态
+                initStandaloneTabVisibility();
+            }
+
+            function initStandaloneTabVisibility() {
+                var tabBar = document.querySelector('.standalone-tab-bar');
+                if (!tabBar) return;
+                var groups = document.querySelectorAll('.standalone-group[data-standalone-tab]');
+                var isWide = document.body.classList.contains('wide-mode');
+                if (!isWide || groups.length <= 1) {
+                    tabBar.classList.add('tab-hidden');
+                    groups.forEach(function(g) { g.style.display = ''; });
+                } else {
+                    tabBar.classList.remove('tab-hidden');
+                    var activeBtn = tabBar.querySelector('.tab-btn.active');
+                    if (activeBtn) activeBtn.click();
+                    else { var first = tabBar.querySelector('.tab-btn'); if (first) first.click(); }
+                }
+            }
+
+            // ===== 截图功能 =====
+
+            async function saveAsImage() {
+                const button = event.target;
+                const originalText = button.textContent;
+
+                try {
+                    button.textContent = '保存中...';
+                    button.disabled = true;
+
+                    // 准备截图状态
+                    var screenshotState = prepareForScreenshot();
+
+                    // 隐藏保存按钮
+                    const buttons = document.querySelector('.save-buttons');
+                    buttons.style.visibility = 'hidden';
+
+                    // 等待DOM更新
+                    await new Promise(resolve => setTimeout(resolve, 100));
+
+                    // 使用html2canvas截取整个页面
+                    const container = document.querySelector('.container');
+                    const canvas = await html2canvas(container, {
+                        backgroundColor: '#ffffff',
+                        scale: 1.5,
+                        useCORS: true,
+                        allowTaint: true
+                    });
+
+                    // 恢复页面状态
+                    buttons.style.visibility = 'visible';
+                    restoreAfterScreenshot(screenshotState);
+
+                    // 保存图片
+                    const link = document.createElement('a');
+                    link.download = '老许聊实体-' + new Date().toISOString().slice(0,10) + '.png';
+                    link.href = canvas.toDataURL('image/png');
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+
+                    button.textContent = '保存成功!';
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.disabled = false;
+                    }, 2000);
+
+                } catch (error) {
+                    const buttons = document.querySelector('.save-buttons');
+                    buttons.style.visibility = 'visible';
+                    restoreAfterScreenshot(screenshotState);
+                    button.textContent = '保存失败';
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.disabled = false;
+                    }, 2000);
+                }
+            }
+
+            async function saveAsMultipleImages() {
+                const button = event.target;
+                const originalText = button.textContent;
+                const container = document.querySelector('.container');
+                const scale = 1.5;
+                const maxHeight = 5000 / scale;
+                var screenshotState2 = prepareForScreenshot();
+
+                try {
+                    button.textContent = '分析中...';
+                    button.disabled = true;
+
+                    // 获取所有可能的分割元素
+                    const newsItems = Array.from(container.querySelectorAll('.news-item'));
+                    const wordGroups = Array.from(container.querySelectorAll('.word-group'));
+                    const newSection = container.querySelector('.new-section');
+                    const errorSection = container.querySelector('.error-section');
+                    const header = container.querySelector('.header');
+                    const footer = container.querySelector('.footer');
+
+                    // 计算元素位置和高度
+                    const containerRect = container.getBoundingClientRect();
+                    const elements = [];
+
+                    // 添加header作为必须包含的元素
+                    elements.push({
+                        type: 'header',
+                        element: header,
+                        top: 0,
+                        bottom: header.offsetHeight,
+                        height: header.offsetHeight
+                    });
+
+                    // 添加错误信息（如果存在）
+                    if (errorSection) {
+                        const rect = errorSection.getBoundingClientRect();
+                        elements.push({
+                            type: 'error',
+                            element: errorSection,
+                            top: rect.top - containerRect.top,
+                            bottom: rect.bottom - containerRect.top,
+                            height: rect.height
+                        });
+                    }
+
+                    // 按word-group分组处理news-item
+                    wordGroups.forEach(group => {
+                        const groupRect = group.getBoundingClientRect();
+                        const groupNewsItems = group.querySelectorAll('.news-item');
+
+                        // 添加word-group的header部分
+                        const wordHeader = group.querySelector('.word-header');
+                        if (wordHeader) {
+                            const headerRect = wordHeader.getBoundingClientRect();
+                            elements.push({
+                                type: 'word-header',
+                                element: wordHeader,
+                                parent: group,
+                                top: groupRect.top - containerRect.top,
+                                bottom: headerRect.bottom - containerRect.top,
+                                height: headerRect.height
+                            });
+                        }
+
+                        // 添加每个news-item
+                        groupNewsItems.forEach(item => {
+                            const rect = item.getBoundingClientRect();
+                            elements.push({
+                                type: 'news-item',
+                                element: item,
+                                parent: group,
+                                top: rect.top - containerRect.top,
+                                bottom: rect.bottom - containerRect.top,
+                                height: rect.height
+                            });
+                        });
+                    });
+
+                    // 添加新增新闻部分
+                    if (newSection) {
+                        const rect = newSection.getBoundingClientRect();
+                        elements.push({
+                            type: 'new-section',
+                            element: newSection,
+                            top: rect.top - containerRect.top,
+                            bottom: rect.bottom - containerRect.top,
+                            height: rect.height
+                        });
+                    }
+
+                    // 添加footer
+                    const footerRect = footer.getBoundingClientRect();
+                    elements.push({
+                        type: 'footer',
+                        element: footer,
+                        top: footerRect.top - containerRect.top,
+                        bottom: footerRect.bottom - containerRect.top,
+                        height: footer.offsetHeight
+                    });
+
+                    // 计算分割点
+                    const segments = [];
+                    let currentSegment = { start: 0, end: 0, height: 0, includeHeader: true };
+                    let headerHeight = header.offsetHeight;
+                    currentSegment.height = headerHeight;
+
+                    for (let i = 1; i < elements.length; i++) {
+                        const element = elements[i];
+                        const potentialHeight = element.bottom - currentSegment.start;
+
+                        // 检查是否需要创建新分段
+                        if (potentialHeight > maxHeight && currentSegment.height > headerHeight) {
+                            // 在前一个元素结束处分割
+                            currentSegment.end = elements[i - 1].bottom;
+                            segments.push(currentSegment);
+
+                            // 开始新分段
+                            currentSegment = {
+                                start: currentSegment.end,
+                                end: 0,
+                                height: element.bottom - currentSegment.end,
+                                includeHeader: false
+                            };
+                        } else {
+                            currentSegment.height = potentialHeight;
+                            currentSegment.end = element.bottom;
+                        }
+                    }
+
+                    // 添加最后一个分段
+                    if (currentSegment.height > 0) {
+                        currentSegment.end = container.offsetHeight;
+                        segments.push(currentSegment);
+                    }
+
+                    button.textContent = `生成中 (0/${segments.length})...`;
+
+                    // 隐藏保存按钮
+                    const buttons = document.querySelector('.save-buttons');
+                    buttons.style.visibility = 'hidden';
+
+                    // 为每个分段生成图片
+                    const images = [];
+                    for (let i = 0; i < segments.length; i++) {
+                        const segment = segments[i];
+                        button.textContent = `生成中 (${i + 1}/${segments.length})...`;
+
+                        // 创建临时容器用于截图
+                        const tempContainer = document.createElement('div');
+                        tempContainer.style.cssText = `
+                            position: absolute;
+                            left: -9999px;
+                            top: 0;
+                            width: ${container.offsetWidth}px;
+                            background: white;
+                        `;
+                        tempContainer.className = 'container';
+
+                        // 克隆容器内容
+                        const clonedContainer = container.cloneNode(true);
+
+                        // 移除克隆内容中的保存按钮
+                        const clonedButtons = clonedContainer.querySelector('.save-buttons');
+                        if (clonedButtons) {
+                            clonedButtons.style.display = 'none';
+                        }
+
+                        // 调整克隆容器的高度
+                        clonedContainer.style.height = segment.end + 'px';
+                        clonedContainer.style.overflow = 'hidden';
+
+                        // 处理header包含
+                        if (!segment.includeHeader) {
+                            const clonedHeader = clonedContainer.querySelector('.header');
+                            if (clonedHeader) {
+                                clonedHeader.style.display = 'none';
+                            }
+                        }
+
+                        tempContainer.appendChild(clonedContainer);
+                        document.body.appendChild(tempContainer);
+
+                        // 等待DOM更新
+                        await new Promise(resolve => setTimeout(resolve, 100));
+
+                        // 使用html2canvas截取特定区域
+                        const canvas = await html2canvas(clonedContainer, {
+                            backgroundColor: '#ffffff',
+                            scale: scale,
+                            useCORS: true,
+                            allowTaint: true,
+                            y: segment.start
+                        });
+
+                        images.push(canvas);
+                        document.body.removeChild(tempContainer);
+                    }
+
+                    // 恢复页面状态
+                    buttons.style.visibility = 'visible';
+                    restoreAfterScreenshot(screenshotState2);
+
+                    // 保存所有图片
+                    for (let i = 0; i < images.length; i++) {
+                        const link = document.createElement('a');
+                        link.download = `老许聊实体-${new Date().toISOString().slice(0,10)}-${i + 1}.png`;
+                        link.href = images[i].toDataURL('image/png');
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    }
+
+                    button.textContent = '保存成功!';
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.disabled = false;
+                    }, 2000);
+
+                } catch (error) {
+                    const buttons = document.querySelector('.save-buttons');
+                    buttons.style.visibility = 'visible';
+                    restoreAfterScreenshot(screenshotState2);
+                    button.textContent = '保存失败';
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.disabled = false;
+                    }, 2000);
+                }
+            }
+
+            function prepareForScreenshot() {
+                var state = {
+                    wasWide: document.body.classList.contains('wide-mode'),
+                    hiddenGroups: []
+                };
+                document.body.classList.remove('wide-mode');
+                state.wasDark = document.body.classList.contains('dark-mode');
+                document.body.classList.remove('dark-mode');
+                document.querySelectorAll('.word-group[data-tab-index]').forEach(function(g, i) {
+                    if (g.style.display === 'none') {
+                        state.hiddenGroups.push(i);
+                        g.style.display = '';
+                    }
+                });
+                state.hiddenStandaloneGroups = [];
+                document.querySelectorAll('.standalone-group[data-standalone-tab]').forEach(function(g, i) {
+                    if (g.style.display === 'none') {
+                        state.hiddenStandaloneGroups.push(i);
+                        g.style.display = '';
+                    }
+                });
+                document.querySelectorAll('.tab-bar, .standalone-tab-bar, .search-bar, .fab-bar, .toggle-wide-btn').forEach(function(el) {
+                    el.dataset.prevDisplay = el.style.display || '';
+                    el.style.display = 'none';
+                });
+                document.querySelectorAll('.toggle-dark-btn').forEach(function(el) {
+                    el.dataset.prevDisplay = el.style.display || ''; el.style.display = 'none';
+                });
+                document.querySelectorAll('.reading-progress').forEach(function(el) { el.style.display = 'none'; });
+                document.querySelectorAll('.header-watermark').forEach(function(el) { el.style.display = 'none'; });
+                return state;
+            }
+
+            function restoreAfterScreenshot(state) {
+                if (state.wasWide) document.body.classList.add('wide-mode');
+                if (state.wasDark) document.body.classList.add('dark-mode');
+                var groups = document.querySelectorAll('.word-group[data-tab-index]');
+                state.hiddenGroups.forEach(function(i) {
+                    if (groups[i]) groups[i].style.display = 'none';
+                });
+                var standaloneGroups = document.querySelectorAll('.standalone-group[data-standalone-tab]');
+                if (state.hiddenStandaloneGroups) {
+                    state.hiddenStandaloneGroups.forEach(function(i) {
+                        if (standaloneGroups[i]) standaloneGroups[i].style.display = 'none';
+                    });
+                }
+                document.querySelectorAll('.tab-bar, .standalone-tab-bar, .search-bar, .fab-bar, .toggle-wide-btn').forEach(function(el) {
+                    el.style.display = el.dataset.prevDisplay || '';
+                    delete el.dataset.prevDisplay;
+                });
+                document.querySelectorAll('.toggle-dark-btn').forEach(function(el) {
+                    el.style.display = el.dataset.prevDisplay || ''; delete el.dataset.prevDisplay;
+                });
+                document.querySelectorAll('.reading-progress').forEach(function(el) { el.style.display = ''; });
+                document.querySelectorAll('.reading-progress').forEach(function(el) { el.style.display = ''; });
+                document.querySelectorAll('.header-watermark').forEach(function(el) { el.style.display = ''; });
+                initTabVisibility();
+                initCollapseVisibility();
+                initStandaloneTabVisibility();
+                var fabBar = document.querySelector('.fab-bar');
+                if (fabBar && window.scrollY > 300) fabBar.classList.add('visible');
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                window.scrollTo(0, 0);
+
+                // 自动检测宽屏模式
+                var savedMode = null;
+                try { savedMode = localStorage.getItem('trendradar-wide-mode'); } catch(e) {}
+                if (savedMode === '1' || (savedMode === null && window.innerWidth > 768)) {
+                    document.body.classList.add('wide-mode');
+                    var btn = document.querySelector('.toggle-wide-btn');
+                    if (btn) btn.textContent = '⊡';
+                }
+
+                // 暗色模式恢复
+                var savedDark = null;
+                try { savedDark = localStorage.getItem('trendradar-dark-mode'); } catch(e) {}
+                if (savedDark === '1') {
+                    document.body.classList.add('dark-mode');
+                    var darkBtn = document.querySelector('.toggle-dark-btn');
+                    if (darkBtn) darkBtn.textContent = '☀';
+                }
+
+                // 启用搜索栏
+                var searchBar = document.querySelector('.search-bar');
+                if (searchBar) searchBar.style.display = 'block';
+
+                // 初始化增强功能
+                initTabs();
+                initBackToTop();
+                initCollapse();
+                initStandaloneTabs();
+
+                // 键盘快捷键
+                document.addEventListener('keydown', function(e) {
+                    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+                    var helpBtn = document.querySelector('.fab-help');
+                    switch(e.key) {
+                        case '?':
+                            if (helpBtn) {
+                                helpBtn.classList.toggle('show-tip');
+                                var fabBar = document.querySelector('.fab-bar');
+                                if (fabBar) fabBar.classList.add('visible');
+                            }
+                            break;
+                        case 'Escape':
+                            if (helpBtn) helpBtn.classList.remove('show-tip');
+                            break;
+                        case 'w': case 'W': toggleWideMode(); break;
+                        case 'd': case 'D': toggleDarkMode(); break;
+                        case '/': e.preventDefault(); var si = document.querySelector('.search-input'); if (si) si.focus(); break;
+                    }
+                });
+
+                // 阅读进度条
+                var progressBar = document.querySelector('.reading-progress');
+                if (progressBar) {
+                    window.addEventListener('scroll', function() {
+                        var h = document.documentElement.scrollHeight - window.innerHeight;
+                        progressBar.style.width = (h > 0 ? (window.scrollY / h * 100) : 0) + '%';
+                    });
+                }
+
+                // 一键复制：hover 时数字变复制图标
+                var copySvg = '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M5 11H3.5A1.5 1.5 0 012 9.5v-7A1.5 1.5 0 013.5 1h7A1.5 1.5 0 0112 2.5V5"/></svg>';
+                var checkSvg = '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#22c55e" stroke-width="2"><path d="M3 8.5l3.5 3.5 7-7"/></svg>';
+                document.querySelectorAll('.news-item .news-number').forEach(function(numEl) {
+                    var item = numEl.closest('.news-item');
+                    var titleEl = item ? item.querySelector('.news-title a') : null;
+                    if (!titleEl) return;
+                    var numText = numEl.textContent.trim();
+                    numEl.innerHTML = '<span class="num-text">' + numText + '</span><span class="copy-icon">' + copySvg + '</span>';
+                    numEl.title = '点击复制标题和链接';
+                    numEl.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        var text = titleEl.textContent.trim() + ' ' + titleEl.href;
+                        navigator.clipboard.writeText(text).then(function() {
+                            numEl.classList.add('copied');
+                            numEl.querySelector('.copy-icon').innerHTML = checkSvg;
+                            setTimeout(function() {
+                                numEl.classList.remove('copied');
+                                numEl.querySelector('.copy-icon').innerHTML = copySvg;
+                            }, 1500);
+                        });
+                    });
+                });
+
+
+
+                // Header watermark 鼠标跟随揭示
+                (function() {
+                    var header = document.querySelector('.header');
+                    var watermark = document.querySelector('.header-watermark');
+                    if (!header || !watermark) return;
+
+                    var radius = 100;
+
+                    header.addEventListener('mousemove', function(e) {
+                        var rect = watermark.getBoundingClientRect();
+                        var x = e.clientX - rect.left;
+                        var y = e.clientY - rect.top;
+                        var maskVal = 'radial-gradient(circle ' + radius + 'px at ' + x + 'px ' + y + 'px, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%)';
+                        watermark.style.webkitMaskImage = maskVal;
+                        watermark.style.maskImage = maskVal;
+                        watermark.style.color = 'rgba(255, 255, 255, 0.25)';
+                    });
+
+                    header.addEventListener('mouseleave', function() {
+                        watermark.style.webkitMaskImage = 'radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)';
+                        watermark.style.maskImage = 'radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)';
+                        watermark.style.color = 'rgba(255, 255, 255, 0.15)';
+                    });
+                })();
+            });
+        </script>
+    </body>
+    </html>
+        <script>
+            // ===== 浏览器增强功能 =====
+
+            function toggleWideMode() {
+                document.body.classList.toggle('wide-mode');
+                var isWide = document.body.classList.contains('wide-mode');
+                try { localStorage.setItem('trendradar-wide-mode', isWide ? '1' : '0'); } catch(e) {}
+                var btn = document.querySelector('.toggle-wide-btn');
+                if (btn) btn.textContent = isWide ? '⊡' : '⛶';
+                initTabVisibility();
+                initCollapseVisibility();
+                initStandaloneTabVisibility();
+            }
+
+            function toggleDarkMode() {
+                var isDark = document.body.classList.toggle('dark-mode');
+                try { localStorage.setItem('trendradar-dark-mode', isDark ? '1' : '0'); } catch(e) {}
+                var btn = document.querySelector('.toggle-dark-btn');
+                if (btn) btn.textContent = isDark ? '☀' : '☽';
+            }
+
+            function initTabs() {
+                var tabBar = document.querySelector('.tab-bar');
+                if (!tabBar) return;
+                var tabs = tabBar.querySelectorAll('.tab-btn');
+                var groups = document.querySelectorAll('.word-group[data-tab-index]');
+                initTabVisibility();
+
+                function activateTab(index) {
+                    tabs.forEach(function(t) { t.classList.remove('active'); });
+                    if (index === 'all') {
+                        var allBtn = tabBar.querySelector('[data-tab-index="all"]');
+                        if (allBtn) allBtn.classList.add('active');
+                        groups.forEach(function(g) { g.style.display = ''; });
+                        try { history.replaceState(null, '', '#all'); } catch(e) {}
+                        return;
+                    }
+                    var idx = parseInt(index);
+                    tabs.forEach(function(t) {
+                        if (parseInt(t.dataset.tabIndex) === idx) t.classList.add('active');
+                    });
+                    if (document.body.classList.contains('wide-mode') && !tabBar.classList.contains('tab-hidden')) {
+                        groups.forEach(function(g) {
+                            g.style.display = (parseInt(g.dataset.tabIndex) === idx) ? '' : 'none';
+                        });
+                    }
+                    try { history.replaceState(null, '', '#tab-' + idx); } catch(e) {}
+                }
+
+                tabs.forEach(function(tab) {
+                    tab.addEventListener('click', function() {
+                        var idx = tab.dataset.tabIndex;
+                        activateTab(idx === 'all' ? 'all' : parseInt(idx));
+                    });
+                });
+
+                tabBar.addEventListener('keydown', function(e) {
+                    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                        var tabsArr = Array.from(tabs);
+                        var ci = tabsArr.findIndex(function(t) { return t.classList.contains('active'); });
+                        var dir = e.key === 'ArrowRight' ? 1 : -1;
+                        var ni = Math.max(0, Math.min(tabsArr.length - 1, ci + dir));
+                        var nt = tabsArr[ni];
+                        activateTab(nt.dataset.tabIndex === 'all' ? 'all' : parseInt(nt.dataset.tabIndex));
+                        nt.focus();
+                        e.preventDefault();
+                    }
+                });
+
+                var hash = window.location.hash;
+                if (hash === '#all') { activateTab('all'); }
+                else if (hash.indexOf('#tab-') === 0) { activateTab(parseInt(hash.replace('#tab-', ''))); }
+                else { activateTab(0); }
+            }
+
+            function initTabVisibility() {
+                var tabBar = document.querySelector('.tab-bar');
+                if (!tabBar) return;
+                var groups = document.querySelectorAll('.word-group[data-tab-index]');
+                var isWide = document.body.classList.contains('wide-mode');
+                if (!isWide || groups.length <= 2) {
+                    tabBar.classList.add('tab-hidden');
+                    groups.forEach(function(g) { g.style.display = ''; });
+                } else {
+                    tabBar.classList.remove('tab-hidden');
+                    var activeTab = tabBar.querySelector('.tab-btn.active');
+                    if (activeTab) { activeTab.click(); }
+                    else {
+                        var firstTab = tabBar.querySelector('.tab-btn');
+                        if (firstTab) firstTab.click();
+                    }
+                }
+            }
+
+            function handleSearch(query) {
+                query = query.toLowerCase();
+                document.querySelectorAll('.news-item').forEach(function(item) {
+                    var title = (item.querySelector('.news-title') || {}).textContent || '';
+                    item.style.display = (!query || title.toLowerCase().indexOf(query) !== -1) ? '' : 'none';
+                });
+                document.querySelectorAll('.rss-item').forEach(function(item) {
+                    var title = (item.querySelector('.rss-title') || {}).textContent || '';
+                    item.style.display = (!query || title.toLowerCase().indexOf(query) !== -1) ? '' : 'none';
+                });
+            }
+
+            function initBackToTop() {
+                var fabBar = document.querySelector('.fab-bar');
+                if (!fabBar) return;
+                window.addEventListener('scroll', function() {
+                    fabBar.classList.toggle('visible', window.scrollY > 300);
+                });
+            }
+
+            function initCollapse() {
+                document.querySelectorAll('.word-header').forEach(function(header) {
+                    header.addEventListener('click', function() {
+                        var tabBar = document.querySelector('.tab-bar');
+                        if (document.body.classList.contains('wide-mode') && tabBar && !tabBar.classList.contains('tab-hidden')) return;
+                        var group = header.closest('.word-group');
+                        if (group) group.classList.toggle('collapsed');
+                    });
+                });
+                initCollapseVisibility();
+            }
+
+            function initCollapseVisibility() {
+                var headers = document.querySelectorAll('.word-header');
+                var tabBar = document.querySelector('.tab-bar');
+                var isTabMode = document.body.classList.contains('wide-mode') && tabBar && !tabBar.classList.contains('tab-hidden');
+                headers.forEach(function(h) {
+                    if (isTabMode) { h.classList.remove('collapsible'); }
+                    else { h.classList.add('collapsible'); }
+                });
+                if (isTabMode) {
+                    document.querySelectorAll('.word-group.collapsed').forEach(function(g) {
+                        g.classList.remove('collapsed');
+                    });
+                }
+            }
+
+            // 独立展示区 Tab 切换
+            function initStandaloneTabs() {
+                var tabBar = document.querySelector('.standalone-tab-bar');
+                if (!tabBar) return;
+                var groups = document.querySelectorAll('.standalone-group[data-standalone-tab]');
+                var btns = tabBar.querySelectorAll('.tab-btn[data-standalone-tab]');
+
+                function activateStandaloneTab(val) {
+                    btns.forEach(function(b) {
+                        var bVal = b.getAttribute('data-standalone-tab');
+                        b.classList.toggle('active', bVal === String(val));
+                    });
+                    groups.forEach(function(g) {
+                        var gVal = g.getAttribute('data-standalone-tab');
+                        g.style.display = (val === 'all' || gVal === String(val)) ? '' : 'none';
+                    });
+                }
+
+                btns.forEach(function(btn) {
+                    btn.addEventListener('click', function() {
+                        activateStandaloneTab(btn.getAttribute('data-standalone-tab'));
+                    });
+                });
+
+                // 初始状态
+                initStandaloneTabVisibility();
+            }
+
+            function initStandaloneTabVisibility() {
+                var tabBar = document.querySelector('.standalone-tab-bar');
+                if (!tabBar) return;
+                var groups = document.querySelectorAll('.standalone-group[data-standalone-tab]');
+                var isWide = document.body.classList.contains('wide-mode');
+                if (!isWide || groups.length <= 1) {
+                    tabBar.classList.add('tab-hidden');
+                    groups.forEach(function(g) { g.style.display = ''; });
+                } else {
+                    tabBar.classList.remove('tab-hidden');
+                    var activeBtn = tabBar.querySelector('.tab-btn.active');
+                    if (activeBtn) activeBtn.click();
+                    else { var first = tabBar.querySelector('.tab-btn'); if (first) first.click(); }
+                }
+            }
+
+            // ===== 截图功能 =====
+
+            async function saveAsImage() {
+                const button = event.target;
+                const originalText = button.textContent;
+
+                try {
+                    button.textContent = '保存中...';
+                    button.disabled = true;
+
+                    // 准备截图状态
+                    var screenshotState = prepareForScreenshot();
+
+                    // 隐藏保存按钮
+                    const buttons = document.querySelector('.save-buttons');
+                    buttons.style.visibility = 'hidden';
+
+                    // 等待DOM更新
+                    await new Promise(resolve => setTimeout(resolve, 100));
+
+                    // 使用html2canvas截取整个页面
+                    const container = document.querySelector('.container');
+                    const canvas = await html2canvas(container, {
+                        backgroundColor: '#ffffff',
+                        scale: 1.5,
+                        useCORS: true,
+                        allowTaint: true
+                    });
+
+                    // 恢复页面状态
+                    buttons.style.visibility = 'visible';
+                    restoreAfterScreenshot(screenshotState);
+
+                    // 保存图片
+                    const link = document.createElement('a');
+                    link.download = '老许聊实体-' + new Date().toISOString().slice(0,10) + '.png';
+                    link.href = canvas.toDataURL('image/png');
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+
+                    button.textContent = '保存成功!';
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.disabled = false;
+                    }, 2000);
+
+                } catch (error) {
+                    const buttons = document.querySelector('.save-buttons');
+                    buttons.style.visibility = 'visible';
+                    restoreAfterScreenshot(screenshotState);
+                    button.textContent = '保存失败';
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.disabled = false;
+                    }, 2000);
+                }
+            }
+
+            async function saveAsMultipleImages() {
+                const button = event.target;
+                const originalText = button.textContent;
+
+                try {
+                    button.textContent = '保存中...';
+                    button.disabled = true;
+
+                    const groups = document.querySelectorAll('.word-group');
+                    const images = [];
+
+                    for (let i = 0; i < groups.length; i++) {
+                        const group = groups[i];
+                        const groupName = group.querySelector('.word-name').textContent;
+
+                        // 准备截图状态
+                        var screenshotState = prepareForScreenshot();
+
+                        // 隐藏保存按钮
+                        const buttons = document.querySelector('.save-buttons');
+                        buttons.style.visibility = 'hidden';
+
+                        // 滚动到当前组
+                        group.scrollIntoView({ behavior: 'smooth' });
+                        await new Promise(resolve => setTimeout(resolve, 500));
+
+                        // 截取当前组
+                        const canvas = await html2canvas(group, {
+                            backgroundColor: '#ffffff',
+                            scale: 1.5,
+                            useCORS: true,
+                            allowTaint: true
+                        });
+
+                        // 恢复页面状态
+                        buttons.style.visibility = 'visible';
+                        restoreAfterScreenshot(screenshotState);
+
+                        // 保存图片
+                        const link = document.createElement('a');
+                        link.download = `老许聊实体-${new Date().toISOString().slice(0,10)}-${i+1}-${groupName}.png`;
+                        link.href = canvas.toDataURL('image/png');
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+
+                        await new Promise(resolve => setTimeout(resolve, 1000));
+                    }
+
+                    button.textContent = '保存成功!';
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.disabled = false;
+                    }, 2000);
+
+                } catch (error) {
+                    const buttons = document.querySelector('.save-buttons');
+                    buttons.style.visibility = 'visible';
+                    restoreAfterScreenshot(screenshotState);
+                    button.textContent = '保存失败';
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.disabled = false;
+                    }, 2000);
+                }
+            }
+
+            function prepareForScreenshot() {
+                var state = {
+                    collapsed: [],
+                    wideMode: document.body.classList.contains('wide-mode')
+                };
+
+                // 展开所有折叠的组
+                var collapsedGroups = document.querySelectorAll('.word-group.collapsed');
+                collapsedGroups.forEach(function(group) {
+                    state.collapsed.push(group);
+                    group.classList.remove('collapsed');
+                });
+
+                // 切换到窄屏模式以确保内容完整
+                if (state.wideMode) {
+                    document.body.classList.remove('wide-mode');
+                }
+
+                return state;
+            }
+
+            function restoreAfterScreenshot(state) {
+                // 恢复折叠状态
+                state.collapsed.forEach(function(group) {
+                    group.classList.add('collapsed');
+                });
+
+                // 恢复宽屏模式
+                if (state.wideMode) {
+                    document.body.classList.add('wide-mode');
+                }
+            }
+
+            // 初始化功能
+            document.addEventListener('DOMContentLoaded', function() {
+                // 恢复用户偏好设置
+                try {
+                    if (localStorage.getItem('trendradar-wide-mode') === '1') {
+                        document.body.classList.add('wide-mode');
+                        var btn = document.querySelector('.toggle-wide-btn');
+                        if (btn) btn.textContent = '⊡';
+                    }
+                    if (localStorage.getItem('trendradar-dark-mode') === '1') {
+                        document.body.classList.add('dark-mode');
+                        var btn = document.querySelector('.toggle-dark-btn');
+                        if (btn) btn.textContent = '☀';
+                    }
+                } catch(e) {}
+
+                initTabs();
+                initBackToTop();
+                initCollapse();
+                initStandaloneTabs();
+
+                // 初始化阅读进度条
+                window.addEventListener('scroll', function() {
+                    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    var scrolled = (winScroll / height) * 100;
+                    document.querySelector('.reading-progress').style.width = scrolled + '%';
+                });
+
+                // 复制功能
+                document.querySelectorAll('.news-number').forEach(function(num) {
+                    num.addEventListener('click', function() {
+                        var text = this.querySelector('.num-text').textContent;
+                        navigator.clipboard.writeText(text).then(function() {
+                            num.classList.add('copied');
+                            setTimeout(function() {
+                                num.classList.remove('copied');
+                            }, 2000);
+                        });
+                    });
+                });
+
+                // 快捷键
+                document.addEventListener('keydown', function(e) {
+                    if (e.ctrlKey || e.metaKey) return;
+                    
+                    if (e.key === 'w' || e.key === 'W') {
+                        toggleWideMode();
+                        e.preventDefault();
+                    } else if (e.key === 'd' || e.key === 'D') {
+                        toggleDarkMode();
+                        e.preventDefault();
+                    } else if (e.key === '/') {
+                        var searchInput = document.querySelector('.search-input');
+                        if (searchInput) {
+                            searchInput.focus();
+                            e.preventDefault();
+                        }
+                    }
+                });
+            });
+        </script>
+    </body>
+    </html>
