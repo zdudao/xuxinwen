@@ -1,750 +1,490 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>老许聊实体 - 每日行业资讯</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>老许聊实体 - 每日商业资讯</title>
     <style>
-        @font-face {
-            font-family: 'Microsoft YaHei';
-            src: url('MicrosoftYaHei-01.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
+        :root {
+            --bg-color: #f8fafc;
+            --card-color: #ffffff;
+            --primary-color: #8b5cf6;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --radius-sm: 8px;
+            --radius-md: 12px;
         }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --card-color: #1e293b;
+            --primary-color: #8b5cf6;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
+
         body {
-            font-family: 'Microsoft YaHei', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #586baa 0%, #6287c1 25%, #e26b7e 50%, #ff82a9 75%, #ffc6c6 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
             min-height: 100vh;
-            padding: 0;
-            position: relative;
-            overflow-x: hidden;
+            transition: background-color 0.3s ease;
         }
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 0;
-        }
+
         .container {
-            max-width: 1000px;
+            max-width: 960px;
             margin: 0 auto;
-            padding: 60px 20px;
-            position: relative;
-            z-index: 1;
+            padding: 16px;
         }
-        .header {
-            text-align: center;
-            margin-bottom: 60px;
-            animation: fadeInDown 0.8s ease-out;
+
+        .card {
+            background-color: var(--card-color);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
         }
-        .header .logo {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        .header .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .header h1 {
-            color: white;
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.4);
-        }
-        .header .contact-info {
-            color: rgba(255,255,255,0.9);
-            font-size: 16px;
-            font-weight: 300;
-            margin-bottom: 20px;
-            background: rgba(255,255,255,0.1);
-            padding: 12px 24px;
-            border-radius: 25px;
-            display: inline-block;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        .header .contact-info span {
-            margin: 0 10px;
-        }
-        .header .contact-info .icon {
-            margin-right: 5px;
-        }
-        .header .tags {
+
+        .card-header {
             display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 10px;
-            background: rgba(183, 141, 119, 0.3);
-            padding: 12px 20px;
-            border-radius: 15px;
-            color: #ffffff;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 16px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
         }
-        .header .tag {
-            background: #B78D77;
-            color: #ffffff;
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            color: var(--text-primary);
+        }
+
+        .logo strong {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-color);
+            background-color: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: rgba(139, 92, 246, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        @media (min-width: 640px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(139, 92, 246, 0.02) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.15);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .tabs-container {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 8px;
+        }
+
+        .tabs-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tabs {
+            display: inline-flex;
+            gap: 8px;
+        }
+
+        .tab {
             padding: 8px 16px;
             border-radius: 20px;
-            font-size: 14px;
-            border: 1px solid #B78D77;
-            box-shadow: inset 0px 0px 5px 0px;
-        }
-        .articles-card {
-            background: #FCF5E2;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            animation: fadeIn 1s ease-out 0.3s both;
-        }
-        .card-header {
-            background: #0175CC;
-            padding: 30px;
-            color: white;
-        }
-        .card-header h2 {
-            font-size: 24px;
-            font-weight: 500;
-            margin: 0;
-        }
-        .card-content {
-            padding: 40px;
-        }
-        .article-item {
-            display: flex;
-            align-items: flex-start;
-            padding: 20px;
-            border-bottom: 1px solid #f0f0f0;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            background: #FCF5E2;
-            margin: 10px 0;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            border: 1px solid #e9ecef;
-        }
-        .article-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(180deg, #0175CC 0%, #B78D77 100%);
-            transform: scaleY(0);
-            transform-origin: top;
-            transition: transform 0.3s ease;
-        }
-        .article-item:hover {
-            background: #ffffff;
-            transform: translateX(10px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        .article-item:hover::before {
-            transform: scaleY(1);
-        }
-        .article-item:last-child {
-            border-bottom: none;
-        }
-        .article-date {
-            flex: 0 0 200px;
-            padding-right: 20px;
-        }
-        .article-date .date-main {
-            font-size: 16px;
-            color: #666;
-            font-weight: 500;
-            margin-bottom: 4px;
+            border: 1px solid var(--border-color);
+            background-color: transparent;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
             white-space: nowrap;
         }
-        .article-content {
-            flex: 1;
-            padding: 0 30px;
+
+        .tab.active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
         }
-        .article-content::before {
-            content: "今日要点：";
-            font-weight: bold;
-            margin-right: 8px;
-            color: #B78D77;
+
+        .tab:hover:not(.active) {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
         }
-        .article-title {
-            color: #333333;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 500;
-            display: block;
-            margin-bottom: 8px;
-            transition: color 0.3s ease;
+
+        .hot-card {
+            padding: 24px;
         }
-        .article-title:hover {
-            color: #0175CC;
-        }
-        .article-stats {
+
+        .hot-header {
             display: flex;
-            gap: 16px;
-            margin: 8px 0;
-        }
-        .article-stats .stat-item {
-            font-size: 14px;
-            color: #666;
-            background: #f5f5f5;
-            padding: 4px 12px;
-            border-radius: 12px;
-        }
-        .article-desc {
-            font-size: 14px;
-            color: #999;
-            line-height: 1.4;
-        }
-        .article-arrow {
-            color: #999;
-            font-size: 24px;
-            margin-top: 4px;
-            transition: color 0.3s ease;
-        }
-        .article-item:hover .article-arrow {
-            color: #667eea;
-            transform: translateX(5px);
-        }
-        .empty-state {
-            padding: 80px 40px;
-            text-align: center;
-            color: #666;
-        }
-        .empty-state p {
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 16px;
-            font-size: 16px;
         }
-        .empty-state code {
-            background: #f5f5f5;
-            padding: 6px 12px;
+
+        .hot-date {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .hot-badge {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            background-color: rgba(249, 115, 22, 0.1);
+            color: #f97316;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .hot-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.6;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .hot-btn {
+            float: right;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hot-btn:hover {
+            background-color: #7c3aed;
+            transform: translateY(-1px);
+        }
+
+        .news-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .news-card {
+            padding: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .news-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .news-date {
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            background-color: rgba(139, 92, 246, 0.1);
+            color: var(--primary-color);
             border-radius: 6px;
-            font-size: 14px;
-            font-family: 'Courier New', monospace;
+            font-weight: 500;
         }
-        .footer {
+
+        .news-category {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .news-title {
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .news-summary {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .news-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .news-tag {
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            background-color: rgba(139, 92, 246, 0.08);
+            color: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        .footer-card {
             text-align: center;
-            margin-top: 60px;
-            color: #ffffff;
-            font-size: 26px;
-            font-weight: bold;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            animation: fadeIn 1s ease-out 0.6s both;
+            padding: 20px;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
         }
-        .update-time {
-            text-align: center;
-            color: rgba(255,255,255,0.6);
-            font-size: 14px;
-            margin-top: 20px;
+
+        .footer-card p {
+            margin-bottom: 4px;
         }
-        @media (max-width: 768px) {
-            .container {
-                padding: 40px 20px;
-            }
-            .header h1 {
-                font-size: 28px;
-            }
-            .header .tags {
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 8px;
-            }
-            .card-content {
-                padding: 30px;
-            }
-            .article-item {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 20px 0;
-            }
-            .article-date {
-                margin-bottom: 10px;
-            }
-            .article-content {
-                padding: 0;
-                margin-bottom: 10px;
-            }
-            .article-arrow {
-                align-self: flex-end;
-            }
+
+        .footer-card a {
+            color: var(--primary-color);
+            text-decoration: none;
         }
-        @media (max-width: 480px) {
-            .container {
-                padding: 20px 12px;
-            }
-            .header .logo {
-                width: 60px;
-                height: 60px;
-            }
-            .header h1 {
-                font-size: 20px;
-                margin-bottom: 8px;
-            }
-            .header .contact-info {
-                font-size: 12px;
-                padding: 8px 16px;
-            }
-            .header .tags {
-                padding: 8px 12px;
-            }
-            .header .tag {
-                font-size: 12px;
-                padding: 4px 12px;
-            }
-            .card-header {
-                padding: 20px;
-            }
-            .card-header h2 {
-                font-size: 18px;
-            }
-            .card-content {
-                padding: 20px;
-            }
-            .article-title {
-                font-size: 14px;
-            }
-            .footer {
-                font-size: 18px;
-            }
+
+        .search-bar {
+            margin-bottom: 16px;
         }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            background-color: var(--card-color);
+            color: var(--text-primary);
+            font-size: 0.875rem;
         }
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-secondary);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <div class="logo">
-                <img src="logo.jpg" alt="老许聊实体">
-            </div>
-            <h1>老许聊实体</h1>
-            <div class="contact-info">
-                <span><span class="icon">📱</span>抖音：老许聊实体</span>
-                <span><span class="icon">💬</span>微信：xuyang2946</span>
-            </div>
-            <div class="tags">
-                <span class="tag">创业开店</span>
-                <span class="tag">实体零售</span>
-                <span class="tag">商业趋势</span>
-                <span class="tag">行业分析</span>
-            </div>
-        </div>
-
-        <div class="articles-card">
+        <div class="card">
             <div class="card-header">
-                <h2>📅 每日资讯汇总</h2>
+                <div class="logo"><strong>老许聊实体</strong> | 每日商业资讯 · 洞察行业趋势</div>
+                <button class="theme-toggle" id="themeToggle" title="切换主题">🌙</button>
             </div>
-            <div class="card-content">
-
-        <div class="article-item" onclick="window.open('html/2026-06-06/20-48.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年06月06日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-06-06/20-48.html" class="article-title" target="_blank" style="pointer-events: none;">深圳楼面价破10万,山姆开到山东成梗,Wendy's进入中国市场</a>
-            </div>
-            <div class="article-arrow">→</div>
+            <div class="stats-grid" id="statsGrid"></div>
         </div>
 
-        <div class="article-item" onclick="window.open('html/2026-06-03/15-33.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年06月03日</div>
+        <div class="card">
+            <div class="tabs-container">
+                <div class="tabs" id="categoryTabs"></div>
             </div>
-            <div class="article-content">
-                <a href="html/2026-06-03/15-33.html" class="article-title" target="_blank" style="pointer-events: none;">金价大降300元,于东来谈胖东来与山姆差距,618促销战开启</a>
-            </div>
-            <div class="article-arrow">→</div>
         </div>
 
-        <div class="article-item" onclick="window.open('html/2026-05-23/19-32.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年05月23日</div>
+        <div class="card hot-card" id="hotCard"></div>
+
+        <div class="card">
+            <div class="search-bar">
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索新闻标题...">
             </div>
-            <div class="article-content">
-                <a href="html/2026-05-23/19-32.html" class="article-title" target="_blank" style="pointer-events: none;">山姆未结账先吃引争议,阳朔整治米粉价格乱象,618促销大战预热</a>
-            </div>
-            <div class="article-arrow">→</div>
+            <div class="news-grid" id="newsGrid"></div>
         </div>
 
-        <div class="article-item" onclick="window.open('html/2026-05-17/14-08.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年05月17日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-05-17/14-08.html" class="article-title" target="_blank" style="pointer-events: none;">苹果华为小米集体降价,黄仁勋打卡蜜雪冰城,多地商铺空置率上升</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-05-10/12-06.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年05月10日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-05-10/12-06.html" class="article-title" target="_blank" style="pointer-events: none;">618大促正式开启,金价继续攀升,实体零售创新营销方式</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-05-09/09-42.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年05月09日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-05-09/09-42.html" class="article-title" target="_blank" style="pointer-events: none;">金价突破3300美元,618大促战火升级,多地消费券刺激市场</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-05-08/11-03.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年05月08日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-05-08/11-03.html" class="article-title" target="_blank" style="pointer-events: none;">餐饮行业掀涨价潮,618预售正式开启,直播带货新规即将落地</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-05-07/11-41.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年05月07日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-05-07/11-41.html" class="article-title" target="_blank" style="pointer-events: none;">多地房租上涨引发关注,新能源车企降价潮持续,618大促开启预热</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-05-06/14-00.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年05月06日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-05-06/14-00.html" class="article-title" target="_blank" style="pointer-events: none;">黄金价格突破3200美元,文旅部整治不合理低价游,多地消费券促消费</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-05-05/11-48.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年05月05日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-05-05/11-48.html" class="article-title" target="_blank" style="pointer-events: none;">浏阳烟花厂爆炸事故引关注,楼市回暖迹象明显,中山推商贷新政</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-05-04/12-55.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年05月04日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-05-04/12-55.html" class="article-title" target="_blank" style="pointer-events: none;">五一消费市场回暖明显,餐饮零售数据向好,直播带货新规正式实施</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-30/19-18.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月30日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-30/19-18.html" class="article-title" target="_blank" style="pointer-events: none;">特斯拉降价引发车企股价波动,拼多多跨境电商增速放缓,实体零售回暖迹象明显</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-29/15-55.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月29日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-29/15-55.html" class="article-title" target="_blank" style="pointer-events: none;">蜜雪冰城进军下沉市场,星巴克推出AI咖啡师,餐饮行业掀智能化浪潮</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-28/12-20.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月28日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-28/12-20.html" class="article-title" target="_blank" style="pointer-events: none;">比亚迪停止燃油车生产,瑞幸推AI拉花机,盒马试水无人超市</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-27/15-02.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月27日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-27/15-02.html" class="article-title" target="_blank" style="pointer-events: none;">东方甄选拒绝第二个董宇辉,追觅CEO炮轰小红书,6300吨榴莲抵广州</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-26/20-54.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月26日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-26/20-54.html" class="article-title" target="_blank" style="pointer-events: none;">东方甄选4主播离职,胖东来18元矿泉水遭哄抢,18万月子餐是冰饮炸物</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-25/15-22.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月25日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-25/15-22.html" class="article-title" target="_blank" style="pointer-events: none;">华谊兄弟被申请破产,泡泡玛特发售5999冰箱,茅台Q1营收净利双增</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-24/14-19.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月24日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-24/14-19.html" class="article-title" target="_blank" style="pointer-events: none;">火锅招985211管培生,拖鞋面包销量翻倍,义乌掀起学外语热</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-23/15-34.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月23日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-23/15-34.html" class="article-title" target="_blank" style="pointer-events: none;">开锁店被干成板面店,哪吒造车巨亏183亿,肯德基酱料收费引争议</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-22/16-25.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月22日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-22/16-25.html" class="article-title" target="_blank" style="pointer-events: none;">惠州餐厅被停业整顿,永辉超市收入增长16.57%,茶颜悦色落地深圳</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-21/12-47.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月21日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-21/12-47.html" class="article-title" target="_blank" style="pointer-events: none;">物业公司大规模撤离,县城农村成AB货重灾区,星巴克回应加盟传闻</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-20/13-43.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月20日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-20/13-43.html" class="article-title" target="_blank" style="pointer-events: none;">上海车展豪华品牌肉搏战,深圳二手房成交大涨,预制菜火了</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-19/10-35.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月19日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-19/10-35.html" class="article-title" target="_blank" style="pointer-events: none;">7大电商平台被罚35.97亿,网红开绿茶速成班,重庆火锅店新形态</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-17/14-10.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月17日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-17/14-10.html" class="article-title" target="_blank" style="pointer-events: none;">一线城市房地产企稳,旋转小火锅围剿县城,抖音5亿扶持真人短剧</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-16/14-15.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月16日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-16/14-15.html" class="article-title" target="_blank" style="pointer-events: none;">楼盘遭哄抢保安喷辣椒水,80万开店倒闭又投40万,抖音集团5亿扶持真人短剧</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-15/13-24.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月15日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-15/13-24.html" class="article-title" target="_blank" style="pointer-events: none;">1.5亿独居者商机,永辉仲裁胜诉王健林,微信余额不满三百不给面试</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-14/20-58.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月14日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-14/20-58.html" class="article-title" target="_blank" style="pointer-events: none;">深圳楼盘大降价千人排队,Lululemon在美被查,胖东来多宝鱼被指吃出溯源标签</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-13/19-34.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月13日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-13/19-34.html" class="article-title" target="_blank" style="pointer-events: none;">女外卖骑手的世界,钱袋子如何鼓起来,PCB覆铜板涨价潮</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('2026-04-12.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月12日</div>
-            </div>
-            <div class="article-content">
-                <a href="2026-04-12.html" class="article-title" target="_blank" style="pointer-events: none;">虚报77亿!河南招商数据造假,程序员卖汉堡月入5万</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-11/13-01.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月11日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-11/13-01.html" class="article-title" target="_blank" style="pointer-events: none;">河南招商数据造假！摆摊通宵只卖1个堡，莫氏鸡煲爆火背后真相</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-10/14-00.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月10日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-10/14-00.html" class="article-title" target="_blank" style="pointer-events: none;">蓝挚宠粮品牌闭店，新乳业冲刺港股，新茶饮品牌估值140亿，海河乳品道歉，携程启动无理由事假</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-09/12-43.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月09日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-09/12-43.html" class="article-title" target="_blank" style="pointer-events: none;">河南招商数据造假！摆摊通宵只卖1个堡，莫氏鸡煲爆火背后真相</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-08/14-36.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月08日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-08/14-36.html" class="article-title" target="_blank" style="pointer-events: none;">茶颜悦色成立新公司，蜜雪冰城推平价咖啡，瑞幸咖啡人事变动</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-07/11-31.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月07日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-07/11-31.html" class="article-title" target="_blank" style="pointer-events: none;">盒马成立食品科技中心，美团闪购推次日达，叮咚买菜开社区店</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-06/11-22.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月06日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-06/11-22.html" class="article-title" target="_blank" style="pointer-events: none;">叮咚买菜关店，社区团购遇冷，实体零售回暖，便利店扩张</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-05/11-08.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月05日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-05/11-08.html" class="article-title" target="_blank" style="pointer-events: none;">预制菜进高校，餐饮品牌上市，超市关店潮，社区商业崛起</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="month-summary">
-            <a href="html/2026-04-summary.html" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 500; transition: all 0.3s ease; margin-bottom: 16px;">
-                📊 4月新闻汇总与分析
-            </a>
-        </div>
-
-        <div class="update-time">
-            最后更新: 2026年06月06日 20:48
-        </div>
-
-        <div class="footer">
+        <div class="card footer-card">
             <p>关注「老许聊实体」，每天五分钟，带你看透行业趋势</p>
+            <p style="font-size: 0.75rem;">©2026 老许聊实体</p>
         </div>
     </div>
+
+    <script>
+        let newsData = null;
+        let currentCategory = 'all';
+        let currentSearch = '';
+
+        async function loadNews() {
+            const response = await fetch('data/news.json');
+            newsData = await response.json();
+            render();
+        }
+
+        function render() {
+            renderStats();
+            renderCategories();
+            renderHotNews();
+            renderNewsList();
+        }
+
+        function renderStats() {
+            const container = document.getElementById('statsGrid');
+            container.innerHTML = newsData.stats.map(stat => `
+                <div class="stat-card">
+                    <div class="stat-value">${stat.value}</div>
+                    <div class="stat-label">${stat.label}</div>
+                </div>
+            `).join('');
+        }
+
+        function renderCategories() {
+            const container = document.getElementById('categoryTabs');
+            container.innerHTML = newsData.categories.map(cat => `
+                <button class="tab ${currentCategory === cat.id ? 'active' : ''}" 
+                        onclick="filterByCategory('${cat.id}')">${cat.name}</button>
+            `).join('');
+        }
+
+        function renderHotNews() {
+            const container = document.getElementById('hotCard');
+            const dateStr = newsData.date.replace(/-/g, '.');
+            container.innerHTML = `
+                <div class="hot-header">
+                    <span class="hot-date">📅 ${dateStr} ${newsData.updateTime}</span>
+                    <span class="hot-badge">最新</span>
+                </div>
+                <div class="hot-title">${newsData.hotNews.title}</div>
+                <a href="${newsData.hotNews.link}" target="_blank" class="hot-btn">查看完整报告 →</a>
+            `;
+        }
+
+        function renderNewsList() {
+            const container = document.getElementById('newsGrid');
+            let filtered = newsData.newsList;
+            
+            if (currentCategory !== 'all') {
+                filtered = filtered.filter(n => n.category === currentCategory);
+            }
+            
+            if (currentSearch) {
+                const searchLower = currentSearch.toLowerCase();
+                filtered = filtered.filter(n => 
+                    n.title.toLowerCase().includes(searchLower) ||
+                    n.summary.toLowerCase().includes(searchLower)
+                );
+            }
+
+            container.innerHTML = filtered.map(news => `
+                <div class="card news-card">
+                    <div class="news-header">
+                        <span class="news-date">${news.date}</span>
+                        <span class="news-category">${news.categoryName}</span>
+                    </div>
+                    <div class="news-title">${news.title}</div>
+                    <div class="news-summary">${news.summary}</div>
+                    <div class="news-tags">
+                        ${news.tags.map(tag => `<span class="news-tag">${tag}</span>`).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterByCategory(category) {
+            currentCategory = category;
+            renderCategories();
+            renderNewsList();
+        }
+
+        function handleSearch(e) {
+            currentSearch = e.target.value;
+            renderNewsList();
+        }
+
+        function toggleTheme() {
+            const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+            document.documentElement.dataset.theme = theme;
+            localStorage.setItem('theme', theme);
+            document.getElementById('themeToggle').textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+
+        function initTheme() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = saved || (prefersDark ? 'dark' : 'light');
+            document.documentElement.dataset.theme = theme;
+            document.getElementById('themeToggle').textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+
+        document.getElementById('searchInput').addEventListener('input', handleSearch);
+        document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+        initTheme();
+        loadNews();
+    </script>
 </body>
 </html>

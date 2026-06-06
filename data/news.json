@@ -1,0 +1,180 @@
+{
+    "date": "2026-06-06",
+    "updateTime": "晚间汇总",
+    "categories": [
+        {"id": "all", "name": "全部"},
+        {"id": "retail", "name": "零售业态"},
+        {"id": "realestate", "name": "商业地产"},
+        {"id": "policy", "name": "行业政策"},
+        {"id": "trend", "name": "消费趋势"}
+    ],
+    "stats": [
+        {"value": "300+", "label": "每日资讯条数"},
+        {"value": "12", "label": "合作资讯平台"},
+        {"value": "9", "label": "RSS订阅源"},
+        {"value": "24h", "label": "全时段更新"}
+    ],
+    "hotNews": {
+        "title": "深圳楼面价破10万刷新纪录，山姆开到山东成网络热梗，Wendy's正式进入中国市场",
+        "link": "html/2026-06-06/20-48.html"
+    },
+    "newsList": [
+        {
+            "id": 1,
+            "category": "realestate",
+            "categoryName": "商业地产",
+            "date": "06-06",
+            "title": "单价高达10.87万元/平 深圳楼面价\"天花板\"被捅破",
+            "summary": "深圳新\"单价地王\"诞生，楼面价首破10万，溢价150%引发市场关注",
+            "source": "财联社热门",
+            "tags": ["选址与商业地产", "财联社热门"],
+            "link": "html/2026-06-06/20-48.html#1"
+        },
+        {
+            "id": 2,
+            "category": "retail",
+            "categoryName": "零售业态",
+            "date": "06-06",
+            "title": "为何山姆开到山东才成了梗",
+            "summary": "山姆会员店在山东的独特现象引发网络热议，选址策略成为讨论焦点",
+            "source": "bilibili热搜",
+            "tags": ["零售新业态", "bilibili热搜"],
+            "link": "html/2026-06-06/20-48.html#2"
+        },
+        {
+            "id": 3,
+            "category": "retail",
+            "categoryName": "餐饮",
+            "date": "06-06",
+            "title": "北美汉堡三巨头 Wendy's 官宣进入中国市场",
+            "summary": "Wendy's正式宣布进入中国，或将对国内快餐市场格局产生影响",
+            "source": "知乎",
+            "tags": ["餐饮专项", "知乎"],
+            "link": "html/2026-06-06/20-48.html#3"
+        },
+        {
+            "id": 4,
+            "category": "trend",
+            "categoryName": "消费趋势",
+            "date": "06-06",
+            "title": "耐克卖不动,品牌光环失灵",
+            "summary": "国际运动品牌在中国市场面临挑战，消费者偏好正在发生变化",
+            "source": "贴吧",
+            "tags": ["零售新业态", "贴吧"],
+            "link": "html/2026-06-06/20-48.html#4"
+        },
+        {
+            "id": 5,
+            "category": "trend",
+            "categoryName": "成本风险",
+            "date": "06-06",
+            "title": "金店老板一觉醒来资产缩水300万",
+            "summary": "金价大幅下跌，部分金店经营者面临巨大损失",
+            "source": "百度热搜",
+            "tags": ["成本与经营风险", "百度热搜"],
+            "link": "html/2026-06-06/20-48.html#5"
+        },
+        {
+            "id": 6,
+            "category": "policy",
+            "categoryName": "行业监管",
+            "date": "06-06",
+            "title": "加码严打,短剧行业遭整改",
+            "summary": "监管部门加强对短剧行业的整治，行业迎来规范发展新阶段",
+            "source": "贴吧",
+            "tags": ["行业监管与政策", "贴吧"],
+            "link": "html/2026-06-06/20-48.html#6"
+        },
+        {
+            "id": 7,
+            "category": "retail",
+            "categoryName": "门店运营",
+            "date": "06-06",
+            "title": "瑞幸回应\"去冰不补液\"问题争议",
+            "summary": "瑞幸咖啡就\"去冰不补液\"问题作出官方回应，引发消费者讨论",
+            "source": "百度热搜",
+            "tags": ["门店运营新模式", "百度热搜"],
+            "link": "html/2026-06-06/20-48.html#7"
+        },
+        {
+            "id": 8,
+            "category": "trend",
+            "categoryName": "消费趋势",
+            "date": "06-06",
+            "title": "1499元茅台消失了",
+            "summary": "市场上1499元茅台难觅踪影，供需关系发生变化",
+            "source": "微博",
+            "tags": ["消费与流量趋势", "微博"],
+            "link": "html/2026-06-06/20-48.html#8"
+        }
+    ],
+    "detailCategories": [
+        {
+            "name": "选址与商业地产",
+            "count": 3,
+            "news": [
+                {"title": "单价高达10.87万元/平 深圳楼面价\"天花板\"被捅破", "source": "财联社热门", "new": true, "link": "#1"},
+                {"title": "中建一局挂牌转让两座万达广场", "source": "今日头条", "new": true, "link": "#2"},
+                {"title": "为何山姆开到山东才成了梗", "source": "bilibili热搜", "new": true, "link": "#3"}
+            ]
+        },
+        {
+            "name": "店铺经营状态",
+            "count": 1,
+            "news": [
+                {"title": "金店老板一觉醒来资产缩水300万", "source": "百度热搜", "new": true, "link": "#4"}
+            ]
+        },
+        {
+            "name": "社区商业业态",
+            "count": 1,
+            "news": [
+                {"title": "冰红茶遇冷失宠,国窖变路边", "source": "贴吧", "new": true, "link": "#5"}
+            ]
+        },
+        {
+            "name": "零售新业态",
+            "count": 1,
+            "news": [
+                {"title": "耐克卖不动,品牌光环失灵", "source": "贴吧", "new": true, "link": "#6"}
+            ]
+        },
+        {
+            "name": "门店运营新模式",
+            "count": 1,
+            "news": [
+                {"title": "瑞幸回应\"去冰不补液\"问题争议", "source": "百度热搜", "new": true, "link": "#7"}
+            ]
+        },
+        {
+            "name": "餐饮专项",
+            "count": 1,
+            "news": [
+                {"title": "北美汉堡三巨头 Wendy's 官宣进入中国市场", "source": "知乎", "new": true, "link": "#8"}
+            ]
+        }
+    ],
+    "rssFeeds": [
+        {
+            "name": "界面新闻",
+            "count": 3,
+            "items": [
+                {"title": "万科时隔两年重返上海拿地", "link": "https://www.jiemian.com/article/14544739.html"},
+                {"title": "楼面价首破10万、溢价150%，深圳新\"单价地王\"诞生", "link": "https://www.jiemian.com/article/14544634.html"},
+                {"title": "蛋白粉原料涨价，受影响的不仅是健身一族", "link": "https://www.jiemian.com/article/14541743.html"}
+            ]
+        },
+        {
+            "name": "虎嗅24小时",
+            "count": 6,
+            "items": [
+                {"title": "快消厂商苦大卖场久矣，这不是合作，是明抢", "time": "18:17", "link": "https://www.huxiu.com/article/4865033.html"},
+                {"title": "人福医药打算彻底卖掉杰士邦", "time": "19:02", "link": "https://www.huxiu.com/article/4865039.html"},
+                {"title": "超市跟风模仿自有品牌，如何破解同质化问题？", "time": "16:38", "link": "https://www.huxiu.com/article/4865014.html"},
+                {"title": "日排队5000人，野生菌火锅爆发\"开店潮\"", "time": "19:07", "link": "https://www.huxiu.com/article/4865041.html"},
+                {"title": "去冰不补是正常操作？瑞幸被指偷工减料", "time": "16:21", "link": "https://www.huxiu.com/article/4865011.html"},
+                {"title": "阿迪达斯上演\"迷之操作\"：229元T恤翻译乌龙", "time": "16:26", "link": "https://www.huxiu.com/article/4865012.html"}
+            ]
+        }
+    ]
+}
