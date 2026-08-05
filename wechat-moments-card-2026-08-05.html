@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>老许聊实体 - 8月5日商业资讯</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .card {
+            max-width: 420px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+        .header .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .header .date {
+            font-size: 14px;
+            opacity: 0.9;
+            letter-spacing: 2px;
+        }
+        .header .tagline {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-top: 4px;
+        }
+        .hot-section {
+            padding: 20px;
+        }
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .section-title .icon {
+            font-size: 20px;
+        }
+        .section-title .text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .news-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            background: linear-gradient(135deg, #f0f4ff 0%, #fefefe 100%);
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .news-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+        .news-item .bullet {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .news-item .content {
+            flex: 1;
+        }
+        .news-item .title {
+            font-size: 14px;
+            color: #1a1a2e;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+        .news-item .source {
+            font-size: 11px;
+            color: #888;
+            margin-top: 4px;
+        }
+        .insight-section {
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .insight-section .section-title .text {
+            color: white;
+        }
+        .insight-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 12px;
+        }
+        .insight-card p {
+            color: white;
+            font-size: 14px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+        .footer {
+            padding: 20px;
+            text-align: center;
+        }
+        .footer .link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .footer .link:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+        .footer .copyright {
+            font-size: 12px;
+            color: #999;
+            margin-top: 16px;
+        }
+        .highlight {
+            background: linear-gradient(135deg, #fef08a 0%, #fde047 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #854d0e;
+            font-weight: 600;
+        }
+        .stats-bar {
+            display: flex;
+            justify-content: space-around;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-top: 1px solid #e2e8f0;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-item .value {
+            font-size: 20px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .stat-item .label {
+            font-size: 11px;
+            color: #94a3b8;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <div class="logo">🔥 老许聊实体</div>
+            <div class="date">二〇二六年八月五日</div>
+            <div class="tagline">每日五分钟 · 看透行业趋势</div>
+        </div>
+        
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="value">31</div>
+                <div class="label">精选新闻</div>
+            </div>
+            <div class="stat-item">
+                <div class="value">8</div>
+                <div class="label">核心热点</div>
+            </div>
+            <div class="stat-item">
+                <div class="value">1</div>
+                <div class="label">深度洞察</div>
+            </div>
+        </div>
+        
+        <div class="hot-section">
+            <div class="section-title">
+                <span class="icon">🔥</span>
+                <span class="text">今日热点</span>
+            </div>
+            <div class="news-list">
+                <div class="news-item">
+                    <span class="bullet">1</span>
+                    <div class="content">
+                        <div class="title">全国二手房交易占比超新房，存量房时代房产投资逻辑生变</div>
+                        <div class="source">知乎</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="bullet">2</span>
+                    <div class="content">
+                        <div class="title">你家楼下的兰州拉面要改名字了，品牌规范化加速</div>
+                        <div class="source">百度热搜</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="bullet">3</span>
+                    <div class="content">
+                        <div class="title">"餐饮业一夜间再无大师"，中国烹饪协会回应职称取消争议</div>
+                        <div class="source">澎湃新闻</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="bullet">4</span>
+                    <div class="content">
+                        <div class="title">AI短剧市场有多火？虚拟演员商单报价超真人网红</div>
+                        <div class="source">财联社热门</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="bullet">5</span>
+                    <div class="content">
+                        <div class="title">申通快递被国家邮政局依法立案调查，物流行业监管趋严</div>
+                        <div class="source">澎湃新闻</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="bullet">6</span>
+                    <div class="content">
+                        <div class="title">一个小碗200万！铱成年度最强贵金属，供应链成本波动加剧</div>
+                        <div class="source">百度热搜</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="bullet">7</span>
+                    <div class="content">
+                        <div class="title">摊主高速路设档口卖啤酒，创业经营边界需警惕</div>
+                        <div class="source">贴吧</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="bullet">8</span>
+                    <div class="content">
+                        <div class="title">山西菜申请出战暑期美食展，地方菜系加速品牌化突围</div>
+                        <div class="source">抖音</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="insight-section">
+            <div class="section-title">
+                <span class="icon">💡</span>
+                <span class="text">深度洞察</span>
+            </div>
+            <div class="insight-card">
+                <p>今日实体商业热点聚焦<span class="highlight">存量时代与行业规范化</span>。二手房交易占比超新房，标志着房地产正式进入存量时代，实体商业从业者需重新评估房产投资与选址逻辑。兰州拉面改名和餐饮大师职称取消，反映出餐饮行业从"江湖称号"向规范化品牌化转型。AI短剧爆火但爆款率不足0.5%，警示内容创业需警惕虚假繁荣。申通快递被立案调查，提醒实体商家关注物流合规风险，选择可靠合作伙伴。</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <a href="https://zdudao.github.io/xuxinwen/" class="link">
+                <span>📖</span>
+                <span>查看完整报告</span>
+            </a>
+            <div class="copyright">关注「老许聊实体」· 获取更多行业资讯</div>
+        </div>
+    </div>
+</body>
+</html>
