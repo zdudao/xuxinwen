@@ -1,0 +1,436 @@
+[
+  {
+    "id": "e749e1ce-de83-4ef0-810d-4c4845bbd2b0",
+    "name": "小胡4K",
+    "type": 0,
+    "api": "http://xh1.xn--yetu07f.icu/api.php/provide/vod/",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "c6d5507a-1d7f-4b53-8ab5-2f14af78b051",
+    "name": "初恋资源",
+    "type": 0,
+    "api": "https://video.adminqt.cn/api.php/provide/vod/",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "45ea3925-5080-41be-8a0a-a85cd6d85b28",
+    "name": "熊掌高清",
+    "type": 0,
+    "api": "https://xzcjz.com/api.php/provide/vod",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "cd92d945-55ca-465d-8665-0d2e9eca4ba9",
+    "name": "爱坤资源",
+    "type": 0,
+    "api": "https://ikunzyapi.com/api.php/provide/vod",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "8fd6c89d-6ee6-4c9e-8a9b-4c55ea1433ea",
+    "name": "豪华资源",
+    "type": 0,
+    "api": "https://hhzyapi.com/api.php/provide/vod/",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "40c29294-7638-4f7f-b5ad-01b989618b6f",
+    "name": "红牛资源",
+    "type": 0,
+    "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "8be74cde-798e-4396-aea7-533d27f18f06",
+    "name": "光速资源",
+    "type": 0,
+    "api": "https://api.guangsuapi.com/api.php/provide/vod/",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "ef676c0a-8bfb-4543-9419-d7933f70b165",
+    "name": "量子资源",
+    "type": 0,
+    "api": "https://cj.lziapi.com/api.php/provide/vod/",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "8e02928d-b26e-4d0a-9443-9462c3603a33",
+    "name": "索尼资源",
+    "type": 0,
+    "api": "https://suoniapi.com/api.php/provide/vod/",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "0552bb7b-5e3f-4bce-a50e-267f1bef0b2e",
+    "name": "小胡资源",
+    "type": 0,
+    "api": "http://c.小胡.icu/api.php/provide/vod/",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "e7661623-52af-4872-b3be-3f0c3cc7f07b",
+    "name": "蚂蚁1080P",
+    "type": 0,
+    "api": "http://122.228.84.103:5822/api.php/app/",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "e0ff8f65-f484-452e-ae5d-03246886bc01",
+    "name": "赞赞切片",
+    "type": 0,
+    "api": "http://111.230.51.151:2323/api.php/app/",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "8b383476-55c6-4139-b866-48efd51b2378",
+    "name": "加速APP",
+    "type": 0,
+    "api": "http://122.228.84.103:6117/api.php/app/",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "15187feb-2244-4a25-bff5-3a50889fddaa",
+    "name": "亮亮APP",
+    "type": 0,
+    "api": "http://xiutan.shiyifacai.com/zuoan/api.php/app/",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "85cb5e45-4380-4e04-a44a-0518a774622f",
+    "name": "鑫鑫影视",
+    "type": 0,
+    "api": "http://yingszj.xn--654a.cc/api.php/app/",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "3d366f9e-a69b-4202-82bd-4a2514cca4ba",
+    "name": "极狐影视",
+    "type": 0,
+    "api": "https://www.kuin.one/api.php/app/",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "42eb297c-5743-4b2b-9756-72ddefdb83de",
+    "name": "益达影视",
+    "type": 0,
+    "api": "https://myd666.tv/lvdou_api.php/v1.vod",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "8297cf7f-f316-4af7-a3ac-08dc103b9096",
+    "name": "鸭鸭影视",
+    "type": 0,
+    "api": "https://yayayaaapp.ynf.icu/api.php/app/",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "c784f3eb-fda0-4b7e-b52a-e98a5bca583b",
+    "name": "西瓜影视",
+    "type": 0,
+    "api": "https://www.gsjtlxy.top/xgapp.php/v3/",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "1e5b31f8-f84b-425b-88e5-45dc9e51d541",
+    "name": "六九美剧",
+    "type": 0,
+    "api": "https://www.69mj.com/xgapp.php/v2/",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "6bffd8c7-5afc-4a7c-bedb-a4238739a2b5",
+    "name": "索尼高清",
+    "type": 0,
+    "api": "https://suoniapi.com/api.php/provide/vod/?ac=list",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "6cab489b-5d46-44a7-8ce7-bf85a921b889",
+    "name": "淘片采集",
+    "type": 0,
+    "api": "https://taopianapi.com/cjapi/mc/vod/json.html",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "fbc089eb-4cc7-4c91-828c-b035cdea2743",
+    "name": "非凡资源",
+    "type": 0,
+    "api": "http://ffzy1.tv/api.php/provide/vod/",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "19beb90a-3022-41aa-acee-b14d543f8c31",
+    "name": "量子资源2",
+    "type": 0,
+    "api": "https://lzizy1.com/api.php/provide/vod/",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "987d2169-b599-4532-b703-e7c27fd6c06b",
+    "name": "四九资源",
+    "type": 0,
+    "api": "https://49zy1.com/api.php/provide/vod/?ac=list",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "ca25c036-7da4-450c-a717-69364e4e6a60",
+    "name": "飞速采集",
+    "type": 0,
+    "api": "https://www.feisuzyapi.com/api.php/provide/vod/?ac=list",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "fff6246c-bbfc-462d-86f3-13d0d1a11ed3",
+    "name": "奇虎采集",
+    "type": 0,
+    "api": "https://caiji.qhzyapi.com/api.php/provide/vod/",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "f1fa132d-5068-4ec6-baca-cbf2ee0ea786",
+    "name": "可可采集",
+    "type": 0,
+    "api": "https://kekezy1.com/api.php/provide/vod/?ac=list",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "bb381718-d752-4ce1-a202-89d7210f9c1f",
+    "name": "虎牙采集",
+    "type": 0,
+    "api": "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "9a82b09a-f14a-4348-b3d3-7374de391e40",
+    "name": "暴风影音",
+    "type": 0,
+    "api": "https://app.bfzyapi.com/api.php/provide/vod/",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  },
+  {
+    "id": "06ce0142-1d34-490f-aab8-22621307d3ae",
+    "name": "百度采集",
+    "type": 0,
+    "api": "https://api.apibdzy.com/api.php/provide/vod/?ac=list",
+    "logo": "",
+    "desc": "",
+    "nsfw": false,
+    "status": true,
+    "extra": {
+      "searchLimit": 20,
+      "gfw": false
+    }
+  }
+]
