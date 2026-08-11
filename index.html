@@ -1,840 +1,494 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>老许聊实体 - 每日行业资讯</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>老许聊实体 | 每日实体生意日报</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
-        @font-face {
-            font-family: 'Microsoft YaHei';
-            src: url('MicrosoftYaHei-01.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Microsoft YaHei', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #586baa 0%, #6287c1 25%, #e26b7e 50%, #ff82a9 75%, #ffc6c6 100%);
-            min-height: 100vh;
-            padding: 0;
-            position: relative;
-            overflow-x: hidden;
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, 'Microsoft YaHei', sans-serif;
+            background: #FDFCFA;
+            color: #44403C;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
         }
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 0;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 60px 20px;
-            position: relative;
-            z-index: 1;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 60px;
-            animation: fadeInDown 0.8s ease-out;
-        }
-        .header .logo {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        .header .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .header h1 {
-            color: white;
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.4);
-        }
-        .header .contact-info {
-            color: rgba(255,255,255,0.9);
-            font-size: 16px;
-            font-weight: 300;
-            margin-bottom: 20px;
-            background: rgba(255,255,255,0.1);
-            padding: 12px 24px;
-            border-radius: 25px;
-            display: inline-block;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        .header .contact-info span {
-            margin: 0 10px;
-        }
-        .header .contact-info .icon {
-            margin-right: 5px;
-        }
-        .header .tags {
+        a { color: inherit; text-decoration: none; }
+        .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+        /* ===== 首屏 ===== */
+        .hero {
+            min-height: 70vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 10px;
-            background: rgba(183, 141, 119, 0.3);
-            padding: 12px 20px;
-            border-radius: 15px;
-            color: #ffffff;
-        }
-        .header .tag {
-            background: #B78D77;
-            color: #ffffff;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            border: 1px solid #B78D77;
-            box-shadow: inset 0px 0px 5px 0px;
-        }
-        .articles-card {
-            background: #FCF5E2;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            animation: fadeIn 1s ease-out 0.3s both;
-        }
-        .card-header {
-            background: #0175CC;
-            padding: 30px;
-            color: white;
-        }
-        .card-header h2 {
-            font-size: 24px;
-            font-weight: 500;
-            margin: 0;
-        }
-        .card-content {
-            padding: 40px;
-        }
-        .article-item {
-            display: flex;
             align-items: flex-start;
-            padding: 20px;
-            border-bottom: 1px solid #f0f0f0;
-            transition: all 0.3s ease;
+            padding: 60px 0 40px;
             position: relative;
-            overflow: hidden;
-            background: #FCF5E2;
-            margin: 10px 0;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            border: 1px solid #e9ecef;
         }
-        .article-item::before {
-            content: '';
+        .hero .stamp {
             position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(180deg, #0175CC 0%, #B78D77 100%);
-            transform: scaleY(0);
-            transform-origin: top;
-            transition: transform 0.3s ease;
-        }
-        .article-item:hover {
-            background: #ffffff;
-            transform: translateX(10px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        .article-item:hover::before {
-            transform: scaleY(1);
-        }
-        .article-item:last-child {
-            border-bottom: none;
-        }
-        .article-date {
-            flex: 0 0 200px;
-            padding-right: 20px;
-        }
-        .article-date .date-main {
-            font-size: 16px;
-            color: #666;
-            font-weight: 500;
-            margin-bottom: 4px;
-            white-space: nowrap;
-        }
-        .article-content {
-            flex: 1;
-            padding: 0 30px;
-        }
-        .article-content::before {
-            content: "今日要点：";
-            font-weight: bold;
-            margin-right: 8px;
-            color: #B78D77;
-        }
-        .article-title {
-            color: #333333;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 500;
-            display: block;
-            margin-bottom: 8px;
-            transition: color 0.3s ease;
-        }
-        .article-title:hover {
-            color: #0175CC;
-        }
-        .article-stats {
+            top: 32px; right: 0;
             display: flex;
-            gap: 16px;
-            margin: 8px 0;
+            align-items: center;
+            gap: 7px;
+            font-size: 12px;
+            color: #A8A29E;
+            letter-spacing: 0.02em;
         }
-        .article-stats .stat-item {
-            font-size: 14px;
-            color: #666;
-            background: #f5f5f5;
-            padding: 4px 12px;
-            border-radius: 12px;
+        .hero .stamp .dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: #10B981;
         }
-        .article-desc {
-            font-size: 14px;
-            color: #999;
-            line-height: 1.4;
+        .hero .brand-line {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
         }
-        .article-arrow {
-            color: #999;
-            font-size: 24px;
-            margin-top: 4px;
-            transition: color 0.3s ease;
+        .hero .brand-line .logo {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid #E7E5E4;
         }
-        .article-item:hover .article-arrow {
-            color: #667eea;
-            transform: translateX(5px);
+        .hero .brand-line .b-name {
+            font-size: 17px;
+            font-weight: 800;
+            color: #0C0A09;
+            letter-spacing: 0.02em;
         }
-        .empty-state {
-            padding: 80px 40px;
-            text-align: center;
-            color: #666;
+        .hero .brand-line .b-sub {
+            font-size: 12px;
+            color: #A8A29E;
+            letter-spacing: 1px;
         }
-        .empty-state p {
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: #0C0A09;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
             margin-bottom: 16px;
+            max-width: 14em;
+        }
+        .hero .sub {
             font-size: 16px;
+            color: #44403C;
+            margin-bottom: 16px;
         }
-        .empty-state code {
-            background: #f5f5f5;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 14px;
-            font-family: 'Courier New', monospace;
+        .hero .slogan {
+            font-size: 13px;
+            color: #A8A29E;
+            margin-bottom: 36px;
+            letter-spacing: 0.02em;
         }
-        .footer {
-            text-align: center;
-            margin-top: 60px;
-            color: #ffffff;
-            font-size: 26px;
-            font-weight: bold;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            animation: fadeIn 1s ease-out 0.6s both;
+        .hero .cta {
+            display: inline-block;
+            padding: 14px 32px;
+            background: #0C0A09;
+            color: #FDFCFA;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.2s;
         }
-        .update-time {
-            text-align: center;
-            color: rgba(255,255,255,0.6);
-            font-size: 14px;
+        .hero .cta:hover { background: #292524; transform: translateY(-2px); }
+
+        /* ===== 月份分组 ===== */
+        .section { margin: 72px 0; }
+        .section-head { margin-bottom: 24px; }
+        .section-head .kicker {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #D6D3D1;
+            margin-bottom: 8px;
+        }
+        .section-head h2 {
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            font-weight: 700;
+            color: #0C0A09;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        /* ===== 日报列表 ===== */
+        .report-list { background: #FFFFFF; border: 1px solid #E7E5E4; border-radius: 8px; overflow: hidden; }
+        .report-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 24px;
+            border-bottom: 1px solid #F5F5F4;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .report-row:last-child { border-bottom: none; }
+        .report-row:hover { background: #FCFCFB; }
+        .report-row:hover .r-title { color: #0C0A09; }
+        .report-row .r-date {
+            flex-shrink: 0;
+            width: 88px;
+            text-align: right;
+            font-family: 'Inter', monospace;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #A8A29E;
+            letter-spacing: 0.03em;
+        }
+        .report-row .r-title {
+            flex: 1;
+            font-size: 14.5px;
+            color: #292524;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: color 0.15s;
+        }
+        .report-row .r-arrow {
+            color: #D6D3D1;
+            font-size: 15px;
+            flex-shrink: 0;
+            transition: transform 0.15s, color 0.15s;
+        }
+        .report-row:hover .r-arrow { color: #0C0A09; transform: translateX(3px); }
+
+        /* ===== 汇总链接 ===== */
+        .summary-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
             margin-top: 20px;
+            padding: 18px 24px;
+            background: #FFFFFF;
+            border: 1px solid #E7E5E4;
+            border-radius: 8px;
+            transition: border-color 0.15s;
         }
-        @media (max-width: 768px) {
-            .container {
-                padding: 40px 20px;
-            }
-            .header h1 {
-                font-size: 28px;
-            }
-            .header .tags {
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 8px;
-            }
-            .card-content {
-                padding: 30px;
-            }
-            .article-item {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 20px 0;
-            }
-            .article-date {
-                margin-bottom: 10px;
-            }
-            .article-content {
-                padding: 0;
-                margin-bottom: 10px;
-            }
-            .article-arrow {
-                align-self: flex-end;
-            }
+        .summary-link:hover { border-color: #0C0A09; }
+        .summary-link .s-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #0C0A09;
         }
-        @media (max-width: 480px) {
-            .container {
-                padding: 20px 12px;
-            }
-            .header .logo {
-                width: 60px;
-                height: 60px;
-            }
-            .header h1 {
-                font-size: 20px;
-                margin-bottom: 8px;
-            }
-            .header .contact-info {
-                font-size: 12px;
-                padding: 8px 16px;
-            }
-            .header .tags {
-                padding: 8px 12px;
-            }
-            .header .tag {
-                font-size: 12px;
-                padding: 4px 12px;
-            }
-            .card-header {
-                padding: 20px;
-            }
-            .card-header h2 {
-                font-size: 18px;
-            }
-            .card-content {
-                padding: 20px;
-            }
-            .article-title {
-                font-size: 14px;
-            }
-            .footer {
-                font-size: 18px;
-            }
+        .summary-link .s-arrow { color: #A8A29E; font-size: 15px; }
+
+        /* ===== 页脚 ===== */
+        .footer {
+            margin: 96px 0 40px;
+            text-align: center;
+            color: #A8A29E;
+            font-size: 12px;
+            letter-spacing: 0.02em;
         }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+        @media (max-width: 600px) {
+            .section { margin: 56px 0; }
+            .report-row { padding: 14px 16px; gap: 14px; }
+            .report-row .r-date { width: 74px; font-size: 11.5px; }
+            .hero .stamp { position: static; margin-bottom: 8px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="logo">
-                <img src="logo.jpg" alt="老许聊实体">
-            </div>
-            <h1>老许聊实体</h1>
-            <div class="contact-info">
-                <span><span class="icon">📱</span>抖音：老许聊实体</span>
-                <span><span class="icon">💬</span>微信：xuyang2946</span>
-            </div>
-            <div class="tags">
-                <span class="tag">创业开店</span>
-                <span class="tag">实体零售</span>
-                <span class="tag">商业趋势</span>
-                <span class="tag">行业分析</span>
+
+<div class="wrap">
+    <!-- ===== 首屏 ===== -->
+    <div class="hero">
+        <div class="stamp"><span class="dot"></span>2026.08.11 · 19:43 更新</div>
+        <div class="brand-line">
+            <img class="logo" src="logo.jpg" alt="老许聊实体">
+            <div>
+                <div class="b-name">老许聊实体</div>
+                <div class="b-sub">SHISHI BUSINESS DAILY</div>
             </div>
         </div>
+        <h1>实体生意的每日情报站</h1>
+        <div class="sub">每天 5 分钟，看懂线下商业的真相与机会</div>
+        <div class="slogan">每天一份 · 聚焦选址 / 餐饮 / 零售 / 政策</div>
+        <a href="html/2026-08-11/19-43.html" class="cta">阅读今日日报</a>
+    </div>
 
-        <div class="articles-card">
-            <div class="card-header">
-                <h2>📅 每日资讯汇总</h2>
-            </div>
-            <div class="card-content">
-
-        <div class="article-item" onclick="window.open('html/2026-08-11/19-43.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年08月11日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-08-11/19-43.html" class="article-title" target="_blank" style="pointer-events: none;">租金降了房东不租,于东来65亿当包租公,星巴克只坐不买,无堂食外卖集聚地,豆包收佣争议</a>
-            </div>
-            <div class="article-arrow">→</div>
+    <!-- ===== 8月 ===== -->
+    <div class="section">
+        <div class="section-head">
+            <div class="kicker">August</div>
+            <h2>2026 年 8 月</h2>
         </div>
-
-        <div class="article-item" onclick="window.open('html/2026-08-10/18-39.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年08月10日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-08-10/18-39.html" class="article-title" target="_blank" style="pointer-events: none;">钟睒睒限电商平台,雪佛兰停售,费大厨撤称号,豆包酒店收佣12%,称重快餐关店60%</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-08-09/18-23.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年08月09日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-08-09/18-23.html" class="article-title" target="_blank" style="pointer-events: none;">胖东来老店关闭,永和豆浆创始人逝世,雪佛兰停售,金价大涨,最贵开学季</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-08-08/16-54.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年08月08日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-08-08/16-54.html" class="article-title" target="_blank" style="pointer-events: none;">胖东来老店闭店,金饰克价1300,西贝押注鲜羊,费大厨塌房疑云,名创优品内裤风波</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-08-07/14-42.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年08月07日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-08-07/14-42.html" class="article-title" target="_blank" style="pointer-events: none;">泸溪河牙冠反转,青海拉面改名,猪肉冒充牛羊肉判刑,奶茶店血亏200万,星巴克秋商战</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-08-06/14-28.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年08月06日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-08-06/14-28.html" class="article-title" target="_blank" style="pointer-events: none;">茶饮咖啡决战三公里,星巴克卖身,农夫山泉超越康师傅,网红烤鱼店倒闭潮,带薪错峰休假新政</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-08-05/13-43.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年08月05日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-08-05/13-43.html" class="article-title" target="_blank" style="pointer-events: none;">存量房时代,维密中国降价,盒马关大店,申通被查,餐饮大师取消</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-06-08/23-08.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年06月08日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-06-08/23-08.html" class="article-title" target="_blank" style="pointer-events: none;">胖东来山姆逐鹿中原,金价下跌金店挤爆,全球股市震荡</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-06-07/21-33.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年06月07日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-06-07/21-33.html" class="article-title" target="_blank" style="pointer-events: none;">耐克市值蒸发,中国小电驴英国卖爆,618电商大战</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-06-06/23-04.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年06月06日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-06-06/23-04.html" class="article-title" target="_blank" style="pointer-events: none;">金价大跌21%,黄仁勋效应持续发酵,Wendy's进入中国市场</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-06-03/15-33.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年06月03日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-06-03/15-33.html" class="article-title" target="_blank" style="pointer-events: none;">金价大降300元,于东来谈胖东来与山姆差距,618促销战开启</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-05-23/19-32.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年05月23日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-05-23/19-32.html" class="article-title" target="_blank" style="pointer-events: none;">山姆未结账先吃引争议,阳朔整治米粉价格乱象,618促销大战预热</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-05-17/14-08.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年05月17日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-05-17/14-08.html" class="article-title" target="_blank" style="pointer-events: none;">苹果华为小米集体降价,黄仁勋打卡蜜雪冰城,多地商铺空置率上升</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-05-10/12-06.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年05月10日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-05-10/12-06.html" class="article-title" target="_blank" style="pointer-events: none;">618大促正式开启,金价继续攀升,实体零售创新营销方式</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-05-09/09-42.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年05月09日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-05-09/09-42.html" class="article-title" target="_blank" style="pointer-events: none;">金价突破3300美元,618大促战火升级,多地消费券刺激市场</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-05-08/11-03.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年05月08日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-05-08/11-03.html" class="article-title" target="_blank" style="pointer-events: none;">餐饮行业掀涨价潮,618预售正式开启,直播带货新规即将落地</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-05-07/11-41.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年05月07日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-05-07/11-41.html" class="article-title" target="_blank" style="pointer-events: none;">多地房租上涨引发关注,新能源车企降价潮持续,618大促开启预热</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-05-06/14-00.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年05月06日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-05-06/14-00.html" class="article-title" target="_blank" style="pointer-events: none;">黄金价格突破3200美元,文旅部整治不合理低价游,多地消费券促消费</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-05-05/11-48.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年05月05日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-05-05/11-48.html" class="article-title" target="_blank" style="pointer-events: none;">浏阳烟花厂爆炸事故引关注,楼市回暖迹象明显,中山推商贷新政</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-05-04/12-55.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年05月04日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-05-04/12-55.html" class="article-title" target="_blank" style="pointer-events: none;">五一消费市场回暖明显,餐饮零售数据向好,直播带货新规正式实施</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-30/19-18.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月30日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-30/19-18.html" class="article-title" target="_blank" style="pointer-events: none;">特斯拉降价引发车企股价波动,拼多多跨境电商增速放缓,实体零售回暖迹象明显</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-29/15-55.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月29日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-29/15-55.html" class="article-title" target="_blank" style="pointer-events: none;">蜜雪冰城进军下沉市场,星巴克推出AI咖啡师,餐饮行业掀智能化浪潮</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-28/12-20.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月28日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-28/12-20.html" class="article-title" target="_blank" style="pointer-events: none;">比亚迪停止燃油车生产,瑞幸推AI拉花机,盒马试水无人超市</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-27/15-02.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月27日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-27/15-02.html" class="article-title" target="_blank" style="pointer-events: none;">东方甄选拒绝第二个董宇辉,追觅CEO炮轰小红书,6300吨榴莲抵广州</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-26/20-54.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月26日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-26/20-54.html" class="article-title" target="_blank" style="pointer-events: none;">东方甄选4主播离职,胖东来18元矿泉水遭哄抢,18万月子餐是冰饮炸物</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-25/15-22.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月25日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-25/15-22.html" class="article-title" target="_blank" style="pointer-events: none;">华谊兄弟被申请破产,泡泡玛特发售5999冰箱,茅台Q1营收净利双增</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-24/14-19.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月24日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-24/14-19.html" class="article-title" target="_blank" style="pointer-events: none;">火锅招985211管培生,拖鞋面包销量翻倍,义乌掀起学外语热</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-23/15-34.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月23日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-23/15-34.html" class="article-title" target="_blank" style="pointer-events: none;">开锁店被干成板面店,哪吒造车巨亏183亿,肯德基酱料收费引争议</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-22/16-25.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月22日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-22/16-25.html" class="article-title" target="_blank" style="pointer-events: none;">惠州餐厅被停业整顿,永辉超市收入增长16.57%,茶颜悦色落地深圳</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-21/12-47.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月21日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-21/12-47.html" class="article-title" target="_blank" style="pointer-events: none;">物业公司大规模撤离,县城农村成AB货重灾区,星巴克回应加盟传闻</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-20/13-43.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月20日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-20/13-43.html" class="article-title" target="_blank" style="pointer-events: none;">上海车展豪华品牌肉搏战,深圳二手房成交大涨,预制菜火了</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-19/10-35.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月19日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-19/10-35.html" class="article-title" target="_blank" style="pointer-events: none;">7大电商平台被罚35.97亿,网红开绿茶速成班,重庆火锅店新形态</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-17/14-10.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月17日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-17/14-10.html" class="article-title" target="_blank" style="pointer-events: none;">一线城市房地产企稳,旋转小火锅围剿县城,抖音5亿扶持真人短剧</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-16/14-15.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月16日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-16/14-15.html" class="article-title" target="_blank" style="pointer-events: none;">楼盘遭哄抢保安喷辣椒水,80万开店倒闭又投40万,抖音集团5亿扶持真人短剧</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-15/13-24.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月15日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-15/13-24.html" class="article-title" target="_blank" style="pointer-events: none;">1.5亿独居者商机,永辉仲裁胜诉王健林,微信余额不满三百不给面试</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-14/20-58.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月14日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-14/20-58.html" class="article-title" target="_blank" style="pointer-events: none;">深圳楼盘大降价千人排队,Lululemon在美被查,胖东来多宝鱼被指吃出溯源标签</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-13/19-34.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月13日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-13/19-34.html" class="article-title" target="_blank" style="pointer-events: none;">女外卖骑手的世界,钱袋子如何鼓起来,PCB覆铜板涨价潮</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('2026-04-12.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月12日</div>
-            </div>
-            <div class="article-content">
-                <a href="2026-04-12.html" class="article-title" target="_blank" style="pointer-events: none;">虚报77亿!河南招商数据造假,程序员卖汉堡月入5万</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-11/13-01.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月11日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-11/13-01.html" class="article-title" target="_blank" style="pointer-events: none;">河南招商数据造假！摆摊通宵只卖1个堡，莫氏鸡煲爆火背后真相</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-10/14-00.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月10日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-10/14-00.html" class="article-title" target="_blank" style="pointer-events: none;">蓝挚宠粮品牌闭店，新乳业冲刺港股，新茶饮品牌估值140亿，海河乳品道歉，携程启动无理由事假</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-09/12-43.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月09日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-09/12-43.html" class="article-title" target="_blank" style="pointer-events: none;">河南招商数据造假！摆摊通宵只卖1个堡，莫氏鸡煲爆火背后真相</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-08/14-36.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月08日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-08/14-36.html" class="article-title" target="_blank" style="pointer-events: none;">茶颜悦色成立新公司，蜜雪冰城推平价咖啡，瑞幸咖啡人事变动</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-07/11-31.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月07日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-07/11-31.html" class="article-title" target="_blank" style="pointer-events: none;">盒马成立食品科技中心，美团闪购推次日达，叮咚买菜开社区店</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-06/11-22.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月06日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-06/11-22.html" class="article-title" target="_blank" style="pointer-events: none;">叮咚买菜关店，社区团购遇冷，实体零售回暖，便利店扩张</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="article-item" onclick="window.open('html/2026-04-05/11-08.html', '_blank')" style="cursor: pointer;">
-            <div class="article-date">
-                <div class="date-main">2026年04月05日</div>
-            </div>
-            <div class="article-content">
-                <a href="html/2026-04-05/11-08.html" class="article-title" target="_blank" style="pointer-events: none;">预制菜进高校，餐饮品牌上市，超市关店潮，社区商业崛起</a>
-            </div>
-            <div class="article-arrow">→</div>
-        </div>
-
-        <div class="month-summary">
-            <a href="html/2026-04-summary.html" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 500; transition: all 0.3s ease; margin-bottom: 16px;">
-                📊 4月新闻汇总与分析
+        <div class="report-list">
+            <a class="report-row" href="html/2026-08-11/19-43.html">
+                <span class="r-date">08.11</span>
+                <span class="r-title">房租降了房东反而不想租 · 于东来65亿当包租公 · 星巴克只坐不买 · 无堂食外卖集聚地 · 豆包收佣争议</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-08-10/18-39.html">
+                <span class="r-date">08.10</span>
+                <span class="r-title">钟睒睒限电商平台 · 雪佛兰停售 · 费大厨撤称号 · 豆包酒店收佣12% · 称重快餐关店60%</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-08-09/18-23.html">
+                <span class="r-date">08.09</span>
+                <span class="r-title">胖东来老店关闭 · 永和豆浆创始人逝世 · 雪佛兰停售 · 金价大涨 · 最贵开学季</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-08-08/16-54.html">
+                <span class="r-date">08.08</span>
+                <span class="r-title">胖东来老店闭店 · 金饰克价1300 · 西贝押注鲜羊 · 费大厨塌房疑云 · 名创优品内裤风波</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-08-07/14-42.html">
+                <span class="r-date">08.07</span>
+                <span class="r-title">泸溪河牙冠反转 · 青海拉面改名 · 猪肉冒充牛羊肉判刑 · 奶茶店血亏200万 · 星巴克秋商战</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-08-06/14-28.html">
+                <span class="r-date">08.06</span>
+                <span class="r-title">茶饮咖啡决战三公里 · 星巴克卖身 · 农夫山泉超越康师傅 · 网红烤鱼店倒闭潮 · 带薪错峰休假新政</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-08-05/13-43.html">
+                <span class="r-date">08.05</span>
+                <span class="r-title">存量房时代 · 维密中国降价 · 盒马关大店 · 申通被查 · 餐饮大师取消</span>
+                <span class="r-arrow">→</span>
             </a>
         </div>
+    </div>
 
-        <div class="update-time">
-            最后更新: 2026年08月11日 19:43
+    <!-- ===== 6月 ===== -->
+    <div class="section">
+        <div class="section-head">
+            <div class="kicker">June</div>
+            <h2>2026 年 6 月</h2>
         </div>
-
-        <div class="footer">
-            <p>关注「老许聊实体」，每天五分钟，带你看透行业趋势</p>
+        <div class="report-list">
+            <a class="report-row" href="html/2026-06-08/23-08.html">
+                <span class="r-date">06.08</span>
+                <span class="r-title">胖东来山姆逐鹿中原 · 金价下跌金店挤爆 · 全球股市震荡</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-06-07/21-33.html">
+                <span class="r-date">06.07</span>
+                <span class="r-title">耐克市值蒸发 · 中国小电驴英国卖爆 · 618电商大战</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-06-06/23-04.html">
+                <span class="r-date">06.06</span>
+                <span class="r-title">金价大跌21% · 黄仁勋效应持续发酵 · Wendy's进入中国市场</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-06-03/15-33.html">
+                <span class="r-date">06.03</span>
+                <span class="r-title">金价大降300元 · 于东来谈胖东来与山姆差距 · 618促销战开启</span>
+                <span class="r-arrow">→</span>
+            </a>
         </div>
     </div>
+
+    <!-- ===== 5月 ===== -->
+    <div class="section">
+        <div class="section-head">
+            <div class="kicker">May</div>
+            <h2>2026 年 5 月</h2>
+        </div>
+        <div class="report-list">
+            <a class="report-row" href="html/2026-05-23/19-32.html">
+                <span class="r-date">05.23</span>
+                <span class="r-title">山姆未结账先吃引争议 · 阳朔整治米粉价格乱象 · 618促销大战预热</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-05-17/14-08.html">
+                <span class="r-date">05.17</span>
+                <span class="r-title">苹果华为小米集体降价 · 黄仁勋打卡蜜雪冰城 · 多地商铺空置率上升</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-05-10/12-06.html">
+                <span class="r-date">05.10</span>
+                <span class="r-title">618大促正式开启 · 金价继续攀升 · 实体零售创新营销方式</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-05-09/09-42.html">
+                <span class="r-date">05.09</span>
+                <span class="r-title">金价突破3300美元 · 618大促战火升级 · 多地消费券刺激市场</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-05-08/11-03.html">
+                <span class="r-date">05.08</span>
+                <span class="r-title">餐饮行业掀涨价潮 · 618预售正式开启 · 直播带货新规即将落地</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-05-07/11-41.html">
+                <span class="r-date">05.07</span>
+                <span class="r-title">多地房租上涨引发关注 · 新能源车企降价潮持续 · 618大促开启预热</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-05-06/14-00.html">
+                <span class="r-date">05.06</span>
+                <span class="r-title">黄金价格突破3200美元 · 文旅部整治不合理低价游 · 多地消费券促消费</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-05-05/11-48.html">
+                <span class="r-date">05.05</span>
+                <span class="r-title">浏阳烟花厂爆炸事故引关注 · 楼市回暖迹象明显 · 中山推商贷新政</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-05-04/12-55.html">
+                <span class="r-date">05.04</span>
+                <span class="r-title">五一消费市场回暖明显 · 餐饮零售数据向好 · 直播带货新规正式实施</span>
+                <span class="r-arrow">→</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ===== 4月 ===== -->
+    <div class="section">
+        <div class="section-head">
+            <div class="kicker">April</div>
+            <h2>2026 年 4 月</h2>
+        </div>
+        <div class="report-list">
+            <a class="report-row" href="html/2026-04-30/19-18.html">
+                <span class="r-date">04.30</span>
+                <span class="r-title">特斯拉降价引发车企股价波动 · 拼多多跨境电商增速放缓 · 实体零售回暖迹象明显</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-29/15-55.html">
+                <span class="r-date">04.29</span>
+                <span class="r-title">蜜雪冰城进军下沉市场 · 星巴克推出AI咖啡师 · 餐饮行业掀智能化浪潮</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-28/12-20.html">
+                <span class="r-date">04.28</span>
+                <span class="r-title">比亚迪停止燃油车生产 · 瑞幸推AI拉花机 · 盒马试水无人超市</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-27/15-02.html">
+                <span class="r-date">04.27</span>
+                <span class="r-title">东方甄选拒绝第二个董宇辉 · 追觅CEO炮轰小红书 · 6300吨榴莲抵广州</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-26/20-54.html">
+                <span class="r-date">04.26</span>
+                <span class="r-title">东方甄选4主播离职 · 胖东来18元矿泉水遭哄抢 · 18万月子餐是冰饮炸物</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-25/15-22.html">
+                <span class="r-date">04.25</span>
+                <span class="r-title">华谊兄弟被申请破产 · 泡泡玛特发售5999冰箱 · 茅台Q1营收净利双增</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-24/14-19.html">
+                <span class="r-date">04.24</span>
+                <span class="r-title">火锅招985211管培生 · 拖鞋面包销量翻倍 · 义乌掀起学外语热</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-23/15-34.html">
+                <span class="r-date">04.23</span>
+                <span class="r-title">开锁店被干成板面店 · 哪吒造车巨亏183亿 · 肯德基酱料收费引争议</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-22/16-25.html">
+                <span class="r-date">04.22</span>
+                <span class="r-title">惠州餐厅被停业整顿 · 永辉超市收入增长16.57% · 茶颜悦色落地深圳</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-21/12-47.html">
+                <span class="r-date">04.21</span>
+                <span class="r-title">物业公司大规模撤离 · 县城农村成AB货重灾区 · 星巴克回应加盟传闻</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-20/13-43.html">
+                <span class="r-date">04.20</span>
+                <span class="r-title">上海车展豪华品牌肉搏战 · 深圳二手房成交大涨 · 预制菜火了</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-19/10-35.html">
+                <span class="r-date">04.19</span>
+                <span class="r-title">7大电商平台被罚35.97亿 · 网红开绿茶速成班 · 重庆火锅店新形态</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-17/14-10.html">
+                <span class="r-date">04.17</span>
+                <span class="r-title">一线城市房地产企稳 · 旋转小火锅围剿县城 · 抖音5亿扶持真人短剧</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-16/14-15.html">
+                <span class="r-date">04.16</span>
+                <span class="r-title">楼盘遭哄抢保安喷辣椒水 · 80万开店倒闭又投40万 · 抖音集团5亿扶持真人短剧</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-15/13-24.html">
+                <span class="r-date">04.15</span>
+                <span class="r-title">1.5亿独居者商机 · 永辉仲裁胜诉王健林 · 微信余额不满三百不给面试</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-14/20-58.html">
+                <span class="r-date">04.14</span>
+                <span class="r-title">深圳楼盘大降价千人排队 · Lululemon在美被查 · 胖东来多宝鱼被指吃出溯源标签</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-13/19-34.html">
+                <span class="r-date">04.13</span>
+                <span class="r-title">女外卖骑手的世界 · 钱袋子如何鼓起来 · PCB覆铜板涨价潮</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="2026-04-12.html">
+                <span class="r-date">04.12</span>
+                <span class="r-title">虚报77亿!河南招商数据造假 · 程序员卖汉堡月入5万</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-11/13-01.html">
+                <span class="r-date">04.11</span>
+                <span class="r-title">河南招商数据造假！摆摊通宵只卖1个堡 · 莫氏鸡煲爆火背后真相</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-10/14-00.html">
+                <span class="r-date">04.10</span>
+                <span class="r-title">蓝挚宠粮品牌闭店 · 新乳业冲刺港股 · 新茶饮品牌估值140亿 · 海河乳品道歉 · 携程启动无理由事假</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-09/12-43.html">
+                <span class="r-date">04.09</span>
+                <span class="r-title">河南招商数据造假！摆摊通宵只卖1个堡 · 莫氏鸡煲爆火背后真相</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-08/14-36.html">
+                <span class="r-date">04.08</span>
+                <span class="r-title">茶颜悦色成立新公司 · 蜜雪冰城推平价咖啡 · 瑞幸咖啡人事变动</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-07/11-31.html">
+                <span class="r-date">04.07</span>
+                <span class="r-title">盒马成立食品科技中心 · 美团闪购推次日达 · 叮咚买菜开社区店</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-06/11-22.html">
+                <span class="r-date">04.06</span>
+                <span class="r-title">叮咚买菜关店 · 社区团购遇冷 · 实体零售回暖 · 便利店扩张</span>
+                <span class="r-arrow">→</span>
+            </a>
+            <a class="report-row" href="html/2026-04-05/11-08.html">
+                <span class="r-date">04.05</span>
+                <span class="r-title">预制菜进高校 · 餐饮品牌上市 · 超市关店潮 · 社区商业崛起</span>
+                <span class="r-arrow">→</span>
+            </a>
+        </div>
+        <a class="summary-link" href="html/2026-04-summary.html">
+            <span class="s-name">2026 年 4 月新闻汇总与分析</span>
+            <span class="s-arrow">→</span>
+        </a>
+    </div>
+
+    <!-- ===== 页脚 ===== -->
+    <div class="footer">
+        老许聊实体 · 每天 5 分钟，看透实体生意<br>
+        最后更新：2026年08月11日 19:43
+    </div>
+</div>
+
 </body>
 </html>
