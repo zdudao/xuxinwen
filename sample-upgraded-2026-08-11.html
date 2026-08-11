@@ -8,12 +8,12 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-            background: #f5f7fb;
-            color: #1a1d29;
+            background: linear-gradient(160deg, #0b1220 0%, #111c30 45%, #0d1b2e 100%);
+            color: #e2e8f0;
             line-height: 1.6;
+            min-height: 100vh;
         }
 
-        /* ===== 双栏布局 ===== */
         .layout {
             display: flex;
             max-width: 1200px;
@@ -29,29 +29,33 @@
             flex-shrink: 0;
             position: sticky;
             top: 20px;
-            background: #fff;
+            background: rgba(20, 34, 56, 0.85);
+            border: 1px solid rgba(148, 163, 184, 0.15);
             border-radius: 16px;
             padding: 16px 12px;
-            box-shadow: 0 2px 12px rgba(15,32,39,0.06);
+            backdrop-filter: blur(10px);
         }
         .sidebar .brand {
             padding: 8px 10px 14px;
-            border-bottom: 1px solid #eef0f5;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.15);
             margin-bottom: 10px;
         }
         .sidebar .brand .b-name {
             font-size: 15px;
             font-weight: 800;
-            color: #0f2027;
+            background: linear-gradient(135deg, #2dd4bf, #38bdf8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .sidebar .brand .b-date {
             font-size: 11px;
-            color: #94a3b8;
+            color: #64748b;
             margin-top: 2px;
         }
         .sidebar .nav-group-title {
             font-size: 11px;
-            color: #94a3b8;
+            color: #64748b;
             padding: 8px 10px 4px;
             letter-spacing: 1px;
         }
@@ -63,30 +67,30 @@
             margin: 2px 0;
             border-radius: 10px;
             text-decoration: none;
-            color: #4a5568;
+            color: #94a3b8;
             font-size: 13.5px;
             transition: all 0.15s;
         }
         .sidebar a.nav-item:hover {
-            background: #f0fdfa;
-            color: #0d9488;
+            background: rgba(45, 212, 191, 0.1);
+            color: #2dd4bf;
         }
         .sidebar a.nav-item.active {
-            background: linear-gradient(135deg, #0d9488 0%, #0f2027 100%);
-            color: #fff;
-            font-weight: 600;
+            background: linear-gradient(135deg, rgba(45,212,191,0.9) 0%, rgba(56,189,248,0.9) 100%);
+            color: #062b2a;
+            font-weight: 700;
         }
         .sidebar a.nav-item .n-count {
             margin-left: auto;
             font-size: 10px;
-            background: #eef0f5;
-            color: #64748b;
+            background: rgba(148, 163, 184, 0.15);
+            color: #94a3b8;
             padding: 1px 7px;
             border-radius: 8px;
         }
         .sidebar a.nav-item.active .n-count {
-            background: rgba(255,255,255,0.2);
-            color: #fff;
+            background: rgba(6, 43, 42, 0.2);
+            color: #062b2a;
         }
         .sidebar a.nav-item.sub {
             padding-left: 30px;
@@ -94,31 +98,30 @@
         }
 
         /* ===== 右侧主内容 ===== */
-        .main {
-            flex: 1;
-            min-width: 0;
-        }
+        .main { flex: 1; min-width: 0; }
 
         .hero {
-            background: linear-gradient(135deg, #0f2027 0%, #203a43 60%, #2c5364 100%);
+            background: linear-gradient(135deg, rgba(20,34,56,0.9) 0%, rgba(13,27,46,0.95) 100%);
+            border: 1px solid rgba(45, 212, 191, 0.25);
             border-radius: 20px;
             padding: 32px 28px;
-            color: #fff;
             margin-bottom: 20px;
             position: relative;
             overflow: hidden;
         }
-        .hero::after {
+        .hero::before {
             content: '';
             position: absolute;
-            right: -40px; top: -40px;
-            width: 180px; height: 180px;
-            background: rgba(255,255,255,0.06);
+            right: -60px; top: -60px;
+            width: 220px; height: 220px;
+            background: radial-gradient(circle, rgba(45,212,191,0.15) 0%, transparent 70%);
             border-radius: 50%;
         }
         .hero .badge {
             display: inline-block;
-            background: rgba(255,255,255,0.15);
+            background: rgba(45, 212, 191, 0.15);
+            border: 1px solid rgba(45, 212, 191, 0.3);
+            color: #2dd4bf;
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 12px;
@@ -127,26 +130,27 @@
         }
         .hero h1 {
             font-size: 24px;
-            font-weight: 700;
+            font-weight: 800;
             line-height: 1.4;
             margin-bottom: 10px;
+            color: #f1f5f9;
         }
-        .hero .sub { font-size: 14px; opacity: 0.85; }
+        .hero .sub { font-size: 14px; color: #94a3b8; }
         .hero .meta {
             display: flex;
             gap: 16px;
             margin-top: 18px;
             font-size: 12px;
-            opacity: 0.8;
+            color: #64748b;
             flex-wrap: wrap;
         }
 
         .section {
-            background: #fff;
+            background: rgba(20, 34, 56, 0.6);
+            border: 1px solid rgba(148, 163, 184, 0.12);
             border-radius: 16px;
             padding: 24px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 12px rgba(15,32,39,0.06);
         }
         .section-title {
             display: flex;
@@ -161,49 +165,54 @@
             align-items: center;
             justify-content: center;
             font-size: 17px;
+            background: rgba(45, 212, 191, 0.12);
+            border: 1px solid rgba(45, 212, 191, 0.25);
         }
-        .section-title h2 { font-size: 18px; font-weight: 700; }
+        .section-title h2 { font-size: 18px; font-weight: 700; color: #f1f5f9; }
         .section-title .tag {
             font-size: 11px;
-            color: #888;
+            color: #64748b;
             font-weight: normal;
             margin-left: auto;
         }
 
         /* 决策参谋 */
         .strategy-card {
-            border: 1px solid #e8ecf3;
+            border: 1px solid rgba(148, 163, 184, 0.15);
             border-radius: 12px;
             padding: 18px;
             margin-bottom: 14px;
-            background: #fafbfe;
+            background: linear-gradient(135deg, rgba(30, 48, 74, 0.6) 0%, rgba(20, 34, 56, 0.4) 100%);
+            transition: border-color 0.2s;
         }
+        .strategy-card:hover { border-color: rgba(45, 212, 191, 0.4); }
         .strategy-card:last-child { margin-bottom: 0; }
         .strategy-card .phenomenon {
             font-size: 14px;
-            color: #555;
+            color: #94a3b8;
             padding-bottom: 10px;
-            border-bottom: 1px dashed #e0e5ee;
+            border-bottom: 1px dashed rgba(148, 163, 184, 0.2);
             margin-bottom: 10px;
         }
-        .strategy-card .phenomenon::before { content: '📌 现象　'; font-weight: 600; color: #0d9488; }
+        .strategy-card .phenomenon::before { content: '📌 现象　'; font-weight: 600; color: #2dd4bf; }
         .strategy-card .judgment {
             font-size: 14px;
-            color: #1a1d29;
+            color: #f1f5f9;
             font-weight: 600;
             padding-bottom: 10px;
             margin-bottom: 10px;
         }
-        .strategy-card .judgment::before { content: '🔍 判断　'; color: #b45309; font-weight: 600; }
+        .strategy-card .judgment::before { content: '🔍 判断　'; color: #fbbf24; font-weight: 600; }
         .strategy-card .action {
             font-size: 14px;
-            color: #333;
-            background: #eefaf6;
+            color: #e2e8f0;
+            background: rgba(45, 212, 191, 0.08);
+            border: 1px solid rgba(45, 212, 191, 0.2);
             border-radius: 8px;
             padding: 12px;
         }
-        .strategy-card .action::before { content: '✅ 动作　'; color: #0d9488; font-weight: 600; }
-        .strategy-card .action strong { color: #0d9488; }
+        .strategy-card .action::before { content: '✅ 动作　'; color: #2dd4bf; font-weight: 600; }
+        .strategy-card .action strong { color: #2dd4bf; }
 
         /* 今日信号 */
         .signals {
@@ -214,17 +223,17 @@
         .signal {
             border-radius: 12px;
             padding: 16px;
-            background: linear-gradient(135deg, #f0fdfa 0%, #fefefe 100%);
-            border: 1px solid #d1fae5;
+            background: rgba(30, 48, 74, 0.5);
+            border: 1px solid rgba(45, 212, 191, 0.2);
         }
         .signal .s-icon { font-size: 20px; margin-bottom: 8px; }
-        .signal .s-title { font-size: 14px; font-weight: 700; margin-bottom: 6px; color: #0f2027; }
-        .signal .s-desc { font-size: 12.5px; color: #555; }
+        .signal .s-title { font-size: 14px; font-weight: 700; margin-bottom: 6px; color: #2dd4bf; }
+        .signal .s-desc { font-size: 12.5px; color: #94a3b8; }
 
-        /* 热点分组 */
+        /* 今日热点：双列卡片网格 */
         .news-group {
             margin-bottom: 14px;
-            border: 1px solid #e8ecf3;
+            border: 1px solid rgba(148, 163, 184, 0.15);
             border-radius: 12px;
             overflow: hidden;
         }
@@ -233,67 +242,92 @@
             align-items: center;
             gap: 10px;
             padding: 12px 16px;
-            background: #f4f6fb;
+            background: rgba(30, 48, 74, 0.6);
             font-size: 14px;
             font-weight: 700;
+            color: #f1f5f9;
             cursor: pointer;
         }
+        .news-group .group-header:hover { background: rgba(45, 212, 191, 0.08); }
         .news-group .group-header .count {
             font-size: 11px;
-            background: #0d9488;
-            color: #fff;
+            background: linear-gradient(135deg, #2dd4bf, #38bdf8);
+            color: #062b2a;
             padding: 2px 8px;
             border-radius: 10px;
-            font-weight: 500;
+            font-weight: 700;
         }
-        .news-group .group-header .arrow { margin-left: auto; color: #999; transition: transform 0.2s; }
-        .news-group .group-body { display: none; padding: 6px 0; }
-        .news-group.open .group-body { display: block; }
+        .news-group .group-header .arrow { margin-left: auto; color: #64748b; transition: transform 0.2s; }
+        .news-group .group-body {
+            display: none;
+            padding: 12px;
+            gap: 10px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+        .news-group.open .group-body { display: grid; }
         .news-group.open .arrow { transform: rotate(180deg); }
         .news-item {
             display: flex;
-            gap: 12px;
-            padding: 12px 16px;
-            border-top: 1px solid #f0f2f8;
+            gap: 10px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            background: rgba(20, 34, 56, 0.5);
+            border: 1px solid rgba(148, 163, 184, 0.12);
+            transition: all 0.2s;
+        }
+        .news-item:hover {
+            border-color: rgba(45, 212, 191, 0.4);
+            background: rgba(30, 48, 74, 0.7);
+            transform: translateY(-2px);
         }
         .news-item .rank {
-            font-size: 13px;
-            font-weight: 700;
-            color: #94a3b8;
-            width: 22px;
+            font-size: 14px;
+            font-weight: 800;
+            color: #475569;
+            min-width: 20px;
             text-align: center;
             flex-shrink: 0;
-            line-height: 1.6;
+            line-height: 1.5;
         }
-        .news-item .rank.top { color: #ef4444; }
-        .news-item .rank.high { color: #f59e0b; }
+        .news-item .rank.top { color: #f87171; }
+        .news-item .rank.high { color: #fbbf24; }
         .news-item .n-body { flex: 1; }
         .news-item .n-title {
-            font-size: 14px;
-            color: #1a1d29;
+            font-size: 13.5px;
+            color: #e2e8f0;
             text-decoration: none;
             line-height: 1.5;
         }
-        .news-item .n-title:hover { color: #0d9488; }
+        .news-item .n-title:hover { color: #2dd4bf; }
         .news-item .n-meta {
             font-size: 11px;
-            color: #94a3b8;
+            color: #64748b;
             margin-top: 4px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .news-item .n-meta .src-tag {
+            background: rgba(56, 189, 248, 0.12);
+            color: #38bdf8;
+            padding: 1px 8px;
+            border-radius: 6px;
+            font-size: 10px;
         }
 
-        /* 老许研判（原AI分析） */
+        /* 深度文章 / 老许研判 */
         .ai-block {
-            border: 1px solid #e8ecf3;
+            border: 1px solid rgba(148, 163, 184, 0.15);
             border-radius: 12px;
             padding: 18px;
             margin-bottom: 14px;
-            background: linear-gradient(135deg, #fafbfe 0%, #fdfef9 100%);
+            background: linear-gradient(135deg, rgba(30, 48, 74, 0.5) 0%, rgba(20, 34, 56, 0.3) 100%);
         }
         .ai-block:last-child { margin-bottom: 0; }
         .ai-block h3 {
             font-size: 15px;
             margin-bottom: 10px;
-            color: #0f2027;
+            color: #2dd4bf;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -301,19 +335,20 @@
         .ai-block h3::before {
             content: '';
             width: 4px; height: 16px;
-            background: #0d9488;
+            background: linear-gradient(180deg, #2dd4bf, #38bdf8);
             border-radius: 2px;
         }
-        .ai-block p { font-size: 13.5px; color: #444; }
+        .ai-block p { font-size: 13.5px; color: #b6c2d2; }
+        .ai-block a { color: #2dd4bf; }
 
         .footer {
             text-align: center;
-            color: #94a3b8;
+            color: #475569;
             font-size: 12px;
             margin-top: 10px;
         }
 
-        /* ===== 移动端：侧边栏隐藏为顶部横向滚动 ===== */
+        /* 移动端 */
         @media (max-width: 900px) {
             .layout { flex-direction: column; padding-top: 12px; }
             .sidebar {
@@ -331,13 +366,14 @@
             .sidebar a.nav-item .n-count { display: none; }
             .hero h1 { font-size: 20px; }
             .section { padding: 18px; }
+            .news-group .group-body { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 <div class="layout">
 
-    <!-- ========== 左侧分类导航 ========== -->
+    <!-- 左侧分类导航 -->
     <aside class="sidebar">
         <div class="brand">
             <div class="b-name">🔥 老许聊实体</div>
@@ -364,7 +400,7 @@
         <a class="nav-item" href="#insight">💡 老许研判</a>
     </aside>
 
-    <!-- ========== 右侧主内容 ========== -->
+    <!-- 右侧主内容 -->
     <main class="main">
 
         <!-- 顶部 -->
@@ -382,7 +418,7 @@
         <!-- 决策参谋 -->
         <div class="section" id="strategy">
             <div class="section-title">
-                <div class="icon" style="background:#d1fae5;">🧭</div>
+                <div class="icon">🧭</div>
                 <h2>决策参谋</h2>
                 <span class="tag">今日 3 条行动建议</span>
             </div>
@@ -409,7 +445,7 @@
         <!-- 今日信号 -->
         <div class="section" id="signals">
             <div class="section-title">
-                <div class="icon" style="background:#fef3c7;">📡</div>
+                <div class="icon">📡</div>
                 <h2>今日信号速览</h2>
                 <span class="tag">1分钟看完</span>
             </div>
@@ -437,78 +473,78 @@
             </div>
         </div>
 
-        <!-- 今日热点 -->
+        <!-- 今日热点：双列卡片网格，默认全部展开 -->
         <div class="section" id="news">
             <div class="section-title">
-                <div class="icon" style="background:#fee2e2;">🔥</div>
+                <div class="icon">🔥</div>
                 <h2>今日热点</h2>
-                <span class="tag">点击可展开 · 共20条</span>
+                <span class="tag">共20条 · 卡片式 · 点击标题可折叠</span>
             </div>
 
             <div class="news-group open" id="g-0">
                 <div class="group-header">🏠 选址商业地产<span class="count">4</span><span class="arrow">▼</span></div>
                 <div class="group-body">
-                    <div class="news-item"><div class="rank high">4</div><div class="n-body"><a class="n-title" href="https://www.toutiao.com/trending/7671617219173351460/" target="_blank">租金从800降到450房东决定不租了</a><div class="n-meta">今日头条 · 19:42</div></div></div>
-                    <div class="news-item"><div class="rank top">2</div><div class="n-body"><a class="n-title" href="https://www.baidu.com/s?wd=%E7%A7%9F%E9%87%91%E4%BB%8E800%E5%85%83%E9%99%8D%E5%88%B0450%E5%85%83%E6%88%BF%E4%B8%9C%E5%86%B3%E5%AE%9A%E4%B8%8D%E7%A7%9F%E4%BA%86" target="_blank">租金从800元降到450元房东决定不租了</a><div class="n-meta">百度热搜 · 19:42</div></div></div>
-                    <div class="news-item"><div class="rank">25</div><div class="n-body"><a class="n-title" href="https://s.weibo.com/weibo?q=%23%E4%BA%8E%E4%B8%9C%E6%9D%A5%E8%87%AA%E6%8E%8F65%E4%BA%BF%E5%BB%BA%E5%95%86%E5%9C%BA%E5%BD%93%E5%8C%85%E7%A7%9F%E5%85%AC%23" target="_blank">于东来自掏65亿建商场当包租公</a><div class="n-meta">微博 · 19:42</div></div></div>
-                    <div class="news-item"><div class="rank">18</div><div class="n-body"><a class="n-title" href="https://www.douyin.com/hot/2605041" target="_blank">一口气看懂万达现状</a><div class="n-meta">抖音 · 19:42</div></div></div>
+                    <div class="news-item"><div class="rank high">4</div><div class="n-body"><a class="n-title" href="https://www.toutiao.com/trending/7671617219173351460/" target="_blank">租金从800降到450房东决定不租了</a><div class="n-meta"><span class="src-tag">今日头条</span><span>19:42</span></div></div></div>
+                    <div class="news-item"><div class="rank top">2</div><div class="n-body"><a class="n-title" href="https://www.baidu.com/s?wd=%E7%A7%9F%E9%87%91%E4%BB%8E800%E5%85%83%E9%99%8D%E5%88%B0450%E5%85%83%E6%88%BF%E4%B8%9C%E5%86%B3%E5%AE%9A%E4%B8%8D%E7%A7%9F%E4%BA%86" target="_blank">租金从800元降到450元房东决定不租了</a><div class="n-meta"><span class="src-tag">百度热搜</span><span>19:42</span></div></div></div>
+                    <div class="news-item"><div class="rank">25</div><div class="n-body"><a class="n-title" href="https://s.weibo.com/weibo?q=%23%E4%BA%8E%E4%B8%9C%E6%9D%A5%E8%87%AA%E6%8E%8F65%E4%BA%BF%E5%BB%BA%E5%95%86%E5%9C%BA%E5%BD%93%E5%8C%85%E7%A7%9F%E5%85%AC%23" target="_blank">于东来自掏65亿建商场当包租公</a><div class="n-meta"><span class="src-tag">微博</span><span>19:42</span></div></div></div>
+                    <div class="news-item"><div class="rank">18</div><div class="n-body"><a class="n-title" href="https://www.douyin.com/hot/2605041" target="_blank">一口气看懂万达现状</a><div class="n-meta"><span class="src-tag">抖音</span><span>19:42</span></div></div></div>
                 </div>
             </div>
 
-            <div class="news-group" id="g-1">
+            <div class="news-group open" id="g-1">
                 <div class="group-header">🏪 店铺经营状态<span class="count">1</span><span class="arrow">▼</span></div>
                 <div class="group-body">
-                    <div class="news-item"><div class="rank high">4</div><div class="n-body"><a class="n-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E6%88%BF%E7%A7%9F%E6%B6%A83%E5%80%8D%2C%E8%83%96%E4%B8%9C%E6%9D%A5%E5%85%B3%E5%81%9C%E8%80%81%E5%BA%97&amp;topic_id=28357132" target="_blank">房租涨3倍,胖东来关停老店</a><div class="n-meta">贴吧 · 19:42</div></div></div>
+                    <div class="news-item"><div class="rank high">4</div><div class="n-body"><a class="n-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E6%88%BF%E7%A7%9F%E6%B6%A83%E5%80%8D%2C%E8%83%96%E4%B8%9C%E6%9D%A5%E5%85%B3%E5%81%9C%E8%80%81%E5%BA%97&amp;topic_id=28357132" target="_blank">房租涨3倍,胖东来关停老店</a><div class="n-meta"><span class="src-tag">贴吧</span><span>19:42</span></div></div></div>
                 </div>
             </div>
 
-            <div class="news-group" id="g-2">
+            <div class="news-group open" id="g-2">
                 <div class="group-header">🛒 消费流量趋势<span class="count">1</span><span class="arrow">▼</span></div>
                 <div class="group-body">
-                    <div class="news-item"><div class="rank high">4</div><div class="n-body"><a class="n-title" href="https://www.baidu.com/s?wd=%E2%80%9C%E6%98%9F%E5%B7%B4%E5%85%8B%E8%AF%A5%E7%AE%A1%E7%AE%A1%E5%8F%AA%E5%9D%90%E4%B8%8D%E4%B9%B0%E7%9A%84%E4%BA%BA%E2%80%9D" target="_blank">"星巴克该管管只坐不买的人"</a><div class="n-meta">百度热搜 · 19:42</div></div></div>
+                    <div class="news-item"><div class="rank high">4</div><div class="n-body"><a class="n-title" href="https://www.baidu.com/s?wd=%E2%80%9C%E6%98%9F%E5%B7%B4%E5%85%8B%E8%AF%A5%E7%AE%A1%E7%AE%A1%E5%8F%AA%E5%9D%90%E4%B8%8D%E4%B9%B0%E7%9A%84%E4%BA%BA%E2%80%9D" target="_blank">"星巴克该管管只坐不买的人"</a><div class="n-meta"><span class="src-tag">百度热搜</span><span>19:42</span></div></div></div>
                 </div>
             </div>
 
-            <div class="news-group" id="g-3">
+            <div class="news-group open" id="g-3">
                 <div class="group-header">🍜 餐饮行业<span class="count">3</span><span class="arrow">▼</span></div>
                 <div class="group-body">
-                    <div class="news-item"><div class="rank top">3</div><div class="n-body"><a class="n-title" href="https://www.zhihu.com/question/2070112824437876354" target="_blank">费大厨撤下「全国小炒肉大王」宣传，上菜口号更换为「精选黑猪肉、专业大厨炒」</a><div class="n-meta">知乎 · 19:42</div></div></div>
-                    <div class="news-item"><div class="rank">14</div><div class="n-body"><a class="n-title" href="https://www.zhihu.com/question/2067711801098069791" target="_blank">为啥感觉麻辣烫越来越贵，而自助小火锅却在越卷越便宜？</a><div class="n-meta">知乎 · 19:42</div></div></div>
-                    <div class="news-item"><div class="rank">17</div><div class="n-body"><a class="n-title" href="https://search.bilibili.com/all?keyword=%E6%B5%99%E6%B1%9F%E9%A6%96%E5%88%9B%E6%97%A0%E5%A0%82%E9%A3%9F%E5%A4%96%E5%8D%96%E9%9B%86%E8%81%9A%E5%9C%B0" target="_blank">浙江首创无堂食外卖集聚地</a><div class="n-meta">bilibili 热搜 · 19:42</div></div></div>
+                    <div class="news-item"><div class="rank top">3</div><div class="n-body"><a class="n-title" href="https://www.zhihu.com/question/2070112824437876354" target="_blank">费大厨撤下「全国小炒肉大王」宣传，上菜口号更换为「精选黑猪肉、专业大厨炒」</a><div class="n-meta"><span class="src-tag">知乎</span><span>19:42</span></div></div></div>
+                    <div class="news-item"><div class="rank">14</div><div class="n-body"><a class="n-title" href="https://www.zhihu.com/question/2067711801098069791" target="_blank">为啥感觉麻辣烫越来越贵，而自助小火锅却在越卷越便宜？</a><div class="n-meta"><span class="src-tag">知乎</span><span>19:42</span></div></div></div>
+                    <div class="news-item"><div class="rank">17</div><div class="n-body"><a class="n-title" href="https://search.bilibili.com/all?keyword=%E6%B5%99%E6%B1%9F%E9%A6%96%E5%88%9B%E6%97%A0%E5%A0%82%E9%A3%9F%E5%A4%96%E5%8D%96%E9%9B%86%E8%81%9A%E5%9C%B0" target="_blank">浙江首创无堂食外卖集聚地</a><div class="n-meta"><span class="src-tag">bilibili</span><span>19:42</span></div></div></div>
                 </div>
             </div>
 
-            <div class="news-group" id="g-4">
+            <div class="news-group open" id="g-4">
                 <div class="group-header">⚖️ 监管政策合规<span class="count">3</span><span class="arrow">▼</span></div>
                 <div class="group-body">
-                    <div class="news-item"><div class="rank">22</div><div class="n-body"><a class="n-title" href="https://www.baidu.com/s?wd=%E5%85%8D%E8%B4%B9%E9%A2%86%E9%B8%A1%E8%9B%8B%E9%AA%97%E4%BA%8660%E5%A4%9A%E5%90%8D%E7%95%99%E5%AE%88%E8%80%81%E4%BA%BA" target="_blank">免费领鸡蛋骗了60多名留守老人</a><div class="n-meta">百度热搜 · 19:42</div></div></div>
-                    <div class="news-item"><div class="rank">30</div><div class="n-body"><a class="n-title" href="https://www.baidu.com/s?wd=%E4%B8%80%E6%AC%A1%E6%80%A7%E5%86%85%E8%A3%A4%E7%A9%BF%E4%B8%8A%E5%8F%AA%E5%89%A9%E4%B8%80%E6%A0%B9%E8%A3%A4%E5%B8%A6" target="_blank">一次性内裤穿上只剩一根裤带</a><div class="n-meta">百度热搜 · 19:42</div></div></div>
-                    <div class="news-item"><div class="rank">21</div><div class="n-body"><a class="n-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E6%AD%A6%E6%B1%893%E5%90%8D%E5%9F%8E%E7%AE%A1%E5%9C%A8%E5%A4%A9%E6%A1%A5%E6%AE%B4%E6%89%93%E6%91%8A%E8%B4%A9&amp;topic_id=28357002" target="_blank">武汉3名城管在天桥殴打摊贩</a><div class="n-meta">贴吧 · 19:42</div></div></div>
+                    <div class="news-item"><div class="rank">22</div><div class="n-body"><a class="n-title" href="https://www.baidu.com/s?wd=%E5%85%8D%E8%B4%B9%E9%A2%86%E9%B8%A1%E8%9B%8B%E9%AA%97%E4%BA%8660%E5%A4%9A%E5%90%8D%E7%95%99%E5%AE%88%E8%80%81%E4%BA%BA" target="_blank">免费领鸡蛋骗了60多名留守老人</a><div class="n-meta"><span class="src-tag">百度热搜</span><span>19:42</span></div></div></div>
+                    <div class="news-item"><div class="rank">30</div><div class="n-body"><a class="n-title" href="https://www.baidu.com/s?wd=%E4%B8%80%E6%AC%A1%E6%80%A7%E5%86%85%E8%A3%A4%E7%A9%BF%E4%B8%8A%E5%8F%AA%E5%89%A9%E4%B8%80%E6%A0%B9%E8%A3%A4%E5%B8%A6" target="_blank">一次性内裤穿上只剩一根裤带</a><div class="n-meta"><span class="src-tag">百度热搜</span><span>19:42</span></div></div></div>
+                    <div class="news-item"><div class="rank">21</div><div class="n-body"><a class="n-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E6%AD%A6%E6%B1%893%E5%90%8D%E5%9F%8E%E7%AE%A1%E5%9C%A8%E5%A4%A9%E6%A1%A5%E6%AE%B4%E6%89%93%E6%91%8A%E8%B4%A9&amp;topic_id=28357002" target="_blank">武汉3名城管在天桥殴打摊贩</a><div class="n-meta"><span class="src-tag">贴吧</span><span>19:42</span></div></div></div>
                 </div>
             </div>
 
-            <div class="news-group" id="g-5">
+            <div class="news-group open" id="g-5">
                 <div class="group-header">🖥️ 电商平台规则<span class="count">5</span><span class="arrow">▼</span></div>
                 <div class="group-body">
-                    <div class="news-item"><div class="rank">8</div><div class="n-body"><a class="n-title" href="https://www.cls.cn/detail/2451001" target="_blank">大模型攻入OTA腹地？豆包称酒店推荐"按成交收费" 或挑战"佣金+广告"模式</a><div class="n-meta">财联社热门 · 19:42</div></div></div>
-                    <div class="news-item"><div class="rank">20</div><div class="n-body"><a class="n-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E6%8E%A8%E8%8D%90%E9%85%92%E5%BA%97%E6%94%B6%E4%BD%A3%E9%87%91%2C%E8%B1%86%E5%8C%85%E8%BD%AC%E8%A1%8C%E5%BD%93%E4%B8%AD%E4%BB%8B&amp;topic_id=28357131" target="_blank">推荐酒店收佣金,豆包转行当中介</a><div class="n-meta">贴吧 · 19:42</div></div></div>
-                    <div class="news-item"><div class="rank">22</div><div class="n-body"><a class="n-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E7%8C%AA%E8%B9%84%E5%A4%96%E5%8D%96%E5%BA%97%E8%A2%AB%E7%BE%A4%E5%8F%8B%E7%8B%82%E5%88%B7%E5%B7%AE%E8%AF%84&amp;topic_id=28357001" target="_blank">猪蹄外卖店被群友狂刷差评</a><div class="n-meta">贴吧 · 19:42</div></div></div>
-                    <div class="news-item"><div class="rank">8</div><div class="n-body"><a class="n-title" href="https://www.zhihu.com/question/2070274629227083477" target="_blank">豆包否认推荐酒店抽取12%佣金，称仅在订单成交后收取渠道服务费</a><div class="n-meta">知乎 · 19:42</div></div></div>
-                    <div class="news-item"><div class="rank">17</div><div class="n-body"><a class="n-title" href="https://www.baidu.com/s?wd=%E5%A4%96%E5%8D%96%E5%91%98%E5%AE%89%E6%8A%9A%E7%82%B8%E9%B8%A1%E5%BA%97%E7%88%86%E5%8D%95%E6%83%85%E7%BB%AA%E5%B4%A9%E6%BA%83%E5%BA%97%E5%91%98" target="_blank">外卖员安抚炸鸡店爆单情绪崩溃店员</a><div class="n-meta">百度热搜 · 19:42</div></div></div>
+                    <div class="news-item"><div class="rank">8</div><div class="n-body"><a class="n-title" href="https://www.cls.cn/detail/2451001" target="_blank">大模型攻入OTA腹地？豆包称酒店推荐"按成交收费" 或挑战"佣金+广告"模式</a><div class="n-meta"><span class="src-tag">财联社</span><span>19:42</span></div></div></div>
+                    <div class="news-item"><div class="rank">20</div><div class="n-body"><a class="n-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E6%8E%A8%E8%8D%90%E9%85%92%E5%BA%97%E6%94%B6%E4%BD%A3%E9%87%91%2C%E8%B1%86%E5%8C%85%E8%BD%AC%E8%A1%8C%E5%BD%93%E4%B8%AD%E4%BB%8B&amp;topic_id=28357131" target="_blank">推荐酒店收佣金,豆包转行当中介</a><div class="n-meta"><span class="src-tag">贴吧</span><span>19:42</span></div></div></div>
+                    <div class="news-item"><div class="rank">22</div><div class="n-body"><a class="n-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E7%8C%AA%E8%B9%84%E5%A4%96%E5%8D%96%E5%BA%97%E8%A2%AB%E7%BE%A4%E5%8F%8B%E7%8B%82%E5%88%B7%E5%B7%AE%E8%AF%84&amp;topic_id=28357001" target="_blank">猪蹄外卖店被群友狂刷差评</a><div class="n-meta"><span class="src-tag">贴吧</span><span>19:42</span></div></div></div>
+                    <div class="news-item"><div class="rank">8</div><div class="n-body"><a class="n-title" href="https://www.zhihu.com/question/2070274629227083477" target="_blank">豆包否认推荐酒店抽取12%佣金，称仅在订单成交后收取渠道服务费</a><div class="n-meta"><span class="src-tag">知乎</span><span>19:42</span></div></div></div>
+                    <div class="news-item"><div class="rank">17</div><div class="n-body"><a class="n-title" href="https://www.baidu.com/s?wd=%E5%A4%96%E5%8D%96%E5%91%98%E5%AE%89%E6%8A%9A%E7%82%B8%E9%B8%A1%E5%BA%97%E7%88%86%E5%8D%95%E6%83%85%E7%BB%AA%E5%B4%A9%E6%BA%83%E5%BA%97%E5%91%98" target="_blank">外卖员安抚炸鸡店爆单情绪崩溃店员</a><div class="n-meta"><span class="src-tag">百度热搜</span><span>19:42</span></div></div></div>
                 </div>
             </div>
 
-            <div class="news-group" id="g-6">
+            <div class="news-group open" id="g-6">
                 <div class="group-header">👥 人力资源用工<span class="count">1</span><span class="arrow">▼</span></div>
                 <div class="group-body">
-                    <div class="news-item"><div class="rank">12</div><div class="n-body"><a class="n-title" href="https://www.zhihu.com/question/2070107191181305385" target="_blank">58同城被曝启动大规模裁员，缩减比例或达75%</a><div class="n-meta">知乎 · 19:42</div></div></div>
+                    <div class="news-item"><div class="rank">12</div><div class="n-body"><a class="n-title" href="https://www.zhihu.com/question/2070107191181305385" target="_blank">58同城被曝启动大规模裁员，缩减比例或达75%</a><div class="n-meta"><span class="src-tag">知乎</span><span>19:42</span></div></div></div>
                 </div>
             </div>
 
-            <div class="news-group" id="g-7">
+            <div class="news-group open" id="g-7">
                 <div class="group-header">📦 供应链货品<span class="count">1</span><span class="arrow">▼</span></div>
                 <div class="group-body">
-                    <div class="news-item"><div class="rank">27</div><div class="n-body"><a class="n-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E9%BC%A0%E6%A0%87%E4%B9%9F%E6%B6%A8%E4%BB%B7%2C%E8%A3%85%E6%9C%BA%E5%85%9A%E5%85%A8%E9%9D%A2%E5%B4%A9%E7%9B%98&amp;topic_id=28356996" target="_blank">鼠标也涨价,装机党全面崩盘</a><div class="n-meta">贴吧 · 19:42</div></div></div>
+                    <div class="news-item"><div class="rank">27</div><div class="n-body"><a class="n-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E9%BC%A0%E6%A0%87%E4%B9%9F%E6%B6%A8%E4%BB%B7%2C%E8%A3%85%E6%9C%BA%E5%85%9A%E5%85%A8%E9%9D%A2%E5%B4%A9%E7%9B%98&amp;topic_id=28356996" target="_blank">鼠标也涨价,装机党全面崩盘</a><div class="n-meta"><span class="src-tag">贴吧</span><span>19:42</span></div></div></div>
                 </div>
             </div>
         </div>
@@ -516,31 +552,31 @@
         <!-- 专业文章 -->
         <div class="section" id="rss">
             <div class="section-title">
-                <div class="icon" style="background:#e0e7ff;">📰</div>
+                <div class="icon">📰</div>
                 <h2>深度文章</h2>
                 <span class="tag">专业源精选 · 6条</span>
             </div>
             <div class="ai-block">
                 <h3>钛媒体 · 2条</h3>
-                <p>· <a href="https://www.tmtpost.com/8098120.html" target="_blank" style="color:#0d9488;">王兴重仓王兴兴，这盘棋到底有多大？</a></p>
-                <p>· <a href="https://www.tmtpost.com/8098990.html" target="_blank" style="color:#0d9488;">新消费四姐妹这一年</a></p>
+                <p>· <a href="https://www.tmtpost.com/8098120.html" target="_blank">王兴重仓王兴兴，这盘棋到底有多大？</a></p>
+                <p>· <a href="https://www.tmtpost.com/8098990.html" target="_blank">新消费四姐妹这一年</a></p>
             </div>
             <div class="ai-block">
                 <h3>人人都是产品经理 · 1条</h3>
-                <p>· <a href="https://www.woshipm.com/share/6444853.html" target="_blank" style="color:#0d9488;">暑期档中局大战，木鸟途家美团各有一套</a></p>
+                <p>· <a href="https://www.woshipm.com/share/6444853.html" target="_blank">暑期档中局大战，木鸟途家美团各有一套</a></p>
             </div>
             <div class="ai-block">
                 <h3>运营派 · 3条</h3>
-                <p>· <a href="https://www.yunyingpai.com/experience/1061582.html" target="_blank" style="color:#0d9488;">经销商如何做拼多多</a></p>
-                <p>· <a href="https://www.yunyingpai.com/extend/1061585.html" target="_blank" style="color:#0d9488;">麦当劳薯条营销，为啥这么会玩？</a></p>
-                <p>· <a href="https://www.yunyingpai.com/user/1061586.html" target="_blank" style="color:#0d9488;">会员运营最难的不是"做什么"，而是"什么时候做"</a></p>
+                <p>· <a href="https://www.yunyingpai.com/experience/1061582.html" target="_blank">经销商如何做拼多多</a></p>
+                <p>· <a href="https://www.yunyingpai.com/extend/1061585.html" target="_blank">麦当劳薯条营销，为啥这么会玩？</a></p>
+                <p>· <a href="https://www.yunyingpai.com/user/1061586.html" target="_blank">会员运营最难的不是"做什么"，而是"什么时候做"</a></p>
             </div>
         </div>
 
         <!-- 老许研判 -->
         <div class="section" id="insight">
             <div class="section-title">
-                <div class="icon" style="background:#dcfce7;">💡</div>
+                <div class="icon">💡</div>
                 <h2>老许研判</h2>
                 <span class="tag">对今日趋势的个人解读</span>
             </div>
@@ -569,13 +605,13 @@
 
         <div class="footer">
             老许聊实体 · 每天5分钟，看透实体生意 | 数据抓取: 2026-08-11 19:43<br>
-            定位升级版 v2 · 左侧分类导航 + 老许研判
+            定位升级版 v3 · 深色护眼 · 卡片式热点
         </div>
     </main>
 </div>
 
 <script>
-    // 热点分组展开/收起
+    // 热点分组展开/收起（默认全部展开）
     document.querySelectorAll('.group-header').forEach(function(header) {
         header.addEventListener('click', function() {
             this.parentElement.classList.toggle('open');
@@ -594,7 +630,7 @@
         });
         navItems.forEach(function(item) {
             var href = item.getAttribute('href').replace('#', '');
-            item.classList.toggle('active', href === current || (current === 'news' && item.parentElement && href.startsWith('g-')));
+            item.classList.toggle('active', href === current || (current === 'news' && href.startsWith('g-')));
         });
     });
 </script>
