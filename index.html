@@ -1,494 +1,390 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>老许聊实体 | 每日实体生意日报</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', 'Noto Sans SC', -apple-system, 'Microsoft YaHei', sans-serif;
-            background: #FDFCFA;
-            color: #44403C;
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-        }
-        a { color: inherit; text-decoration: none; }
-        .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老许聊实体 · 实体商业每日内参</title>
+<meta name="description" content="老许聊实体——每天 5 分钟，看透实体生意。租金、餐饮、平台、零售的趋势研判与行动建议。">
+<meta property="og:title" content="老许聊实体 · 实体商业每日内参">
+<meta property="og:description" content="每天 5 分钟，看透实体生意。租金、餐饮、平台、零售的趋势研判与行动建议。">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#100E0C; --ink:#EDE7DD; --muted:#9C9388; --faint:#635B51;
+    --hair:rgba(237,231,221,0.12); --accent:#D2553F; --accent-soft:rgba(210,85,63,0.14); --accent-wash:rgba(210,85,63,0.08);
+    --serif:'Noto Serif SC','Songti SC',serif;
+    --sans:'Inter','Noto Sans SC',-apple-system,'Microsoft YaHei',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans); background:var(--bg); color:var(--ink);
+    line-height:1.8; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:#fff}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .container{max-width:780px;margin:0 auto;padding:0 24px 96px}
 
-        /* ===== 首屏 ===== */
-        .hero {
-            min-height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 60px 0 40px;
-            position: relative;
-        }
-        .hero .stamp {
-            position: absolute;
-            top: 32px; right: 0;
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            font-size: 12px;
-            color: #A8A29E;
-            letter-spacing: 0.02em;
-        }
-        .hero .stamp .dot {
-            width: 6px; height: 6px;
-            border-radius: 50%;
-            background: #10B981;
-        }
-        .hero .brand-line {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 32px;
-        }
-        .hero .brand-line .logo {
-            width: 44px; height: 44px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1px solid #E7E5E4;
-        }
-        .hero .brand-line .b-name {
-            font-size: 17px;
-            font-weight: 800;
-            color: #0C0A09;
-            letter-spacing: 0.02em;
-        }
-        .hero .brand-line .b-sub {
-            font-size: 12px;
-            color: #A8A29E;
-            letter-spacing: 1px;
-        }
-        .hero h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 700;
-            color: #0C0A09;
-            line-height: 1.15;
-            letter-spacing: -0.02em;
-            margin-bottom: 16px;
-            max-width: 14em;
-        }
-        .hero .sub {
-            font-size: 16px;
-            color: #44403C;
-            margin-bottom: 16px;
-        }
-        .hero .slogan {
-            font-size: 13px;
-            color: #A8A29E;
-            margin-bottom: 36px;
-            letter-spacing: 0.02em;
-        }
-        .hero .cta {
-            display: inline-block;
-            padding: 14px 32px;
-            background: #0C0A09;
-            color: #FDFCFA;
-            border-radius: 8px;
-            font-size: 15px;
-            font-weight: 600;
-            transition: background 0.2s, transform 0.2s;
-        }
-        .hero .cta:hover { background: #292524; transform: translateY(-2px); }
+  /* ===== 刊头 masthead ===== */
+  .masthead{padding:56px 0 30px;text-align:center}
+  .rule{height:1px;background:var(--hair);width:100%}
+  .kicker{font-size:11px;letter-spacing:.42em;color:var(--muted);text-transform:uppercase;
+    padding:18px 0 14px;font-weight:500}
+  .wordmark{font-family:var(--serif);font-weight:900;font-size:clamp(34px,7vw,52px);
+    letter-spacing:.04em;line-height:1;color:var(--ink)}
+  .wordmark .dot{color:var(--accent)}
+  .edition{font-size:12.5px;letter-spacing:.18em;color:var(--faint);padding:16px 0 18px;font-variant-numeric:tabular-nums}
 
-        /* ===== 月份分组 ===== */
-        .section { margin: 72px 0; }
-        .section-head { margin-bottom: 24px; }
-        .section-head .kicker {
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: #D6D3D1;
-            margin-bottom: 8px;
-        }
-        .section-head h2 {
-            font-size: clamp(1.4rem, 3vw, 1.8rem);
-            font-weight: 700;
-            color: #0C0A09;
-            line-height: 1.2;
-            letter-spacing: -0.01em;
-        }
+  /* ===== 头条 lead ===== */
+  .lead{display:block;position:relative;padding:30px 0 30px 26px;margin:8px 0 6px;
+    border-left:3px solid var(--accent);transition:background .25s}
+  .lead::before{content:"";position:absolute;left:-3px;top:0;width:3px;height:0;background:var(--accent);transition:height .3s ease}
+  .lead:hover{background:var(--accent-wash)}
+  .lead:hover::before{height:100%}
+  .lead-label{font-size:11px;letter-spacing:.34em;color:var(--accent);font-weight:600;margin-bottom:14px;text-transform:uppercase}
+  .lead-title{font-family:var(--serif);font-weight:700;font-size:clamp(22px,4.4vw,30px);
+    line-height:1.32;color:var(--ink);margin-bottom:14px;transition:color .2s}
+  .lead:hover .lead-title{color:var(--accent)}
+  .lead-meta{font-size:12.5px;color:var(--faint);letter-spacing:.04em;font-variant-numeric:tabular-nums}
+  .lead-cta{display:inline-flex;align-items:center;gap:7px;margin-top:16px;font-size:13.5px;font-weight:600;color:var(--accent);transition:gap .2s}
+  .lead:hover .lead-cta{gap:12px}
 
-        /* ===== 日报列表 ===== */
-        .report-list { background: #FFFFFF; border: 1px solid #E7E5E4; border-radius: 8px; overflow: hidden; }
-        .report-row {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 16px 24px;
-            border-bottom: 1px solid #F5F5F4;
-            cursor: pointer;
-            transition: background 0.15s;
-        }
-        .report-row:last-child { border-bottom: none; }
-        .report-row:hover { background: #FCFCFB; }
-        .report-row:hover .r-title { color: #0C0A09; }
-        .report-row .r-date {
-            flex-shrink: 0;
-            width: 88px;
-            text-align: right;
-            font-family: 'Inter', monospace;
-            font-size: 12.5px;
-            font-weight: 600;
-            color: #A8A29E;
-            letter-spacing: 0.03em;
-        }
-        .report-row .r-title {
-            flex: 1;
-            font-size: 14.5px;
-            color: #292524;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            transition: color 0.15s;
-        }
-        .report-row .r-arrow {
-            color: #D6D3D1;
-            font-size: 15px;
-            flex-shrink: 0;
-            transition: transform 0.15s, color 0.15s;
-        }
-        .report-row:hover .r-arrow { color: #0C0A09; transform: translateX(3px); }
+  /* ===== 归档 ===== */
+  .sec-label{font-size:11px;letter-spacing:.34em;color:var(--muted);font-weight:600;
+    text-transform:uppercase;padding:44px 0 6px}
+  .month-sep{display:flex;align-items:center;gap:16px;margin-top:34px;color:var(--faint)}
+  .month-sep::before,.month-sep::after{content:"";height:1px;flex:1;background:var(--hair)}
+  .month-sep span{font-family:var(--serif);font-size:14px;letter-spacing:.16em;font-weight:600;white-space:nowrap}
+  .list{margin-top:4px}
+  .item{display:grid;grid-template-columns:78px 1fr 22px;align-items:baseline;gap:18px;
+    padding:15px 4px;border-bottom:1px solid var(--hair);transition:background .2s,padding-left .2s}
+  .item:hover{background:var(--accent-wash);padding-left:12px}
+  .item-date{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:.02em;white-space:nowrap}
+  .item-title{font-size:15px;color:var(--ink);line-height:1.55;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .2s}
+  .item:hover .item-title{color:var(--accent)}
+  .item-arrow{color:var(--faint);font-size:15px;transition:transform .2s,color .2s}
+  .item:hover .item-arrow{color:var(--accent);transform:translateX(4px)}
 
-        /* ===== 汇总链接 ===== */
-        .summary-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            margin-top: 20px;
-            padding: 18px 24px;
-            background: #FFFFFF;
-            border: 1px solid #E7E5E4;
-            border-radius: 8px;
-            transition: border-color 0.15s;
-        }
-        .summary-link:hover { border-color: #0C0A09; }
-        .summary-link .s-name {
-            font-size: 15px;
-            font-weight: 600;
-            color: #0C0A09;
-        }
-        .summary-link .s-arrow { color: #A8A29E; font-size: 15px; }
+  .summary-link{display:inline-block;margin-top:30px;font-size:13.5px;font-weight:600;color:var(--accent);
+    border-bottom:1px solid var(--accent);padding-bottom:2px;letter-spacing:.04em}
+  .summary-link:hover{opacity:.7}
 
-        /* ===== 页脚 ===== */
-        .footer {
-            margin: 96px 0 40px;
-            text-align: center;
-            color: #A8A29E;
-            font-size: 12px;
-            letter-spacing: 0.02em;
-        }
+  /* ===== 关注条（首页顶部，可点击跳转） ===== */
+  .follow-bar{display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap;
+    margin:26px 0 4px;padding:14px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+  .follow-item{display:inline-flex;align-items:center;gap:8px;background:none;border:none;cursor:pointer;
+    font-family:var(--sans);font-size:13px;color:var(--muted);transition:color .2s;text-decoration:none}
+  .follow-item:hover{color:var(--accent)}
+  .follow-item .f-label{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase}
+  .follow-item .f-val{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums;font-size:13.5px}
+  .follow-item:hover .f-val{color:var(--accent)}
+  .follow-item .f-action{font-size:10.5px;color:var(--accent);border:1px solid var(--accent);border-radius:3px;
+    padding:2px 9px;margin-left:4px;letter-spacing:.04em;transition:background .2s,color .2s}
+  .follow-item:hover .f-action{background:var(--accent);color:#fff}
+  .follow-item.done .f-action{background:var(--accent);color:#fff}
+  .follow-sep{color:var(--faint)}
 
-        @media (max-width: 600px) {
-            .section { margin: 56px 0; }
-            .report-row { padding: 14px 16px; gap: 14px; }
-            .report-row .r-date { width: 74px; font-size: 11.5px; }
-            .hero .stamp { position: static; margin-bottom: 8px; }
-        }
-    </style>
+  /* ===== 页脚 ===== */
+  .footer{margin-top:72px;padding-top:34px;border-top:1px solid var(--hair);text-align:center}
+  .footer .f-main{font-family:var(--serif);font-size:14px;color:var(--ink);letter-spacing:.08em}
+  .footer .f-follow{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-top:18px;font-size:13.5px;letter-spacing:.02em}
+  .footer .f-line{display:inline-flex;align-items:center;gap:8px}
+  .footer .f-label{font-size:10.5px;letter-spacing:.22em;color:var(--muted);text-transform:uppercase}
+  .footer .f-val{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+  .footer .f-val:hover{color:var(--accent)}
+  .footer .f-copy-btn{font-family:var(--sans);font-size:10.5px;color:var(--accent);background:none;border:1px solid var(--accent);border-radius:3px;padding:2px 8px;margin-left:2px;cursor:pointer;transition:background .2s,color .2s;letter-spacing:.04em;white-space:nowrap}
+  .footer .f-copy-btn:hover{background:var(--accent);color:#fff}
+  .footer .f-copy-btn.done{background:var(--accent);color:#fff}
+  .footer .f-copy{font-size:11.5px;color:var(--faint);margin-top:16px;font-variant-numeric:tabular-nums;letter-spacing:.06em}
+
+  /* 入场动效（克制） */
+  .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (max-width:560px){
+    .container{padding:0 18px 72px}
+    .item{grid-template-columns:64px 1fr 18px;gap:12px}
+    .item-title{font-size:14px}
+    .lead{padding-left:18px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
+<div class="container">
+  <header class="masthead">
+    <div class="rule"></div>
+    <div class="kicker">实体商业 · 趋势研判内参</div>
+    <h1 class="wordmark">老许聊实体<span class="dot">.</span></h1>
+    <div class="edition">第 45 期　·　2026年08月11日　·　每日更新</div>
+    <div class="rule"></div>
+  </header>
 
-<div class="wrap">
-    <!-- ===== 首屏 ===== -->
-    <div class="hero">
-        <div class="stamp"><span class="dot"></span>2026.08.11 · 19:43 更新</div>
-        <div class="brand-line">
-            <img class="logo" src="logo.jpg" alt="老许聊实体">
-            <div>
-                <div class="b-name">老许聊实体</div>
-                <div class="b-sub">SHISHI BUSINESS DAILY</div>
-            </div>
-        </div>
-        <h1>实体生意的每日情报站</h1>
-        <div class="sub">每天 5 分钟，看懂线下商业的真相与机会</div>
-        <div class="slogan">每天一份 · 聚焦选址 / 餐饮 / 零售 / 政策</div>
-        <a href="html/2026-08-11/19-43.html" class="cta">阅读今日日报</a>
-    </div>
+  <div class="follow-bar reveal">
+    <a class="follow-item" href="https://www.douyin.com/search/%E8%80%81%E8%AE%B8%E8%81%8A%E5%AE%9E%E4%BD%93" target="_blank" rel="noopener">
+      <span class="f-label">抖音</span><span class="f-val">@老许聊实体</span>
+    </a>
+    <span class="follow-sep" aria-hidden="true">·</span>
+    <button class="follow-item" data-copy="xuyang2946" type="button" aria-label="复制微信号 xuyang2946">
+      <span class="f-label">微信</span><span class="f-val">xuyang2946</span><span class="f-action">复制</span>
+    </button>
+  </div>
 
-    <!-- ===== 8月 ===== -->
-    <div class="section">
-        <div class="section-head">
-            <div class="kicker">August</div>
-            <h2>2026 年 8 月</h2>
-        </div>
-        <div class="report-list">
-            <a class="report-row" href="html/2026-08-11/19-43.html">
-                <span class="r-date">08.11</span>
-                <span class="r-title">房租降了房东反而不想租 · 于东来65亿当包租公 · 星巴克只坐不买 · 无堂食外卖集聚地 · 豆包收佣争议</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-08-10/18-39.html">
-                <span class="r-date">08.10</span>
-                <span class="r-title">钟睒睒限电商平台 · 雪佛兰停售 · 费大厨撤称号 · 豆包酒店收佣12% · 称重快餐关店60%</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-08-09/18-23.html">
-                <span class="r-date">08.09</span>
-                <span class="r-title">胖东来老店关闭 · 永和豆浆创始人逝世 · 雪佛兰停售 · 金价大涨 · 最贵开学季</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-08-08/16-54.html">
-                <span class="r-date">08.08</span>
-                <span class="r-title">胖东来老店闭店 · 金饰克价1300 · 西贝押注鲜羊 · 费大厨塌房疑云 · 名创优品内裤风波</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-08-07/14-42.html">
-                <span class="r-date">08.07</span>
-                <span class="r-title">泸溪河牙冠反转 · 青海拉面改名 · 猪肉冒充牛羊肉判刑 · 奶茶店血亏200万 · 星巴克秋商战</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-08-06/14-28.html">
-                <span class="r-date">08.06</span>
-                <span class="r-title">茶饮咖啡决战三公里 · 星巴克卖身 · 农夫山泉超越康师傅 · 网红烤鱼店倒闭潮 · 带薪错峰休假新政</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-08-05/13-43.html">
-                <span class="r-date">08.05</span>
-                <span class="r-title">存量房时代 · 维密中国降价 · 盒马关大店 · 申通被查 · 餐饮大师取消</span>
-                <span class="r-arrow">→</span>
-            </a>
-        </div>
-    </div>
+  <a class="lead reveal" href="html/2026-08-11/19-43.html" target="_blank" rel="noopener">
+    <div class="lead-label">今日头条 · TODAY</div>
+    <div class="lead-title">租金降了房东不租,于东来65亿当包租公,星巴克只坐不买,无堂食外卖集聚地,豆包收佣争议</div>
+    <div class="lead-meta">2026年08月11日　·　阅读约 5 分钟</div>
+    <span class="lead-cta">阅读今日日报 →</span>
+  </a>
 
-    <!-- ===== 6月 ===== -->
-    <div class="section">
-        <div class="section-head">
-            <div class="kicker">June</div>
-            <h2>2026 年 6 月</h2>
-        </div>
-        <div class="report-list">
-            <a class="report-row" href="html/2026-06-08/23-08.html">
-                <span class="r-date">06.08</span>
-                <span class="r-title">胖东来山姆逐鹿中原 · 金价下跌金店挤爆 · 全球股市震荡</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-06-07/21-33.html">
-                <span class="r-date">06.07</span>
-                <span class="r-title">耐克市值蒸发 · 中国小电驴英国卖爆 · 618电商大战</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-06-06/23-04.html">
-                <span class="r-date">06.06</span>
-                <span class="r-title">金价大跌21% · 黄仁勋效应持续发酵 · Wendy's进入中国市场</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-06-03/15-33.html">
-                <span class="r-date">06.03</span>
-                <span class="r-title">金价大降300元 · 于东来谈胖东来与山姆差距 · 618促销战开启</span>
-                <span class="r-arrow">→</span>
-            </a>
-        </div>
-    </div>
-
-    <!-- ===== 5月 ===== -->
-    <div class="section">
-        <div class="section-head">
-            <div class="kicker">May</div>
-            <h2>2026 年 5 月</h2>
-        </div>
-        <div class="report-list">
-            <a class="report-row" href="html/2026-05-23/19-32.html">
-                <span class="r-date">05.23</span>
-                <span class="r-title">山姆未结账先吃引争议 · 阳朔整治米粉价格乱象 · 618促销大战预热</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-05-17/14-08.html">
-                <span class="r-date">05.17</span>
-                <span class="r-title">苹果华为小米集体降价 · 黄仁勋打卡蜜雪冰城 · 多地商铺空置率上升</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-05-10/12-06.html">
-                <span class="r-date">05.10</span>
-                <span class="r-title">618大促正式开启 · 金价继续攀升 · 实体零售创新营销方式</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-05-09/09-42.html">
-                <span class="r-date">05.09</span>
-                <span class="r-title">金价突破3300美元 · 618大促战火升级 · 多地消费券刺激市场</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-05-08/11-03.html">
-                <span class="r-date">05.08</span>
-                <span class="r-title">餐饮行业掀涨价潮 · 618预售正式开启 · 直播带货新规即将落地</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-05-07/11-41.html">
-                <span class="r-date">05.07</span>
-                <span class="r-title">多地房租上涨引发关注 · 新能源车企降价潮持续 · 618大促开启预热</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-05-06/14-00.html">
-                <span class="r-date">05.06</span>
-                <span class="r-title">黄金价格突破3200美元 · 文旅部整治不合理低价游 · 多地消费券促消费</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-05-05/11-48.html">
-                <span class="r-date">05.05</span>
-                <span class="r-title">浏阳烟花厂爆炸事故引关注 · 楼市回暖迹象明显 · 中山推商贷新政</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-05-04/12-55.html">
-                <span class="r-date">05.04</span>
-                <span class="r-title">五一消费市场回暖明显 · 餐饮零售数据向好 · 直播带货新规正式实施</span>
-                <span class="r-arrow">→</span>
-            </a>
-        </div>
-    </div>
-
-    <!-- ===== 4月 ===== -->
-    <div class="section">
-        <div class="section-head">
-            <div class="kicker">April</div>
-            <h2>2026 年 4 月</h2>
-        </div>
-        <div class="report-list">
-            <a class="report-row" href="html/2026-04-30/19-18.html">
-                <span class="r-date">04.30</span>
-                <span class="r-title">特斯拉降价引发车企股价波动 · 拼多多跨境电商增速放缓 · 实体零售回暖迹象明显</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-29/15-55.html">
-                <span class="r-date">04.29</span>
-                <span class="r-title">蜜雪冰城进军下沉市场 · 星巴克推出AI咖啡师 · 餐饮行业掀智能化浪潮</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-28/12-20.html">
-                <span class="r-date">04.28</span>
-                <span class="r-title">比亚迪停止燃油车生产 · 瑞幸推AI拉花机 · 盒马试水无人超市</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-27/15-02.html">
-                <span class="r-date">04.27</span>
-                <span class="r-title">东方甄选拒绝第二个董宇辉 · 追觅CEO炮轰小红书 · 6300吨榴莲抵广州</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-26/20-54.html">
-                <span class="r-date">04.26</span>
-                <span class="r-title">东方甄选4主播离职 · 胖东来18元矿泉水遭哄抢 · 18万月子餐是冰饮炸物</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-25/15-22.html">
-                <span class="r-date">04.25</span>
-                <span class="r-title">华谊兄弟被申请破产 · 泡泡玛特发售5999冰箱 · 茅台Q1营收净利双增</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-24/14-19.html">
-                <span class="r-date">04.24</span>
-                <span class="r-title">火锅招985211管培生 · 拖鞋面包销量翻倍 · 义乌掀起学外语热</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-23/15-34.html">
-                <span class="r-date">04.23</span>
-                <span class="r-title">开锁店被干成板面店 · 哪吒造车巨亏183亿 · 肯德基酱料收费引争议</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-22/16-25.html">
-                <span class="r-date">04.22</span>
-                <span class="r-title">惠州餐厅被停业整顿 · 永辉超市收入增长16.57% · 茶颜悦色落地深圳</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-21/12-47.html">
-                <span class="r-date">04.21</span>
-                <span class="r-title">物业公司大规模撤离 · 县城农村成AB货重灾区 · 星巴克回应加盟传闻</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-20/13-43.html">
-                <span class="r-date">04.20</span>
-                <span class="r-title">上海车展豪华品牌肉搏战 · 深圳二手房成交大涨 · 预制菜火了</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-19/10-35.html">
-                <span class="r-date">04.19</span>
-                <span class="r-title">7大电商平台被罚35.97亿 · 网红开绿茶速成班 · 重庆火锅店新形态</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-17/14-10.html">
-                <span class="r-date">04.17</span>
-                <span class="r-title">一线城市房地产企稳 · 旋转小火锅围剿县城 · 抖音5亿扶持真人短剧</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-16/14-15.html">
-                <span class="r-date">04.16</span>
-                <span class="r-title">楼盘遭哄抢保安喷辣椒水 · 80万开店倒闭又投40万 · 抖音集团5亿扶持真人短剧</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-15/13-24.html">
-                <span class="r-date">04.15</span>
-                <span class="r-title">1.5亿独居者商机 · 永辉仲裁胜诉王健林 · 微信余额不满三百不给面试</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-14/20-58.html">
-                <span class="r-date">04.14</span>
-                <span class="r-title">深圳楼盘大降价千人排队 · Lululemon在美被查 · 胖东来多宝鱼被指吃出溯源标签</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-13/19-34.html">
-                <span class="r-date">04.13</span>
-                <span class="r-title">女外卖骑手的世界 · 钱袋子如何鼓起来 · PCB覆铜板涨价潮</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="2026-04-12.html">
-                <span class="r-date">04.12</span>
-                <span class="r-title">虚报77亿!河南招商数据造假 · 程序员卖汉堡月入5万</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-11/13-01.html">
-                <span class="r-date">04.11</span>
-                <span class="r-title">河南招商数据造假！摆摊通宵只卖1个堡 · 莫氏鸡煲爆火背后真相</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-10/14-00.html">
-                <span class="r-date">04.10</span>
-                <span class="r-title">蓝挚宠粮品牌闭店 · 新乳业冲刺港股 · 新茶饮品牌估值140亿 · 海河乳品道歉 · 携程启动无理由事假</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-09/12-43.html">
-                <span class="r-date">04.09</span>
-                <span class="r-title">河南招商数据造假！摆摊通宵只卖1个堡 · 莫氏鸡煲爆火背后真相</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-08/14-36.html">
-                <span class="r-date">04.08</span>
-                <span class="r-title">茶颜悦色成立新公司 · 蜜雪冰城推平价咖啡 · 瑞幸咖啡人事变动</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-07/11-31.html">
-                <span class="r-date">04.07</span>
-                <span class="r-title">盒马成立食品科技中心 · 美团闪购推次日达 · 叮咚买菜开社区店</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-06/11-22.html">
-                <span class="r-date">04.06</span>
-                <span class="r-title">叮咚买菜关店 · 社区团购遇冷 · 实体零售回暖 · 便利店扩张</span>
-                <span class="r-arrow">→</span>
-            </a>
-            <a class="report-row" href="html/2026-04-05/11-08.html">
-                <span class="r-date">04.05</span>
-                <span class="r-title">预制菜进高校 · 餐饮品牌上市 · 超市关店潮 · 社区商业崛起</span>
-                <span class="r-arrow">→</span>
-            </a>
-        </div>
-        <a class="summary-link" href="html/2026-04-summary.html">
-            <span class="s-name">2026 年 4 月新闻汇总与分析</span>
-            <span class="s-arrow">→</span>
+  <div class="sec-label reveal">往期归档 · ARCHIVE</div>
+  <div class="month-sep"><span>2026年08月</span></div><div class="list">
+        <a class="item" href="html/2026-08-10/18-39.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.08.10</span>
+            <span class="item-title">钟睒睒限电商平台,雪佛兰停售,费大厨撤称号,豆包酒店收佣12%,称重快餐关店60%</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
         </a>
-    </div>
+        <a class="item" href="html/2026-08-09/18-23.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.08.09</span>
+            <span class="item-title">胖东来老店关闭,永和豆浆创始人逝世,雪佛兰停售,金价大涨,最贵开学季</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-08-08/16-54.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.08.08</span>
+            <span class="item-title">胖东来老店闭店,金饰克价1300,西贝押注鲜羊,费大厨塌房疑云,名创优品内裤风波</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-08-07/14-42.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.08.07</span>
+            <span class="item-title">泸溪河牙冠反转,青海拉面改名,猪肉冒充牛羊肉判刑,奶茶店血亏200万,星巴克秋商战</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-08-06/14-28.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.08.06</span>
+            <span class="item-title">茶饮咖啡决战三公里,星巴克卖身,农夫山泉超越康师傅,网红烤鱼店倒闭潮,带薪错峰休假新政</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-08-05/13-43.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.08.05</span>
+            <span class="item-title">存量房时代,维密中国降价,盒马关大店,申通被查,餐饮大师取消</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a></div><div class="month-sep"><span>2026年06月</span></div><div class="list">
+        <a class="item" href="html/2026-06-08/23-08.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.06.08</span>
+            <span class="item-title">胖东来山姆逐鹿中原,金价下跌金店挤爆,全球股市震荡</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-06-07/21-33.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.06.07</span>
+            <span class="item-title">耐克市值蒸发,中国小电驴英国卖爆,618电商大战</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-06-06/23-04.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.06.06</span>
+            <span class="item-title">金价大跌21%,黄仁勋效应持续发酵,Wendy's进入中国市场</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-06-03/15-33.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.06.03</span>
+            <span class="item-title">金价大降300元,于东来谈胖东来与山姆差距,618促销战开启</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a></div><div class="month-sep"><span>2026年05月</span></div><div class="list">
+        <a class="item" href="html/2026-05-23/19-32.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.05.23</span>
+            <span class="item-title">山姆未结账先吃引争议,阳朔整治米粉价格乱象,618促销大战预热</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-05-17/14-08.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.05.17</span>
+            <span class="item-title">苹果华为小米集体降价,黄仁勋打卡蜜雪冰城,多地商铺空置率上升</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-05-10/12-06.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.05.10</span>
+            <span class="item-title">618大促正式开启,金价继续攀升,实体零售创新营销方式</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-05-09/09-42.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.05.09</span>
+            <span class="item-title">金价突破3300美元,618大促战火升级,多地消费券刺激市场</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-05-08/11-03.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.05.08</span>
+            <span class="item-title">餐饮行业掀涨价潮,618预售正式开启,直播带货新规即将落地</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-05-07/11-41.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.05.07</span>
+            <span class="item-title">多地房租上涨引发关注,新能源车企降价潮持续,618大促开启预热</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-05-06/14-00.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.05.06</span>
+            <span class="item-title">黄金价格突破3200美元,文旅部整治不合理低价游,多地消费券促消费</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-05-05/11-48.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.05.05</span>
+            <span class="item-title">浏阳烟花厂爆炸事故引关注,楼市回暖迹象明显,中山推商贷新政</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-05-04/12-55.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.05.04</span>
+            <span class="item-title">五一消费市场回暖明显,餐饮零售数据向好,直播带货新规正式实施</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a></div><div class="month-sep"><span>2026年04月</span></div><div class="list">
+        <a class="item" href="html/2026-04-30/19-18.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.30</span>
+            <span class="item-title">特斯拉降价引发车企股价波动,拼多多跨境电商增速放缓,实体零售回暖迹象明显</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-29/15-55.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.29</span>
+            <span class="item-title">蜜雪冰城进军下沉市场,星巴克推出AI咖啡师,餐饮行业掀智能化浪潮</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-28/12-20.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.28</span>
+            <span class="item-title">比亚迪停止燃油车生产,瑞幸推AI拉花机,盒马试水无人超市</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-27/15-02.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.27</span>
+            <span class="item-title">东方甄选拒绝第二个董宇辉,追觅CEO炮轰小红书,6300吨榴莲抵广州</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-26/20-54.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.26</span>
+            <span class="item-title">东方甄选4主播离职,胖东来18元矿泉水遭哄抢,18万月子餐是冰饮炸物</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-25/15-22.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.25</span>
+            <span class="item-title">华谊兄弟被申请破产,泡泡玛特发售5999冰箱,茅台Q1营收净利双增</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-24/14-19.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.24</span>
+            <span class="item-title">火锅招985211管培生,拖鞋面包销量翻倍,义乌掀起学外语热</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-23/15-34.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.23</span>
+            <span class="item-title">开锁店被干成板面店,哪吒造车巨亏183亿,肯德基酱料收费引争议</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-22/16-25.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.22</span>
+            <span class="item-title">惠州餐厅被停业整顿,永辉超市收入增长16.57%,茶颜悦色落地深圳</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-21/12-47.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.21</span>
+            <span class="item-title">物业公司大规模撤离,县城农村成AB货重灾区,星巴克回应加盟传闻</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-20/13-43.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.20</span>
+            <span class="item-title">上海车展豪华品牌肉搏战,深圳二手房成交大涨,预制菜火了</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-19/10-35.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.19</span>
+            <span class="item-title">7大电商平台被罚35.97亿,网红开绿茶速成班,重庆火锅店新形态</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-17/14-10.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.17</span>
+            <span class="item-title">一线城市房地产企稳,旋转小火锅围剿县城,抖音5亿扶持真人短剧</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-16/14-15.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.16</span>
+            <span class="item-title">楼盘遭哄抢保安喷辣椒水,80万开店倒闭又投40万,抖音集团5亿扶持真人短剧</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-15/13-24.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.15</span>
+            <span class="item-title">1.5亿独居者商机,永辉仲裁胜诉王健林,微信余额不满三百不给面试</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-14/20-58.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.14</span>
+            <span class="item-title">深圳楼盘大降价千人排队,Lululemon在美被查,胖东来多宝鱼被指吃出溯源标签</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-13/19-34.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.13</span>
+            <span class="item-title">女外卖骑手的世界,钱袋子如何鼓起来,PCB覆铜板涨价潮</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-12/18-19.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.12</span>
+            <span class="item-title">虚报77亿!河南招商数据造假,程序员卖汉堡月入5万</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-11/13-01.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.11</span>
+            <span class="item-title">河南招商数据造假！摆摊通宵只卖1个堡，莫氏鸡煲爆火背后真相</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-10/14-00.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.10</span>
+            <span class="item-title">蓝挚宠粮品牌闭店，新乳业冲刺港股，新茶饮品牌估值140亿，海河乳品道歉，携程启动无理由事假</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-09/12-43.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.09</span>
+            <span class="item-title">河南招商数据造假！摆摊通宵只卖1个堡，莫氏鸡煲爆火背后真相</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-08/14-36.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.08</span>
+            <span class="item-title">茶颜悦色成立新公司，蜜雪冰城推平价咖啡，瑞幸咖啡人事变动</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-07/14-33.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.07</span>
+            <span class="item-title">盒马成立食品科技中心，美团闪购推次日达，叮咚买菜开社区店</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-06/12-48.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.06</span>
+            <span class="item-title">叮咚买菜关店，社区团购遇冷，实体零售回暖，便利店扩张</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-04-05/16-01.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.04.05</span>
+            <span class="item-title">预制菜进高校，餐饮品牌上市，超市关店潮，社区商业崛起</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a></div>
+        <a class="summary-link" href="html/2026-04-summary.html" target="_blank" rel="noopener">4月新闻汇总与分析　汇总 →</a>
 
-    <!-- ===== 页脚 ===== -->
-    <div class="footer">
-        老许聊实体 · 每天 5 分钟，看透实体生意<br>
-        最后更新：2026年08月11日 19:43
+  <footer class="footer">
+    <div class="f-main">老许聊实体</div>
+    <div class="f-follow">
+      <span class="f-line"><span class="f-label">抖音</span><a class="f-val" href="https://www.douyin.com/search/%E8%80%81%E8%AE%B8%E8%81%8A%E5%AE%9E%E4%BD%93" target="_blank" rel="noopener">@老许聊实体</a></span>
+      <span class="f-line"><span class="f-label">微信</span><span class="f-val">xuyang2946</span><button class="f-copy-btn" data-copy="xuyang2946" type="button" aria-label="复制微信号">复制</button></span>
     </div>
+    <div class="f-copy">每天 5 分钟，看透实体生意　·　最后更新 2026年08月11日　·　共 45 期</div>
+  </footer>
 </div>
 
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  document.querySelectorAll('[data-copy]').forEach(b=>{
+    b.addEventListener('click',()=>{
+      const t=b.dataset.copy;
+      const act=b.querySelector('.f-action')||b;
+      const orig=act.textContent;
+      const ok=()=>{act.textContent='已复制';b.classList.add('done');setTimeout(()=>{act.textContent=orig;b.classList.remove('done');},1500);};
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok).catch(ok);}else{ok();}
+    });
+  });
+</script>
 </body>
 </html>
