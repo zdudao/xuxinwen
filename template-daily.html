@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<!--
+  ================================================================
+  老许聊实体 · 每日实体生意日报 —— 正式模板 (vB 暖纸版)
+  使用方式：复制本文件为 html/YYYY-MM-DD/HH-MM.html，然后替换数据区：
+    ① <title> 日期
+    ② .stamp 时间戳 + .date 日期
+    ③ .hero h1 主标题 + .sub 副标题
+    ④ #actions 3 条行动建议（现象/判断/动作）
+    ⑤ #signals 4 个信号卡
+    ⑥ #news 20 条热点（wall-row）
+    ⑦ #articles 深度文章
+    ⑧ #insight 研判摘要 + 5 小节
+    ⑨ .footer 抓取时间
+  ================================================================
+-->
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>老许聊实体 | 8月11日实体生意日报</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, 'Microsoft YaHei', sans-serif;
+            /* P0：暖白背景 */
+            background: #FDFCFA;
+            color: #44403C;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: inherit; text-decoration: none; }
+        .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+        /* ===== 首屏 ===== */
+        .hero {
+            min-height: 92vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 60px 0 40px;
+            position: relative;
+        }
+        /* P3：时间戳右上角，带绿点 */
+        .hero .stamp {
+            position: absolute;
+            top: 32px; right: 0;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 12px;
+            color: #A8A29E;
+            letter-spacing: 0.02em;
+        }
+        .hero .stamp .dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: #10B981;
+        }
+        .hero .date {
+            font-size: 14px;
+            color: #A8A29E;
+            letter-spacing: 2px;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .hero .date::after {
+            content: '';
+            width: 48px; height: 1px;
+            background: #E7E5E4;
+        }
+        /* P1：首屏主标题 —— 压缩字距，有压迫感 */
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: #0C0A09;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            max-width: 14em;
+        }
+        .hero .sub {
+            font-size: 16px;
+            color: #44403C;
+            margin-bottom: 16px;
+        }
+        /* P3：slogan 上移至首屏 */
+        .hero .slogan {
+            font-size: 13px;
+            color: #A8A29E;
+            margin-bottom: 36px;
+            letter-spacing: 0.02em;
+        }
+        .hero .cta {
+            display: inline-block;
+            padding: 14px 32px;
+            background: #0C0A09;
+            color: #FDFCFA;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .hero .cta:hover { background: #292524; transform: translateY(-2px); }
+
+        /* ===== 通用模块 ===== */
+        .section { margin: 96px 0; }
+        .section-head { margin-bottom: 32px; }
+        /* P1+P2：英文标签做"纹理" —— 极小、极淡 */
+        .section-head .kicker {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #D6D3D1;
+            margin-bottom: 10px;
+        }
+        /* P1：模块标题 —— 有压迫感 */
+        .section-head h2 {
+            font-size: clamp(1.6rem, 3.5vw, 2rem);
+            font-weight: 700;
+            color: #0C0A09;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        /* ===== 决策参谋：现象/判断/动作 分段 ===== */
+        .action-card {
+            background: #FFFFFF;
+            border: 1px solid #E7E5E4;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+        .action-card:hover { border-color: #D6D3D1; }
+        .action-card .ac-head {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .action-card .ac-num {
+            font-family: 'Inter', monospace;
+            font-size: 13px;
+            font-weight: 700;
+            color: #A8A29E;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: 1px;
+        }
+        .action-card .ac-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0C0A09;
+            flex: 1;
+        }
+        .action-card .ac-arrow { color: #A8A29E; font-size: 13px; transition: transform 0.2s; }
+        .action-card.open .ac-arrow { transform: rotate(180deg); }
+        .action-card .ac-body {
+            display: none;
+            padding: 0 24px 28px;
+            padding-left: 53px;
+            border-top: 1px dashed #E7E5E4;
+            padding-top: 20px;
+        }
+        .action-card.open .ac-body { display: block; }
+        /* P1：现象/判断/动作 —— 标签化 + 大间距 */
+        .action-card .ac-seg { margin-bottom: 16px; }
+        .action-card .ac-seg:last-child { margin-bottom: 0; }
+        .action-card .ac-seg .seg-lbl {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #A8A29E;
+            margin-bottom: 6px;
+        }
+        .action-card .ac-seg p {
+            font-size: 14.5px;
+            color: #44403C;
+            line-height: 1.7;
+        }
+        .action-card .ac-seg p strong {
+            color: #0C0A09;
+            font-weight: 600;
+        }
+
+        /* ===== 信号速览 ===== */
+        .signals { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .signal {
+            background: #FFFFFF;
+            border: 1px solid #E7E5E4;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .signal .s-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 4px;
+            border: 1px solid;
+            margin-bottom: 14px;
+        }
+        .signal .s-title { font-size: 15px; font-weight: 700; color: #0C0A09; margin-bottom: 6px; }
+        .signal .s-desc { font-size: 13px; color: #A8A29E; }
+
+        /* P0：色块标签背景微调 —— 极淡色 */
+        .t-realestate { border-color: #E7E5E4; color: #78716C; background: #F5F5F4; }
+        .t-food { border-color: #FDE68A; color: #B45309; background: #FEF3C7; }
+        .t-platform { border-color: #C7D2FE; color: #4338CA; background: #E0E7FF; }
+        .t-policy { border-color: #BBF7D0; color: #166534; background: #F0FDF4; }
+
+        /* ===== 热点信号墙 ===== */
+        .signal-wall { background: #FFFFFF; border: 1px solid #E7E5E4; border-radius: 8px; overflow: hidden; }
+        .wall-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 13px 24px;
+            border-bottom: 1px solid #F5F5F4;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .wall-row:last-child { border-bottom: none; }
+        .wall-row:hover { background: #FCFCFB; }
+        .wall-row .w-num {
+            font-family: 'Inter', monospace;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #D6D3D1;
+            min-width: 28px;
+            font-variant-numeric: tabular-nums;
+        }
+        .wall-row .w-num.hot { color: #B45309; }
+        .wall-row .w-num.warm { color: #A8A29E; }
+        .wall-row .w-title {
+            flex: 1;
+            font-size: 14.5px;
+            color: #292524;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .wall-row .w-meta { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+        .wall-row .w-src {
+            font-size: 12px;
+            color: #A8A29E;
+            padding: 2px 10px;
+            border-radius: 4px;
+            background: #F5F5F4;
+        }
+        /* P2：热/新标签 —— 极淡底、沉色字、小尺寸 */
+        .wall-row .w-hot,
+        .wall-row .w-new {
+            font-size: 10px;
+            font-weight: 500;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .wall-row .w-hot { background: #FEF2F2; color: #991B1B; }
+        .wall-row .w-new { background: #F0FDF4; color: #166534; }
+
+        /* ===== 深度文章 ===== */
+        .article {
+            background: #FFFFFF;
+            border: 1px solid #E7E5E4;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 12px;
+        }
+        .article h3 {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #A8A29E;
+            margin-bottom: 10px;
+        }
+        .article a {
+            font-size: 14.5px;
+            color: #292524;
+            display: block;
+            padding: 4px 0;
+            transition: color 0.15s;
+        }
+        .article a:hover { color: #0C0A09; }
+
+        /* ===== 老许研判 ===== */
+        .insight-teaser {
+            background: #FFFFFF;
+            border: 1px solid #E7E5E4;
+            border-radius: 8px;
+            padding: 28px;
+        }
+        .insight-teaser .it-summary { font-size: 15px; color: #44403C; max-width: 45em; }
+        .insight-teaser .it-summary strong { color: #0C0A09; }
+        .insight-teaser .it-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            border: 1px solid #0C0A09;
+            color: #0C0A09;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .insight-teaser .it-btn:hover { background: #0C0A09; color: #FDFCFA; }
+        .insight-full { display: none; margin-top: 24px; }
+        .insight-full.show { display: block; }
+        .insight-block {
+            padding: 20px 24px;
+            margin-bottom: 14px;
+            background: #FFFFFF;
+            border: 1px solid #E7E5E4;
+            border-radius: 8px;
+        }
+        .insight-block h3 {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: #0C0A09;
+            margin-bottom: 12px;
+            padding-left: 12px;
+            border-left: 3px solid #0C0A09;
+        }
+        .insight-block p {
+            font-size: 14px;
+            color: #44403C;
+            line-height: 1.75;
+            max-width: 45em;
+        }
+        .insight-block a { color: #0C0A09; text-decoration: underline; }
+
+        /* ===== 页脚：只保留版权 + 链接 ===== */
+        .footer {
+            margin: 96px 0 40px;
+            text-align: center;
+            color: #A8A29E;
+            font-size: 12px;
+            letter-spacing: 0.02em;
+        }
+        .footer a { color: #A8A29E; text-decoration: underline; }
+        .footer a:hover { color: #0C0A09; }
+
+        @media (max-width: 600px) {
+            .section { margin: 64px 0; }
+            .signals { grid-template-columns: 1fr; }
+            .wall-row { padding: 12px 16px; }
+            .wall-row .w-src { display: none; }
+            .hero .stamp { position: static; margin-bottom: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <!-- ===== 首屏 ===== -->
+    <div class="hero">
+        <div class="stamp"><span class="dot"></span>2026.08.11 · 19:43 更新</div>
+        <div class="date">实体生意日报 · 8月11日</div>
+        <h1>房租降了，房东反而不想租了</h1>
+        <div class="sub">实体生意的租金逻辑正在反转</div>
+        <div class="slogan">老许聊实体 · 每天 5 分钟，看透实体生意</div>
+        <a href="#actions" class="cta">查看今日 3 条行动建议</a>
+    </div>
+
+    <!-- ===== 决策参谋 ===== -->
+    <div class="section" id="actions">
+        <div class="section-head">
+            <div class="kicker">Action</div>
+            <h2>今日行动建议</h2>
+        </div>
+
+        <div class="action-card open">
+            <div class="ac-head">
+                <span class="ac-num">01</span>
+                <span class="ac-title">续租谈判，改谈"阶梯式租金"</span>
+                <span class="ac-arrow">▾</span>
+            </div>
+            <div class="ac-body">
+                <div class="ac-seg">
+                    <span class="seg-lbl">现象</span>
+                    <p>租金从800降到450房东不租，房租涨3倍胖东来关店。</p>
+                </div>
+                <div class="ac-seg">
+                    <span class="seg-lbl">判断</span>
+                    <p>商铺定价从"位置溢价"转向"生存底线"，房东"宁空不降"、租户"降了也亏"成死锁。</p>
+                </div>
+                <div class="ac-seg">
+                    <span class="seg-lbl">动作</span>
+                    <p>续租别急着签字，主动谈<strong>「阶梯式租金」或「营业额分成」</strong>；同时评估<strong>无堂食档口、店中店</strong>等轻资产模式（成本&lt;5万）。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-card">
+            <div class="ac-head">
+                <span class="ac-num">02</span>
+                <span class="ac-title">避开红海，抓价格分层机会</span>
+                <span class="ac-arrow">▾</span>
+            </div>
+            <div class="ac-body">
+                <div class="ac-seg">
+                    <span class="seg-lbl">现象</span>
+                    <p>麻辣烫越来越贵、自助小火锅越卷越便宜；费大厨撤"小炒肉大王"称号。</p>
+                </div>
+                <div class="ac-seg">
+                    <span class="seg-lbl">判断</span>
+                    <p>餐饮深度分层：高端靠产品力、低端靠性价比，中间地带最危险。</p>
+                </div>
+                <div class="ac-seg">
+                    <span class="seg-lbl">动作</span>
+                    <p>避开麻辣烫、炸鸡等红海；做自助/小火锅关注<strong>上游供应链整合</strong>；门店空间用<strong>"消费门槛+增值服务"</strong>筛选客流。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-card">
+            <div class="ac-head">
+                <span class="ac-num">03</span>
+                <span class="ac-title">低成本开店 / 私域迁移</span>
+                <span class="ac-arrow">▾</span>
+            </div>
+            <div class="ac-body">
+                <div class="ac-seg">
+                    <span class="seg-lbl">现象</span>
+                    <p>浙江首创无堂食外卖集聚地；豆包转行"酒店中介"；58同城裁员75%。</p>
+                </div>
+                <div class="ac-seg">
+                    <span class="seg-lbl">判断</span>
+                    <p>「去门店化」与「平台新收费」并行，实体生意被拆解为场地、流量、供应链三环节。</p>
+                </div>
+                <div class="ac-seg">
+                    <span class="seg-lbl">动作</span>
+                    <p>低成本开店复制<strong>外卖集聚地</strong>模式（约10万）；已有门店佣金占比超15%就把老客迁到<strong>私域</strong>。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 今日信号 ===== -->
+    <div class="section" id="signals">
+        <div class="section-head">
+            <div class="kicker">Signals</div>
+            <h2>今日信号 · 1分钟看完</h2>
+        </div>
+        <div class="signals">
+            <div class="signal">
+                <span class="s-tag t-realestate">租金 / 地产</span>
+                <div class="s-title">"宁空不降"蔓延</div>
+                <div class="s-desc">租金话题双平台霸榜，商业地产焦虑已蔓延至中小城市。</div>
+            </div>
+            <div class="signal">
+                <span class="s-tag t-food">餐饮</span>
+                <div class="s-title">价格分层加剧</div>
+                <div class="s-desc">高端靠产品力、低端靠性价比，中间地带最危险。</div>
+            </div>
+            <div class="signal">
+                <span class="s-tag t-platform">平台 / 流量</span>
+                <div class="s-title">平台开始"收割"</div>
+                <div class="s-desc">豆包按成交收费，流量成本暗涨成趋势。</div>
+            </div>
+            <div class="signal">
+                <span class="s-tag t-policy">政策</span>
+                <div class="s-title">重资产模式见顶</div>
+                <div class="s-desc">胖东来关店、58裁员、雪佛兰退华，线下重资产难熬。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 今日热点 ===== -->
+    <div class="section" id="news">
+        <div class="section-head">
+            <div class="kicker">Hotlist</div>
+            <h2>今日热点 · 20 条</h2>
+        </div>
+        <div class="signal-wall">
+            <div class="wall-row"><span class="w-num warm">01</span><span class="w-title">租金从800降到450房东决定不租了</span><span class="w-meta"><span class="w-src">今日头条</span><span class="w-hot">热</span></span></div>
+            <div class="wall-row"><span class="w-num hot">02</span><span class="w-title">租金从800元降到450元房东决定不租了</span><span class="w-meta"><span class="w-src">百度热搜</span><span class="w-hot">热</span></span></div>
+            <div class="wall-row"><span class="w-num">03</span><span class="w-title">房租涨3倍，胖东来关停老店</span><span class="w-meta"><span class="w-src">贴吧</span><span class="w-hot">热</span></span></div>
+            <div class="wall-row"><span class="w-num">04</span><span class="w-title">费大厨撤下「全国小炒肉大王」宣传，上菜口号更换为「精选黑猪肉、专业大厨炒」</span><span class="w-meta"><span class="w-src">知乎</span><span class="w-new">新</span></span></div>
+            <div class="wall-row"><span class="w-num">05</span><span class="w-title">于东来自掏65亿建商场当包租公</span><span class="w-meta"><span class="w-src">微博</span><span class="w-hot">热</span></span></div>
+            <div class="wall-row"><span class="w-num">06</span><span class="w-title">一口气看懂万达现状</span><span class="w-meta"><span class="w-src">抖音</span><span class="w-hot">热</span></span></div>
+            <div class="wall-row"><span class="w-num">07</span><span class="w-title">"星巴克该管管只坐不买的人"</span><span class="w-meta"><span class="w-src">百度热搜</span><span class="w-hot">热</span></span></div>
+            <div class="wall-row"><span class="w-num">08</span><span class="w-title">为啥感觉麻辣烫越来越贵，而自助小火锅却在越卷越便宜？</span><span class="w-meta"><span class="w-src">知乎</span><span class="w-new">新</span></span></div>
+            <div class="wall-row"><span class="w-num">09</span><span class="w-title">浙江首创无堂食外卖集聚地</span><span class="w-meta"><span class="w-src">bilibili</span><span class="w-new">新</span></span></div>
+            <div class="wall-row"><span class="w-num">10</span><span class="w-title">大模型攻入OTA腹地？豆包称酒店推荐"按成交收费" 或挑战"佣金+广告"模式</span><span class="w-meta"><span class="w-src">财联社</span><span class="w-new">新</span></span></div>
+            <div class="wall-row"><span class="w-num">11</span><span class="w-title">58同城被曝启动大规模裁员，缩减比例或达75%</span><span class="w-meta"><span class="w-src">知乎</span><span class="w-hot">热</span></span></div>
+            <div class="wall-row"><span class="w-num">12</span><span class="w-title">推荐酒店收佣金，豆包转行当中介</span><span class="w-meta"><span class="w-src">贴吧</span><span class="w-hot">热</span></span></div>
+            <div class="wall-row"><span class="w-num">13</span><span class="w-title">免费领鸡蛋骗了60多名留守老人</span><span class="w-meta"><span class="w-src">百度热搜</span><span class="w-hot">热</span></span></div>
+            <div class="wall-row"><span class="w-num">14</span><span class="w-title">猪蹄外卖店被群友狂刷差评</span><span class="w-meta"><span class="w-src">贴吧</span><span class="w-hot">热</span></span></div>
+            <div class="wall-row"><span class="w-num">15</span><span class="w-title">豆包否认推荐酒店抽取12%佣金，称仅在订单成交后收取渠道服务费</span><span class="w-meta"><span class="w-src">知乎</span><span class="w-new">新</span></span></div>
+            <div class="wall-row"><span class="w-num">16</span><span class="w-title">武汉3名城管在天桥殴打摊贩</span><span class="w-meta"><span class="w-src">贴吧</span><span class="w-hot">热</span></span></div>
+            <div class="wall-row"><span class="w-num">17</span><span class="w-title">外卖员安抚炸鸡店爆单情绪崩溃店员</span><span class="w-meta"><span class="w-src">百度热搜</span><span class="w-hot">热</span></span></div>
+            <div class="wall-row"><span class="w-num">18</span><span class="w-title">一次性内裤穿上只剩一根裤带</span><span class="w-meta"><span class="w-src">百度热搜</span><span class="w-hot">热</span></span></div>
+            <div class="wall-row"><span class="w-num">19</span><span class="w-title">鼠标也涨价，装机党全面崩盘</span><span class="w-meta"><span class="w-src">贴吧</span><span class="w-hot">热</span></span></div>
+            <div class="wall-row"><span class="w-num">20</span><span class="w-title">于东来回应胖东来近25年老店年底关闭</span><span class="w-meta"><span class="w-src">今日头条</span><span class="w-hot">热</span></span></div>
+        </div>
+    </div>
+
+    <!-- ===== 深度文章 ===== -->
+    <div class="section" id="articles">
+        <div class="section-head">
+            <div class="kicker">Reading</div>
+            <h2>深度文章</h2>
+        </div>
+        <div class="article">
+            <h3>钛媒体</h3>
+            <a href="https://www.tmtpost.com/8098120.html" target="_blank">王兴重仓王兴兴，这盘棋到底有多大？</a>
+            <a href="https://www.tmtpost.com/8098990.html" target="_blank">新消费四姐妹这一年</a>
+        </div>
+        <div class="article">
+            <h3>人人都是产品经理</h3>
+            <a href="https://www.woshipm.com/share/6444853.html" target="_blank">暑期档中局大战，木鸟途家美团各有一套</a>
+        </div>
+        <div class="article">
+            <h3>运营派</h3>
+            <a href="https://www.yunyingpai.com/experience/1061582.html" target="_blank">经销商如何做拼多多</a>
+            <a href="https://www.yunyingpai.com/extend/1061585.html" target="_blank">麦当劳薯条营销，为啥这么会玩？</a>
+            <a href="https://www.yunyingpai.com/user/1061586.html" target="_blank">会员运营最难的不是"做什么"，而是"什么时候做"</a>
+        </div>
+    </div>
+
+    <!-- ===== 老许研判 ===== -->
+    <div class="section" id="insight">
+        <div class="section-head">
+            <div class="kicker">Insight</div>
+            <h2>老许研判</h2>
+        </div>
+        <div class="insight-teaser">
+            <div class="it-summary">
+                <strong>一句话：</strong>今日实体商业的核心矛盾是「租金成本与客流动线的博弈」——商铺定价从"位置溢价"转向"生存底线"，高租金与高空置并存；餐饮价格分层加剧、平台从引流转向收割，实体老板下半年该把"缩店保现金流、私域化、轻资产"提上日程。
+            </div>
+            <span class="it-btn" id="toggleInsight">阅读完整研判 →</span>
+            <div class="insight-full" id="insightFull">
+                <div class="insight-block">
+                    <h3>核心态势</h3>
+                    <p>今日实体商业热度呈现"破圈扩散"态势，核心矛盾集中在"租金成本"与"客流动线"的博弈上。宏观主线：「租金从800降到450房东决定不租了」与「房租涨3倍，胖东来关停老店」形成鲜明对照，揭示实体商业租金逻辑已从"位置溢价"转向"生存底线"，高租金与高空置率并存，商铺定价体系正遭遇前所未有的信任危机。微观领域：一是餐饮赛道内部分化，费大厨主动摘帽"大王"降姿态，麻辣烫与自助小火锅的价格背驰，反映消费分层加剧；二是电商平台规则反噬实体，豆包收费模式引发对流量成本的再思考；三是无堂食外卖集聚地模式，为高租金困境提供"去门店化"的解题思路。</p>
+                </div>
+                <div class="insight-block">
+                    <h3>舆论风向</h3>
+                    <p>主流声音是对高租金压垮实体店的愤慨与对胖东来"良心企业"的推崇；潜流暗涌则是"星巴克只坐不买"争论背后，公众对"白嫖空间"与商家经营权的边界争执。核心矛盾：一是房东"宁空不降"与租户"降了也亏"的死锁；二是消费者既要极致低价又要求品质服务的双重标准。</p>
+                </div>
+                <div class="insight-block">
+                    <h3>异动与弱信号</h3>
+                    <p>「租金从800降到450」在今日头条与百度双平台同现，且百度排名升至第2，印证高租金话题已从行业痛点升级为全网情绪宣泄口，深层反映商业地产泡沫破裂的焦虑正在向中小城市蔓延。「于东来自掏65亿建商场当包租公」与「一口气看懂万达现状」在微博、抖音同步发酵，属于"死而不僵"型热点回魂，暗示商业地产模式大讨论将再度升温。</p>
+                </div>
+                <div class="insight-block">
+                    <h3>我的建议</h3>
+                    <p>1. 实体商家：谨慎续租，尝试"阶梯式租金"或"营业额分成"模式谈判，并评估"无堂食档口"或"店中店"等轻资产模式，成本门槛低于5万元，可有效对冲租金倒挂风险。<br>2. 创业者：避开麻辣烫、炸鸡等红海品类，关注"自助小火锅"上游供应链整合机会，或在社区周边复制"外卖集聚地"模式，利用现成流量分摊成本，启动门槛约10万元，但需先与外卖平台谈妥流量倾斜政策。</p>
+                </div>
+                <div class="insight-block">
+                    <h3>独立源点</h3>
+                    <p>知乎：费大厨撤"大王"宣传降姿态引热议；麻辣烫涨价与自助小火锅降价对比受关注；豆包抽佣争议折射平台流量成本焦虑；58同城大裁员预警线上招聘模式衰退，倒逼用工回归线下本地化渠道。华尔街见闻：恒生科技剔除"外卖指数"的信号值得警惕，资本热度从消费互联网转向硬科技；实体商家应更重视线下复购率而非平台流量依赖；消费电子零售端或面临需求疲软，需控制库存风险。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 页脚：只保留版权与链接 ===== -->
+    <div class="footer">
+        数据抓取：2026-08-11 19:43 · <a href="https://zdudao.github.io/xuxinwen/">老许聊实体</a>
+    </div>
+</div>
+
+<script>
+    // 行动卡片折叠
+    document.querySelectorAll('.ac-head').forEach(function(head) {
+        head.addEventListener('click', function() {
+            this.parentElement.classList.toggle('open');
+        });
+    });
+
+    // 老许研判展开
+    var btn = document.getElementById('toggleInsight');
+    var full = document.getElementById('insightFull');
+    btn.addEventListener('click', function() {
+        var showing = full.classList.toggle('show');
+        btn.textContent = showing ? '收起研判 ↑' : '阅读完整研判 →';
+        if (showing) full.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // 热点行点击跳转原文
+    var links = [
+        'https://www.toutiao.com/trending/7671617219173351460/',
+        'https://www.baidu.com/s?wd=%E7%A7%9F%E9%87%91%E4%BB%8E800%E5%85%83%E9%99%8D%E5%88%B0450%E5%85%83%E6%88%BF%E4%B8%9C%E5%86%B3%E5%AE%9A%E4%B8%8D%E7%A7%9F%E4%BA%86',
+        'https://tieba.baidu.com/hottopic/browse/hottopic?topic_name=%E6%88%BF%E7%A7%9F%E6%B6%A83%E5%80%8D%2C%E8%83%96%E4%B8%9C%E6%9D%A5%E5%85%B3%E5%81%9C%E8%80%81%E5%BA%97&topic_id=28357132',
+        'https://www.zhihu.com/question/2070112824437876354',
+        'https://s.weibo.com/weibo?q=%23%E4%BA%8E%E4%B8%9C%E6%9D%A5%E8%87%AA%E6%8E%8F65%E4%BA%BF%E5%BB%BA%E5%95%86%E5%9C%BA%E5%BD%93%E5%8C%85%E7%A7%9F%E5%85%AC%23',
+        'https://www.douyin.com/hot/2605041',
+        'https://www.baidu.com/s?wd=%E2%80%9C%E6%98%9F%E5%B7%B4%E5%85%8B%E8%AF%A5%E7%AE%A1%E7%AE%A1%E5%8F%AA%E5%9D%90%E4%B8%8D%E4%B9%B0%E7%9A%84%E4%BA%BA%E2%80%9D',
+        'https://www.zhihu.com/question/2067711801098069791',
+        'https://search.bilibili.com/all?keyword=%E6%B5%99%E6%B1%9F%E9%A6%96%E5%88%9B%E6%97%A0%E5%A0%82%E9%A3%9F%E5%A4%96%E5%8D%96%E9%9B%86%E8%81%9A%E5%9C%B0',
+        'https://www.cls.cn/detail/2451001',
+        'https://www.zhihu.com/question/2070107191181305385',
+        'https://tieba.baidu.com/hottopic/browse/hottopic?topic_name=%E6%8E%A8%E8%8D%90%E9%85%92%E5%BA%97%E6%94%B6%E4%BD%A3%E9%87%91%2C%E8%B1%86%E5%8C%85%E8%BD%AC%E8%A1%8C%E5%BD%93%E4%B8%AD%E4%BB%8B&topic_id=28357131',
+        'https://www.baidu.com/s?wd=%E5%85%8D%E8%B4%B9%E9%A2%86%E9%B8%A1%E8%9B%8B%E9%AA%97%E4%BA%8660%E5%A4%9A%E5%90%8D%E7%95%99%E5%AE%88%E8%80%81%E4%BA%BA',
+        'https://tieba.baidu.com/hottopic/browse/hottopic?topic_name=%E7%8C%AA%E8%B9%84%E5%A4%96%E5%8D%96%E5%BA%97%E8%A2%AB%E7%BE%A4%E5%8F%8B%E7%8B%82%E5%88%B7%E5%B7%AE%E8%AF%84&topic_id=28357001',
+        'https://www.zhihu.com/question/2070274629227083477',
+        'https://tieba.baidu.com/hottopic/browse/hottopic?topic_name=%E6%AD%A6%E6%B1%893%E5%90%8D%E5%9F%8E%E7%AE%A1%E5%9C%A8%E5%A4%A9%E6%A1%A5%E6%AE%B4%E6%89%93%E6%91%8A%E8%B4%A9&topic_id=28357002',
+        'https://www.baidu.com/s?wd=%E5%A4%96%E5%8D%96%E5%91%98%E5%AE%89%E6%8A%9A%E7%82%B8%E9%B8%A1%E5%BA%97%E7%88%86%E5%8D%95%E6%83%85%E7%BB%AA%E5%B4%A9%E6%BA%83%E5%BA%97%E5%91%98',
+        'https://www.baidu.com/s?wd=%E4%B8%80%E6%AC%A1%E6%80%A7%E5%86%85%E8%A3%A4%E7%A9%BF%E4%B8%8A%E5%8F%AA%E5%89%A9%E4%B8%80%E6%A0%B9%E8%A3%A4%E5%B8%A6',
+        'https://tieba.baidu.com/hottopic/browse/hottopic?topic_name=%E9%BC%A0%E6%A0%87%E4%B9%9F%E6%B6%A8%E4%BB%B7%2C%E8%A3%85%E6%9C%BA%E5%85%9A%E5%85%A8%E9%9D%A2%E5%B4%A9%E7%9B%98&topic_id=28356996',
+        'https://www.toutiao.com/trending/7671617219173351460/'
+    ];
+    var rows = document.querySelectorAll('.wall-row');
+    rows.forEach(function(row, i) {
+        row.addEventListener('click', function() {
+            if (links[i]) window.open(links[i], '_blank');
+        });
+    });
+</script>
+</body>
+</html>
