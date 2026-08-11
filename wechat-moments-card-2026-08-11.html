@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>老许聊实体 - 8月11日商业资讯</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #14532d 0%, #15803d 50%, #16a34a 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .card {
+            max-width: 420px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        .header {
+            background: linear-gradient(135deg, #15803d 0%, #14532d 100%);
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+        .header .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .header .date {
+            font-size: 14px;
+            opacity: 0.9;
+            letter-spacing: 2px;
+        }
+        .header .tagline {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-top: 4px;
+        }
+        .hot-section {
+            padding: 20px;
+        }
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .section-title .icon {
+            font-size: 20px;
+        }
+        .section-title .text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #14532d;
+        }
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .news-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #fefefe 100%);
+            border-radius: 12px;
+            border-left: 4px solid #22c55e;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .news-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
+        }
+        .news-item .bullet {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #22c55e 0%, #15803d 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .news-item .content {
+            flex: 1;
+        }
+        .news-item .title {
+            font-size: 14px;
+            color: #14532d;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+        .news-item .source {
+            font-size: 11px;
+            color: #888;
+            margin-top: 4px;
+        }
+        .insight-section {
+            padding: 20px;
+            background: linear-gradient(135deg, #22c55e 0%, #14532d 100%);
+        }
+        .insight-section .section-title .text {
+            color: white;
+        }
+        .insight-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 12px;
+        }
+        .insight-card p {
+            color: white;
+            font-size: 14px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+        .footer {
+            padding: 20px;
+            text-align: center;
+        }
+        .footer .link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: linear-gradient(135deg, #22c55e 0%, #14532d 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .footer .link:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
+        }
+        .footer .copyright {
+            font-size: 12px;
+            color: #999;
+            margin-top: 16px;
+        }
+        .highlight {
+            background: linear-gradient(135deg, #bbf7d0 0%, #86efac 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #14532d;
+            font-weight: 600;
+        }
+        .stats-bar {
+            display: flex;
+            justify-content: space-around;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-top: 1px solid #e2e8f0;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-item .value {
+            font-size: 20px;
+            font-weight: bold;
+            color: #22c55e;
+        }
+        .stat-item .label {
+            font-size: 11px;
+            color: #94a3b8;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <div class="logo">🔥 老许聊实体</div>
+            <div class="date">二〇二六年八月十一日</div>
+            <div class="tagline">每日五分钟 · 看透行业趋势</div>
+        </div>
+        
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="value">255</div>
+                <div class="label">全网抓取</div>
+            </div>
+            <div class="stat-item">
+                <div class="value">26</div>
+                <div class="label">精选新闻</div>
+            </div>
+            <div class="stat-item">
+                <div class="value">8</div>
+                <div class="label">核心热点</div>
+            </div>
+        </div>
+        
+        <div class="hot-section">
+            <div class="section-title">
+                <span class="icon">🔥</span>
+                <span class="text">今日热点</span>
+            </div>
+            <div class="news-list">
+                <div class="news-item">
+                    <span class="bullet">1</span>
+                    <div class="content">
+                        <div class="title">租金从800元降到450元，房东却决定不租了：租商死锁</div>
+                        <div class="source">今日头条</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="bullet">2</span>
+                    <div class="content">
+                        <div class="title">房租涨3倍，胖东来关停近25年老店，零售标杆也扛不住租金</div>
+                        <div class="source">贴吧</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="bullet">3</span>
+                    <div class="content">
+                        <div class="title">于东来自掏65亿建商场当"包租公"，商业地产模式大讨论再升温</div>
+                        <div class="source">微博热榜</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="bullet">4</span>
+                    <div class="content">
+                        <div class="title">浙江首创无堂食外卖集聚地，"去门店化"解题高租金困境</div>
+                        <div class="source">B站</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="bullet">5</span>
+                    <div class="content">
+                        <div class="title">星巴克该管管"只坐不买的人"？空间经营权边界之争</div>
+                        <div class="source">百度热搜</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="bullet">6</span>
+                    <div class="content">
+                        <div class="title">费大厨撤下"全国小炒肉大王"称号，降姿态回归产品主义</div>
+                        <div class="source">知乎热榜</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="bullet">7</span>
+                    <div class="content">
+                        <div class="title">麻辣烫越来越贵，自助小火锅越卷越便宜，餐饮价格分层加剧</div>
+                        <div class="source">知乎热榜</div>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="bullet">8</span>
+                    <div class="content">
+                        <div class="title">豆包否认推荐酒店抽12%佣金，称订单成交后才收渠道服务费</div>
+                        <div class="source">贴吧</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="insight-section">
+            <div class="section-title">
+                <span class="icon">💡</span>
+                <span class="text">深度洞察</span>
+            </div>
+            <div class="insight-card">
+                <p>今日实体商业的核心矛盾是<span class="highlight">「租金成本与客流动线的博弈」</span>："租金800降到450房东不租"与"胖东来关店、于东来当包租公"同现，商铺定价逻辑已从"位置溢价"转向"生存底线"，高租金与高空置率并存。给实体老板的实操建议：①谨慎续租，尝试"阶梯式租金"或"营业额分成"谈判，评估<span class="highlight">"无堂食档口""店中店"等轻资产模式</span>（成本&lt;5万），对冲租金倒挂；②创业避开麻辣烫、炸鸡红海，关注"自助小火锅"供应链整合，或在社区复制"外卖集聚地"模式（启动约10万）；③星巴克"只坐不买"之争提醒：空间经营权需明码标价，用"消费门槛+增值服务"筛选客流，别让免费空间变成负资产。</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <a href="https://zdudao.github.io/xuxinwen/" class="link">
+                <span>📖</span>
+                <span>查看完整报告</span>
+            </a>
+            <div class="copyright">关注「老许聊实体」· 获取更多行业资讯</div>
+        </div>
+    </div>
+</body>
+</html>
