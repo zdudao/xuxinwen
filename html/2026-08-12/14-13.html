@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老许聊实体 · 8月12日实体生意日报</title>
+<meta name="description" content="胖东来因房东涨租3倍关店，李嘉诚再撤退，赵一鸣缺斤少两——今天 21 条新闻里，藏着实体老板下半年最该读懂的信号。每天 5 分钟，看透实体生意。">
+<meta property="og:title" content="老许聊实体 · 8月12日实体生意日报">
+<meta property="og:description" content="胖东来因房东涨租3倍关店，李嘉诚再撤退，赵一鸣缺斤少两——今日 21 条新闻里藏着值得行动的信号。">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="老许聊实体">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#100E0C; --ink:#EDE7DD; --muted:#9C9388; --faint:#635B51;
+    --hair:rgba(237,231,221,0.12); --accent:#D2553F; --accent-soft:rgba(210,85,63,0.14); --accent-wash:rgba(210,85,63,0.08);
+    --serif:'Noto Serif SC','Songti SC',serif;
+    --sans:'Inter','Noto Sans SC',-apple-system,'Microsoft YaHei',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:#fff}
+  .container{max-width:780px;margin:0 auto;padding:0 24px 96px}
+
+  .masthead{padding:56px 0 30px;text-align:center}
+  .rule{height:1px;background:var(--hair);width:100%}
+  .kicker{font-size:11px;letter-spacing:.42em;color:var(--muted);text-transform:uppercase;padding:18px 0 14px;font-weight:500}
+  .wordmark{font-family:var(--serif);font-weight:900;font-size:clamp(34px,7vw,52px);letter-spacing:.04em;line-height:1;color:var(--ink)}
+  .wordmark .dot{color:var(--accent)}
+  .edition{font-size:12.5px;letter-spacing:.18em;color:var(--faint);padding:16px 0 18px;font-variant-numeric:tabular-nums}
+  .edition .prev{margin-left:14px;font-size:11px;letter-spacing:.06em;color:var(--muted)}
+  .edition .prev:hover{color:var(--accent)}
+
+  .lead{position:relative;padding:30px 0 30px 26px;margin:8px 0 6px;border-left:3px solid var(--accent)}
+  .lead::before{content:"";position:absolute;left:-3px;top:0;width:3px;height:0;background:var(--accent);transition:height .3s ease}
+  .lead:hover::before{height:100%}
+  .lead-label{font-size:11px;letter-spacing:.34em;color:var(--accent);font-weight:600;margin-bottom:14px;text-transform:uppercase}
+  .lead-title{font-family:var(--serif);font-weight:700;font-size:clamp(22px,4.4vw,30px);line-height:1.32;color:var(--ink);margin-bottom:14px}
+  .lead-meta{font-size:12.5px;color:var(--faint);letter-spacing:.04em;font-variant-numeric:tabular-nums}
+
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin:48px 0 20px}
+  .sec-head .en{font-size:10px;letter-spacing:.4em;color:var(--faint);text-transform:uppercase;font-weight:500}
+  .sec-head h2{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);letter-spacing:.02em}
+  .sec-head::after{content:"";flex:1;height:1px;background:var(--hair)}
+
+  /* 行动建议 */
+  .action-card{background:#16130F;border:1px solid var(--hair);border-radius:4px;padding:24px 26px;margin-bottom:14px}
+  .action-card .ac-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.2em;font-weight:700}
+  .action-card .ac-title{font-size:17px;font-weight:700;color:var(--ink);margin:6px 0 14px;font-family:var(--serif)}
+  .action-card .ac-seg{margin-bottom:12px}
+  .action-card .ac-seg:last-child{margin-bottom:0}
+  .action-card .ac-seg .seg-lbl{display:block;font-size:10px;font-weight:600;letter-spacing:.28em;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
+  .action-card .ac-seg p{font-size:14px;color:var(--ink);line-height:1.75;max-width:45em}
+  .action-card .ac-seg p strong{color:var(--accent);font-weight:600}
+
+  /* 信号速览 */
+  .signals{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .signal{background:#16130F;border:1px solid var(--hair);border-radius:4px;padding:20px 22px}
+  .signal .s-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--accent);text-transform:uppercase;margin-bottom:12px;padding-bottom:4px;border-bottom:1px solid var(--accent)}
+  .signal .s-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.5;font-family:var(--serif)}
+  .signal .s-desc{font-size:13px;color:var(--muted);line-height:1.7}
+
+  /* 新闻条目（字段化） */
+  .story{padding:28px 0;border-bottom:1px solid var(--hair);scroll-margin-top:20px}
+  .story:first-of-type{padding-top:8px}
+  .story-head{display:flex;align-items:flex-start;gap:18px;margin-bottom:18px}
+  .story .s-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.14em;font-weight:700;line-height:1.6;flex-shrink:0;padding-top:4px}
+  .story .s-title{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--ink);line-height:1.45;letter-spacing:.01em}
+  .story .s-title:hover{color:var(--accent)}
+  .story .s-src{margin-top:8px;font-size:11.5px;color:var(--faint);letter-spacing:.06em}
+  .story .s-src .sep{color:var(--faint);margin:0 8px}
+  .story .s-src a:hover{color:var(--accent)}
+  .field{display:grid;grid-template-columns:88px 1fr;gap:18px;padding:12px 0 12px 4px}
+  .field .f-lbl{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;padding-top:5px}
+  .field .f-lbl .f-en{display:block;font-size:9px;letter-spacing:.3em;color:var(--faint);font-weight:500;margin-top:2px}
+  .field .f-body{font-size:14px;color:var(--ink);line-height:1.8;max-width:46em}
+  .field .f-body strong{color:var(--accent);font-weight:600}
+  .field.sec .f-lbl{color:var(--muted)}
+  .field.judge .f-lbl{color:var(--accent)}
+  .field.act .f-lbl{color:var(--muted)}
+  .field.judge .f-body{color:var(--muted)}
+  .field.act .f-body{border-left:2px solid var(--accent);padding-left:14px}
+
+  /* 深度阅读 */
+  .read{margin-top:4px}
+  .read-item{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:15px 4px;border-bottom:1px solid var(--hair);transition:background .2s,padding-left .2s}
+  .read-item:hover{background:var(--accent-wash);padding-left:12px}
+  .read-item .r-src{font-size:11px;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;font-weight:600}
+  .read-item .r-title{font-size:14.5px;color:var(--ink);line-height:1.6}
+  .read-item:hover .r-title{color:var(--accent)}
+
+  /* 老许研判 */
+  .insight-block{padding:24px 26px;margin-bottom:14px;background:#16130F;border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:4px}
+  .insight-block h3{font-size:12px;font-weight:600;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:14px}
+  .insight-block p{font-size:14px;color:var(--ink);line-height:1.85;max-width:48em}
+  .insight-block .lbl{color:var(--muted);font-weight:600}
+
+  .footer{margin-top:72px;padding-top:34px;border-top:1px solid var(--hair);text-align:center}
+  .footer .f-main{font-family:var(--serif);font-size:14px;color:var(--ink);letter-spacing:.08em}
+  .footer .f-copy{font-size:11.5px;color:var(--faint);margin-top:16px;font-variant-numeric:tabular-nums;letter-spacing:.06em}
+  .footer .f-copy a{color:var(--muted);text-decoration:underline}
+  .footer .f-copy a:hover{color:var(--accent)}
+
+  .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (max-width:560px){
+    .container{padding:0 18px 72px}
+    .signals{grid-template-columns:1fr}
+    .field{grid-template-columns:1fr;gap:2px}
+    .story-head{flex-direction:column;gap:8px}
+    .lead{padding-left:18px}
+    .read-item{grid-template-columns:1fr;gap:4px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="masthead">
+    <div class="rule"></div>
+    <div class="kicker">实体商业 · 每日内参</div>
+    <h1 class="wordmark">老许聊实体<span class="dot">.</span></h1>
+    <div class="edition">第 46 期　·　2026年08月12日　·　4,300 字<a class="prev" href="../2026-08-11/19-43.html">← 上一期 2026-08-11</a></div>
+    <div class="rule"></div>
+  </header>
+
+  <!-- ===== 头条 ===== -->
+  <div class="lead reveal">
+    <div class="lead-label">今日头条 · TODAY</div>
+    <div class="lead-title">胖东来因房东涨租3倍关店，李嘉诚再撤退，赵一鸣缺斤少两，高价洞洞鞋卖不动</div>
+    <div class="lead-meta">2026年08月12日　·　阅读约 6 分钟　·　共 21 条</div>
+  </div>
+
+  <!-- ===== 今日行动建议 ===== -->
+  <div class="sec-head reveal"><span class="en">Action</span><h2>今日行动建议</h2></div>
+  <div class="action-card reveal">
+    <div class="ac-num">01</div>
+    <div class="ac-title">续租谈判，锁死「租金涨幅上限」</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>胖东来因房东涨租 3 倍关停老店；房租 800 降到 450 房东仍不租。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>核心商圈租金已到「不可承受之重」，房东话语权仍强，普通小店议价空间极小。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>重签租约时把<strong>「租金涨幅上限条款」和「跑路条款」</strong>写进合同；房东强硬就<strong>提前规划搬迁预案</strong>，别恋战。</p></div>
+  </div>
+  <div class="action-card reveal">
+    <div class="ac-num">02</div>
+    <div class="ac-title">避开「缺斤少两」式自杀内卷</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>赵一鸣 4 块牛肉干标 64 元复称仅 17 元，全网讨伐；七度空间卫生巾现污渍。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>低价零食赛道内卷逼商家铤而走险，信任一旦崩塌，门店客流与口碑双输。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>别拼「更低价」，拼<strong>「更透明」</strong>：明码标价、足斤足两、称重可视化，让诚信变成可传播的卖点。</p></div>
+  </div>
+  <div class="action-card reveal">
+    <div class="ac-num">03</div>
+    <div class="ac-title">跟「体验上新」做轻量试验</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>「体验上新」点亮文旅消费登顶今日头条；高价洞洞鞋卖不动、消费理性化。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>纯卖货越来越难，沉浸式体验成为线下获客解药；重资产投入风险高。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>借本地文化做<strong>迷你市集或快闪店</strong>，测试成本控制在<strong>5000 元以内</strong>，验证客流后再放大。</p></div>
+  </div>
+
+  <!-- ===== 信号速览 ===== -->
+  <div class="sec-head reveal"><span class="en">Signals</span><h2>信号速览</h2></div>
+  <div class="signals reveal">
+    <div class="signal"><span class="s-tag">租金矛盾</span><div class="s-title">「成本与尊严」双重博弈</div><div class="s-desc">胖东来硬刚涨租关店，折射核心商圈租金的不可承受之重。</div></div>
+    <div class="signal"><span class="s-tag">消费理性</span><div class="s-title">降级与分层并存</div><div class="s-desc">高价洞洞鞋卖不动，蜜雪冰城与星巴克同框对比，价格敏感度上升。</div></div>
+    <div class="signal"><span class="s-tag">平台脆弱</span><div class="s-title">评价体系一票否决</div><div class="s-desc">猪蹄外卖店被群友狂刷差评，本地化私域运营缺失是致命伤。</div></div>
+    <div class="signal"><span class="s-tag">体验解药</span><div class="s-title">文旅体验「上新」</div><div class="s-desc">沉浸式体验成为线下获客新方向，轻量试验成本可控。</div></div>
+  </div>
+
+  <!-- ===== 新闻条目 ===== -->
+  <div class="sec-head reveal"><span class="en">Stories</span><h2>今日 21 条要闻</h2></div>
+
+  <!-- 1 -->
+  <article class="story reveal" id="s1">
+    <div class="story-head">
+      <span class="s-num">01</span>
+      <div>
+        <a class="s-title" href="https://www.toutiao.com/trending/7672824619128065577/" target="_blank" rel="noopener">如何看待李嘉诚又一次大撤退</a>
+        <div class="s-src">今日头条 <span class="sep">·</span> <a href="https://www.toutiao.com/trending/7672824619128065577/" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">李嘉诚再度抛售内地及海外资产，「大撤退」话题重返热搜。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">市场将其解读为对商业地产长期回报率的悲观预期，与胖东来涨租关店形成「资产方退、经营方退」的双向撤退信号。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">别把「持有物业增值」当预期，<strong>重经营现金流、轻资产扩张</strong>；评估铺位时优先看租售比而非地段故事。</p></div>
+  </article>
+
+  <!-- 2 -->
+  <article class="story reveal" id="s2">
+    <div class="story-head">
+      <span class="s-num">02</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E4%BD%A0%E5%AE%B6%E8%80%81%E5%B0%8F%E5%8C%BA%E5%B0%86%E8%BF%8E%E5%B7%A8%E5%8F%98" target="_blank" rel="noopener">你家老小区将迎巨变</a>
+        <div class="s-src">百度热搜 <span class="sep">·</span> <a href="https://www.baidu.com/s?wd=%E4%BD%A0%E5%AE%B6%E8%80%81%E5%B0%8F%E5%8C%BA%E5%B0%86%E8%BF%8E%E5%B7%A8%E5%8F%98" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">「老小区巨变」话题登百度热搜，涉及老旧小区改造升级方向。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">存量房时代下，社区商业价值重估：老小区改造往往伴随底商腾挪、业态升级，是低成本切入社区生意的窗口。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">关注本地<strong>老旧小区改造名单</strong>，提前摸底底商招租与居民消费结构，抢占「改造后第一波」业态空白。</p></div>
+  </article>
+
+  <!-- 3 -->
+  <article class="story reveal" id="s3">
+    <div class="story-head">
+      <span class="s-num">03</span>
+      <div>
+        <a class="s-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E6%88%BF%E7%A7%9F%E6%B6%A83%E5%80%8D%2C%E8%83%96%E4%B8%9C%E6%9D%A5%E5%85%B3%E5%81%9C%E8%80%81%E5%BA%97&amp;topic_id=28357132" target="_blank" rel="noopener">房租涨3倍，胖东来关停老店</a>
+        <div class="s-src">贴吧 <span class="sep">·</span> 微博 <span class="sep">·</span> <a href="https://s.weibo.com/weibo?q=%E8%83%96%E4%B8%9C%E6%9D%A5%E5%9B%A0%E6%88%BF%E4%B8%9C%E6%B6%A8%E7%A7%9F%E5%85%B3%E5%BA%97" target="_blank" rel="noopener">胖东来因房东涨租关店</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">胖东来老店因房东涨租 3 倍宣布关停，事件在贴吧、微博、知乎三平台同时发酵。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">胖东来作为标杆能硬刚，普通商家只能默默搬走——租金矛盾是当下实体最大的生存变量，且中小城市同样承压。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">把<strong>「租约保护条款」</strong>当底线（涨幅上限、续租优先、违约赔偿）；同时测算<strong>盈亏平衡租金</strong>，超出即启动搬迁预案。</p></div>
+  </article>
+
+  <!-- 4 -->
+  <article class="story reveal" id="s4">
+    <div class="story-head">
+      <span class="s-num">04</span>
+      <div>
+        <a class="s-title" href="https://search.bilibili.com/all?keyword=%E4%B8%87%E8%BE%BE%E7%8E%B0%E7%8A%B6%E5%A6%82%E4%BD%95" target="_blank" rel="noopener">万达现状如何</a>
+        <div class="s-src">bilibili <span class="sep">·</span> <a href="https://search.bilibili.com/all?keyword=%E4%B8%87%E8%BE%BE%E7%8E%B0%E7%8A%B6%E5%A6%82%E4%BD%95" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">「万达现状」进入 B 站热搜，年轻群体围观商业地产巨头现状。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">年轻消费者对商业地产衰落的猎奇与共情，侧面反映购物中心吸引力下滑，租金价值锚点松动。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">入驻购物中心前，先看<strong>空铺率与周末客流</strong>；购物中心「自带流量」的时代结束，谈判要多要<strong>免租期与引流承诺</strong>。</p></div>
+  </article>
+
+  <!-- 5 -->
+  <article class="story reveal" id="s5">
+    <div class="story-head">
+      <span class="s-num">05</span>
+      <div>
+        <a class="s-title" href="https://www.toutiao.com/trending/7672360816620355594/" target="_blank" rel="noopener">男子从硅谷回光谷创业一年营收超5亿</a>
+        <div class="s-src">今日头条 <span class="sep">·</span> <a href="https://www.toutiao.com/trending/7672360816620355594/" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">硅谷海归回光谷创业，一年营收超 5 亿，登今日头条热搜。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">「人才回流 + 产业集聚」双轮驱动，中西部城市的机会窗口正在打开；科技产业带动周边商业配套需求。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">关注产业园区周边的<strong>商务配套型生意</strong>（简餐、咖啡、便利店），这些区域客流稳定且租金相对核心商圈低。</p></div>
+  </article>
+
+  <!-- 6 -->
+  <article class="story reveal" id="s6">
+    <div class="story-head">
+      <span class="s-num">06</span>
+      <div>
+        <a class="s-title" href="https://www.toutiao.com/trending/7672336610843492388/" target="_blank" rel="noopener">女子进店避雨获店主暖心招待</a>
+        <div class="s-src">今日头条 <span class="sep">·</span> <a href="https://www.toutiao.com/trending/7672336610843492388/" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">女子进店避雨获店主暖心招待，温情事件登上热搜。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">「人情味」正在成为实体店对抗线上低价的核心竞争力，消费者愿意为温度买单。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">设计<strong>「超预期的小善意」</strong>（雨天借伞、免费茶水、儿童关怀），制造可被传播的门店记忆点。</p></div>
+  </article>
+
+  <!-- 7 -->
+  <article class="story reveal" id="s7">
+    <div class="story-head">
+      <span class="s-num">07</span>
+      <div>
+        <a class="s-title" href="https://www.toutiao.com/trending/7672734346339663914/" target="_blank" rel="noopener">体验"上新"点亮文旅消费新空间</a>
+        <div class="s-src">今日头条 <span class="sep">·</span> <a href="https://www.toutiao.com/trending/7672734346339663914/" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">「体验上新」点亮文旅消费新空间登顶今日头条（榜 3），沉浸式体验成热词。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">消费从「买商品」转向「买体验」，线下场景的稀缺性重新被定价，文旅与零售的边界正在融合。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">给门店加<strong>「可参与感」</strong>：DIY、试吃、打卡点、限定场景——体验即内容，内容即传播。</p></div>
+  </article>
+
+  <!-- 8 -->
+  <article class="story reveal" id="s8">
+    <div class="story-head">
+      <span class="s-num">08</span>
+      <div>
+        <a class="s-title" href="https://s.weibo.com/weibo?q=%23%E8%9C%9C%E9%9B%AA%E5%86%B0%E5%9F%8E%E6%98%9F%E5%B7%B4%E5%85%8B%23" target="_blank" rel="noopener">蜜雪冰城星巴克</a>
+        <div class="s-src">微博 <span class="sep">·</span> <a href="https://s.weibo.com/weibo?q=%23%E8%9C%9C%E9%9B%AA%E5%86%B0%E5%9F%8E%E6%98%9F%E5%B7%B4%E5%85%8B%23" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">「蜜雪冰城星巴克」同框登上微博热搜，两品牌被放在一起讨论。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">消费分层叙事：极致低价（蜜雪）与第三空间（星巴克）并存，中间价位品牌最尴尬。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">定位要么<strong>极致性价比</strong>、要么<strong>极致体验</strong>，避免「不上不下」的中位定价，明确自己卖给谁。</p></div>
+  </article>
+
+  <!-- 9 -->
+  <article class="story reveal" id="s9">
+    <div class="story-head">
+      <span class="s-num">09</span>
+      <div>
+        <a class="s-title" href="https://s.weibo.com/weibo?q=%E5%8F%91%E8%BE%BE%E5%9B%BD%E5%AE%B6%E7%9A%84%E5%86%B0%E6%BF%80%E5%87%8C%E7%9A%84%E9%87%8F%E5%B1%85%E7%84%B6%E4%B9%9F%E8%BF%99%E4%B9%88%E5%A4%A7" target="_blank" rel="noopener">发达国家的冰激凌的量居然也这么大</a>
+        <div class="s-src">微博 <span class="sep">·</span> <a href="https://s.weibo.com/weibo?q=%E5%8F%91%E8%BE%BE%E5%9B%BD%E5%AE%B6%E7%9A%84%E5%86%B0%E6%BF%80%E5%87%8C%E7%9A%84%E9%87%8F%E5%B1%85%E7%84%B6%E4%B9%9F%E8%BF%99%E4%B9%88%E5%A4%A7" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">「发达国家冰激凌的量也这么大」登微博热搜，引发份量话题。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">消费者对「份量与价格匹配」高度敏感，分量缩水是最容易引发负面情绪的隐形信任消耗。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">别在<strong>分量上做文章</strong>；把「足量」做成标签（明示克重/个数），信任感比短期毛利更值钱。</p></div>
+  </article>
+
+  <!-- 10 -->
+  <article class="story reveal" id="s10">
+    <div class="story-head">
+      <span class="s-num">10</span>
+      <div>
+        <a class="s-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E6%AD%A6%E6%B1%893%E5%90%8D%E5%9F%8E%E7%AE%A1%E5%9C%A8%E5%A4%A9%E6%A1%A5%E6%AE%B4%E6%89%93%E6%91%8A%E8%B4%A9&amp;topic_id=28357002" target="_blank" rel="noopener">武汉3名城管在天桥殴打摊贩</a>
+        <div class="s-src">贴吧 <span class="sep">·</span> <a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E6%AD%A6%E6%B1%893%E5%90%8D%E5%9F%8E%E7%AE%A1%E5%9C%A8%E5%A4%A9%E6%A1%A5%E6%AE%B4%E6%89%93%E6%91%8A%E8%B4%A9&amp;topic_id=28357002" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">武汉 3 名城管在天桥殴打摊贩，事件持续发酵。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">流动摊贩生存空间与城市管理矛盾显性化，小微创业者的合规成本与尊严困境被放大。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">小本经营优先<strong>合规路径</strong>（夜市摊位、社区疏导点、备案制），避免游击式经营带来的政策与舆情风险。</p></div>
+  </article>
+
+  <!-- 11 -->
+  <article class="story reveal" id="s11">
+    <div class="story-head">
+      <span class="s-num">11</span>
+      <div>
+        <a class="s-title" href="https://www.toutiao.com/trending/7672915396164324873/" target="_blank" rel="noopener">曝赵一鸣4块牛肉干64元复称仅17元</a>
+        <div class="s-src">今日头条 <span class="sep">·</span> 百度热搜 <span class="sep">·</span> <a href="https://www.baidu.com/s?wd=%E8%B5%B5%E4%B8%80%E9%B8%A34%E5%9D%97%E7%89%9B%E8%82%89%E5%B9%B264%E5%85%83%E5%A4%8D%E7%A7%B0%E4%BB%8517%E5%85%83" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">曝赵一鸣 4 块牛肉干标价 64 元、复称仅 17 元，今日头条与百度热搜双平台霸榜（急升型）。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">低价零食赛道内卷逼商家铤而走险，「缺斤少两」透支品类信任；舆论痛斥商家，但根因是价格战的零和博弈。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">散称类商家<strong>主动公示「去皮称重 + 价格牌」</strong>，把称重过程可视化，用透明对冲行业信任危机。</p></div>
+  </article>
+
+  <!-- 12 -->
+  <article class="story reveal" id="s12">
+    <div class="story-head">
+      <span class="s-num">12</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E6%9B%9D%E4%B8%83%E5%BA%A6%E7%A9%BA%E9%97%B4%E6%96%B0%E5%8D%AB%E7%94%9F%E5%B7%BE%E5%85%A8%E6%98%AF%E6%B1%A1%E6%B8%8D" target="_blank" rel="noopener">曝七度空间新卫生巾全是污渍</a>
+        <div class="s-src">百度热搜 <span class="sep">·</span> <a href="https://www.baidu.com/s?wd=%E6%9B%9D%E4%B8%83%E5%BA%A6%E7%A9%BA%E9%97%B4%E6%96%B0%E5%8D%AB%E7%94%9F%E5%B7%BE%E5%85%A8%E6%98%AF%E6%B1%A1%E6%B8%8D" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">曝七度空间新卫生巾全是污渍，品控问题冲上热搜。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">快消品「高信任品类」品控翻车代价极高：消费者可以容忍价格，但无法容忍质量与安全底线。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">涉及安全与健康的品类，<strong>质检留痕、批次可溯</strong>；出现客诉第一时间公开响应，别等舆情引爆。</p></div>
+  </article>
+
+  <!-- 13 -->
+  <article class="story reveal" id="s13">
+    <div class="story-head">
+      <span class="s-num">13</span>
+      <div>
+        <a class="s-title" href="https://www.zhihu.com/question/2070467817976210988" target="_blank" rel="noopener">胖东来公布侵犯员工尊严案例，员工获上万元赔偿</a>
+        <div class="s-src">知乎 <span class="sep">·</span> <a href="https://www.zhihu.com/question/2070467817976210988" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">胖东来公布侵犯员工尊严案例：顾客驾车顶撞员工被行拘、掌掴员工被起诉，员工获上万元赔偿。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">员工尊严与品牌价值正相关——把员工当资产而非成本的企业，在口碑与留存上形成正循环。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">建立<strong>「员工尊严保护机制」</strong>（纠纷处理流程、赔偿标准、公开案例），门店服务稳定性的底层是员工安全感。</p></div>
+  </article>
+
+  <!-- 14 -->
+  <article class="story reveal" id="s14">
+    <div class="story-head">
+      <span class="s-num">14</span>
+      <div>
+        <a class="s-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E7%8C%AA%E8%B9%84%E5%A4%96%E5%8D%96%E5%BA%97%E8%A2%AB%E7%BE%A4%E5%8F%8B%E7%8B%82%E5%88%B7%E5%B7%AE%E8%AF%84&amp;topic_id=28357001" target="_blank" rel="noopener">猪蹄外卖店被群友狂刷差评</a>
+        <div class="s-src">贴吧 <span class="sep">·</span> <a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E7%8C%AA%E8%B9%84%E5%A4%96%E5%8D%96%E5%BA%97%E8%A2%AB%E7%BE%A4%E5%8F%8B%E7%8B%82%E5%88%B7%E5%B7%AE%E8%AF%84&amp;topic_id=28357001" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">猪蹄外卖店被群友狂刷差评，外卖店生存状态引热议。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">纯外卖店命脉押在平台评价体系上，一次负面事件可导致流量归零；本地化私域运营缺失是致命伤。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">外卖店必须做<strong>私域沉淀</strong>（企微群、复购券、老客直订），把评分之外的自主流量抓在自己手里。</p></div>
+  </article>
+
+  <!-- 15 -->
+  <article class="story reveal" id="s15">
+    <div class="story-head">
+      <span class="s-num">15</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E5%BF%99%E5%88%B0%E6%99%95%E5%80%92%E7%82%B8%E9%B8%A1%E5%BA%97%E5%91%98%E5%B7%A5%E5%B7%B2%E7%BB%93%E7%AE%97%E5%B7%A5%E8%B5%84%E7%A6%BB%E8%81%8C" target="_blank" rel="noopener">忙到晕倒炸鸡店员工已结算工资离职</a>
+        <div class="s-src">百度热搜 <span class="sep">·</span> <a href="https://www.baidu.com/s?wd=%E5%BF%99%E5%88%B0%E6%99%95%E5%80%92%E7%82%B8%E9%B8%A1%E5%BA%97%E5%91%98%E5%B7%A5%E5%B7%B2%E7%BB%93%E7%AE%97%E5%B7%A5%E8%B5%84%E7%A6%BB%E8%81%8C" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">炸鸡店员工忙到晕倒，工资结算后离职，事件上热搜。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">餐饮高周转、低人效模式正在透支用工；用工荒与离职潮并存，人效管理成为单店生存关键。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">用<strong>排班与流程优化</strong>替代人海战术；忙时给足加班保障，别把「感动式付出」当理所当然。</p></div>
+  </article>
+
+  <!-- 16 -->
+  <article class="story reveal" id="s16">
+    <div class="story-head">
+      <span class="s-num">16</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E9%AB%98%E4%BB%B7%E6%B4%9E%E6%B4%9E%E9%9E%8B%E5%8D%96%E4%B8%8D%E5%8A%A8%E4%BA%86" target="_blank" rel="noopener">高价洞洞鞋卖不动了</a>
+        <div class="s-src">百度热搜 <span class="sep">·</span> 微博 <span class="sep">·</span> <a href="https://s.weibo.com/weibo?q=%23%E9%AB%98%E4%BB%B7%E6%B4%9E%E6%B4%9E%E9%9E%8B%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8D%96%E4%B8%8D%E5%8A%A8%E4%BA%86%23" target="_blank" rel="noopener">为什么卖不动了</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">「高价洞洞鞋卖不动」登百度（榜 4）与微博（榜 5），消费降级信号明确。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">功能同质化产品的高溢价叙事失效，消费者转向「够用就好」，品牌溢价必须建立在真实差异化上。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">审视货盘：<strong>去中间价位、留两极</strong>（高性价比引流款 + 高价值差异化款），砍掉「不上不下」的滞销品。</p></div>
+  </article>
+
+  <!-- 17 -->
+  <article class="story reveal" id="s17">
+    <div class="story-head">
+      <span class="s-num">17</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E4%B8%8A%E6%B1%BD%E5%A4%A7%E4%BC%97%E9%AB%98%E7%AE%A1%EF%BC%9A%E5%BE%88%E5%A4%9A%E8%BD%A6%E7%8E%B0%E5%9C%A8%E8%BF%98%E4%BC%9A%E7%94%9F%E9%94%88" target="_blank" rel="noopener">上汽大众高管：很多车现在还会生锈</a>
+        <div class="s-src">百度热搜 <span class="sep">·</span> <a href="https://www.baidu.com/s?wd=%E4%B8%8A%E6%B1%BD%E5%A4%A7%E4%BC%97%E9%AB%98%E7%AE%A1%EF%BC%9A%E5%BE%88%E5%A4%9A%E8%BD%A6%E7%8E%B0%E5%9C%A8%E8%BF%98%E4%BC%9A%E7%94%9F%E9%94%88" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">上汽大众高管称「很多车现在还会生锈」，引发品控讨论。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">价格战之下车企压缩成本的隐性代价开始显现，实体制造「以价换量」的长期风险被摆上台面。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">所有行业同理：<strong>降价可以，但别动品质底线</strong>；把省下来的成本投在可感知的体验上，而不是看不见的地方。</p></div>
+  </article>
+
+  <!-- 18 -->
+  <article class="story reveal" id="s18">
+    <div class="story-head">
+      <span class="s-num">18</span>
+      <div>
+        <a class="s-title" href="https://wallstreetcn.com/articles/3779167" target="_blank" rel="noopener">告别"外卖指数"转向"硬科技"？恒生科技将迎来最大改革</a>
+        <div class="s-src">华尔街见闻 <span class="sep">·</span> <a href="https://wallstreetcn.com/articles/3779167" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">恒生科技指数将迎最大改革，拟告别「外卖指数」标签、转向硬科技。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">资本热度从消费互联网转向硬科技，「互联网红利」叙事彻底退潮，实体商家应更重视线下复购而非平台流量依赖。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">下半年<strong>捂紧钱袋子、稳现金流为王</strong>；把平台流量当工具而非命脉，深耕复购与私域。</p></div>
+  </article>
+
+  <!-- 19 -->
+  <article class="story reveal" id="s19">
+    <div class="story-head">
+      <span class="s-num">19</span>
+      <div>
+        <a class="s-title" href="https://www.yunyingpai.com/product-operation/1061603.html" target="_blank" rel="noopener">9.9元整箱包邮的临期饮料，商家究竟如何盈利？</a>
+        <div class="s-src">运营派 <span class="sep">·</span> <a href="https://www.yunyingpai.com/product-operation/1061603.html" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">运营派拆解「9.9 元整箱包邮临期饮料」的盈利模型。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">临期经济是消费降级的典型受益赛道，靠供应链差价与流量成本控制赚钱，门槛在货源而非营销。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">想切临期/折扣零售，先解决<strong>稳定货源与动销测算</strong>，毛利模型跑通前别急着铺货。</p></div>
+  </article>
+
+  <!-- 20 -->
+  <article class="story reveal" id="s20">
+    <div class="story-head">
+      <span class="s-num">20</span>
+      <div>
+        <a class="s-title" href="https://www.tmtpost.com/8098926.html" target="_blank" rel="noopener">费大厨"小炒肉大王"称号争议背后，隐藏着一门疯狂的生意</a>
+        <div class="s-src">钛媒体 <span class="sep">·</span> <a href="https://www.tmtpost.com/8098926.html" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">钛媒体深挖费大厨「小炒肉大王」称号争议背后的生意逻辑。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">餐饮「头衔营销」是把双刃剑：造神快、反噬更快，流量红利期过后需要真实产品力托底。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">做「<strong>能落地的定位</strong>」：可以借势但别过度承诺，把营销词落到可验证的产品细节上。</p></div>
+  </article>
+
+  <!-- 21 -->
+  <article class="story reveal" id="s21">
+    <div class="story-head">
+      <span class="s-num">21</span>
+      <div>
+        <a class="s-title" href="https://www.tmtpost.com/8099619.html" target="_blank" rel="noopener">沪上阿姨两日市值蒸发31亿，解禁期突袭新茶饮行业</a>
+        <div class="s-src">钛媒体 <span class="sep">·</span> <a href="https://www.tmtpost.com/8099619.html" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">沪上阿姨两日市值蒸发 31 亿，解禁期冲击新茶饮板块。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">加盟连锁模式的资本化脆弱性暴露：二级市场波动直接传导品牌信心，加盟商与品牌方利益捆绑更深。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">加盟决策前查<strong>品牌现金流与关店率</strong>，别被「上市品牌」光环误导；单店模型跑不赢，什么故事都没用。</p></div>
+  </article>
+
+  <!-- ===== 老许研判 ===== -->
+  <div class="sec-head reveal"><span class="en">Insight</span><h2>老许研判</h2></div>
+  <div class="insight-block reveal">
+    <h3>核心热点态势</h3>
+    <p>今日热点呈「破圈扩散」态势，核心主线是实体商业的<strong>「成本与尊严」双重博弈</strong>。</p>
+    <p style="margin-top:12px"><span class="lbl">宏观主线：</span>线下租金矛盾集中爆发：胖东来因房东涨租 3 倍关店，折射核心商圈租金的不可承受之重；李嘉诚再度抛售资产的信号，被解读为对商业地产长期回报率的悲观预期。</p>
+    <p style="margin-top:12px"><span class="lbl">微观领域：</span>监管层面「武汉城管打摊贩 + 赵一鸣缺斤少两」形成「权力与商誉」双失信；消费端「高价洞洞鞋卖不动」与「蜜雪/星巴克同框」显示消费降级与理性化；创新端「体验上新点亮文旅」证明沉浸式体验是线下获客解药。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>舆论风向争议</h3>
+    <p><span class="lbl">情绪光谱：</span>主流舆论同情胖东来、赞赏其「不向无理房东低头」的硬气，但潜流暗涌是担忧实体小店在房东面前毫无议价权。</p>
+    <p style="margin-top:12px"><span class="lbl">核心矛盾：</span>一是胖东来作为标杆能硬刚，普通商家只能默默搬走；二是赵一鸣事件中舆论痛斥「缺斤少两」，但低价零食赛道内卷逼商家铤而走险，这口锅该谁背？</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>异动与弱信号</h3>
+    <p><span class="lbl">跨平台共振：</span>「赵一鸣牛肉干」在今日头条与百度双平台霸榜（急升型）；「胖东来关店」在贴吧、微博、知乎三平台发酵（回榜型）。</p>
+    <p style="margin-top:12px"><span class="lbl">弱信号：</span>「万达现状」进 B 站热搜，提示年轻群体对商业地产衰落的猎奇与共情；「猪蹄外卖店被狂刷差评」暗示外卖店依赖平台评价体系极其脆弱，本地化私域运营缺失是致命伤。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>独立源点速览</h3>
+    <p><span class="lbl">知乎：</span>胖东来维权案例上榜，体现员工尊严与品牌价值正相关；自助餐防「多吃」话题，暗示餐饮毛利压缩下商家精细化运营的焦虑。</p>
+    <p style="margin-top:12px"><span class="lbl">华尔街见闻：</span>「外卖指数」将被硬科技替代，实体想象中的「互联网红利」已彻底退潮；油价、黄金与 AI 泡沫拉锯，避险氛围浓厚，下半年应捂紧钱袋子、稳现金流为王。</p>
+  </div>
+
+  <footer class="footer reveal">
+    <div class="f-main">老许聊实体</div>
+    <div class="f-copy">每天 5 分钟，看透实体生意　·　第 46 期 · 2026-08-12　·　共 21 条 / 255 条　·　<a href="../2026-08-11/19-43.html">上一期 →</a></div>
+  </footer>
+</div>
+
+<script>
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+</body>
+</html>
