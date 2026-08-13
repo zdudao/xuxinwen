@@ -46,8 +46,8 @@ jobs:
       - name: Find latest raw report
         id: latest
         run: |
-          # 取最新的 output/html/YYYY-MM-DD/HH-MM.html
-          LATEST=$(find tools/trendradar/output/html -name "*.html" -type f | sort | tail -1)
+          # 取最新的 output/html/YYYY-MM-DD/HH-MM.html（排除模板/索引/latest 副本）
+          LATEST=$(find tools/trendradar/output/html -mindepth 2 -maxdepth 2 -name "*.html" -type f | sort | tail -1)
           if [ -z "$LATEST" ]; then
             echo "::error::No report generated"
             exit 1
@@ -63,6 +63,8 @@ jobs:
             --input "${{ steps.latest.outputs.raw }}" \
             --output-dir . \
             --index index.html
+          # 恢复被 TrendRadar 运行时覆盖的根目录 index.html（它是静态模板，不属于站点数据）
+          git checkout -- tools/trendradar/index.html 2>/dev/null || true
 
       - name: Commit and push
         run: |
