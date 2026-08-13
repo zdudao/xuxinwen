@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老许聊实体 · 08月13日实体生意日报</title>
+<meta name="description" content="今日实体商业要闻速览，每天 5 分钟，看透实体生意。">
+<meta property="og:title" content="老许聊实体 · 实体生意日报">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="老许聊实体">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#100E0C; --ink:#EDE7DD; --muted:#9C9388; --faint:#635B51;
+    --hair:rgba(237,231,221,0.12); --accent:#D2553F; --accent-soft:rgba(210,85,63,0.14); --accent-wash:rgba(210,85,63,0.08);
+    --serif:'Noto Serif SC','Songti SC',serif;
+    --sans:'Inter','Noto Sans SC',-apple-system,'Microsoft YaHei',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:#fff}
+  .container{max-width:780px;margin:0 auto;padding:0 24px 96px}
+
+  .masthead{padding:56px 0 30px;text-align:center}
+  .rule{height:1px;background:var(--hair);width:100%}
+  .kicker{font-size:11px;letter-spacing:.42em;color:var(--muted);text-transform:uppercase;padding:18px 0 14px;font-weight:500}
+  .wordmark{font-family:var(--serif);font-weight:900;font-size:clamp(34px,7vw,52px);letter-spacing:.04em;line-height:1;color:var(--ink)}
+  .wordmark .dot{color:var(--accent)}
+  .edition{font-size:12.5px;letter-spacing:.18em;color:var(--faint);padding:16px 0 18px;font-variant-numeric:tabular-nums}
+  .edition .prev{margin-left:14px;font-size:11px;letter-spacing:.06em;color:var(--muted)}
+  .edition .prev:hover{color:var(--accent)}
+
+  .lead{position:relative;padding:30px 0 30px 26px;margin:8px 0 6px;border-left:3px solid var(--accent)}
+  .lead::before{content:"";position:absolute;left:-3px;top:0;width:3px;height:0;background:var(--accent);transition:height .3s ease}
+  .lead:hover::before{height:100%}
+  .lead-label{font-size:11px;letter-spacing:.34em;color:var(--accent);font-weight:600;margin-bottom:14px;text-transform:uppercase}
+  .lead-title{font-family:var(--serif);font-weight:700;font-size:clamp(22px,4.4vw,30px);line-height:1.32;color:var(--ink);margin-bottom:14px}
+  .lead-meta{font-size:12.5px;color:var(--faint);letter-spacing:.04em;font-variant-numeric:tabular-nums}
+
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin:48px 0 20px}
+  .sec-head .en{font-size:10px;letter-spacing:.4em;color:var(--faint);text-transform:uppercase;font-weight:500}
+  .sec-head h2{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);letter-spacing:.02em}
+  .sec-head::after{content:"";flex:1;height:1px;background:var(--hair)}
+
+  .action-card{background:#16130F;border:1px solid var(--hair);border-radius:4px;padding:24px 26px;margin-bottom:14px}
+  .action-card .ac-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.2em;font-weight:700}
+  .action-card .ac-title{font-size:17px;font-weight:700;color:var(--ink);margin:6px 0 14px;font-family:var(--serif)}
+  .action-card .ac-seg{margin-bottom:12px}
+  .action-card .ac-seg:last-child{margin-bottom:0}
+  .action-card .ac-seg .seg-lbl{display:block;font-size:10px;font-weight:600;letter-spacing:.28em;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
+  .action-card .ac-seg p{font-size:14px;color:var(--ink);line-height:1.75;max-width:45em}
+  .action-card .ac-seg p strong{color:var(--accent);font-weight:600}
+
+  .signals{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .signal{background:#16130F;border:1px solid var(--hair);border-radius:4px;padding:20px 22px}
+  .signal .s-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--accent);text-transform:uppercase;margin-bottom:12px;padding-bottom:4px;border-bottom:1px solid var(--accent)}
+  .signal .s-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.5;font-family:var(--serif)}
+  .signal .s-desc{font-size:13px;color:var(--muted);line-height:1.7}
+
+  .story{padding:28px 0;border-bottom:1px solid var(--hair);scroll-margin-top:20px}
+  .story:first-of-type{padding-top:8px}
+  .story-head{display:flex;align-items:flex-start;gap:18px;margin-bottom:18px}
+  .story .s-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.14em;font-weight:700;line-height:1.6;flex-shrink:0;padding-top:4px}
+  .story .s-title{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--ink);line-height:1.45;letter-spacing:.01em}
+  .story .s-title:hover{color:var(--accent)}
+  .story .s-src{margin-top:8px;font-size:11.5px;color:var(--faint);letter-spacing:.06em}
+  .story .s-src .sep{color:var(--faint);margin:0 8px}
+  .story .s-src a:hover{color:var(--accent)}
+  .field{display:grid;grid-template-columns:88px 1fr;gap:18px;padding:12px 0 12px 4px}
+  .field .f-lbl{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;padding-top:5px}
+  .field .f-lbl .f-en{display:block;font-size:9px;letter-spacing:.3em;color:var(--faint);font-weight:500;margin-top:2px}
+  .field .f-body{font-size:14px;color:var(--ink);line-height:1.8;max-width:46em}
+  .field .f-body strong{color:var(--accent);font-weight:600}
+  .field.sec .f-lbl{color:var(--muted)}
+  .field.judge .f-lbl{color:var(--accent)}
+  .field.act .f-lbl{color:var(--muted)}
+  .field.judge .f-body{color:var(--muted)}
+  .field.act .f-body{border-left:2px solid var(--accent);padding-left:14px}
+
+  .read{margin-top:4px}
+  .read-item{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:15px 4px;border-bottom:1px solid var(--hair);transition:background .2s,padding-left .2s}
+  .read-item:hover{background:var(--accent-wash);padding-left:12px}
+  .read-item .r-src{font-size:11px;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;font-weight:600}
+  .read-item .r-title{font-size:14.5px;color:var(--ink);line-height:1.6}
+  .read-item:hover .r-title{color:var(--accent)}
+
+  .insight-block{padding:24px 26px;margin-bottom:14px;background:#16130F;border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:4px}
+  .insight-block h3{font-size:12px;font-weight:600;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:14px}
+  .insight-block p{font-size:14px;color:var(--ink);line-height:1.85;max-width:48em}
+  .insight-block .lbl{color:var(--muted);font-weight:600}
+
+  .footer{margin-top:72px;padding-top:34px;border-top:1px solid var(--hair);text-align:center}
+  .footer .f-main{font-family:var(--serif);font-size:14px;color:var(--ink);letter-spacing:.08em}
+  .footer .f-copy{font-size:11.5px;color:var(--faint);margin-top:16px;font-variant-numeric:tabular-nums;letter-spacing:.06em}
+  .footer .f-copy a{color:var(--muted);text-decoration:underline}
+  .footer .f-copy a:hover{color:var(--accent)}
+
+  .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (max-width:560px){
+    .container{padding:0 18px 72px}
+    .signals{grid-template-columns:1fr}
+    .field{grid-template-columns:1fr;gap:2px}
+    .story-head{flex-direction:column;gap:8px}
+    .lead{padding-left:18px}
+    .read-item{grid-template-columns:1fr;gap:4px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="masthead">
+    <div class="rule"></div>
+    <div class="kicker">实体商业 · 每日内参</div>
+    <h1 class="wordmark">老许聊实体<span class="dot">.</span></h1>
+    <div class="edition">第 48 期　·　2026年08月13日　·　每日更新<a class="prev" href="../2026-08-12/">← 上一期</a></div>
+    <div class="rule"></div>
+  </header>
+
+  <div class="lead reveal">
+    <div class="lead-label">今日头条 · TODAY</div>
+    <div class="lead-title">今日实体商业要闻</div>
+    <div class="lead-meta">2026年08月13日　·　阅读约 6 分钟　·　共 19 条</div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Stories</span><h2>今日 19 条要闻</h2></div>
+  <article class="story reveal" id="s01">
+    <div class="story-head">
+      <span class="s-num">01</span>
+      <div>
+        <a class="s-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E6%88%BF%E7%A7%9F%E6%B6%A83%E5%80%8D%2C%E8%83%96%E4%B8%9C%E6%9D%A5%E5%85%B3%E5%81%9C%E8%80%81%E5%BA%97&amp;amp;topic_id=28357132" target="_blank" rel="noopener">房租涨3倍,胖东来关停老店</a>
+        <div class="s-src">贴吧<span class="sep">·</span><a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E6%88%BF%E7%A7%9F%E6%B6%A83%E5%80%8D%2C%E8%83%96%E4%B8%9C%E6%9D%A5%E5%85%B3%E5%81%9C%E8%80%81%E5%BA%97&amp;amp;topic_id=28357132" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+  </article>
+  <article class="story reveal" id="s02">
+    <div class="story-head">
+      <span class="s-num">02</span>
+      <div>
+        <a class="s-title" href="https://search.bilibili.com/all?keyword=%E4%BA%8E%E4%B8%9C%E6%9D%A5%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%A2%E5%AF%B9%E6%B6%A8%E7%A7%9F%E8%AF%B4%E4%B8%8D" target="_blank" rel="noopener">于东来为什么敢对涨租说不</a>
+        <div class="s-src">bilibili 热搜<span class="sep">·</span><a href="https://search.bilibili.com/all?keyword=%E4%BA%8E%E4%B8%9C%E6%9D%A5%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%A2%E5%AF%B9%E6%B6%A8%E7%A7%9F%E8%AF%B4%E4%B8%8D" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+  </article>
+  <article class="story reveal" id="s03">
+    <div class="story-head">
+      <span class="s-num">03</span>
+      <div>
+        <a class="s-title" href="https://s.weibo.com/weibo?q=%E8%83%96%E4%B8%9C%E6%9D%A5+%E6%88%BF%E7%A7%9F%E7%BF%BB%E5%80%8D" target="_blank" rel="noopener">胖东来 房租翻倍</a>
+        <div class="s-src">微博<span class="sep">·</span><a href="https://s.weibo.com/weibo?q=%E8%83%96%E4%B8%9C%E6%9D%A5+%E6%88%BF%E7%A7%9F%E7%BF%BB%E5%80%8D" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+  </article>
+  <article class="story reveal" id="s04">
+    <div class="story-head">
+      <span class="s-num">04</span>
+      <div>
+        <a class="s-title" href="https://www.toutiao.com/trending/7672215993464963123/" target="_blank" rel="noopener">胖东来许昌老店关闭周边商户发声</a>
+        <div class="s-src">今日头条<span class="sep">·</span><a href="https://www.toutiao.com/trending/7672215993464963123/" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+  </article>
+  <article class="story reveal" id="s05">
+    <div class="story-head">
+      <span class="s-num">05</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E5%85%B3%E9%97%AD%E5%B9%B4%E8%B5%9A1%E4%BA%BF%E7%9A%84%E5%BA%97+%E8%83%96%E4%B8%9C%E6%9D%A5%E6%8A%8A%E6%A1%8C%E5%AD%90%E6%8E%80%E4%BA%86" target="_blank" rel="noopener">关闭年赚1亿的店 胖东来把桌子掀了</a>
+        <div class="s-src">百度热搜<span class="sep">·</span><a href="https://www.baidu.com/s?wd=%E5%85%B3%E9%97%AD%E5%B9%B4%E8%B5%9A1%E4%BA%BF%E7%9A%84%E5%BA%97+%E8%83%96%E4%B8%9C%E6%9D%A5%E6%8A%8A%E6%A1%8C%E5%AD%90%E6%8E%80%E4%BA%86" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+  </article>
+  <article class="story reveal" id="s06">
+    <div class="story-head">
+      <span class="s-num">06</span>
+      <div>
+        <a class="s-title" href="https://search.bilibili.com/all?keyword=UP%E4%B8%BB%E8%A7%A3%E8%AF%BB%E8%AE%B8%E6%98%8C%E8%83%96%E4%B8%9C%E6%9D%A5%E9%97%AD%E5%BA%97" target="_blank" rel="noopener">UP主解读许昌胖东来闭店</a>
+        <div class="s-src">bilibili 热搜<span class="sep">·</span><a href="https://search.bilibili.com/all?keyword=UP%E4%B8%BB%E8%A7%A3%E8%AF%BB%E8%AE%B8%E6%98%8C%E8%83%96%E4%B8%9C%E6%9D%A5%E9%97%AD%E5%BA%97" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+  </article>
+  <article class="story reveal" id="s07">
+    <div class="story-head">
+      <span class="s-num">07</span>
+      <div>
+        <a class="s-title" href="https://www.douyin.com/hot/2608237" target="_blank" rel="noopener">胖东来关闭老店背后的商业逻辑</a>
+        <div class="s-src">抖音<span class="sep">·</span><a href="https://www.douyin.com/hot/2608237" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+  </article>
+  <article class="story reveal" id="s08">
+    <div class="story-head">
+      <span class="s-num">08</span>
+      <div>
+        <a class="s-title" href="https://www.zhihu.com/question/2070960876790572338" target="_blank" rel="noopener">银行能办结婚证了，天津开放首个银行网点婚姻登记处，这事只是「多一个领证地」这么简单吗？银行有什么盘算？</a>
+        <div class="s-src">知乎<span class="sep">·</span><a href="https://www.zhihu.com/question/2070960876790572338" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+  </article>
+  <article class="story reveal" id="s09">
+    <div class="story-head">
+      <span class="s-num">09</span>
+      <div>
+        <a class="s-title" href="https://www.toutiao.com/trending/7673050361373278262/" target="_blank" rel="noopener">女子问价买东西让店主在纸上签字遭拒</a>
+        <div class="s-src">今日头条<span class="sep">·</span><a href="https://www.toutiao.com/trending/7673050361373278262/" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+  </article>
+  <article class="story reveal" id="s10">
+    <div class="story-head">
+      <span class="s-num">10</span>
+      <div>
+        <a class="s-title" href="https://s.weibo.com/weibo?q=%23%E4%BF%A9%E5%AD%A9%E5%AD%90%E5%B0%86%E8%B6%85%E5%B8%82%E5%86%85%E5%87%A0%E5%8D%81%E7%A7%8D%E6%9D%82%E7%B2%AE%E6%B7%B7%E6%8E%BA%23" target="_blank" rel="noopener">俩孩子将超市内几十种杂粮混掺</a>
+        <div class="s-src">微博<span class="sep">·</span><a href="https://s.weibo.com/weibo?q=%23%E4%BF%A9%E5%AD%A9%E5%AD%90%E5%B0%86%E8%B6%85%E5%B8%82%E5%86%85%E5%87%A0%E5%8D%81%E7%A7%8D%E6%9D%82%E7%B2%AE%E6%B7%B7%E6%8E%BA%23" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+  </article>
+  <article class="story reveal" id="s11">
+    <div class="story-head">
+      <span class="s-num">11</span>
+      <div>
+        <a class="s-title" href="https://www.thepaper.cn/newsDetail_forward_33769570" target="_blank" rel="noopener">文学行馕、天鹅浮空商店……上海书展爆款文创为何出圈？</a>
+        <div class="s-src">澎湃新闻<span class="sep">·</span><a href="https://www.thepaper.cn/newsDetail_forward_33769570" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+  </article>
+  <article class="story reveal" id="s12">
+    <div class="story-head">
+      <span class="s-num">12</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E7%82%B8%E9%B8%A1%E5%BA%97%E5%91%98%E5%B7%A5%E6%8E%8F%E8%A3%A4%E8%A3%86%E5%90%8E%E5%A4%B9%E9%A4%90%E8%A2%AB%E7%9B%91%E6%8E%A7%E6%8B%8D%E4%B8%8B" target="_blank" rel="noopener">炸鸡店员工掏裤裆后夹餐被监控拍下</a>
+        <div class="s-src">百度热搜<span class="sep">·</span><a href="https://www.baidu.com/s?wd=%E7%82%B8%E9%B8%A1%E5%BA%97%E5%91%98%E5%B7%A5%E6%8E%8F%E8%A3%A4%E8%A3%86%E5%90%8E%E5%A4%B9%E9%A4%90%E8%A2%AB%E7%9B%91%E6%8E%A7%E6%8B%8D%E4%B8%8B" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+  </article>
+  <article class="story reveal" id="s13">
+    <div class="story-head">
+      <span class="s-num">13</span>
+      <div>
+        <a class="s-title" href="https://search.bilibili.com/all?keyword=%E9%9B%AA%E7%8E%8B%E5%87%BA%E6%B5%B7%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B0%B4%E5%9C%9F%E4%B8%8D%E6%9C%8D" target="_blank" rel="noopener">雪王出海为什么水土不服</a>
+        <div class="s-src">bilibili 热搜<span class="sep">·</span><a href="https://search.bilibili.com/all?keyword=%E9%9B%AA%E7%8E%8B%E5%87%BA%E6%B5%B7%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B0%B4%E5%9C%9F%E4%B8%8D%E6%9C%8D" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+  </article>
+  <article class="story reveal" id="s14">
+    <div class="story-head">
+      <span class="s-num">14</span>
+      <div>
+        <a class="s-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E9%A1%BE%E5%AE%A2%E9%A4%90%E7%9B%98%E5%96%82%E7%8B%97%2C%E5%BA%97%E5%AE%B6%E5%80%92%E5%A4%A7%E9%9C%89&amp;amp;topic_id=28357250" target="_blank" rel="noopener">顾客餐盘喂狗,店家倒大霉</a>
+        <div class="s-src">贴吧<span class="sep">·</span><a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E9%A1%BE%E5%AE%A2%E9%A4%90%E7%9B%98%E5%96%82%E7%8B%97%2C%E5%BA%97%E5%AE%B6%E5%80%92%E5%A4%A7%E9%9C%89&amp;amp;topic_id=28357250" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+  </article>
+  <article class="story reveal" id="s15">
+    <div class="story-head">
+      <span class="s-num">15</span>
+      <div>
+        <a class="s-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E7%82%B8%E9%B8%A1%E5%BA%97%E7%88%86%E5%8D%95%2C%E5%91%98%E5%B7%A5%E5%BF%99%E6%99%95%E5%80%92%E5%9C%B0&amp;amp;topic_id=28357214" target="_blank" rel="noopener">炸鸡店爆单,员工忙晕倒地</a>
+        <div class="s-src">贴吧<span class="sep">·</span><a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E7%82%B8%E9%B8%A1%E5%BA%97%E7%88%86%E5%8D%95%2C%E5%91%98%E5%B7%A5%E5%BF%99%E6%99%95%E5%80%92%E5%9C%B0&amp;amp;topic_id=28357214" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+  </article>
+  <article class="story reveal" id="s16">
+    <div class="story-head">
+      <span class="s-num">16</span>
+      <div>
+        <a class="s-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E7%86%8A%E7%81%BE%E6%B3%9B%E6%BB%A5%2C%E6%97%A5%E6%9C%AC%E9%A4%90%E5%8E%85%E5%8D%96%E7%82%96%E7%86%8A%E6%8E%8C&amp;amp;topic_id=28357328" target="_blank" rel="noopener">熊灾泛滥,日本餐厅卖炖熊掌</a>
+        <div class="s-src">贴吧<span class="sep">·</span><a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E7%86%8A%E7%81%BE%E6%B3%9B%E6%BB%A5%2C%E6%97%A5%E6%9C%AC%E9%A4%90%E5%8E%85%E5%8D%96%E7%82%96%E7%86%8A%E6%8E%8C&amp;amp;topic_id=28357328" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+  </article>
+  <article class="story reveal" id="s17">
+    <div class="story-head">
+      <span class="s-num">17</span>
+      <div>
+        <a class="s-title" href="https://www.toutiao.com/trending/7672900424688779318/" target="_blank" rel="noopener">新规：禁止在居民楼开油烟餐饮</a>
+        <div class="s-src">今日头条<span class="sep">·</span><a href="https://www.toutiao.com/trending/7672900424688779318/" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+  </article>
+  <article class="story reveal" id="s18">
+    <div class="story-head">
+      <span class="s-num">18</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E6%96%B0%E8%A7%84%E6%9D%A5%E4%BA%86%EF%BC%9A%E7%A6%81%E6%AD%A2%E5%9C%A8%E5%B1%85%E6%B0%91%E6%A5%BC%E5%BC%80%E6%B2%B9%E7%83%9F%E9%A4%90%E9%A5%AE" target="_blank" rel="noopener">新规来了：禁止在居民楼开油烟餐饮</a>
+        <div class="s-src">百度热搜<span class="sep">·</span><a href="https://www.baidu.com/s?wd=%E6%96%B0%E8%A7%84%E6%9D%A5%E4%BA%86%EF%BC%9A%E7%A6%81%E6%AD%A2%E5%9C%A8%E5%B1%85%E6%B0%91%E6%A5%BC%E5%BC%80%E6%B2%B9%E7%83%9F%E9%A4%90%E9%A5%AE" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+  </article>
+  <article class="story reveal" id="s19">
+    <div class="story-head">
+      <span class="s-num">19</span>
+      <div>
+        <a class="s-title" href="https://www.thepaper.cn/newsDetail_forward_33768587" target="_blank" rel="noopener">【社论】警惕心机商标向药品领域蔓延</a>
+        <div class="s-src">澎湃新闻<span class="sep">·</span><a href="https://www.thepaper.cn/newsDetail_forward_33768587" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+  </article>
+  <div class="sec-head reveal"><span class="en">Readings</span><h2>深度阅读</h2></div>
+  <div class="read reveal">
+    <a class="read-item" href="https://www.tmtpost.com/8101374.html" target="_blank" rel="noopener"><span class="r-src">钛媒体</span><span class="r-title">房东“暴力涨租”，“吓跑”胖东来</span></a>
+    <a class="read-item" href="https://www.woshipm.com/share/6445960.html" target="_blank" rel="noopener"><span class="r-src">人人都是产品经理</span><span class="r-title">为什么说抖音催生了云连锁？</span></a>
+    <a class="read-item" href="https://www.yunyingpai.com/channel/1061616.html" target="_blank" rel="noopener"><span class="r-src">运营派</span><span class="r-title">花600多元就能当短剧大女主，横店靠给游客拍短剧“自救”</span></a>
+  </div>
+  <div class="sec-head reveal"><span class="en">Insight</span><h2>老许研判</h2></div>
+  <div class="insight-block reveal">
+    <h3>核心热点态势</h3>
+<p>今日实体商业热点呈现「破圈扩散」的态势，核心主线是「房东与租客的权力博弈」与「餐饮业态的合规与运营风险」。</p>
+<p style="margin-top:12px">【宏观主线】</p>
+<p>胖东来因房租暴涨3倍关停年赚1亿的老店，全网霸屏，于东来「对涨租说不」的硬气行为，实质是对当下实体商铺租赁市场中房东单方面毁约、租金非理性上涨的一次公开反抗，直击中小商家生存痛点。</p>
+<p style="margin-top:12px">【微观领域】</p>
+<p>1、餐饮监管趋严，「禁止在居民楼开油烟餐饮」新规出台，将加速社区餐饮的合规化洗牌；2、低俗操作频现（炸鸡店员工不雅动作、顾客餐盘喂狗），反映出一线员工管理与客诉处理在中小餐饮中的巨大漏洞；3、上海书展爆款文创走红，证明线下「内容+场景+情绪」的体验式消费仍有爆发力，但复制门槛较高。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>舆论风向争议</h3>
+<p style="margin-top:12px">【情绪光谱】</p>
+<p>主流声音一致力挺胖东来硬刚涨租，将其塑造成「良心老板」；潜流暗涌则是大量小商家对自身无力反抗房东的无奈与自嘲。</p>
+<p style="margin-top:12px">【核心矛盾】</p>
+<p>1、房东要求按市场价重签合同与租户希望维持长期稳定租金预期的冲突；2、消费者对餐饮卫生零容忍与员工低薪高压工作状态之间的结构性矛盾。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>异动与弱信号</h3>
+<p>值得注意的异动是「胖东来闭店」话题的跨平台共振：从微博的「房租翻倍」引爆，到贴吧「房租涨3倍」跟进，再到B站UP主深度解读、抖音解读商业逻辑，呈现典型的舆论扩散路径。</p>
+<p>轨迹突变方面，该话题在百度热搜以「关闭年赚1亿的店」的惊悚标题出现，内容被戏剧化，说明事件已从商业新闻演变为社会情绪宣泄口。「禁止居民楼开油烟餐饮」在今日头条和百度双平台高位上榜，政策信号明确，有持续发酵空间。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>研判策略建议</h3>
+<p style="margin-top:12px">1. 实体商家：审视租约条款，若遇房东恶意涨租，可效仿胖东来发声或集体谈判，但更要提前布局「第二选址」。建议将目光投向社区非临街底商或写字楼裙楼，规避核心商圈租金泡沫。成本门槛：需预留3-6个月租金作为换址周转金。</p>
+<p style="margin-top:12px">2. 创业者：关注「禁止居民楼开油烟餐饮」新规，这将是社区底商业态的洗牌机会。合规化意味着成本上升，纯餐饮堂食风险加大，可考虑「餐饮+零售」或「外带+轻食」模式，降低油烟排放要求。成本门槛：初始投入控制在5万以内，用档口店试错。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>独立源点速览</h3>
+<p>[知乎]:</p>
+<p>热点被重大讣告及科技、社会新闻主导，仅「银行网点办结婚证」与实体商业微相关，讨论核心是银行跨界获客与网点价值重估，对实体店选址联动意义有限。</p>
+<p>[华尔街见闻]:</p>
+<p>聚焦宏观数据、美股及腾讯AI资本开支，完全无实体商业零售相关内容，反映资本对线下业态关注度处于冰点期，与大众热榜胖东来事件形成鲜明温差。</p>
+  </div>
+  <footer class="footer reveal">
+    <div class="f-main">老许聊实体</div>
+    <div class="f-copy">每天 5 分钟，看透实体生意　·　第 48 期 · 2026年08月13日　·　共 19 条 / 255 条</div>
+  </footer>
+</div>
+
+<script>
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+</body>
+</html>
