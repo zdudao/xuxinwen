@@ -1,0 +1,77 @@
+name: 每日实体生意日报
+
+on:
+  schedule:
+    # UTC 08:00 = 北京时间 16:00
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-news
+  cancel-in-progress: false
+
+jobs:
+  crawl-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Install TrendRadar dependencies
+        working-directory: tools/trendradar
+        run: uv sync --frozen --no-dev
+
+      - name: Run TrendRadar crawler + AI analysis
+        working-directory: tools/trendradar
+        env:
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+          GITHUB_ACTIONS: "true"
+        run: uv run python -m trendradar
+
+      - name: Find latest raw report
+        id: latest
+        run: |
+          # 取最新的 output/html/YYYY-MM-DD/HH-MM.html
+          LATEST=$(find tools/trendradar/output/html -name "*.html" -type f | sort | tail -1)
+          if [ -z "$LATEST" ]; then
+            echo "::error::No report generated"
+            exit 1
+          fi
+          echo "raw=$LATEST" >> "$GITHUB_OUTPUT"
+          echo "latest raw: $LATEST"
+
+      - name: Convert to daily report + update index
+        env:
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+        run: |
+          python tools/convert_daily.py \
+            --input "${{ steps.latest.outputs.raw }}" \
+            --output-dir . \
+            --index index.html
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "auto: 每日实体生意日报 $(date +%F) [bot]"
+          git push origin main

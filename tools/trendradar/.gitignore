@@ -1,0 +1,12 @@
+# 运行时数据（不提交）
+output/
+__pycache__/
+*.pyc
+*.db
+*.sqlite
+.venv/
+
+# 编辑器
+.idea/
+.vscode/
+*.swp
