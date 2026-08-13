@@ -1,5 +1,9 @@
 # 运行时数据（不提交）
-output/
+output/*
+!output/html/
+output/html/*
+!output/html/template.html
+!output/html/index.html
 __pycache__/
 *.pyc
 *.db

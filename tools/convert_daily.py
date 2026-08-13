@@ -487,22 +487,29 @@ def update_index(index_path: str, data: dict, ai: dict, period: int, daily_rel: 
     if lead_pattern.search(content):
         content = lead_pattern.sub(new_lead, content, count=1)
 
-    # 4.2 归档列表：8月分组顶部插入今日条目（幂等）
+    # 4.2 归档列表：对应月份分组顶部插入今日条目（幂等：按日期判断）
     month_key = f"{d[0]}年{d[1]}月"
+    item_date_full = f"{d[0]}.{d[1]}.{d[2]}"
     new_item = (f'        <a class="item" href="{daily_rel}" target="_blank" rel="noopener">\n'
-                f'            <span class="item-date">{item_date}</span>\n'
+                f'            <span class="item-date">{item_date_full}</span>\n'
                 f'            <span class="item-title">{esc(headline)}</span>\n'
                 f'            <span class="item-arrow" aria-hidden="true">→</span>\n'
                 f'        </a>\n')
     month_pattern = re.compile(
         r'(<div class="month-sep"><span>' + re.escape(month_key) + r'</span></div><div class="list">\n)')
     if month_pattern.search(content):
-        if daily_rel not in content:
+        # 幂等：该日期条目已存在则不重复插入
+        if f'<span class="item-date">{item_date_full}</span>' not in content:
             content = month_pattern.sub(r"\1" + new_item, content, count=1)
 
-    # 4.3 期数
+    # 4.3 期数 + 刊头日期
     content = re.sub(r'第 \d+ 期', f'第 {period} 期', content, count=2)
+    # 刊头 edition 的日期（第 X 期　·　YYYY年MM月DD日　·　每日更新）
+    content = re.sub(r'(第 \d+ 期　·　)\d{4}年\d{2}月\d{2}日(　·　每日更新)',
+                     f'\\g<1>{cn_date}\\g<2>', content, count=1)
     content = re.sub(r'共 \d+ 期', f'共 {period} 期', content, count=1)
+    # 页脚最后更新日期
+    content = re.sub(r'(最后更新 )\d{4}年\d{2}月\d{2}日', f'\\g<1>{cn_date}', content, count=1)
 
     with open(index_path, "w", encoding="utf-8") as f:
         f.write(content)
