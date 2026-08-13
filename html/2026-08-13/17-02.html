@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老许聊实体 · 08月13日实体生意日报</title>
+<meta name="description" content="今日实体商业要闻速览，每天 5 分钟，看透实体生意。">
+<meta property="og:title" content="老许聊实体 · 实体生意日报">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="老许聊实体">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#100E0C; --ink:#EDE7DD; --muted:#9C9388; --faint:#635B51;
+    --hair:rgba(237,231,221,0.12); --accent:#D2553F; --accent-soft:rgba(210,85,63,0.14); --accent-wash:rgba(210,85,63,0.08);
+    --serif:'Noto Serif SC','Songti SC',serif;
+    --sans:'Inter','Noto Sans SC',-apple-system,'Microsoft YaHei',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:#fff}
+  .container{max-width:780px;margin:0 auto;padding:0 24px 96px}
+
+  .masthead{padding:56px 0 30px;text-align:center}
+  .rule{height:1px;background:var(--hair);width:100%}
+  .kicker{font-size:11px;letter-spacing:.42em;color:var(--muted);text-transform:uppercase;padding:18px 0 14px;font-weight:500}
+  .wordmark{font-family:var(--serif);font-weight:900;font-size:clamp(34px,7vw,52px);letter-spacing:.04em;line-height:1;color:var(--ink)}
+  .wordmark .dot{color:var(--accent)}
+  .edition{font-size:12.5px;letter-spacing:.18em;color:var(--faint);padding:16px 0 18px;font-variant-numeric:tabular-nums}
+  .edition .prev{margin-left:14px;font-size:11px;letter-spacing:.06em;color:var(--muted)}
+  .edition .prev:hover{color:var(--accent)}
+
+  .lead{position:relative;padding:30px 0 30px 26px;margin:8px 0 6px;border-left:3px solid var(--accent)}
+  .lead::before{content:"";position:absolute;left:-3px;top:0;width:3px;height:0;background:var(--accent);transition:height .3s ease}
+  .lead:hover::before{height:100%}
+  .lead-label{font-size:11px;letter-spacing:.34em;color:var(--accent);font-weight:600;margin-bottom:14px;text-transform:uppercase}
+  .lead-title{font-family:var(--serif);font-weight:700;font-size:clamp(22px,4.4vw,30px);line-height:1.32;color:var(--ink);margin-bottom:14px}
+  .lead-meta{font-size:12.5px;color:var(--faint);letter-spacing:.04em;font-variant-numeric:tabular-nums}
+
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin:48px 0 20px}
+  .sec-head .en{font-size:10px;letter-spacing:.4em;color:var(--faint);text-transform:uppercase;font-weight:500}
+  .sec-head h2{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);letter-spacing:.02em}
+  .sec-head::after{content:"";flex:1;height:1px;background:var(--hair)}
+
+  .action-card{background:#16130F;border:1px solid var(--hair);border-radius:4px;padding:24px 26px;margin-bottom:14px}
+  .action-card .ac-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.2em;font-weight:700}
+  .action-card .ac-title{font-size:17px;font-weight:700;color:var(--ink);margin:6px 0 14px;font-family:var(--serif)}
+  .action-card .ac-seg{margin-bottom:12px}
+  .action-card .ac-seg:last-child{margin-bottom:0}
+  .action-card .ac-seg .seg-lbl{display:block;font-size:10px;font-weight:600;letter-spacing:.28em;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
+  .action-card .ac-seg p{font-size:14px;color:var(--ink);line-height:1.75;max-width:45em}
+  .action-card .ac-seg p strong{color:var(--accent);font-weight:600}
+
+  .signals{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .signal{background:#16130F;border:1px solid var(--hair);border-radius:4px;padding:20px 22px}
+  .signal .s-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--accent);text-transform:uppercase;margin-bottom:12px;padding-bottom:4px;border-bottom:1px solid var(--accent)}
+  .signal .s-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.5;font-family:var(--serif)}
+  .signal .s-desc{font-size:13px;color:var(--muted);line-height:1.7}
+
+  .story{padding:28px 0;border-bottom:1px solid var(--hair);scroll-margin-top:20px}
+  .story:first-of-type{padding-top:8px}
+  .story-head{display:flex;align-items:flex-start;gap:18px;margin-bottom:18px}
+  .story .s-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.14em;font-weight:700;line-height:1.6;flex-shrink:0;padding-top:4px}
+  .story .s-title{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--ink);line-height:1.45;letter-spacing:.01em}
+  .story .s-title:hover{color:var(--accent)}
+  .story .s-src{margin-top:8px;font-size:11.5px;color:var(--faint);letter-spacing:.06em}
+  .story .s-src .sep{color:var(--faint);margin:0 8px}
+  .story .s-src a:hover{color:var(--accent)}
+  .field{display:grid;grid-template-columns:88px 1fr;gap:18px;padding:12px 0 12px 4px}
+  .field .f-lbl{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;padding-top:5px}
+  .field .f-lbl .f-en{display:block;font-size:9px;letter-spacing:.3em;color:var(--faint);font-weight:500;margin-top:2px}
+  .field .f-body{font-size:14px;color:var(--ink);line-height:1.8;max-width:46em}
+  .field .f-body strong{color:var(--accent);font-weight:600}
+  .field.sec .f-lbl{color:var(--muted)}
+  .field.judge .f-lbl{color:var(--accent)}
+  .field.act .f-lbl{color:var(--muted)}
+  .field.judge .f-body{color:var(--muted)}
+  .field.act .f-body{border-left:2px solid var(--accent);padding-left:14px}
+
+  .read{margin-top:4px}
+  .read-item{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:15px 4px;border-bottom:1px solid var(--hair);transition:background .2s,padding-left .2s}
+  .read-item:hover{background:var(--accent-wash);padding-left:12px}
+  .read-item .r-src{font-size:11px;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;font-weight:600}
+  .read-item .r-title{font-size:14.5px;color:var(--ink);line-height:1.6}
+  .read-item:hover .r-title{color:var(--accent)}
+
+  .insight-block{padding:24px 26px;margin-bottom:14px;background:#16130F;border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:4px}
+  .insight-block h3{font-size:12px;font-weight:600;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:14px}
+  .insight-block p{font-size:14px;color:var(--ink);line-height:1.85;max-width:48em}
+  .insight-block .lbl{color:var(--muted);font-weight:600}
+
+  .footer{margin-top:72px;padding-top:34px;border-top:1px solid var(--hair);text-align:center}
+  .footer .f-main{font-family:var(--serif);font-size:14px;color:var(--ink);letter-spacing:.08em}
+  .footer .f-copy{font-size:11.5px;color:var(--faint);margin-top:16px;font-variant-numeric:tabular-nums;letter-spacing:.06em}
+  .footer .f-copy a{color:var(--muted);text-decoration:underline}
+  .footer .f-copy a:hover{color:var(--accent)}
+
+  .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (max-width:560px){
+    .container{padding:0 18px 72px}
+    .signals{grid-template-columns:1fr}
+    .field{grid-template-columns:1fr;gap:2px}
+    .story-head{flex-direction:column;gap:8px}
+    .lead{padding-left:18px}
+    .read-item{grid-template-columns:1fr;gap:4px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="masthead">
+    <div class="rule"></div>
+    <div class="kicker">实体商业 · 每日内参</div>
+    <h1 class="wordmark">老许聊实体<span class="dot">.</span></h1>
+    <div class="edition">第 49 期　·　2026年08月13日　·　每日更新<a class="prev" href="../2026-08-12/">← 上一期</a></div>
+    <div class="rule"></div>
+  </header>
+
+  <div class="lead reveal">
+    <div class="lead-label">今日头条 · TODAY</div>
+    <div class="lead-title">胖东来闭店掀桌、银行办结婚证、可乐被判死刑、居民楼禁油烟，实体店老板必看的今日信号</div>
+    <div class="lead-meta">2026年08月13日　·　阅读约 6 分钟　·　共 27 条</div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Action</span><h2>今日行动建议</h2></div>
+  <div class="action-card reveal">
+    <div class="ac-num">01</div>
+    <div class="ac-title">重谈租约防涨租</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>胖东来因房租涨3倍关店，租金压力成实体店最大风险。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>房东坐地起价，老店利润被吞噬，硬扛不如止损。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>**提前锁定长约**，在合同中加入租金涨幅上限条款；若房东临时暴涨，考虑搬迁或协商，别硬撑。</p></div>
+  </div>
+  <div class="action-card reveal">
+    <div class="ac-num">02</div>
+    <div class="ac-title">避开居民楼选址</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>新规禁止居民楼开油烟餐饮，多地已有执行。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>政策收紧，居民楼餐饮风险高，一旦被查即关停。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>选址时**确认房产性质**，避开居民楼，优先选商业裙楼或临街商铺，并咨询当地监管要求。</p></div>
+  </div>
+  <div class="action-card reveal">
+    <div class="ac-num">03</div>
+    <div class="ac-title">警惕用工风险</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>员工违规操作（如炸鸡店事件）频发，监管严判。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>员工个人行为可能让店家背锅，管理漏洞致命。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>**加强员工培训**和监控，制定明确操作规范；购买公众责任险，减少意外损失。</p></div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Signals</span><h2>信号速览</h2></div>
+  <div class="signals reveal">
+    <div class="signal"><span class="s-tag">成本博弈</span><div class="s-title">胖东来闭店掀桌</div><div class="s-desc">房租涨3倍，胖东来关停老店，硬刚房东。</div></div>
+    <div class="signal"><span class="s-tag">创新业态</span><div class="s-title">银行跨界领证</div><div class="s-desc">银行网点设婚姻登记处，探索场景融合。</div></div>
+    <div class="signal"><span class="s-tag">消费趋势</span><div class="s-title">可乐被判死刑</div><div class="s-desc">健康意识崛起，含糖饮料面临危机。</div></div>
+    <div class="signal"><span class="s-tag">政策红线</span><div class="s-title">居民楼禁油烟</div><div class="s-desc">新规禁止居民楼开餐饮，选址需谨慎。</div></div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Stories</span><h2>今日 27 条要闻</h2></div>
+  <article class="story reveal" id="s01">
+    <div class="story-head">
+      <span class="s-num">01</span>
+      <div>
+        <a class="s-title" href="https://www.toutiao.com/trending/7672215993464963123/" target="_blank" rel="noopener">胖东来许昌老店关闭周边商户发声</a>
+        <div class="s-src">今日头条<span class="sep">·</span><a href="https://www.toutiao.com/trending/7672215993464963123/" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">胖东来许昌老店关闭，周边商户发声，引发关注。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">胖东来以服务著称，关店或与租金上涨、成本压力有关，行业标杆也难敌现实。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">关注胖东来后续动作，学习其成本控制与转型策略，适时调整自家经营。</p></div>
+  </article>
+  <article class="story reveal" id="s02">
+    <div class="story-head">
+      <span class="s-num">02</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E5%85%B3%E9%97%AD%E5%B9%B4%E8%B5%9A1%E4%BA%BF%E7%9A%84%E5%BA%97+%E8%83%96%E4%B8%9C%E6%9D%A5%E6%8A%8A%E6%A1%8C%E5%AD%90%E6%8E%80%E4%BA%86" target="_blank" rel="noopener">关闭年赚1亿的店 胖东来把桌子掀了</a>
+        <div class="s-src">百度热搜<span class="sep">·</span><a href="https://www.baidu.com/s?wd=%E5%85%B3%E9%97%AD%E5%B9%B4%E8%B5%9A1%E4%BA%BF%E7%9A%84%E5%BA%97+%E8%83%96%E4%B8%9C%E6%9D%A5%E6%8A%8A%E6%A1%8C%E5%AD%90%E6%8E%80%E4%BA%86" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">胖东来关闭年赚1亿的店，称‘把桌子掀了’。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">主动关停盈利门店，显示其不愿妥协于涨租，维护长期品牌价值。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">评估门店盈利与租金关系，若房东不降租，可考虑搬迁或关店，别被沉没成本绑架。</p></div>
+  </article>
+  <article class="story reveal" id="s03">
+    <div class="story-head">
+      <span class="s-num">03</span>
+      <div>
+        <a class="s-title" href="https://search.bilibili.com/all?keyword=UP%E4%B8%BB%E8%A7%A3%E8%AF%BB%E8%AE%B8%E6%98%8C%E8%83%96%E4%B8%9C%E6%9D%A5%E9%97%AD%E5%BA%97" target="_blank" rel="noopener">UP主解读许昌胖东来闭店</a>
+        <div class="s-src">bilibili 热搜<span class="sep">·</span><a href="https://search.bilibili.com/all?keyword=UP%E4%B8%BB%E8%A7%A3%E8%AF%BB%E8%AE%B8%E6%98%8C%E8%83%96%E4%B8%9C%E6%9D%A5%E9%97%AD%E5%BA%97" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">UP主解读许昌胖东来闭店，视频上热搜。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">公众对胖东来决策好奇，反映实体店成本焦虑。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">多角度看行业案例，吸取经验，用于自家店铺的租金谈判和长期规划。</p></div>
+  </article>
+  <article class="story reveal" id="s04">
+    <div class="story-head">
+      <span class="s-num">04</span>
+      <div>
+        <a class="s-title" href="https://www.douyin.com/hot/2608237" target="_blank" rel="noopener">胖东来关闭老店背后的商业逻辑</a>
+        <div class="s-src">抖音<span class="sep">·</span><a href="https://www.douyin.com/hot/2608237" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">抖音热传胖东来关闭老店背后的商业逻辑。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">胖东来或借关店倒逼房东降租，或调整门店结构，提升效率。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">思考自身门店是否需优化，果断淘汰低效店，聚焦核心盈利门店。</p></div>
+  </article>
+  <article class="story reveal" id="s05">
+    <div class="story-head">
+      <span class="s-num">05</span>
+      <div>
+        <a class="s-title" href="https://www.thepaper.cn/newsDetail_forward_33769570" target="_blank" rel="noopener">文学行馕、天鹅浮空商店……上海书展爆款文创为何出圈？</a>
+        <div class="s-src">澎湃新闻<span class="sep">·</span><a href="https://www.thepaper.cn/newsDetail_forward_33769570" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">上海书展文创出圈，如文学行馕、天鹅浮空商店。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">文创产品结合文化元素，吸引年轻人，实体店可借鉴其创新思路。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">尝试将本地文化或热点融入商品，打造独特体验，提升门店吸引力。</p></div>
+  </article>
+  <article class="story reveal" id="s06">
+    <div class="story-head">
+      <span class="s-num">06</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E5%AD%A6%E7%94%9F%E5%85%BC%E8%81%8C%E9%80%81%E5%A4%96%E5%8D%96%E4%B8%80%E4%B8%AA%E6%9C%88%E5%80%92%E6%AC%A0%E5%85%AC%E5%8F%B8200%E5%A4%9A" target="_blank" rel="noopener">学生兼职送外卖一个月倒欠公司200多</a>
+        <div class="s-src">百度热搜<span class="sep">·</span><a href="https://www.baidu.com/s?wd=%E5%AD%A6%E7%94%9F%E5%85%BC%E8%81%8C%E9%80%81%E5%A4%96%E5%8D%96%E4%B8%80%E4%B8%AA%E6%9C%88%E5%80%92%E6%AC%A0%E5%85%AC%E5%8F%B8200%E5%A4%9A" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">学生兼职送外卖，一个月倒欠公司200多。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">平台或存在克扣、罚款机制，兼职者权益受损，引发社会关注。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">若涉及外卖合作，**审查合同条款**，避免被平台或中间商坑害。</p></div>
+  </article>
+  <article class="story reveal" id="s07">
+    <div class="story-head">
+      <span class="s-num">07</span>
+      <div>
+        <a class="s-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E5%85%89%E9%80%9F%E5%85%B3%E6%9C%8D%2CAI%E8%99%9A%E6%8B%9F%E6%AD%8C%E5%A7%AC%E5%81%9C%E8%BF%90&amp;amp;topic_id=28357199" target="_blank" rel="noopener">光速关服,AI虚拟歌姬停运</a>
+        <div class="s-src">贴吧<span class="sep">·</span><a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E5%85%89%E9%80%9F%E5%85%B3%E6%9C%8D%2CAI%E8%99%9A%E6%8B%9F%E6%AD%8C%E5%A7%AC%E5%81%9C%E8%BF%90&amp;amp;topic_id=28357199" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">AI虚拟歌姬光速关服，停运引发讨论。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">虚拟IP运营成本高，变现难，泡沫破裂。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">谨慎投资虚拟项目，聚焦实体产品和真实用户需求。</p></div>
+  </article>
+  <article class="story reveal" id="s08">
+    <div class="story-head">
+      <span class="s-num">08</span>
+      <div>
+        <a class="s-title" href="https://www.zhihu.com/question/2070960876790572338" target="_blank" rel="noopener">银行能办结婚证了，天津开放首个银行网点婚姻登记处，这事只是「多一个领证地」这么简单吗？银行有什么盘算？</a>
+        <div class="s-src">知乎<span class="sep">·</span><a href="https://www.zhihu.com/question/2070960876790572338" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">天津开放首个银行网点婚姻登记处。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">银行跨界政务，增加客流，提升网点利用率，是场景创新。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">思考异业合作，如与本地机构联营，带来新客源。</p></div>
+  </article>
+  <article class="story reveal" id="s09">
+    <div class="story-head">
+      <span class="s-num">09</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E8%B0%81%E5%9C%A8%E7%BB%99%E5%8F%AF%E4%B9%90%E2%80%9C%E5%88%A4%E6%AD%BB%E5%88%91%E2%80%9D" target="_blank" rel="noopener">谁在给可乐“判死刑”</a>
+        <div class="s-src">百度热搜<span class="sep">·</span><a href="https://www.baidu.com/s?wd=%E8%B0%81%E5%9C%A8%E7%BB%99%E5%8F%AF%E4%B9%90%E2%80%9C%E5%88%A4%E6%AD%BB%E5%88%91%E2%80%9D" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">热搜‘谁在给可乐判死刑’，讨论可乐销量下滑。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">健康意识崛起，含糖饮料需求下降，传统饮品承压。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">若经营饮品，**推出低糖或无糖选项**，迎合健康趋势。</p></div>
+  </article>
+  <article class="story reveal" id="s10">
+    <div class="story-head">
+      <span class="s-num">10</span>
+      <div>
+        <a class="s-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E7%82%B8%E9%B8%A1%E5%BA%97%E7%88%86%E5%8D%95%2C%E5%91%98%E5%B7%A5%E5%BF%99%E6%99%95%E5%80%92%E5%9C%B0&amp;amp;topic_id=28357214" target="_blank" rel="noopener">炸鸡店爆单,员工忙晕倒地</a>
+        <div class="s-src">贴吧<span class="sep">·</span><a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E7%82%B8%E9%B8%A1%E5%BA%97%E7%88%86%E5%8D%95%2C%E5%91%98%E5%B7%A5%E5%BF%99%E6%99%95%E5%80%92%E5%9C%B0&amp;amp;topic_id=28357214" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">炸鸡店爆单，员工忙晕倒地。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">生意火爆但人力不足，暴露运营管理短板。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">提前规划高峰期人力，**优化流程**，避免员工过劳和意外。</p></div>
+  </article>
+  <article class="story reveal" id="s11">
+    <div class="story-head">
+      <span class="s-num">11</span>
+      <div>
+        <a class="s-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E7%86%8A%E7%81%BE%E6%B3%9B%E6%BB%A5%2C%E6%97%A5%E6%9C%AC%E9%A4%90%E5%8E%85%E5%8D%96%E7%82%96%E7%86%8A%E6%8E%8C&amp;amp;topic_id=28357328" target="_blank" rel="noopener">熊灾泛滥,日本餐厅卖炖熊掌</a>
+        <div class="s-src">贴吧<span class="sep">·</span><a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E7%86%8A%E7%81%BE%E6%B3%9B%E6%BB%A5%2C%E6%97%A5%E6%9C%AC%E9%A4%90%E5%8E%85%E5%8D%96%E7%82%96%E7%86%8A%E6%8E%8C&amp;amp;topic_id=28357328" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">日本餐厅卖炖熊掌应对熊灾。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">利用资源创造特色菜品，吸引眼球，但需注意合规。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">可尝试开发特色食材，但**确保合法合规**，避免触犯法律。</p></div>
+  </article>
+  <article class="story reveal" id="s12">
+    <div class="story-head">
+      <span class="s-num">12</span>
+      <div>
+        <a class="s-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E6%88%BF%E7%A7%9F%E6%B6%A83%E5%80%8D%2C%E8%83%96%E4%B8%9C%E6%9D%A5%E5%85%B3%E5%81%9C%E8%80%81%E5%BA%97&amp;amp;topic_id=28357132" target="_blank" rel="noopener">房租涨3倍,胖东来关停老店</a>
+        <div class="s-src">贴吧<span class="sep">·</span><a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E6%88%BF%E7%A7%9F%E6%B6%A83%E5%80%8D%2C%E8%83%96%E4%B8%9C%E6%9D%A5%E5%85%B3%E5%81%9C%E8%80%81%E5%BA%97&amp;amp;topic_id=28357132" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">房租涨3倍，胖东来关停老店。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">租金成本失控，实体店利润被挤压，被迫关店。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">定期评估租金占比，**设置警戒线**，超过即考虑换址。</p></div>
+  </article>
+  <article class="story reveal" id="s13">
+    <div class="story-head">
+      <span class="s-num">13</span>
+      <div>
+        <a class="s-title" href="https://s.weibo.com/weibo?q=%E8%83%96%E4%B8%9C%E6%9D%A5+%E6%88%BF%E7%A7%9F%E7%BF%BB%E5%80%8D" target="_blank" rel="noopener">胖东来 房租翻倍</a>
+        <div class="s-src">微博<span class="sep">·</span><a href="https://s.weibo.com/weibo?q=%E8%83%96%E4%B8%9C%E6%9D%A5+%E6%88%BF%E7%A7%9F%E7%BF%BB%E5%80%8D" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">胖东来房租翻倍，微博热议。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">房东坐地起价，胖东来不屈服，引发共鸣。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">与房东谈判时**联合周边商户**，增强议价能力。</p></div>
+  </article>
+  <article class="story reveal" id="s14">
+    <div class="story-head">
+      <span class="s-num">14</span>
+      <div>
+        <a class="s-title" href="https://search.bilibili.com/all?keyword=%E4%BA%8E%E4%B8%9C%E6%9D%A5%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%A2%E5%AF%B9%E6%B6%A8%E7%A7%9F%E8%AF%B4%E4%B8%8D" target="_blank" rel="noopener">于东来为什么敢对涨租说不</a>
+        <div class="s-src">bilibili 热搜<span class="sep">·</span><a href="https://search.bilibili.com/all?keyword=%E4%BA%8E%E4%B8%9C%E6%9D%A5%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%A2%E5%AF%B9%E6%B6%A8%E7%A7%9F%E8%AF%B4%E4%B8%8D" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">于东来为什么敢对涨租说不，B站热播。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">胖东来有品牌议价权，敢于拒绝不合理涨租。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">提升自身品牌价值，**增强不可替代性**，才有底气谈判。</p></div>
+  </article>
+  <article class="story reveal" id="s15">
+    <div class="story-head">
+      <span class="s-num">15</span>
+      <div>
+        <a class="s-title" href="https://www.toutiao.com/trending/7672900424688779318/" target="_blank" rel="noopener">新规：禁止在居民楼开油烟餐饮</a>
+        <div class="s-src">今日头条<span class="sep">·</span><a href="https://www.toutiao.com/trending/7672900424688779318/" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">新规：禁止在居民楼开油烟餐饮。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">政策收紧，居民楼餐饮环保不达标将被取缔。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">已开的**尽快整改**或搬迁，新选址避开居民楼。</p></div>
+  </article>
+  <article class="story reveal" id="s16">
+    <div class="story-head">
+      <span class="s-num">16</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E6%96%B0%E8%A7%84%E6%9D%A5%E4%BA%86%EF%BC%9A%E7%A6%81%E6%AD%A2%E5%9C%A8%E5%B1%85%E6%B0%91%E6%A5%BC%E5%BC%80%E6%B2%B9%E7%83%9F%E9%A4%90%E9%A5%AE" target="_blank" rel="noopener">新规来了：禁止在居民楼开油烟餐饮</a>
+        <div class="s-src">百度热搜<span class="sep">·</span><a href="https://www.baidu.com/s?wd=%E6%96%B0%E8%A7%84%E6%9D%A5%E4%BA%86%EF%BC%9A%E7%A6%81%E6%AD%A2%E5%9C%A8%E5%B1%85%E6%B0%91%E6%A5%BC%E5%BC%80%E6%B2%B9%E7%83%9F%E9%A4%90%E9%A5%AE" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">新规来了：禁止在居民楼开油烟餐饮（热搜）。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">监管加码，餐饮老板需关注地方细则，避免踩雷。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">**咨询当地监管部门**，了解具体规定，调整经营地点。</p></div>
+  </article>
+  <article class="story reveal" id="s17">
+    <div class="story-head">
+      <span class="s-num">17</span>
+      <div>
+        <a class="s-title" href="https://s.weibo.com/weibo?q=%23%E6%A3%80%E6%B5%8B%E4%B8%9A%E6%A0%B7%E5%93%81%E9%80%A0%E5%81%87%E6%88%90%E5%85%AC%E5%BC%80%E7%A7%98%E5%AF%86%23" target="_blank" rel="noopener">检测业样品造假成公开秘密</a>
+        <div class="s-src">微博<span class="sep">·</span><a href="https://s.weibo.com/weibo?q=%23%E6%A3%80%E6%B5%8B%E4%B8%9A%E6%A0%B7%E5%93%81%E9%80%A0%E5%81%87%E6%88%90%E5%85%AC%E5%BC%80%E7%A7%98%E5%AF%86%23" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">检测业样品造假成公开秘密。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">行业乱象，监管或加强，涉事者风险高。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">若涉及检测，**选择正规机构**，避免牵连。</p></div>
+  </article>
+  <article class="story reveal" id="s18">
+    <div class="story-head">
+      <span class="s-num">18</span>
+      <div>
+        <a class="s-title" href="https://www.toutiao.com/trending/7673394275002286089/" target="_blank" rel="noopener">东鹏饮料被指“早产” 客服回应</a>
+        <div class="s-src">今日头条<span class="sep">·</span><a href="https://www.toutiao.com/trending/7673394275002286089/" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">东鹏饮料被指‘早产’，客服回应。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">食品安全问题频发，消费者信任危机。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">自查产品日期管理，**确保合规**，避免类似投诉。</p></div>
+  </article>
+  <article class="story reveal" id="s19">
+    <div class="story-head">
+      <span class="s-num">19</span>
+      <div>
+        <a class="s-title" href="https://www.toutiao.com/trending/7672008059765719082/" target="_blank" rel="noopener">免费领鸡蛋还能抽奖？警惕涉老诈骗</a>
+        <div class="s-src">今日头条<span class="sep">·</span><a href="https://www.toutiao.com/trending/7672008059765719082/" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">免费领鸡蛋还能抽奖？警惕涉老诈骗。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">针对老年人的诈骗手段翻新，门店需警惕被利用。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">不参与类似活动，**提醒顾客防骗**，维护门店信誉。</p></div>
+  </article>
+  <article class="story reveal" id="s20">
+    <div class="story-head">
+      <span class="s-num">20</span>
+      <div>
+        <a class="s-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E9%A1%BE%E5%AE%A2%E9%A4%90%E7%9B%98%E5%96%82%E7%8B%97%2C%E5%BA%97%E5%AE%B6%E5%80%92%E5%A4%A7%E9%9C%89&amp;amp;topic_id=28357250" target="_blank" rel="noopener">顾客餐盘喂狗,店家倒大霉</a>
+        <div class="s-src">贴吧<span class="sep">·</span><a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E9%A1%BE%E5%AE%A2%E9%A4%90%E7%9B%98%E5%96%82%E7%8B%97%2C%E5%BA%97%E5%AE%B6%E5%80%92%E5%A4%A7%E9%9C%89&amp;amp;topic_id=28357250" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">顾客餐盘喂狗，店家遭殃。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">顾客行为不当，店家可能被罚款或声誉受损。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">**明确店规**，加强巡查，必要时报警处理。</p></div>
+  </article>
+  <article class="story reveal" id="s21">
+    <div class="story-head">
+      <span class="s-num">21</span>
+      <div>
+        <a class="s-title" href="https://www.zhihu.com/question/2071185842455032063" target="_blank" rel="noopener">上海一员工台风天请假 1 小时被罚近 1500 元，公司称其未提前一天申请，人社局表示处罚行为违规，怎样解读？</a>
+        <div class="s-src">知乎<span class="sep">·</span><a href="https://www.zhihu.com/question/2071185842455032063" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">上海员工台风天请假1小时被罚1500元，公司违规。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">公司处罚不当，暴露管理问题，影响员工士气。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">**合理制定考勤制度**，人性化管理，避免劳动纠纷。</p></div>
+  </article>
+  <article class="story reveal" id="s22">
+    <div class="story-head">
+      <span class="s-num">22</span>
+      <div>
+        <a class="s-title" href="https://s.weibo.com/weibo?q=%23%E4%BF%A9%E5%AD%A9%E5%AD%90%E5%B0%86%E8%B6%85%E5%B8%82%E5%86%85%E5%87%A0%E5%8D%81%E7%A7%8D%E6%9D%82%E7%B2%AE%E6%B7%B7%E6%8E%BA%23" target="_blank" rel="noopener">俩孩子将超市内几十种杂粮混掺</a>
+        <div class="s-src">微博<span class="sep">·</span><a href="https://s.weibo.com/weibo?q=%23%E4%BF%A9%E5%AD%A9%E5%AD%90%E5%B0%86%E8%B6%85%E5%B8%82%E5%86%85%E5%87%A0%E5%8D%81%E7%A7%8D%E6%9D%82%E7%B2%AE%E6%B7%B7%E6%8E%BA%23" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">俩孩子将超市杂粮混掺，造成损失。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">儿童行为导致商品损耗，商家需加强儿童监管。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">设置**儿童友好区域**或提醒家长，减少意外损失。</p></div>
+  </article>
+  <article class="story reveal" id="s23">
+    <div class="story-head">
+      <span class="s-num">23</span>
+      <div>
+        <a class="s-title" href="https://s.weibo.com/weibo?q=%23%E5%A5%B3%E5%AD%900%E5%85%83%E8%B4%AD400%E6%A0%B9%E7%82%B8%E4%B8%B2%E9%80%80%E6%AC%BE%E8%A2%AB%E6%8B%92%23" target="_blank" rel="noopener">女子0元购400根炸串退款被拒</a>
+        <div class="s-src">微博<span class="sep">·</span><a href="https://s.weibo.com/weibo?q=%23%E5%A5%B3%E5%AD%900%E5%85%83%E8%B4%AD400%E6%A0%B9%E7%82%B8%E4%B8%B2%E9%80%80%E6%AC%BE%E8%A2%AB%E6%8B%92%23" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">女子0元购400根炸串退款被拒。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">恶意退款或占便宜行为，商家需保护自身权益。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">**明确退款政策**，保留证据，必要时拒绝无理要求。</p></div>
+  </article>
+  <article class="story reveal" id="s24">
+    <div class="story-head">
+      <span class="s-num">24</span>
+      <div>
+        <a class="s-title" href="https://www.douyin.com/hot/2608339" target="_blank" rel="noopener">警惕涉老年人诈骗陷阱</a>
+        <div class="s-src">抖音<span class="sep">·</span><a href="https://www.douyin.com/hot/2608339" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">警惕涉老年人诈骗陷阱（抖音）。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">老年人易受骗，门店应成为防骗宣传窗口。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">**张贴防骗提示**，组织讲座，提升顾客信任。</p></div>
+  </article>
+  <article class="story reveal" id="s25">
+    <div class="story-head">
+      <span class="s-num">25</span>
+      <div>
+        <a class="s-title" href="https://www.zhihu.com/question/2070902073780953324" target="_blank" rel="noopener">货拉拉司机中途加价被拒，带货跑 600 公里外，平台介入后仍拒不归还，怎么回事？暴露出平台哪些问题？</a>
+        <div class="s-src">知乎<span class="sep">·</span><a href="https://www.zhihu.com/question/2070902073780953324" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">货拉拉司机中途加价被拒，带货跑600公里外。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">平台规则漏洞，司机违约，消费者维权难。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">选用平台时**注意保障**，保留证据，及时投诉。</p></div>
+  </article>
+  <article class="story reveal" id="s26">
+    <div class="story-head">
+      <span class="s-num">26</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E7%82%B8%E9%B8%A1%E5%BA%97%E5%91%98%E5%B7%A5%E6%8E%8F%E8%A3%A4%E8%A3%86%E5%90%8E%E5%A4%B9%E9%A4%90%E8%A2%AB%E7%9B%91%E6%8E%A7%E6%8B%8D%E4%B8%8B" target="_blank" rel="noopener">炸鸡店员工掏裤裆后夹餐被监控拍下</a>
+        <div class="s-src">百度热搜<span class="sep">·</span><a href="https://www.baidu.com/s?wd=%E7%82%B8%E9%B8%A1%E5%BA%97%E5%91%98%E5%B7%A5%E6%8E%8F%E8%A3%A4%E8%A3%86%E5%90%8E%E5%A4%B9%E9%A4%90%E8%A2%AB%E7%9B%91%E6%8E%A7%E6%8B%8D%E4%B8%8B" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">炸鸡店员工掏裤裆后夹餐被监控拍下。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">员工行为严重违规，门店卫生形象受损。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">**加强员工培训**和卫生监督，安装监控，确保食品安全。</p></div>
+  </article>
+  <article class="story reveal" id="s27">
+    <div class="story-head">
+      <span class="s-num">27</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E5%88%9D%E4%BB%A3%E7%BD%91%E7%BA%A2%E6%99%9A%E6%99%9A%E5%8D%96%E8%A1%A3%E6%9C%8D%E8%A2%AB%E5%90%90%E6%A7%BD%E8%B4%A7%E4%B8%8D%E5%AF%B9%E6%9D%BF" target="_blank" rel="noopener">初代网红晚晚卖衣服被吐槽货不对板</a>
+        <div class="s-src">百度热搜<span class="sep">·</span><a href="https://www.baidu.com/s?wd=%E5%88%9D%E4%BB%A3%E7%BD%91%E7%BA%A2%E6%99%9A%E6%99%9A%E5%8D%96%E8%A1%A3%E6%9C%8D%E8%A2%AB%E5%90%90%E6%A7%BD%E8%B4%A7%E4%B8%8D%E5%AF%B9%E6%9D%BF" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">初代网红晚晚卖衣服被吐槽货不对板。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">网红带货质量问题频发，信任危机。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">若做线上销售，**确保商品与描述一致**，否则口碑崩塌。</p></div>
+  </article>
+  <div class="sec-head reveal"><span class="en">Readings</span><h2>深度阅读</h2></div>
+  <div class="read reveal">
+    <a class="read-item" href="https://www.tmtpost.com/8101374.html" target="_blank" rel="noopener"><span class="r-src">钛媒体</span><span class="r-title">房东大幅涨租，胖东来被“吓退”</span></a>
+    <a class="read-item" href="https://www.woshipm.com/share/6445960.html" target="_blank" rel="noopener"><span class="r-src">人人都是产品经理</span><span class="r-title">为何说抖音催生了云连锁模式？</span></a>
+    <a class="read-item" href="https://www.yunyingpai.com/channel/1061616.html" target="_blank" rel="noopener"><span class="r-src">运营派</span><span class="r-title">花600多元就能当短剧女主角，横店靠给游客拍短剧“自救”</span></a>
+  </div>
+  <div class="sec-head reveal"><span class="en">Insight</span><h2>老许研判</h2></div>
+  <div class="insight-block reveal">
+    <h3>核心热点态势</h3>
+<p>今日热点呈圈层聚爆态势，核心线索绕不开「胖东来闭店」。宏观主线：老店因房租翻倍被关停，表面是单店成本博弈，实则折射出线下实体租金成本失控的系统性焦虑。于东来「掀桌子」的行为艺术，把「房东—商户」这对天敌的矛盾彻底摆上台面，这是全行业共情的关键点。</p>
+<p style="margin-top:12px">【宏观主线】</p>
+<p>租金成本正成为压倒实体店的最后一根稻草，胖东来作为「模范生」的硬气反抗，给苦房东久矣的中小商家提供了舆论出气口。</p>
+<p style="margin-top:12px">【微观领域】</p>
+<p>1. 监管新规禁止居民楼开油烟餐饮，社区底商合规门槛抬升。</p>
+<p>2. 银行网点设婚姻登记处，政务功能反哺线下流量，是典型的异业引流创新。</p>
+<p>3. 上海书展文创爆款，证明文化IP加持下的线下零售仍有爆发力。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>舆论风向争议</h3>
+<p style="margin-top:12px">【情绪光谱】</p>
+<p>主流舆论对胖东来关店一边倒叫好，将其塑造成对抗不公的「侠客」，潜流中则是中小商家对自身无力反抗涨租的无力感与羡慕。</p>
+<p style="margin-top:12px">【核心矛盾】</p>
+<p>1. 胖东来能硬刚涨租，普通小老板只能忍气吞声或卷铺盖走人，这种「能力鸿沟」是最大刺痛点。</p>
+<p>2. 「禁止居民楼开餐饮」新规，支持者认为治理油烟扰民，反对者担忧扼杀社区创业活力。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>异动与弱信号</h3>
+<p style="margin-top:12px">跨平台共振显著：「胖东来闭店」话题在百度、微博、B站、抖音四平台同时上榜，且切入角度各异（微博谈租金、B站谈商业逻辑、抖音谈老板态度），屬典型的多平台圈层渗透事件，热度仍有发酵空间。轨迹突变方面，「房租涨3倍」这一细节从贴吧小众讨论跃升为微博热搜，说明议题从「围观大事件」滑向「共情小成本」。另有弱信号：货拉拉司机加价跑路事件在知乎热榜排名第二，虽非实体店话题，但反映平台经济下的履约信任危机，对依赖平台配送的商家有警示意义。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>研判策略建议</h3>
+<p style="margin-top:12px">1. 实体商家：重新审视租约条款。胖东来关店是极端案例，但警示所有实体店主——签租约时务必约定租金涨幅上限（如每年不超过5%），且优先选择有国企背景或长线运营的业主。今日即可核查现有合同，成本门槛为零。</p>
+<p style="margin-top:12px">2. 创业者：留意「银行网点+政务功能」的复合业态。银行为了获客愿意提供低租金乃至免租场地引入异业合作，可主动联系本地支行探讨快闪店或服务点入驻。启动成本极低（数千元物料费），但需有特色服务（如文创、便民维修）。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>独立源点速览</h3>
+<p>[知乎]:</p>
+<p>热榜以时政要闻（朱镕基逝世）与科技财经（DeepSeek V4、苹果测长鑫）为主。实体相关亮点有二：一是「银行办结婚证」话题，探讨金融机构线下网点转型盘算，对实体店异业合作有启发；二是「货拉拉司机加价跑路」话题，暴露平台监管漏洞。整体氛围偏宏观与理性探讨，与大众榜的情绪化形成反差。</p>
+<p>[华尔街见闻]:</p>
+<p>全部为宏观财经与科技公司动态。核心看点是腾讯Q2财报：营收增长但自由现金流转负，因大幅采购算力。AI投入产出的讨论、但斌清仓苹果等，均显示资金在科技成长与价值防御间摇摆。与实体商业完全脱钩，未见线下消费、零售相关信号，提示金融圈与实业圈的关注温差。</p>
+  </div>
+  <footer class="footer reveal">
+    <div class="f-main">老许聊实体</div>
+    <div class="f-copy">每天 5 分钟，看透实体生意　·　第 49 期 · 2026年08月13日　·　共 27 条 / 255 条</div>
+  </footer>
+</div>
+
+<script>
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+</body>
+</html>
