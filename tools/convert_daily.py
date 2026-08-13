@@ -25,11 +25,7 @@ import json
 import os
 import re
 import sys
-
-try:
-    import requests
-except ImportError:
-    requests = None
+import urllib.request
 
 # ══════════════════════════════════════════════════════════════
 # 1. 解析 TrendRadar 原始 HTML
@@ -153,11 +149,11 @@ AI_SYSTEM_PROMPT = """你是「老许聊实体」的主笔老许，一位深耕�
 
 
 def call_ai(api_key: str, model: str, prompt: str, max_tokens: int = 6000) -> dict:
-    """调用 Deepseek 生成结构化日报内容"""
-    if not api_key or requests is None:
+    """调用 Deepseek 生成结构化日报内容（使用标准库 urllib，避免外部依赖）"""
+    if not api_key:
         return {}
     url = "https://api.deepseek.com/chat/completions"
-    payload = {
+    payload = json.dumps({
         "model": model,
         "messages": [
             {"role": "system", "content": AI_SYSTEM_PROMPT},
@@ -166,12 +162,15 @@ def call_ai(api_key: str, model: str, prompt: str, max_tokens: int = 6000) -> di
         "temperature": 0.7,
         "max_tokens": max_tokens,
         "response_format": {"type": "json_object"},
+    }).encode("utf-8")
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
     }
-    headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
     try:
-        resp = requests.post(url, json=payload, headers=headers, timeout=120)
-        resp.raise_for_status()
-        data = resp.json()
+        req = urllib.request.Request(url, data=payload, headers=headers, method="POST")
+        with urllib.request.urlopen(req, timeout=120) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
         content = data["choices"][0]["message"]["content"]
         parsed = json.loads(content)
         return parsed if isinstance(parsed, dict) else {}
