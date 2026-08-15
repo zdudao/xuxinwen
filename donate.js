@@ -6,30 +6,30 @@
   var img = document.currentScript ? document.currentScript.getAttribute('data-donate-img') : null;
   if (!img) img = 'donate.png';
 
-  var tipText = '☕ 请老许喝碗胡辣汤';
+  var tipText = '☕ 这条情报，值碗汤钱';
 
   var pc = document.createElement('div');
   pc.id = 'donate-pc';
   pc.innerHTML =
-    '<div class="d-title">请老许喝碗胡辣汤</div>' +
-    '<div class="d-sub">SUPPORT · 胡辣汤基金</div>' +
+    '<div class="d-title">为今天的判断买单</div>' +
+    '<div class="d-sub">VALUE · 情报费</div>' +
     '<img src="' + img + '" alt="打赏码">' +
-    '<div class="d-tip">如果今天的日报帮到你<br>请老许喝碗胡辣汤 <strong>☕</strong></div>';
+    '<div class="d-tip">这条情报帮你避的坑，够请十碗胡辣汤<br><strong>☕</strong></div>';
 
   var fab = document.createElement('button');
   fab.id = 'donate-fab';
   fab.type = 'button';
-  fab.textContent = '☕ 打赏';
+  fab.textContent = '☕ 这条情报，值碗汤钱';
 
   var modal = document.createElement('div');
   modal.id = 'donate-modal';
   modal.innerHTML =
     '<div class="dm-card">' +
     '<button class="dm-close" type="button" aria-label="关闭">✕</button>' +
-    '<div class="dm-title">请老许喝碗胡辣汤</div>' +
-    '<div class="dm-sub">SUPPORT · 胡辣汤基金</div>' +
+    '<div class="dm-title">为今天的判断买单</div>' +
+    '<div class="dm-sub">VALUE · 情报费</div>' +
     '<img src="' + img + '" alt="打赏码">' +
-    '<div class="dm-tip">微信 / 支付宝扫码均可<br>谢谢你的支持 <strong>☕</strong></div>' +
+    '<div class="dm-tip">今天帮你避的坑，够请十碗胡辣汤<br><strong>☕</strong></div>' +
     '</div>';
 
   document.body.appendChild(pc);
