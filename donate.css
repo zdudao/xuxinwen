@@ -2,7 +2,9 @@
 #donate-pc {
   position: fixed;
   top: 50%;
-  right: 24px;
+  /* 贴着中间内容区（max-width:780px 居中）的右边缘 + 24px 间距；
+     min() 兜底：窄屏时退回距视口右缘 24px，避免溢出 */
+  left: min(calc(50% + 414px), calc(100vw - 284px));
   transform: translateY(-50%);
   width: 260px;
   background: #16130F;
