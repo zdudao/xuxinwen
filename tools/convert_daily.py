@@ -330,6 +330,7 @@ def render_daily(data: dict, ai: dict, period: int) -> str:
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="老许聊实体">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../donate.css">
 <style>""" + DAILY_CSS + """</style>
 </head>
 <body>
@@ -451,6 +452,7 @@ def render_daily(data: dict, ai: dict, period: int) -> str:
   var io=new IntersectionObserver(function(es){{es.forEach(function(e){{if(e.isIntersecting){{e.target.classList.add('in');io.unobserve(e.target);}}}});}},{{threshold:0.08}});
   document.querySelectorAll('.reveal').forEach(function(el){{io.observe(el);}});
 </script>
+<script src="../../donate.js" data-donate-img="../../donate.png"></script>
 </body>
 </html>
 """)

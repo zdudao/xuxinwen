@@ -109,6 +109,7 @@
   }
   @media (prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
+<link rel="stylesheet" href="../../donate.css">
 </head>
 <body>
 <div class="container">
@@ -460,5 +461,6 @@
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.08});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 </script>
+<script src="../../donate.js" data-donate-img="../../donate.png"></script>
 </body>
 </html>
