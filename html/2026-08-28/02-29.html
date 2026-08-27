@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老许聊实体 · 08月28日实体生意日报</title>
+<meta name="description" content="今日实体商业要闻速览，每天 5 分钟，看透实体生意。">
+<meta property="og:title" content="老许聊实体 · 实体生意日报">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="老许聊实体">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../donate.css">
+<style>
+  :root{
+    --bg:#100E0C; --ink:#EDE7DD; --muted:#9C9388; --faint:#635B51;
+    --hair:rgba(237,231,221,0.12); --accent:#D2553F; --accent-soft:rgba(210,85,63,0.14); --accent-wash:rgba(210,85,63,0.08);
+    --serif:'Noto Serif SC','Songti SC',serif;
+    --sans:'Inter','Noto Sans SC',-apple-system,'Microsoft YaHei',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:#fff}
+  .container{max-width:780px;margin:0 auto;padding:0 24px 96px}
+
+  .masthead{padding:56px 0 30px;text-align:center}
+  .rule{height:1px;background:var(--hair);width:100%}
+  .kicker{font-size:11px;letter-spacing:.42em;color:var(--muted);text-transform:uppercase;padding:18px 0 14px;font-weight:500}
+  .wordmark{font-family:var(--serif);font-weight:900;font-size:clamp(34px,7vw,52px);letter-spacing:.04em;line-height:1;color:var(--ink)}
+  .wordmark .dot{color:var(--accent)}
+  .edition{font-size:12.5px;letter-spacing:.18em;color:var(--faint);padding:16px 0 18px;font-variant-numeric:tabular-nums}
+  .edition .prev{margin-left:14px;font-size:11px;letter-spacing:.06em;color:var(--muted)}
+  .edition .prev:hover{color:var(--accent)}
+
+  .lead{position:relative;padding:30px 0 30px 26px;margin:8px 0 6px;border-left:3px solid var(--accent)}
+  .lead::before{content:"";position:absolute;left:-3px;top:0;width:3px;height:0;background:var(--accent);transition:height .3s ease}
+  .lead:hover::before{height:100%}
+  .lead-label{font-size:11px;letter-spacing:.34em;color:var(--accent);font-weight:600;margin-bottom:14px;text-transform:uppercase}
+  .lead-title{font-family:var(--serif);font-weight:700;font-size:clamp(22px,4.4vw,30px);line-height:1.32;color:var(--ink);margin-bottom:14px}
+  .lead-meta{font-size:12.5px;color:var(--faint);letter-spacing:.04em;font-variant-numeric:tabular-nums}
+
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin:48px 0 20px}
+  .sec-head .en{font-size:10px;letter-spacing:.4em;color:var(--faint);text-transform:uppercase;font-weight:500}
+  .sec-head h2{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);letter-spacing:.02em}
+  .sec-head::after{content:"";flex:1;height:1px;background:var(--hair)}
+
+  .action-card{background:#16130F;border:1px solid var(--hair);border-radius:4px;padding:24px 26px;margin-bottom:14px}
+  .action-card .ac-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.2em;font-weight:700}
+  .action-card .ac-title{font-size:17px;font-weight:700;color:var(--ink);margin:6px 0 14px;font-family:var(--serif)}
+  .action-card .ac-seg{margin-bottom:12px}
+  .action-card .ac-seg:last-child{margin-bottom:0}
+  .action-card .ac-seg .seg-lbl{display:block;font-size:10px;font-weight:600;letter-spacing:.28em;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
+  .action-card .ac-seg p{font-size:14px;color:var(--ink);line-height:1.75;max-width:45em}
+  .action-card .ac-seg p strong{color:var(--accent);font-weight:600}
+
+  .signals{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .signal{background:#16130F;border:1px solid var(--hair);border-radius:4px;padding:20px 22px}
+  .signal .s-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--accent);text-transform:uppercase;margin-bottom:12px;padding-bottom:4px;border-bottom:1px solid var(--accent)}
+  .signal .s-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.5;font-family:var(--serif)}
+  .signal .s-desc{font-size:13px;color:var(--muted);line-height:1.7}
+
+  .story{padding:28px 0;border-bottom:1px solid var(--hair);scroll-margin-top:20px}
+  .story:first-of-type{padding-top:8px}
+  .story-head{display:flex;align-items:flex-start;gap:18px;margin-bottom:18px}
+  .story .s-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.14em;font-weight:700;line-height:1.6;flex-shrink:0;padding-top:4px}
+  .story .s-title{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--ink);line-height:1.45;letter-spacing:.01em}
+  .story .s-title:hover{color:var(--accent)}
+  .story .s-src{margin-top:8px;font-size:11.5px;color:var(--faint);letter-spacing:.06em}
+  .story .s-src .sep{color:var(--faint);margin:0 8px}
+  .story .s-src a:hover{color:var(--accent)}
+  .field{display:grid;grid-template-columns:88px 1fr;gap:18px;padding:12px 0 12px 4px}
+  .field .f-lbl{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;padding-top:5px}
+  .field .f-lbl .f-en{display:block;font-size:9px;letter-spacing:.3em;color:var(--faint);font-weight:500;margin-top:2px}
+  .field .f-body{font-size:14px;color:var(--ink);line-height:1.8;max-width:46em}
+  .field .f-body strong{color:var(--accent);font-weight:600}
+  .field.sec .f-lbl{color:var(--muted)}
+  .field.judge .f-lbl{color:var(--accent)}
+  .field.act .f-lbl{color:var(--muted)}
+  .field.judge .f-body{color:var(--muted)}
+  .field.act .f-body{border-left:2px solid var(--accent);padding-left:14px}
+
+  .read{margin-top:4px}
+  .read-item{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:15px 4px;border-bottom:1px solid var(--hair);transition:background .2s,padding-left .2s}
+  .read-item:hover{background:var(--accent-wash);padding-left:12px}
+  .read-item .r-src{font-size:11px;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;font-weight:600}
+  .read-item .r-title{font-size:14.5px;color:var(--ink);line-height:1.6}
+  .read-item:hover .r-title{color:var(--accent)}
+
+  .insight-block{padding:24px 26px;margin-bottom:14px;background:#16130F;border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:4px}
+  .insight-block h3{font-size:12px;font-weight:600;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:14px}
+  .insight-block p{font-size:14px;color:var(--ink);line-height:1.85;max-width:48em}
+  .insight-block .lbl{color:var(--muted);font-weight:600}
+
+  .footer{margin-top:72px;padding-top:34px;border-top:1px solid var(--hair);text-align:center}
+  .footer .f-main{font-family:var(--serif);font-size:14px;color:var(--ink);letter-spacing:.08em}
+  .footer .f-copy{font-size:11.5px;color:var(--faint);margin-top:16px;font-variant-numeric:tabular-nums;letter-spacing:.06em}
+  .footer .f-copy a{color:var(--muted);text-decoration:underline}
+  .footer .f-copy a:hover{color:var(--accent)}
+
+  .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (max-width:560px){
+    .container{padding:0 18px 72px}
+    .signals{grid-template-columns:1fr}
+    .field{grid-template-columns:1fr;gap:2px}
+    .story-head{flex-direction:column;gap:8px}
+    .lead{padding-left:18px}
+    .read-item{grid-template-columns:1fr;gap:4px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="masthead">
+    <div class="rule"></div>
+    <div class="kicker">实体商业 · 每日内参</div>
+    <h1 class="wordmark">老许聊实体<span class="dot">.</span></h1>
+    <div class="edition">第 63 期　·　2026年08月28日　·　每日更新<a class="prev" href="../2026-08-27/">← 上一期</a></div>
+    <div class="rule"></div>
+  </header>
+
+  <div class="lead reveal">
+    <div class="lead-label">今日头条 · TODAY</div>
+    <div class="lead-title">万科半年报、SK海力士跑路、金税四期补税、央视批手办、甲醛白菜，实体店老板需警惕的5大信号</div>
+    <div class="lead-meta">2026年08月28日　·　阅读约 6 分钟　·　共 12 条</div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Action</span><h2>今日行动建议</h2></div>
+  <div class="action-card reveal">
+    <div class="ac-num">01</div>
+    <div class="ac-title">优化现金流，稳健经营</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>万科收缩、SK海力士跑路，显示市场资金链紧张</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>巨头都在过冬，小店更需警惕现金流断裂风险</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>**砍掉不盈利业务**，减少库存积压，预留至少3个月运营资金，避免盲目扩张。</p></div>
+  </div>
+  <div class="action-card reveal">
+    <div class="ac-num">02</div>
+    <div class="ac-title">拥抱合规，提前自查税务</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>金税四期下，百家上市公司补税77亿</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>税务监管趋严，小店也难逃大数据监控</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>**立即自查账目**，规范发票管理，避免私户收款，必要时咨询专业财税顾问。</p></div>
+  </div>
+  <div class="action-card reveal">
+    <div class="ac-num">03</div>
+    <div class="ac-title">转型健康消费，抓新趋势</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>甲醛白菜曝光，消费者对食品安全更敏感</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>健康、安全成为消费决策关键因素</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>**主打新鲜、无添加**，展示食材来源，可引入检测报告，提升信任度。</p></div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Signals</span><h2>信号速览</h2></div>
+  <div class="signals reveal">
+    <div class="signal"><span class="s-tag">巨头转型</span><div class="s-title">万科收缩求生</div><div class="s-desc">万科半年报显示营收下滑，经营转向保守</div></div>
+    <div class="signal"><span class="s-tag">跑路频发</span><div class="s-title">SK海力士关店</div><div class="s-desc">旗舰店关店跑路，实体店信任危机加剧</div></div>
+    <div class="signal"><span class="s-tag">退市潮起</span><div class="s-title">彩电一哥退市</div><div class="s-desc">连亏4年主动退市，传统品牌加速衰亡</div></div>
+    <div class="signal"><span class="s-tag">监管收紧</span><div class="s-title">金税四期补税</div><div class="s-desc">百家上市公司补税77亿，合规成本上升</div></div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Stories</span><h2>今日 12 条要闻</h2></div>
+  <article class="story reveal" id="s01">
+    <div class="story-head">
+      <span class="s-num">01</span>
+      <div>
+        <a class="s-title" href="https://www.cls.cn/detail/2466841" target="_blank" rel="noopener">万科上半年营收701亿 半年报释放出哪些经营新信号？</a>
+        <div class="s-src">财联社热门<span class="sep">·</span><a href="https://www.cls.cn/detail/2466841" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">万科发布半年报，营收701亿，同比下滑，释放经营收缩信号。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">地产巨头都在过冬，商业地产租赁需求可能减弱，店铺房东或面临空置压力。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">如果你是租户，可尝试**谈判租金减免**；若考虑开店，谨慎评估商圈稳定性。</p></div>
+  </article>
+  <article class="story reveal" id="s02">
+    <div class="story-head">
+      <span class="s-num">02</span>
+      <div>
+        <a class="s-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=SK%E6%B5%B7%E5%8A%9B%E5%A3%AB%E6%97%97%E8%88%B0%E5%BA%97%E5%85%B3%E5%BA%97%E8%B7%91%E8%B7%AF&amp;amp;topic_id=28360850" target="_blank" rel="noopener">SK海力士旗舰店关店跑路</a>
+        <div class="s-src">贴吧<span class="sep">·</span><a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=SK%E6%B5%B7%E5%8A%9B%E5%A3%AB%E6%97%97%E8%88%B0%E5%BA%97%E5%85%B3%E5%BA%97%E8%B7%91%E8%B7%AF&amp;amp;topic_id=28360850" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">SK海力士旗舰店关店跑路，消费者维权困难。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">实体店跑路频发，顾客信任度下降，行业信誉受损。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">门店经营要**诚信为本**，可公示经营资质，提供售后保障，建立口碑。</p></div>
+  </article>
+  <article class="story reveal" id="s03">
+    <div class="story-head">
+      <span class="s-num">03</span>
+      <div>
+        <a class="s-title" href="https://www.cls.cn/detail/2466720" target="_blank" rel="noopener">拟主动退市，昔日“彩电一哥”将告别A股！公司已连亏4年</a>
+        <div class="s-src">财联社热门<span class="sep">·</span><a href="https://www.cls.cn/detail/2466720" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">昔日彩电一哥连亏4年，拟主动退市。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">传统家电品牌衰落，消费升级下，缺乏创新的老品牌难以为继。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">若经营传统品类，需**关注产品迭代**，引入智能、环保等新卖点，避免被淘汰。</p></div>
+  </article>
+  <article class="story reveal" id="s04">
+    <div class="story-head">
+      <span class="s-num">04</span>
+      <div>
+        <a class="s-title" href="https://www.thepaper.cn/newsDetail_forward_33958484" target="_blank" rel="noopener">女子追讨13年前2万元开店“保证金”一审败诉，被告称系管理费</a>
+        <div class="s-src">澎湃新闻<span class="sep">·</span><a href="https://www.thepaper.cn/newsDetail_forward_33958484" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">女子追讨13年前2万元开店保证金，一审败诉，法院认定系管理费。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">合同条款需明确，口头约定难获支持，法律风险不容忽视。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">开店签约时，**务必书面化**保证金性质、退还条件，并保留凭证。</p></div>
+  </article>
+  <article class="story reveal" id="s05">
+    <div class="story-head">
+      <span class="s-num">05</span>
+      <div>
+        <a class="s-title" href="https://www.zhihu.com/question/2076237750362005577" target="_blank" rel="noopener">宗馥莉旗下啵啵汽水铺销售遇冷，直播 62 场销售额不足 10 万，为什么会遇冷？其自有品牌前景如何？</a>
+        <div class="s-src">知乎<span class="sep">·</span><a href="https://www.zhihu.com/question/2076237750362005577" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">宗馥莉旗下啵啵汽水铺直播62场销售额不足10万，销售遇冷。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">明星光环难持久，产品力不足，营销过度，消费者不买账。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">自有品牌创业，**回归产品本质**，先打磨口味，再谈营销，避免烧钱无转化。</p></div>
+  </article>
+  <article class="story reveal" id="s06">
+    <div class="story-head">
+      <span class="s-num">06</span>
+      <div>
+        <a class="s-title" href="https://s.weibo.com/weibo?q=%2390%E5%90%8E%E4%BA%BF%E4%B8%87%E5%AF%8C%E7%BF%81%E5%AD%99%E5%AE%87%E6%99%A8%E5%95%86%E4%B8%9A%E7%89%88%E5%9B%BE%23" target="_blank" rel="noopener">90后亿万富翁孙宇晨商业版图</a>
+        <div class="s-src">微博<span class="sep">·</span><a href="https://s.weibo.com/weibo?q=%2390%E5%90%8E%E4%BA%BF%E4%B8%87%E5%AF%8C%E7%BF%81%E5%AD%99%E5%AE%87%E6%99%A8%E5%95%86%E4%B8%9A%E7%89%88%E5%9B%BE%23" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">90后亿万富翁孙宇晨商业版图引关注，涉及多个领域。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">年轻富豪的跨界玩法，但实体店老板需理性看待，专注主业。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">**不盲目跟风跨界**，深耕本业，学习其流量玩法，但控制风险。</p></div>
+  </article>
+  <article class="story reveal" id="s07">
+    <div class="story-head">
+      <span class="s-num">07</span>
+      <div>
+        <a class="s-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E5%A5%A5%E5%88%A9%E9%B8%A1%21KFC%E4%B8%8A%E6%96%B0%E6%9A%97%E9%BB%91%E6%B1%89%E5%A0%A1&amp;amp;topic_id=28360802" target="_blank" rel="noopener">奥利鸡!KFC上新暗黑汉堡</a>
+        <div class="s-src">贴吧<span class="sep">·</span><a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E5%A5%A5%E5%88%A9%E9%B8%A1%21KFC%E4%B8%8A%E6%96%B0%E6%9A%97%E9%BB%91%E6%B1%89%E5%A0%A1&amp;amp;topic_id=28360802" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">KFC上新暗黑汉堡“奥利鸡”，引发网友热议。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">快餐巨头用猎奇口味吸引眼球，制造话题，带动销量。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">餐饮店可**尝试创新单品**，结合热点营销，但需控制试错成本。</p></div>
+  </article>
+  <article class="story reveal" id="s08">
+    <div class="story-head">
+      <span class="s-num">08</span>
+      <div>
+        <a class="s-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E7%BD%91%E5%8F%8B%E5%90%B9%E6%8D%A7%E6%97%A5%E6%9C%AC%E7%94%9F%E9%B8%A1%E8%9B%8B%E6%8B%8C%E9%A5%AD%E7%BF%BB%E8%BD%A6&amp;amp;topic_id=28360750" target="_blank" rel="noopener">网友吹捧日本生鸡蛋拌饭翻车</a>
+        <div class="s-src">贴吧<span class="sep">·</span><a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E7%BD%91%E5%8F%8B%E5%90%B9%E6%8D%A7%E6%97%A5%E6%9C%AC%E7%94%9F%E9%B8%A1%E8%9B%8B%E6%8B%8C%E9%A5%AD%E7%BF%BB%E8%BD%A6&amp;amp;topic_id=28360750" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">网友吹捧日本生鸡蛋拌饭，尝试后翻车，吐槽口感。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">网红美食需理性看待，饮食文化差异，盲目跟风易翻车。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">餐饮老板**不要盲目跟风网红产品**，要结合本地口味改良，保证品质。</p></div>
+  </article>
+  <article class="story reveal" id="s09">
+    <div class="story-head">
+      <span class="s-num">09</span>
+      <div>
+        <a class="s-title" href="https://www.zhihu.com/question/2075992901184480420" target="_blank" rel="noopener">如何看待恒大 1.03 亿债权组合包拍卖以 14 万成交？对购房者、供应链上下游等会产生哪些连锁影响？</a>
+        <div class="s-src">知乎<span class="sep">·</span><a href="https://www.zhihu.com/question/2075992901184480420" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">恒大1.03亿债权组合包拍卖仅以14万成交，价值缩水严重。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">债务危机连锁反应，供应商和购房者面临损失，市场信心受挫。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">供应链上下游企业，**加强应收账款管理**，分散客户，避免依赖单一巨头。</p></div>
+  </article>
+  <article class="story reveal" id="s10">
+    <div class="story-head">
+      <span class="s-num">10</span>
+      <div>
+        <a class="s-title" href="https://www.zhihu.com/question/2076245086363283596" target="_blank" rel="noopener">100 多家上市公司将补缴税款总额达 77 亿，如何看待「金税四期」对企业合规成本的影响？</a>
+        <div class="s-src">知乎<span class="sep">·</span><a href="https://www.zhihu.com/question/2076245086363283596" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">金税四期下，100多家上市公司补缴税款77亿。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">税务监管数字化，企业合规成本上升，以往避税手段失效。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">实体店老板**务必规范税务**，不要虚开发票，合理筹划，避免罚款。</p></div>
+  </article>
+  <article class="story reveal" id="s11">
+    <div class="story-head">
+      <span class="s-num">11</span>
+      <div>
+        <a class="s-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E5%A4%AE%E8%A7%86%E7%82%B9%E5%90%8D%E6%80%92%E6%89%B9%E2%80%9C%E5%A6%88%E8%A7%81%E6%89%93%E2%80%9D%E6%89%8B%E5%8A%9E&amp;amp;topic_id=28360598" target="_blank" rel="noopener">央视点名怒批“妈见打”手办</a>
+        <div class="s-src">贴吧<span class="sep">·</span><a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E5%A4%AE%E8%A7%86%E7%82%B9%E5%90%8D%E6%80%92%E6%89%B9%E2%80%9C%E5%A6%88%E8%A7%81%E6%89%93%E2%80%9D%E6%89%8B%E5%8A%9E&amp;amp;topic_id=28360598" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">央视点名批评“妈见打”手办，涉及低俗内容。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">监管对文创产品内容审查趋严，打擦边球风险大。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">涉及文创零售，**确保产品内容合规**，避免法律风险，注重社会效益。</p></div>
+  </article>
+  <article class="story reveal" id="s12">
+    <div class="story-head">
+      <span class="s-num">12</span>
+      <div>
+        <a class="s-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E7%94%B2%E9%86%9B%E7%99%BD%E8%8F%9C%E6%9B%9D%E5%85%89%2C%E9%9F%A9%E6%B0%91%E4%BC%97%E7%82%B8%E9%94%85&amp;amp;topic_id=28360563" target="_blank" rel="noopener">甲醛白菜曝光,韩民众炸锅</a>
+        <div class="s-src">贴吧<span class="sep">·</span><a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E7%94%B2%E9%86%9B%E7%99%BD%E8%8F%9C%E6%9B%9D%E5%85%89%2C%E9%9F%A9%E6%B0%91%E4%BC%97%E7%82%B8%E9%94%85&amp;amp;topic_id=28360563" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">甲醛白菜曝光，韩国民众反应强烈，食品安全再引关注。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">食品安全问题频发，消费者对食材安全愈发敏感，监管将更严。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">餐饮和生鲜店，**严控进货渠道**，留存检测报告，可公开透明，赢得信任。</p></div>
+  </article>
+  <div class="sec-head reveal"><span class="en">Readings</span><h2>深度阅读</h2></div>
+  <div class="read reveal">
+    <a class="read-item" href="https://www.woshipm.com/marketing/6455238.html" target="_blank" rel="noopener"><span class="r-src">人人都是产品经理</span><span class="r-title">藏在赵一鸣地图里的“下沉市场渗透算法”：不是选址，是截流</span></a>
+    <a class="read-item" href="https://www.tmtpost.com/8119195.html" target="_blank" rel="noopener"><span class="r-src">钛媒体</span><span class="r-title">燃油车4S店倒闭后，销冠们开始重新学卖车</span></a>
+    <a class="read-item" href="https://www.yunyingpai.com/news/1061807.html" target="_blank" rel="noopener"><span class="r-src">运营派</span><span class="r-title">“杀糕局”风靡，陌生人社交打开甜品消费新增长线</span></a>
+  </div>
+  <div class="sec-head reveal"><span class="en">Insight</span><h2>老许研判</h2></div>
+  <div class="insight-block reveal">
+    <h3>核心热点态势</h3>
+<p>今日热点呈圈层热点特征，无全网霸屏级话题，但实体商业相关的经营困境信号密集。</p>
+<p style="margin-top:12px">【宏观主线】</p>
+<p>核心关键词是「退潮」：从头部企业到个体门店，从资本扩张到消费预期，均在经历收缩与清算。万科半年报释放转型信号，昔日彩电一哥连亏四年告别A股，恒大1.03亿债权14万甩卖，均指向存量时代资产重估逻辑。</p>
+<p style="margin-top:12px">【微观领域】</p>
+<p style="margin-top:12px">1. 开店潮遭遇冷：宗馥莉旗下啵啵汽水铺直播遇冷、SK海力士旗舰店关店，显示明星IP与品牌光环对实体店加持失效。</p>
+<p style="margin-top:12px">2. 监管成本上升：金税四期补税风波、央视点名手办乱象，提示合规门槛抬高。</p>
+<p style="margin-top:12px">3. 消费端理性化：日本生鸡蛋拌饭翻车，反映消费者祛魅，流量逻辑让位于产品力。对实体商家的启示：靠概念和流量硬撑的时代已过，回归基本功与现金流才是活路。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>舆论风向争议</h3>
+<p style="margin-top:12px">【情绪光谱】</p>
+<p>主流声音是对「大企业光环祛魅」的围观式吃瓜，潜流则是中小商家对「合规成本与生存压力」的深层焦虑。</p>
+<p style="margin-top:12px">【核心矛盾】</p>
+<p>1. 明星创业（宗馥莉）流量巨大但销量惨淡，暴露「名气≠生意」的认知冲突。</p>
+<p>2. 恒大债权14万成交与金税四期补税77亿并现，呈现「资产处置的廉价」与「经营合规的昂贵」的鲜明反差。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>异动与弱信号</h3>
+<p style="margin-top:12px">【跨平台共振】</p>
+<p>宗馥莉啵啵汽水铺话题同时在知乎热榜和贴吧区域流动，虽未引发全域热搜，但作为「二代创业」样本，已在垂直圈层发酵，预计后续有深度复盘内容产出。</p>
+<p style="margin-top:12px">【轨迹突变】</p>
+<p>恒大债权拍卖话题在知乎由专业法律讨论向「普通购房者命运」的共情方向偏移，热度有回温迹象；「央视点名妈见打手办」在贴吧快速上榜，可能引发针对二次元周边实体店的监管收紧讨论。暂无显著异常。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>研判策略建议</h3>
+<p style="margin-top:12px">1. 实体商家：立刻自查税务合规。金税四期是大趋势，「私卡收款」风险极高。建议花小钱（500-2000元）咨询本地靠谱代账公司做一次合规体检，这是成本最低的避坑动作。</p>
+<p style="margin-top:12px">2. 创业者：不要再迷信「明星开店」的流量魔力。啵啵汽水铺的案例证明，没有产品力支撑的流量是负资产。若想低成本试水餐饮，建议先在夜市或美食节摆摊测试SKU，成本控制在5000元以内，验证复购后再考虑开店。</p>
+<p style="margin-top:12px">3. 所有实体老板：关注「日本生鸡蛋拌饭翻车」背后的消费心理。消费者对网红食材的信任度在降低，主打「新鲜、安全、可追溯」的本地供应链反而成为差异化卖点。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>独立源点速览</h3>
+<p>[知乎]:</p>
+<p>热榜呈现「经营困境+社会焦虑」双主线。宗馥莉汽水铺遇冷、恒大债权贱卖、金税四期补税构成实体商业压力三重奏；帮扶老人退款、办事大厅舆情则反映社会信任成本高企。整体讨论偏向理性分析但情绪底色焦虑，对中小商家的镜鉴意义强于直接指导。</p>
+<p>[华尔街见闻]:</p>
+<p>核心聚焦英伟达财报与AI资本开支，市场情绪亢奋。但对实体商业的启示在于：AI投入的终端成本终将传导至消费级产品与服务。苹果折叠iPhone发布是少数与线下门店直接相关的利好，可能催生维修与二手市场新机会。整体与实体经营关联度低，信号价值大于操作价值。</p>
+  </div>
+  <footer class="footer reveal">
+    <div class="f-main">老许聊实体</div>
+    <div class="f-copy">每天 5 分钟，看透实体生意　·　第 63 期 · 2026年08月28日　·　共 12 条 / 253 条</div>
+  </footer>
+</div>
+
+<script>
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+<script src="../../donate.js" data-donate-img="../../donate.png"></script>
+</body>
+</html>
