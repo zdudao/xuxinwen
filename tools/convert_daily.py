@@ -242,9 +242,10 @@ DAILY_CSS = """
     --sans:'Inter','Noto Sans SC',-apple-system,'Microsoft YaHei',sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
   body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   a{color:inherit;text-decoration:none}
+  img,svg,video{max-width:100%;height:auto}
   ::selection{background:var(--accent);color:#fff}
   .container{max-width:780px;margin:0 auto;padding:0 24px 96px}
 
@@ -324,13 +325,48 @@ DAILY_CSS = """
 
   .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in{opacity:1;transform:none}
-  @media (max-width:560px){
-    .container{padding:0 18px 72px}
-    .signals{grid-template-columns:1fr}
-    .field{grid-template-columns:1fr;gap:2px}
-    .story-head{flex-direction:column;gap:8px}
-    .lead{padding-left:18px}
-    .read-item{grid-template-columns:1fr;gap:4px}
+  /* ── 自适应：同一页面按屏幕宽度自动重排（桌面 / 平板 / 手机） ── */
+  @media (max-width:900px){
+    .container{padding:0 22px 84px}
+    .masthead{padding:44px 0 26px}
+    .sec-head{margin:40px 0 18px}
+    .lead{padding:26px 0 26px 22px}
+    .field{grid-template-columns:76px 1fr;gap:14px}
+    .read-item{grid-template-columns:82px 1fr;gap:14px}
+  }
+  @media (max-width:600px){
+    .container{padding:0 18px 64px}
+    body{line-height:1.75}
+    .masthead{padding:32px 0 20px}
+    .kicker{letter-spacing:.3em;padding:12px 0 10px}
+    .edition{padding:12px 0 14px}
+    .edition .prev{display:block;margin:6px 0 0}
+    .lead{padding:22px 0 22px 16px;margin:6px 0 4px;border-left-width:2px}
+    .lead-label{letter-spacing:.24em;margin-bottom:10px}
+    .lead-title{font-size:clamp(20px,5.8vw,25px)}
+    .sec-head{margin:34px 0 14px;gap:10px}
+    .sec-head .en{letter-spacing:.28em}
+    .sec-head h2{font-size:19px}
+    .signals{grid-template-columns:1fr;gap:10px}
+    .signal{padding:16px 16px}
+    .action-card,.insight-block{padding:18px 17px;border-radius:3px}
+    .action-card .ac-seg p,.insight-block p{font-size:13.5px;line-height:1.72}
+    .story{padding:22px 0}
+    .story-head{flex-direction:column;gap:6px;margin-bottom:14px}
+    .story .s-title{font-size:17.5px}
+    .field{grid-template-columns:1fr;gap:2px;padding:10px 0}
+    .field .f-lbl{padding-top:0}
+    .field .f-lbl .f-en{display:inline;margin:0 0 0 6px}
+    .field .f-body{font-size:13.5px;line-height:1.75}
+    .field.act .f-body{padding-left:12px}
+    .read-item{grid-template-columns:1fr;gap:4px;padding:13px 2px}
+    .read-item:hover{padding-left:2px}
+    .footer{margin-top:52px;padding-top:26px}
+  }
+  @media (max-width:380px){
+    .container{padding:0 14px 56px}
+    .wordmark{letter-spacing:.02em}
+    .story .s-title{font-size:16.5px}
   }
   @media (prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
 """
@@ -504,12 +540,13 @@ def render_daily(data: dict, ai: dict, period: int) -> str:
 MONTHLY_CSS = """
   /* ── 特稿版 · 杂志长读（与日报同一视觉语言：纸面 + 印章红 + 衬线） ── */
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
   :root{--bg:#FBF7F0;--ink:#201B16;--muted:#776B5E;--faint:#A99C8B;
     --hair:rgba(32,27,22,.15);--accent:#A8321F;--wash:rgba(168,50,31,.06);--card:#FFFFFF;--w:720px;
     --serif:'Noto Serif SC','Songti SC',serif;--sans:'Inter','Noto Sans SC',-apple-system,'Microsoft YaHei',sans-serif}
   body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:2.0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   a{color:inherit;text-decoration:none}
+  img,svg,video{max-width:100%;height:auto}
   ::selection{background:var(--accent);color:#fff}
   .container{max-width:var(--w);margin:0 auto;padding:0 30px 110px}
   .rule{height:1px;background:var(--hair)}
@@ -566,12 +603,62 @@ MONTHLY_CSS = """
   .ix .ix-date{color:var(--accent);font-variant-numeric:tabular-nums;font-weight:600;flex-shrink:0}
   .ix:hover{color:var(--ink)}
   .footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--hair);text-align:center;font-size:12px;color:var(--faint);letter-spacing:.08em}
-  @media (max-width:560px){
+  /* ── 自适应：同一页面按屏幕宽度自动重排（桌面 / 平板 / 手机） ── */
+  @media (max-width:900px){
+    .container{padding:0 26px 96px}
+    .masthead{padding:56px 0 26px}
+    .sec-head{margin:52px 0 20px}
+    .lead{padding:30px 0 26px 24px}
+    .lead-body{font-size:16px;line-height:1.95}
+    .t-field{grid-template-columns:68px 1fr;gap:14px}
+  }
+  @media (max-width:600px){
     .container{padding:0 18px 72px}
-    .t-field{grid-template-columns:1fr;gap:2px}
-    .lead{padding-left:18px}
-    .pull{font-size:17px;padding-left:18px}
-    .masthead{padding-top:36px}
+    body{line-height:1.85}
+    .masthead{padding:38px 0 22px}
+    .kicker{letter-spacing:.3em;padding:12px 0 10px}
+    .edition{letter-spacing:.1em}
+    .nav-chips{gap:7px;margin:18px 0 2px}
+    .chip{font-size:11.5px;padding:5px 11px}
+    .lead{padding:24px 0 22px 16px;margin:6px 0;border-left-width:2px}
+    .lead-label{letter-spacing:.24em;margin-bottom:10px}
+    .lead-title{font-size:clamp(20px,5.8vw,25px);line-height:1.34}
+    .lead-body{font-size:15.5px;line-height:1.85}
+    .lead-body::first-letter{font-size:46px;padding:6px 10px 0 0}
+    .sec-head{margin:42px 0 16px;gap:10px}
+    .sec-head .en{letter-spacing:.28em}
+    .sec-head h2{font-size:21px}
+    .trend{padding:26px 0}
+    .t-head{gap:12px;margin-bottom:11px}
+    .t-title{font-size:20px;line-height:1.42}
+    .t-desc{font-size:15px;line-height:1.8;margin-bottom:10px}
+    .t-field{grid-template-columns:1fr;gap:2px;padding:8px 0 8px 2px}
+    .f-lbl{letter-spacing:.18em;padding-top:0}
+    .f-body{font-size:14.5px;line-height:1.85}
+    .t-field.act .f-body{padding-left:12px}
+    .topic{grid-template-columns:26px 1fr;gap:10px;padding:15px 0}
+    .tp-title{font-size:17px;line-height:1.45}
+    .tp-judge{font-size:14px;line-height:1.8}
+    .tp-act{font-size:12.5px;line-height:1.7;padding-left:10px}
+    .pull{font-size:18px;line-height:1.55;padding:26px 0 26px 16px;margin:20px 0 8px;border-left-width:2px}
+    .chain{padding:16px;border-radius:3px}
+    .chain h4{font-size:15px}
+    .chain p{font-size:13.5px;line-height:1.8}
+    .fc-call{padding:16px;font-size:15px;line-height:1.85}
+    .fc-watch li{padding:10px 0 10px 18px;font-size:13.5px;line-height:1.75}
+    .ins{padding:17px;border-radius:3px}
+    .ins p{font-size:14px;line-height:1.8}
+    .ins .i-label{letter-spacing:.2em;margin-bottom:8px}
+    .index{gap:4px 12px}
+    .ix{max-width:100%;font-size:13px;padding:7px 0}
+    .footer{margin-top:46px;padding-top:22px}
+  }
+  @media (max-width:380px){
+    .container{padding:0 14px 60px}
+    .wordmark{letter-spacing:.02em}
+    .lead-body::first-letter{font-size:40px;padding:5px 8px 0 0}
+    .topic{grid-template-columns:22px 1fr;gap:8px}
+    .t-num,.tp-num{font-size:12px}
   }
 """
 
