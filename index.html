@@ -72,6 +72,17 @@
     border-bottom:1px solid var(--accent);padding-bottom:2px;letter-spacing:.04em}
   .summary-link:hover{opacity:.7}
 
+  /* 归档月份折叠：当月(首组)展开，历史月份默认折叠 */
+  .month-sep{cursor:pointer;user-select:none}
+  .month-sep span::after{content:"▾";font-style:normal;font-size:11px;color:var(--muted);
+    margin-left:10px;display:inline-block;transition:transform .25s ease}
+  .month-sep.collapsed span::after{transform:rotate(-90deg)}
+  .list{overflow:hidden;transition:max-height .38s ease,opacity .25s ease}
+  .list.collapsed{max-height:0;opacity:0}
+  /* 仅首个分组(当月)展开，其余历史月份默认折叠，避免加载闪烁；
+     用 .list ~ .list 而非 :first-of-type —— 后者按「元素类型」判断，会被归档区前的 sec-label 等 div 干扰而误伤当月 */
+  .list ~ .list{max-height:0;opacity:0}
+
   /* ===== 关注条（首页顶部，可点击跳转） ===== */
   .follow-bar{display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap;
     margin:26px 0 4px;padding:14px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
@@ -140,7 +151,63 @@
     <span class="lead-cta">阅读今日日报 →</span>
   </a>
 
-  <div class="sec-label reveal">往期归档 · ARCHIVE</div>
+  <div class="sec-label reveal">往期归档 · ARCHIVE</div><div class="month-sep"><span>2026年09月</span></div><div class="list">
+        <a class="item" href="html/2026-09-11/20-25.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.09.11</span>
+            <span class="item-title">金店失联,火锅加盟血亏,阴阳菜单罚20万,短剧超爱优腾,客厅消失</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-09-10/20-27.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.09.10</span>
+            <span class="item-title">量贩零食整改，直播挤爆，用工双标，服贸会风向</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-09-09/20-33.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.09.09</span>
+            <span class="item-title">lululemon遭弃、量贩零食整改、神药直播被起底，新能源车遇冷，实体店该何去何从？</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-09-08/20-21.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.09.08</span>
+            <span class="item-title">茅台涨价、太子奶创始人离世、燃油车销量下滑，实体店老板该关注哪些信号？</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-09-07/21-46.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.09.07</span>
+            <span class="item-title">民宿空置、量贩零食被查、智能眼镜退货高，实体店老板如何避坑？</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-09-06/19-48.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.09.06</span>
+            <span class="item-title">卤味关店、民宿空置、零食严查，实体店老板必看的三大信号与应对策略</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-09-05/19-27.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.09.05</span>
+            <span class="item-title">客厅失意义、卤味关店、仅退款停业、社保纠纷、染色莴笋，实体店警钟</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-09-04/20-20.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.09.04</span>
+            <span class="item-title">强二线房价腰斩，女装店遭仅退款停业，香港大药房借尸还魂，德克圣堂代排百元，餐饮舆情频发</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-09-03/20-20.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.09.03</span>
+            <span class="item-title">海景房、费大厨出海、淘宝宕机、火灾频发，实体店老板今日必读的5个信号</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-09-02/20-21.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.09.02</span>
+            <span class="item-title">沪八条激活楼市，皮鞋遇冷、陪拍兴起，江西小炒扩张，香港大药房遭净网</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="item" href="html/2026-09-01/20-51.html" target="_blank" rel="noopener">
+            <span class="item-date">2026.09.01</span>
+            <span class="item-title">手机涨价、胖东来破15亿、沃尔玛30年、曹县汉服过半、开海仪式热</span>
+            <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+</div>
   <div class="month-sep"><span>2026年08月</span></div><div class="list">
         <a class="item" href="html/2026-08-31/23-36.html" target="_blank" rel="noopener">
             <span class="item-date">2026.08.31</span>
@@ -266,7 +333,9 @@
             <span class="item-date">2026.08.05</span>
             <span class="item-title">存量房时代,维密中国降价,盒马关大店,申通被查,餐饮大师取消</span>
             <span class="item-arrow" aria-hidden="true">→</span>
-        </a></div><div class="month-sep"><span>2026年06月</span></div><div class="list">
+        </a></div>
+        <a class="summary-link" href="html/2026-08-summary.html" target="_blank" rel="noopener">8月新闻汇总与分析　汇总 →</a>
+<div class="month-sep"><span>2026年06月</span></div><div class="list">
         <a class="item" href="html/2026-06-08/23-08.html" target="_blank" rel="noopener">
             <span class="item-date">2026.06.08</span>
             <span class="item-title">胖东来山姆逐鹿中原,金价下跌金店挤爆,全球股市震荡</span>
@@ -481,6 +550,26 @@
       if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok).catch(ok);}else{ok();}
     });
   });
+
+  /* 归档月份折叠：首组(当月)展开，其余历史月份默认折叠，点击月份分隔条切换 */
+  (function(){
+    const seps=document.querySelectorAll('.month-sep');
+    seps.forEach((ms,i)=>{
+      const list=ms.nextElementSibling;
+      if(!list||!list.classList.contains('list')) return;
+      const collapsed=(i!==0); // 第一个为当月，保持展开
+      if(collapsed){
+        ms.classList.add('collapsed');
+        list.classList.add('collapsed');
+        list.style.maxHeight='0px';
+      }
+      ms.addEventListener('click',()=>{
+        const c=list.classList.toggle('collapsed');
+        ms.classList.toggle('collapsed',c);
+        list.style.maxHeight=c?'0px':(list.scrollHeight+'px');
+      });
+    });
+  })();
 </script>
 <script src="donate.js" data-donate-img="donate.png"></script>
 </body>

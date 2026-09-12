@@ -148,35 +148,73 @@ AI_SYSTEM_PROMPT = """你是「老许聊实体」的主笔老许，一位深耕�
 - 不要编造新闻里没有的数字与事实"""
 
 
-def call_ai(api_key: str, model: str, prompt: str, max_tokens: int = 6000) -> dict:
-    """调用 Deepseek 生成结构化日报内容（使用标准库 urllib，避免外部依赖）"""
+def _extract_json(text: str) -> dict:
+    """尽力从模型输出中解析出 JSON 对象；兼容 ```json 围栏 与 尾逗号。"""
+    if not text:
+        return {}
+    t = text.strip()
+    # 1) 去除 markdown 代码围栏
+    if t.startswith("```"):
+        t = re.sub(r"^```[a-zA-Z]*\s*", "", t)
+        t = re.sub(r"\s*```$", "", t).strip()
+    # 2) 截取最外层 {...}
+    m = re.search(r"\{.*\}", t, re.S)
+    cand = m.group(0) if m else t
+    try:
+        return json.loads(cand)
+    except Exception:
+        pass
+    # 3) 修复尾逗号后重试
+    repaired = re.sub(r",\s*([\]}])", r"\1", cand)
+    try:
+        return json.loads(repaired)
+    except Exception:
+        return {}
+
+
+def call_ai(api_key: str, model: str, prompt: str, max_tokens: int = 6000,
+            system_prompt: str = None, temperature: float = 0.7,
+            retries: int = 2) -> dict:
+    """调用 Deepseek 生成结构化内容（标准库 urllib，无外部依赖）。
+
+    - system_prompt: 不传则用默认 AI_SYSTEM_PROMPT（日报）；月总结传 MONTHLY_SYSTEM_PROMPT
+    - 失败时自动降级温度重试，提升 JSON 稳定性
+    """
     if not api_key:
         return {}
+    sys_prompt = system_prompt if system_prompt else AI_SYSTEM_PROMPT
     url = "https://api.deepseek.com/chat/completions"
-    payload = json.dumps({
-        "model": model,
-        "messages": [
-            {"role": "system", "content": AI_SYSTEM_PROMPT},
-            {"role": "user", "content": prompt},
-        ],
-        "temperature": 0.7,
-        "max_tokens": max_tokens,
-        "response_format": {"type": "json_object"},
-    }).encode("utf-8")
-    headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json",
-    }
-    try:
-        req = urllib.request.Request(url, data=payload, headers=headers, method="POST")
-        with urllib.request.urlopen(req, timeout=120) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-        content = data["choices"][0]["message"]["content"]
-        parsed = json.loads(content)
-        return parsed if isinstance(parsed, dict) else {}
-    except Exception as e:
-        print(f"[warn] AI 调用失败: {e}", file=sys.stderr)
-        return {}
+    last_err = None
+    for attempt in range(retries + 1):
+        try:
+            t = temperature if attempt == 0 else max(0.1, temperature - 0.2)
+            payload = json.dumps({
+                "model": model,
+                "messages": [
+                    {"role": "system", "content": sys_prompt},
+                    {"role": "user", "content": prompt},
+                ],
+                "temperature": t,
+                "max_tokens": max_tokens,
+                "response_format": {"type": "json_object"},
+            }).encode("utf-8")
+            headers = {
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json",
+            }
+            req = urllib.request.Request(url, data=payload, headers=headers, method="POST")
+            with urllib.request.urlopen(req, timeout=120) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+            content = data["choices"][0]["message"]["content"]
+            parsed = _extract_json(content)
+            if parsed:
+                return parsed
+            last_err = "解析后为空或非 JSON"
+        except Exception as e:
+            last_err = str(e)
+            print(f"[warn] AI 调用第 {attempt + 1} 次失败: {e}", file=sys.stderr)
+    print(f"[warn] AI 调用最终失败（共 {retries + 1} 次）: {last_err}", file=sys.stderr)
+    return {}
 
 
 def build_ai_prompt(data: dict) -> str:
@@ -460,6 +498,245 @@ def render_daily(data: dict, ai: dict, period: int) -> str:
 
 
 # ══════════════════════════════════════════════════════════════
+# 3.5 月度总结生成（沿用 4 月新闻汇总 · 渐变卡片风）
+# ══════════════════════════════════════════════════════════════
+
+MONTHLY_CSS = """
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    margin: 0; padding: 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+  }
+  .container { max-width: 1000px; margin: 0 auto; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+  .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 40px; text-align: center; }
+  .header h1 { font-size: 32px; margin: 0 0 8px 0; }
+  .header .subtitle { font-size: 16px; opacity: 0.8; margin-top: 8px; }
+  .header .stats { display: flex; justify-content: center; gap: 40px; margin-top: 24px; }
+  .stat-item { text-align: center; }
+  .stat-value { font-size: 36px; font-weight: 700; color: #fbbf24; }
+  .stat-label { font-size: 14px; opacity: 0.8; margin-top: 4px; }
+  .content { padding: 40px; }
+  .section { margin-bottom: 40px; }
+  .section-title { font-size: 20px; font-weight: 600; color: #1a1a2e; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #e5e7eb; position: relative; }
+  .section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 60px; height: 2px; background: linear-gradient(90deg, #667eea, #764ba2); }
+  .summary-card { background: linear-gradient(135deg, #f8fafc, #f1f5f9); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+  .summary-card h3 { color: #1a1a2e; margin: 0 0 16px 0; font-size: 18px; }
+  .summary-card p { color: #475569; line-height: 1.7; margin: 0; font-size: 15px; }
+  .trend-list { list-style: none; padding: 0; margin: 0; }
+  .trend-item { display: flex; align-items: flex-start; padding: 16px; border-radius: 10px; margin-bottom: 12px; background: #f8fafc; transition: all 0.3s ease; }
+  .trend-item:hover { background: #e2e8f0; transform: translateX(8px); }
+  .trend-number { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; flex-shrink: 0; margin-right: 16px; }
+  .trend-content { flex: 1; }
+  .trend-title { font-weight: 600; color: #1a1a2e; margin-bottom: 4px; }
+  .trend-desc { font-size: 14px; color: #64748b; line-height: 1.5; }
+  .news-calendar { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+  .calendar-item { background: #f8fafc; border-radius: 10px; padding: 16px; transition: all 0.3s ease; }
+  .calendar-item:hover { background: #e2e8f0; transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+  .calendar-date { font-size: 20px; font-weight: 700; color: #667eea; margin-bottom: 8px; }
+  .calendar-title { font-size: 14px; color: #334155; line-height: 1.4; }
+  .calendar-link { color: inherit; text-decoration: none; }
+  .highlight-box { background: linear-gradient(135deg, #fef3c7, #fde68a); border-left: 4px solid #f59e0b; padding: 20px; border-radius: 0 10px 10px 0; margin-bottom: 24px; }
+  .highlight-box h4 { color: #92400e; margin: 0 0 8px 0; font-size: 16px; }
+  .highlight-box p { color: #78350f; margin: 0; font-size: 14px; line-height: 1.6; }
+  .footer { background: #f8fafc; padding: 24px; text-align: center; border-top: 1px solid #e5e7eb; }
+  .footer p { color: #64748b; margin: 0; font-size: 14px; }
+  @media (max-width: 768px) {
+    .header .stats { gap: 20px; }
+    .stat-value { font-size: 28px; }
+    .content { padding: 24px; }
+    .news-calendar { grid-template-columns: 1fr; }
+  }
+"""
+
+MONTHLY_SYSTEM_PROMPT = """你是「老许聊实体」的主笔老许，一位深耕实体商业（餐饮/零售/选址/政策）的行业分析师。
+你正在为读者撰写一份「月度实体商业新闻总结」。读者是实体店老板与创业者，他们需要新闻背后的判断与可落地的行动。
+
+请根据提供的「当月每日头条标题」清单，输出严格的 JSON（不要 markdown 代码块），结构如下：
+{
+  "trends": [
+    {"title": "趋势标题(12字内)", "desc": "一句话趋势描述(50字内)"}
+    × 3 条（月度核心趋势）
+  ],
+  "topics": [
+    {"title": "话题标题(15字内)", "desc": "一句话描述(40字内)"}
+    × 10 条（当月十大热门话题，按热度排序）
+  ],
+  "insights": {
+    "opportunity": "机会点(80字内，给实体老板可抓的机会)",
+    "risk": "风险提示(80字内，需警惕的风险)",
+    "action": "行动建议(80字内，具体可落地)"
+  }
+}
+
+要求：
+- 语言干练、口语化、有老许自己的判断力，不说正确的废话
+- 趋势/话题/洞察必须忠于当月头条，不编造新闻里没有的事实与数字
+- 聚焦实体商业视角（餐饮/零售/选址/政策/消费），不要泛泛而谈"""
+
+
+def is_month_end(date_str: str) -> bool:
+    """判断给定日期是否为当月最后一天"""
+    d = datetime.date.fromisoformat(date_str)
+    nd = d + datetime.timedelta(days=1)
+    return nd.month != d.month
+
+
+def collect_month_dailies(month: str, output_dir: str) -> list:
+    """收集某月所有日报的日期与头条标题，返回 [{date, title, rel}]"""
+    from pathlib import Path
+    base = Path(output_dir) / "html"
+    items = []
+    for day_dir in sorted(base.glob(f"{month}-*")):
+        if not day_dir.is_dir():
+            continue
+        for html_file in sorted(day_dir.glob("*.html")):
+            raw = html_file.read_text(encoding="utf-8", errors="ignore")
+            m = re.search(r'<div class="lead-title">([^<]*)</div>', raw)
+            title = m.group(1).strip() if (m and m.group(1).strip()) else ""
+            # 早期模板的 lead-title 可能缺失或是站名（如「老许聊实体 - 2026-08-05商业资讯」），尝试回退正文真实标题
+            suspicious = (not title) or ("老许聊实体" in title) or ("商业资讯" in title)
+            if suspicious:
+                st = re.search(r'class="s-title"[^>]*>([^<]+)</a>', raw) or re.search(r'<div class="s-title">([^<]+)</div>', raw)
+                if st:
+                    cand = st.group(1).strip()
+                    if "老许聊实体" not in cand and "商业资讯" not in cand:
+                        title = cand
+            if (not title) or ("老许聊实体" in title) or ("商业资讯" in title):
+                t = re.search(r'<title>([^<]*)</title>', raw)
+                if t:
+                    title = t.group(1).strip().replace("老许聊实体 - ", "").replace("老许聊实体 · ", "")
+            if not title:
+                title = html_file.stem
+            dd = day_dir.name.split("-")[2]
+            items.append({
+                "date": f"{month.split('-')[1]}-{dd}",
+                "title": title,
+                "rel": f"{day_dir.name}/{html_file.name}",
+            })
+    return items
+
+
+def build_monthly_prompt(month: str, items: list) -> str:
+    lines = [f"月份：{month.replace('-', '年')}月（共 {len(items)} 期日报）\n"]
+    lines.append("【当月每日头条标题】")
+    for it in items:
+        lines.append(f"{it['date']}：{it['title']}")
+    lines.append("\n请按 system 要求输出 JSON（trends 3 条、topics 10 条、insights 含 opportunity/risk/action）。")
+    return "\n".join(lines)
+
+
+def render_monthly_summary(month: str, items: list, ai: dict) -> str:
+    ym = month.split("-")
+    cn_month = f"{ym[0]}年{int(ym[1])}月"
+    trends = ai.get("trends", []) or []
+    topics = ai.get("topics", []) or []
+    insights = ai.get("insights", {}) or {}
+    has_ai = bool(ai)
+    def _is_real(t):
+        return bool(t) and "老许聊实体" not in t and "商业资讯" not in t and len(t) >= 8
+    real_items = [it for it in items if _is_real(it["title"])]
+    if not trends:
+        src = real_items[:3] if real_items else items[:3]
+        trends = [{"title": it["title"], "desc": "（AI 深度趋势分析待生成，配置 key 后重跑）"} for it in src]
+    if not topics:
+        src = real_items[:10] if real_items else items[:10]
+        topics = [{"title": it["title"], "desc": "（AI 话题提炼待生成，配置 key 后重跑）"} for it in src]
+    ai_note = "" if has_ai else '<p style="color:#92400e;margin-top:8px">※ 本页「核心趋势 / 热门话题」暂由当月头条标题自动聚合呈现；配置 Deepseek key 后重跑即为 AI 深度分析版。</p>'
+
+    stats = [
+        ("新闻天数", str(len(items))),
+        ("热点新闻", f"{len(items) * 8}+" if items else "—"),
+        ("核心主题", str(max(len(topics), 3))),
+        ("阅读人次", "持续更新"),
+    ]
+    trends_html = "\n".join(
+        f'      <div class="summary-card"><h3>{esc(t.get("title", ""))}</h3><p>{esc(t.get("desc", ""))}</p></div>'
+        for t in trends[:3]
+    )
+    topics_html = "\n".join(
+        f'        <li class="trend-item"><div class="trend-number">{i + 1}</div><div class="trend-content"><div class="trend-title">{esc(tp.get("title", ""))}</div><div class="trend-desc">{esc(tp.get("desc", ""))}</div></div></li>'
+        for i, tp in enumerate(topics[:10])
+    )
+    insights_html = f"""
+        <div class="highlight-box"><h4>🎯 机会点</h4><p>{esc(insights.get('opportunity', '（AI 深度分析待生成）'))}</p></div>
+        <div class="highlight-box"><h4>⚠️ 风险提示</h4><p>{esc(insights.get('risk', '（AI 深度分析待生成）'))}</p></div>
+        <div class="highlight-box"><h4>📋 行动建议</h4><p>{esc(insights.get('action', '（AI 深度分析待生成）'))}</p></div>"""
+    calendar_html = "\n".join(
+        f'          <a href="{esc(it["rel"])}" class="calendar-link"><div class="calendar-item"><div class="calendar-date">{esc(it["date"])}</div><div class="calendar-title">{esc(it["title"])}</div></div></a>'
+        for it in items
+    )
+    stats_html = "\n".join(
+        f'          <div class="stat-item"><div class="stat-value">{esc(s[1])}</div><div class="stat-label">{esc(s[0])}</div></div>'
+        for s in stats
+    )
+    return f"""<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老许聊实体 - {cn_month}新闻汇总</title>
+<style>{MONTHLY_CSS}</style>
+<link rel="stylesheet" href="../donate.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📊 {cn_month}新闻汇总</h1>
+      <div class="subtitle">老许聊实体 - 月度商业资讯总结与分析</div>
+      <div class="stats">{stats_html}</div>
+    </div>
+    <div class="content">
+      <div class="section">
+        <h2 class="section-title">📈 月度核心趋势</h2>
+        {trends_html}
+        {ai_note}
+      </div>
+      <div class="section">
+        <h2 class="section-title">🔥 十大热门话题</h2>
+        <ul class="trend-list">{topics_html}</ul>
+      </div>
+      <div class="section">
+        <h2 class="section-title">💡 行业洞察与建议</h2>
+        {insights_html}
+      </div>
+      <div class="section">
+        <h2 class="section-title">📅 每日新闻速览</h2>
+        <div class="news-calendar">{calendar_html}</div>
+      </div>
+    </div>
+    <div class="footer"><p>老许聊实体 · 每月底自动生成 · 数据来源：每日实体生意日报</p></div>
+  </div>
+</body>
+</html>
+"""
+
+
+def generate_monthly_summary(month: str, output_dir: str, api_key: str, model: str) -> str:
+    """生成某月月度总结页面，返回输出文件路径"""
+    from pathlib import Path
+    items = collect_month_dailies(month, output_dir)
+    if not items:
+        print(f"[skip] 未找到 {month} 的日报，跳过月总结", file=sys.stderr)
+        return ""
+    ai = {}
+    if api_key:
+        prompt = build_monthly_prompt(month, items)
+        ai = call_ai(api_key, model, prompt, max_tokens=4000, system_prompt=MONTHLY_SYSTEM_PROMPT)
+        if ai:
+            print(f"[ok] AI 月度分析完成: 趋势{len(ai.get('trends', []))} 话题{len(ai.get('topics', []))}")
+        else:
+            print("[warn] AI 月度分析失败，降级为头条聚合", file=sys.stderr)
+    else:
+        print("[warn] 无 AI key，月总结降级为头条聚合", file=sys.stderr)
+    html = render_monthly_summary(month, items, ai)
+    out_path = Path(output_dir) / "html" / f"{month}-summary.html"
+    out_path.write_text(html, encoding="utf-8")
+    print(f"[ok] 月总结已生成: {out_path}（{len(items)} 期）")
+    return str(out_path)
+
+
 # 4. 更新首页 index.html
 # ══════════════════════════════════════════════════════════════
 
@@ -488,7 +765,10 @@ def update_index(index_path: str, data: dict, ai: dict, period: int, daily_rel: 
     if lead_pattern.search(content):
         content = lead_pattern.sub(new_lead, content, count=1)
 
-    # 4.2 归档列表：对应月份分组顶部插入今日条目（幂等：按日期判断）
+    # 4.2 归档列表：对应月份分组插入今日条目（幂等：按日期判断）
+    #     - 月份分组已存在 → 在该组顶部插入
+    #     - 月份分组不存在（每月首日）→ 自动新建该月份分隔组（修复：跨月不归档的 bug）
+    #     注：首页曾被页面编辑器注入 data-page-node-id 等属性，正则须容忍此类属性与换行差异
     month_key = f"{d[0]}年{d[1]}月"
     item_date_full = f"{d[0]}.{d[1]}.{d[2]}"
     new_item = (f'        <a class="item" href="{daily_rel}" target="_blank" rel="noopener">\n'
@@ -497,11 +777,20 @@ def update_index(index_path: str, data: dict, ai: dict, period: int, daily_rel: 
                 f'            <span class="item-arrow" aria-hidden="true">→</span>\n'
                 f'        </a>\n')
     month_pattern = re.compile(
-        r'(<div class="month-sep"><span>' + re.escape(month_key) + r'</span></div><div class="list">\n)')
+        r'<div class="month-sep"[^>]*><span[^>]*>' + re.escape(month_key) + r'</span></div><div class="list"[^>]*>')
     if month_pattern.search(content):
         # 幂等：该日期条目已存在则不重复插入
         if f'<span class="item-date">{item_date_full}</span>' not in content:
-            content = month_pattern.sub(r"\1" + new_item, content, count=1)
+            content = month_pattern.sub(lambda m: m.group(0) + "\n" + new_item, content, count=1)
+    else:
+        # 新建月份分组：插在「往期归档」标签之后、现有第一个月份分组之前
+        new_block = (f'<div class="month-sep"><span>{month_key}</span></div>'
+                     f'<div class="list">\n{new_item}</div>')
+        sec = re.search(r'<div class="sec-label[^>]*>往期归档[^\n]*</div>', content)
+        if sec:
+            content = content[:sec.end()] + new_block + content[sec.end():]
+        elif '<div class="archive' in content:
+            content = content.replace('<div class="archive', new_block + '<div class="archive', 1)
 
     # 4.3 期数 + 刊头日期
     content = re.sub(r'第 \d+ 期', f'第 {period} 期', content, count=2)
@@ -516,6 +805,52 @@ def update_index(index_path: str, data: dict, ai: dict, period: int, daily_rel: 
         f.write(content)
     print(f"[ok] 首页已更新: {index_path}")
 
+    # 4.4 注入月度总结链接（幂等：已存在则跳过；每月底生成的月总结自动出现在此）
+    inject_summary_links(index_path)
+
+
+def inject_summary_links(index_path: str) -> None:
+    """把已生成的月度总结页（html/YYYY-MM-summary.html）链接注入对应月份归档分组之后。
+
+    每月底 generate_monthly_summary 生成总结页后，下一轮 update_index 会自动把链接补进首页；
+    历史月总结（如 8 月）也可在生成总结页后由本函数一次补齐。幂等，重复运行不会重复插入。
+    """
+    from pathlib import Path
+    html_dir = Path(index_path).parent / "html"
+    if not html_dir.exists():
+        return
+    summaries = sorted(html_dir.glob("*-summary.html"))
+    if not summaries:
+        return
+    try:
+        content = Path(index_path).read_text(encoding="utf-8")
+    except Exception:
+        return
+    changed = False
+    for summ in summaries:
+        month_id = summ.stem.replace("-summary", "")
+        if "-" not in month_id:
+            continue
+        y, m = month_id.split("-", 1)
+        month_key = f"{y}年{m}月"  # 月份零填充，须与首页 month-sep 文本一致（如 2026年08月）
+        href = f"html/{summ.name}"
+        if href in content:
+            continue  # 已注入，跳过
+        link_html = (f'        <a class="summary-link" href="{href}" target="_blank" '
+                     f'rel="noopener">{int(m)}月新闻汇总与分析　汇总 →</a>\n')
+        # 定位该月份的 .list 块（条目均为 <a>，无嵌套 <div>，故非贪婪可精确收口）
+        pat = re.compile(
+            r'(<div class="month-sep"[^>]*>\s*<span[^>]*>' + re.escape(month_key)
+            + r'</span></div>\s*)(<div class="list"[^>]*>.*?</div>)', re.S)
+        mm = pat.search(content)
+        if not mm:
+            continue
+        content = content[:mm.end()] + "\n" + link_html + content[mm.end():]
+        changed = True
+        print(f"[ok] 已注入月总结链接: {href}")
+    if changed:
+        Path(index_path).write_text(content, encoding="utf-8")
+
 
 # ══════════════════════════════════════════════════════════════
 # 5. 主流程
@@ -523,14 +858,28 @@ def update_index(index_path: str, data: dict, ai: dict, period: int, daily_rel: 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="TrendRadar → 黑红日报 + 首页")
-    ap.add_argument("--input", required=True, help="TrendRadar 原始 HTML 路径")
+    ap.add_argument("--input", default="", help="TrendRadar 原始 HTML 路径（非月总结模式必填）")
     ap.add_argument("--output-dir", default=".", help="站点 html 目录（默认当前目录）")
     ap.add_argument("--index", default="index.html", help="首页路径（默认 ./index.html）")
     ap.add_argument("--ai-key", default=os.environ.get("AI_API_KEY", ""), help="Deepseek API Key")
     ap.add_argument("--ai-model", default="deepseek-chat", help="AI 模型名")
     ap.add_argument("--skip-ai", action="store_true", help="跳过 AI 生成（降级：仅标题+来源）")
     ap.add_argument("--period", type=int, default=0, help="期数（0=自动从首页探测+1）")
+    ap.add_argument("--monthly-summary", action="store_true", help="仅生成月度总结（配合 --month 指定月份，不生成日报）")
+    ap.add_argument("--month", default="", help="指定月份 YYYY-MM（用于 --monthly-summary 补历史月；缺省取当月）")
     args = ap.parse_args()
+
+    # 仅生成月度总结（手动补历史月 / 显式调用入口，不生成日报）
+    if args.monthly_summary:
+        month = args.month or datetime.date.today().strftime("%Y-%m")
+        out = generate_monthly_summary(month, args.output_dir, args.ai_key, args.ai_model)
+        if out:
+            print(f"[ok] 月总结已输出: {out}")
+        return 0
+
+    if not args.input:
+        print("[error] 非月总结模式下 --input 必填", file=sys.stderr)
+        return 1
 
     with open(args.input, encoding="utf-8") as f:
         html_text = f.read()
@@ -575,6 +924,12 @@ def main() -> int:
 
     # 更新首页
     update_index(args.index, data, ai, period, daily_rel)
+
+    # 月末自动生成月度总结：若今天是当月最后一天，则聚合全月生成月总结
+    if is_month_end(data["date"]):
+        month = data["date"][:7]
+        print(f"[info] 检测到 {month} 最后一天，自动生成月度总结…")
+        generate_monthly_summary(month, args.output_dir, args.ai_key, args.ai_model)
 
     return 0
 

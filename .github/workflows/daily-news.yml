@@ -75,5 +75,5 @@ jobs:
             echo "No changes to commit"
             exit 0
           fi
-          git commit -m "auto: 每日实体生意日报 $(date +%F) [bot]"
+          git commit -m "auto: 每日实体生意日报 $(TZ=Asia/Shanghai date +%F) [bot]"
           git push origin main
