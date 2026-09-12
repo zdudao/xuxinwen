@@ -498,82 +498,125 @@ def render_daily(data: dict, ai: dict, period: int) -> str:
 
 
 # ══════════════════════════════════════════════════════════════
-# 3.5 月度总结生成（沿用 4 月新闻汇总 · 渐变卡片风）
+# 3.5 月度总结生成（特稿版 · 杂志长读风，与日报同一视觉语言）
 # ══════════════════════════════════════════════════════════════
 
 MONTHLY_CSS = """
-  * { box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    margin: 0; padding: 24px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-  }
-  .container { max-width: 1000px; margin: 0 auto; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
-  .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 40px; text-align: center; }
-  .header h1 { font-size: 32px; margin: 0 0 8px 0; }
-  .header .subtitle { font-size: 16px; opacity: 0.8; margin-top: 8px; }
-  .header .stats { display: flex; justify-content: center; gap: 40px; margin-top: 24px; }
-  .stat-item { text-align: center; }
-  .stat-value { font-size: 36px; font-weight: 700; color: #fbbf24; }
-  .stat-label { font-size: 14px; opacity: 0.8; margin-top: 4px; }
-  .content { padding: 40px; }
-  .section { margin-bottom: 40px; }
-  .section-title { font-size: 20px; font-weight: 600; color: #1a1a2e; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #e5e7eb; position: relative; }
-  .section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 60px; height: 2px; background: linear-gradient(90deg, #667eea, #764ba2); }
-  .summary-card { background: linear-gradient(135deg, #f8fafc, #f1f5f9); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
-  .summary-card h3 { color: #1a1a2e; margin: 0 0 16px 0; font-size: 18px; }
-  .summary-card p { color: #475569; line-height: 1.7; margin: 0; font-size: 15px; }
-  .trend-list { list-style: none; padding: 0; margin: 0; }
-  .trend-item { display: flex; align-items: flex-start; padding: 16px; border-radius: 10px; margin-bottom: 12px; background: #f8fafc; transition: all 0.3s ease; }
-  .trend-item:hover { background: #e2e8f0; transform: translateX(8px); }
-  .trend-number { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; flex-shrink: 0; margin-right: 16px; }
-  .trend-content { flex: 1; }
-  .trend-title { font-weight: 600; color: #1a1a2e; margin-bottom: 4px; }
-  .trend-desc { font-size: 14px; color: #64748b; line-height: 1.5; }
-  .news-calendar { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
-  .calendar-item { background: #f8fafc; border-radius: 10px; padding: 16px; transition: all 0.3s ease; }
-  .calendar-item:hover { background: #e2e8f0; transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-  .calendar-date { font-size: 20px; font-weight: 700; color: #667eea; margin-bottom: 8px; }
-  .calendar-title { font-size: 14px; color: #334155; line-height: 1.4; }
-  .calendar-link { color: inherit; text-decoration: none; }
-  .highlight-box { background: linear-gradient(135deg, #fef3c7, #fde68a); border-left: 4px solid #f59e0b; padding: 20px; border-radius: 0 10px 10px 0; margin-bottom: 24px; }
-  .highlight-box h4 { color: #92400e; margin: 0 0 8px 0; font-size: 16px; }
-  .highlight-box p { color: #78350f; margin: 0; font-size: 14px; line-height: 1.6; }
-  .footer { background: #f8fafc; padding: 24px; text-align: center; border-top: 1px solid #e5e7eb; }
-  .footer p { color: #64748b; margin: 0; font-size: 14px; }
-  @media (max-width: 768px) {
-    .header .stats { gap: 20px; }
-    .stat-value { font-size: 28px; }
-    .content { padding: 24px; }
-    .news-calendar { grid-template-columns: 1fr; }
+  /* ── 特稿版 · 杂志长读（与日报同一视觉语言：纸面 + 印章红 + 衬线） ── */
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  :root{--bg:#FBF7F0;--ink:#201B16;--muted:#776B5E;--faint:#A99C8B;
+    --hair:rgba(32,27,22,.15);--accent:#A8321F;--wash:rgba(168,50,31,.06);--card:#FFFFFF;--w:720px;
+    --serif:'Noto Serif SC','Songti SC',serif;--sans:'Inter','Noto Sans SC',-apple-system,'Microsoft YaHei',sans-serif}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:2.0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:#fff}
+  .container{max-width:var(--w);margin:0 auto;padding:0 30px 110px}
+  .rule{height:1px;background:var(--hair)}
+  .masthead{padding:72px 0 30px;text-align:center}
+  .kicker{font-size:11px;letter-spacing:.42em;color:var(--muted);text-transform:uppercase;padding:16px 0 12px;font-weight:500}
+  .wordmark{font-family:var(--serif);font-weight:900;font-size:clamp(34px,6.6vw,52px);letter-spacing:.03em;line-height:1.06}
+  .wordmark .dot{color:var(--accent)}
+  .edition{font-size:12.5px;letter-spacing:.15em;color:var(--faint);padding:14px 0 16px;font-variant-numeric:tabular-nums}
+  .lead{position:relative;padding:34px 0 30px 30px;margin:6px 0;border-left:3px solid var(--accent)}
+  .lead-label{font-size:11px;letter-spacing:.32em;color:var(--accent);font-weight:600;margin-bottom:14px;text-transform:uppercase}
+  .lead-title{font-family:var(--serif);font-weight:700;font-size:clamp(23px,4.6vw,32px);line-height:1.32;margin-bottom:14px}
+  .lead-body{font-size:16.5px;color:var(--muted);line-height:2.05;max-width:46em}
+  .lead-body::first-letter{font-family:var(--serif);float:left;font-size:62px;line-height:.84;padding:8px 12px 0 0;color:var(--accent);font-weight:900}
+  .nav-chips{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 2px}
+  .chip{font-size:12px;letter-spacing:.05em;color:var(--muted);border:1px solid var(--hair);border-radius:999px;padding:5px 13px}
+  .chip b{color:var(--accent);font-weight:600;margin-right:7px;font-family:var(--serif)}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin:64px 0 22px}
+  .sec-head .en{font-size:10px;letter-spacing:.4em;color:var(--faint);text-transform:uppercase;font-weight:500}
+  .sec-head h2{font-family:var(--serif);font-size:25px;font-weight:700;letter-spacing:.02em}
+  .sec-head::after{content:"";flex:1;height:1px;background:var(--hair)}
+  .note{font-size:12.5px;color:var(--faint);border:1px dashed var(--hair);padding:12px 16px;margin-top:18px;border-radius:4px}
+  .trend{padding:34px 0;border-bottom:1px solid var(--hair)}
+  .trend:last-of-type{border-bottom:none}
+  .t-head{display:flex;align-items:flex-start;gap:16px;margin-bottom:14px}
+  .t-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.14em;font-weight:700;flex-shrink:0;padding-top:6px}
+  .t-title{font-family:var(--serif);font-size:23px;font-weight:700;line-height:1.45}
+  .t-desc{font-size:15.5px;color:var(--muted);line-height:1.9;margin-bottom:12px}
+  .t-field{display:grid;grid-template-columns:74px 1fr;gap:16px;padding:9px 0 9px 2px;margin-top:4px}
+  .f-lbl{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;padding-top:5px;color:var(--muted)}
+  .t-field.judge .f-lbl{color:var(--accent)}
+  .f-body{font-size:14.5px;line-height:2.0;max-width:46em}
+  .t-field.judge .f-body{color:var(--muted)}
+  .t-field.act .f-body{border-left:2px solid var(--accent);padding-left:14px}
+  .topic{display:grid;grid-template-columns:34px 1fr;gap:14px;padding:17px 0;border-bottom:1px solid var(--hair)}
+  .topic:last-of-type{border-bottom:none}
+  .tp-num{font-family:var(--serif);font-size:14px;color:var(--faint);font-weight:700;padding-top:4px;font-variant-numeric:tabular-nums}
+  .tp-title{font-family:var(--serif);font-size:18px;font-weight:700;line-height:1.5;margin-bottom:7px}
+  .tp-judge{font-size:14.5px;color:var(--muted);line-height:1.9}
+  .tp-act{font-size:13px;color:var(--accent);line-height:1.75;margin-top:7px;padding-left:12px;border-left:2px solid var(--accent)}
+  .pull{font-family:var(--serif);font-size:23px;font-weight:700;line-height:1.6;padding:34px 0 34px 30px;border-left:3px solid var(--accent);margin:24px 0 10px;color:var(--ink)}
+  .chain{background:var(--card);border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:4px;padding:20px 22px;margin-bottom:14px;box-shadow:0 1px 3px rgba(32,27,22,.05)}
+  .chain h4{font-family:var(--serif);font-size:16px;font-weight:700;margin-bottom:9px}
+  .chain p{font-size:14px;color:var(--muted);line-height:1.9}
+  .fc-call{background:var(--wash);border-left:3px solid var(--accent);padding:20px 22px;font-size:16px;line-height:1.95;margin-bottom:16px}
+  .fc-watch{list-style:none}
+  .fc-watch li{position:relative;padding:12px 0 12px 22px;border-bottom:1px solid var(--hair);font-size:14px;line-height:1.8}
+  .fc-watch li::before{content:'▸';position:absolute;left:0;color:var(--accent)}
+  .ins{padding:22px 24px;margin-bottom:14px;background:var(--card);border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:4px;box-shadow:0 1px 3px rgba(32,27,22,.05)}
+  .ins .i-label{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px}
+  .ins .i-label .zh{margin-left:10px;letter-spacing:.12em;color:var(--muted);font-size:12px}
+  .ins p{font-size:14.5px;line-height:1.95}
+  .index{display:flex;flex-wrap:wrap;gap:6px 16px}
+  .ix{font-size:12.5px;color:var(--muted);display:inline-flex;gap:8px;padding:5px 0;max-width:340px}
+  .ix .ix-date{color:var(--accent);font-variant-numeric:tabular-nums;font-weight:600;flex-shrink:0}
+  .ix:hover{color:var(--ink)}
+  .footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--hair);text-align:center;font-size:12px;color:var(--faint);letter-spacing:.08em}
+  @media (max-width:560px){
+    .container{padding:0 18px 72px}
+    .t-field{grid-template-columns:1fr;gap:2px}
+    .lead{padding-left:18px}
+    .pull{font-size:17px;padding-left:18px}
+    .masthead{padding-top:36px}
   }
 """
 
 MONTHLY_SYSTEM_PROMPT = """你是「老许聊实体」的主笔老许，一位深耕实体商业（餐饮/零售/选址/政策）的行业分析师。
-你正在为读者撰写一份「月度实体商业新闻总结」。读者是实体店老板与创业者，他们需要新闻背后的判断与可落地的行动。
+你正在为读者撰写一份「月度实体商业深度研判」。读者是实体店老板与创业者，他们不要"新闻复述"，要的是判断、预判与可落地的动作。
 
 请根据提供的「当月每日头条标题」清单，输出严格的 JSON（不要 markdown 代码块），结构如下：
 {
   "trends": [
-    {"title": "趋势标题(12字内)", "desc": "一句话趋势描述(50字内)"}
+    {"title": "趋势标题(12字内)",
+     "desc": "现象：这个月发生了什么(60字内)",
+     "so_what": "判断：它为什么会发生、对实体店到底意味着什么(90字内)",
+     "action": "动作：老板该据此做什么(50字内)"}
     × 3 条（月度核心趋势）
   ],
   "topics": [
-    {"title": "话题标题(15字内)", "desc": "一句话描述(40字内)"}
+    {"title": "话题标题(15字内)",
+     "desc": "现象(45字内)",
+     "so_what": "判断：背后的逻辑与影响(70字内)",
+     "action": "动作(45字内)"}
     × 10 条（当月十大热门话题，按热度排序）
   ],
+  "synthesis": [
+    {"chain": "合流标题(14字内)",
+     "detail": "把哪几条看似无关的新闻串成一条因果链、共同指向什么结论(110字内)"}
+    × 3 条（信号合流：不要孤立看新闻，要指出新闻之间的因果）
+  ],
+  "forecast": {
+    "call": "下月总体预判(120字内：哪些信号会发酵、实体店会先感受到什么)",
+    "watch": ["要盯的先行指标1(45字内)", "指标2", "指标3"]
+  },
   "insights": {
-    "opportunity": "机会点(80字内，给实体老板可抓的机会)",
-    "risk": "风险提示(80字内，需警惕的风险)",
-    "action": "行动建议(80字内，具体可落地)"
+    "opportunity": "机会点(120字内，给实体老板可抓的具体机会)",
+    "risk": "风险提示(120字内，需警惕的具体风险)",
+    "action": "行动建议(120字内，具体到本周可做的动作)"
   }
 }
 
-要求：
-- 语言干练、口语化、有老许自己的判断力，不说正确的废话
-- 趋势/话题/洞察必须忠于当月头条，不编造新闻里没有的事实与数字
-- 聚焦实体商业视角（餐饮/零售/选址/政策/消费），不要泛泛而谈"""
+硬要求：
+- 每条话题与趋势都必须走「现象 → 判断 → 动作」三层，判断要讲"为什么"和"对实体店意味着什么"，不许只复述新闻。
+- synthesis 必须真正把多条新闻连起来（如"房租涨 + 社保全额缴 + 金税四期 = 成本三杀"），这是本报告最有价值的部分。
+- forecast 必须是对下个月的预判，不是对过去的总结；watch 是要读者去盯的具体先行指标（如"某类店铺的关店率""某政策的落地细则"）。
+- 语言干练、口语化、有老许自己的判断力，不说正确的废话。
+- 趋势/话题/洞察必须忠于当月头条，不编造新闻里没有的事实与数字。
+- 聚焦实体商业视角（餐饮/零售/选址/政策/消费），不要泛泛而谈。"""
 
 
 def is_month_end(date_str: str) -> bool:
@@ -623,19 +666,25 @@ def build_monthly_prompt(month: str, items: list) -> str:
     lines.append("【当月每日头条标题】")
     for it in items:
         lines.append(f"{it['date']}：{it['title']}")
-    lines.append("\n请按 system 要求输出 JSON（trends 3 条、topics 10 条、insights 含 opportunity/risk/action）。")
+    lines.append("\n请按 system 要求输出 JSON：trends 3 条（各含 desc/so_what/action 三层）、topics 10 条（各含 desc/so_what/action 三层）、synthesis 3 条（chain+detail）、forecast（call + watch 3 条）、insights（opportunity/risk/action）。")
     return "\n".join(lines)
 
 
 def render_monthly_summary(month: str, items: list, ai: dict) -> str:
+    """渲染月度深读页（特稿版 · 杂志长读风，与日报同一视觉语言）"""
     ym = month.split("-")
-    cn_month = f"{ym[0]}年{int(ym[1])}月"
+    y, mo = int(ym[0]), int(ym[1])
+    cn_month = f"{y}年{mo}月"
     trends = ai.get("trends", []) or []
     topics = ai.get("topics", []) or []
     insights = ai.get("insights", {}) or {}
+    synthesis = ai.get("synthesis", []) or []
+    forecast = ai.get("forecast", {}) or {}
     has_ai = bool(ai)
+
     def _is_real(t):
         return bool(t) and "老许聊实体" not in t and "商业资讯" not in t and len(t) >= 8
+
     real_items = [it for it in items if _is_real(it["title"])]
     if not trends:
         src = real_items[:3] if real_items else items[:3]
@@ -643,71 +692,144 @@ def render_monthly_summary(month: str, items: list, ai: dict) -> str:
     if not topics:
         src = real_items[:10] if real_items else items[:10]
         topics = [{"title": it["title"], "desc": "（AI 话题提炼待生成，配置 key 后重跑）"} for it in src]
-    ai_note = "" if has_ai else '<p style="color:#92400e;margin-top:8px">※ 本页「核心趋势 / 热门话题」暂由当月头条标题自动聚合呈现；配置 Deepseek key 后重跑即为 AI 深度分析版。</p>'
 
-    stats = [
-        ("新闻天数", str(len(items))),
-        ("热点新闻", f"{len(items) * 8}+" if items else "—"),
-        ("核心主题", str(max(len(topics), 3))),
-        ("阅读人次", "持续更新"),
-    ]
-    trends_html = "\n".join(
-        f'      <div class="summary-card"><h3>{esc(t.get("title", ""))}</h3><p>{esc(t.get("desc", ""))}</p></div>'
-        for t in trends[:3]
+    # 刊头期次行
+    last_day = (datetime.date(y, mo, 1) + datetime.timedelta(days=32)).replace(day=1) - datetime.timedelta(days=1)
+    edition_line = f"{y}.{mo:02d}.01 — {mo:02d}.{last_day.day:02d}　·　共 {len(items)} 期　·　老许聊实体"
+
+    # 卷首导语：优先「信号合流」第一条，退回首条主线
+    if synthesis:
+        lead_title = synthesis[0].get("chain", "") or (trends[0].get("title", "") if trends else "")
+        lead_body = synthesis[0].get("detail", "") or (trends[0].get("desc", "") if trends else "")
+    else:
+        lead_title = trends[0].get("title", "") if trends else cn_month + "实体商业"
+        lead_body = trends[0].get("desc", "") if trends else ""
+
+    chips_html = "".join(
+        f'<span class="chip"><b>{i:02d}</b>{esc(t.get("title", ""))}</span>'
+        for i, t in enumerate(trends[:3], 1)
     )
-    topics_html = "\n".join(
-        f'        <li class="trend-item"><div class="trend-number">{i + 1}</div><div class="trend-content"><div class="trend-title">{esc(tp.get("title", ""))}</div><div class="trend-desc">{esc(tp.get("desc", ""))}</div></div></li>'
-        for i, tp in enumerate(topics[:10])
+
+    def _trend_article(i, t):
+        parts = ['<article class="trend">',
+                 f'  <div class="t-head"><span class="t-num">{i:02d}</span><h3 class="t-title">{esc(t.get("title", ""))}</h3></div>']
+        if t.get("desc"):
+            parts.append(f'  <p class="t-desc">{esc(t["desc"])}</p>')
+        if t.get("so_what"):
+            parts.append(f'  <div class="t-field judge"><span class="f-lbl">判断</span><p class="f-body">{esc(t["so_what"])}</p></div>')
+        if t.get("action"):
+            parts.append(f'  <div class="t-field act"><span class="f-lbl">动作</span><p class="f-body">{esc(t["action"])}</p></div>')
+        parts.append('</article>')
+        return "\n".join(parts)
+
+    trends_html = "\n".join(_trend_article(i, t) for i, t in enumerate(trends[:3], 1))
+
+    def _topic_article(i, tp):
+        judge = "　".join([x for x in [tp.get("desc", ""), tp.get("so_what", "")] if x])
+        parts = ['<article class="topic">',
+                 f'  <div class="tp-num">{i:02d}</div>',
+                 '  <div>',
+                 f'    <h3 class="tp-title">{esc(tp.get("title", ""))}</h3>']
+        if judge:
+            parts.append(f'    <p class="tp-judge">{esc(judge)}</p>')
+        if tp.get("action"):
+            parts.append(f'    <p class="tp-act">{esc(tp["action"])}</p>')
+        parts += ['  </div>', '</article>']
+        return "\n".join(parts)
+
+    topics_html = "\n".join(_topic_article(i, tp) for i, tp in enumerate(topics[:10], 1))
+
+    # 引言块：取导语最后一句（需与导语本体不同，避免重复）
+    pull_html = ""
+    if lead_body:
+        sents = [x.strip() for x in re.split(r"[。！？]", lead_body) if x.strip()]
+        if len(sents) >= 2:
+            last = sents[-1] + "。"
+            if last != lead_body:
+                pull_html = f'<blockquote class="pull">{esc(last)}</blockquote>'
+
+    synthesis_html = "\n".join(
+        f'<div class="chain"><h4>{esc(s.get("chain", ""))}</h4><p>{esc(s.get("detail", ""))}</p></div>'
+        for s in synthesis[:3]
     )
-    insights_html = f"""
-        <div class="highlight-box"><h4>🎯 机会点</h4><p>{esc(insights.get('opportunity', '（AI 深度分析待生成）'))}</p></div>
-        <div class="highlight-box"><h4>⚠️ 风险提示</h4><p>{esc(insights.get('risk', '（AI 深度分析待生成）'))}</p></div>
-        <div class="highlight-box"><h4>📋 行动建议</h4><p>{esc(insights.get('action', '（AI 深度分析待生成）'))}</p></div>"""
-    calendar_html = "\n".join(
-        f'          <a href="{esc(it["rel"])}" class="calendar-link"><div class="calendar-item"><div class="calendar-date">{esc(it["date"])}</div><div class="calendar-title">{esc(it["title"])}</div></div></a>'
-        for it in items
+    fc_call = esc(forecast.get("call", ""))
+    fc_watch = forecast.get("watch", []) or []
+    forecast_html = ""
+    if fc_call or fc_watch:
+        call_html = f'<div class="fc-call">{fc_call}</div>' if fc_call else ""
+        watch_inner = "\n".join(f'<li>{esc(w)}</li>' for w in fc_watch[:5])
+        watch_html = f'<ul class="fc-watch">{watch_inner}</ul>' if watch_inner else ""
+        forecast_html = "\n".join([x for x in [call_html, watch_html] if x])
+
+    insights_html = "\n".join(
+        f'<div class="ins"><div class="i-label">{en}<span class="zh">{zh}</span></div><p>{esc(val or "（AI 深度分析待生成）")}</p></div>'
+        for en, zh, val in [
+            ("Opportunity", "机会点", insights.get("opportunity", "")),
+            ("Risk", "风险提示", insights.get("risk", "")),
+            ("Action", "行动建议", insights.get("action", "")),
+        ]
     )
-    stats_html = "\n".join(
-        f'          <div class="stat-item"><div class="stat-value">{esc(s[1])}</div><div class="stat-label">{esc(s[0])}</div></div>'
-        for s in stats
-    )
+
+    def _ix(it):
+        t = it["title"]
+        if len(t) > 26:
+            t = t[:26] + "…"
+        return f'<a class="ix" href="{esc(it["rel"])}"><span class="ix-date">{esc(it["date"])}</span>{esc(t)}</a>'
+    index_html = "\n".join(_ix(it) for it in items)
+
+    ai_note = "" if has_ai else '<div class="note">※ 本月「主线 / 话题」暂由当月头条标题自动聚合；配置 AI key 后重跑即为深度研判版。</div>'
+
+    synthesis_section = ""
+    if synthesis_html:
+        synthesis_section = ('<div class="sec-head"><span class="en">Convergence</span><h2>信号合流 · 新闻之间的因果</h2></div>\n'
+                             + synthesis_html)
+    forecast_section = ""
+    if forecast_html:
+        forecast_section = ('<div class="sec-head"><span class="en">Forecast</span><h2>下月预判 · 盯住这几个信号</h2></div>\n'
+                            + forecast_html)
+
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>老许聊实体 - {cn_month}新闻汇总</title>
-<style>{MONTHLY_CSS}</style>
+<title>老许聊实体 · {cn_month}月度深读</title>
+<meta name="description" content="{cn_month}实体商业月度深读：三条主线、十大话题、信号合流与下月预判。">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../donate.css">
+<style>{MONTHLY_CSS}</style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>📊 {cn_month}新闻汇总</h1>
-      <div class="subtitle">老许聊实体 - 月度商业资讯总结与分析</div>
-      <div class="stats">{stats_html}</div>
-    </div>
-    <div class="content">
-      <div class="section">
-        <h2 class="section-title">📈 月度核心趋势</h2>
-        {trends_html}
-        {ai_note}
-      </div>
-      <div class="section">
-        <h2 class="section-title">🔥 十大热门话题</h2>
-        <ul class="trend-list">{topics_html}</ul>
-      </div>
-      <div class="section">
-        <h2 class="section-title">💡 行业洞察与建议</h2>
-        {insights_html}
-      </div>
-      <div class="section">
-        <h2 class="section-title">📅 每日新闻速览</h2>
-        <div class="news-calendar">{calendar_html}</div>
-      </div>
-    </div>
-    <div class="footer"><p>老许聊实体 · 每月底自动生成 · 数据来源：每日实体生意日报</p></div>
+<div class="container">
+  <header class="masthead">
+    <div class="rule"></div>
+    <div class="kicker">实体商业 · 月度深读</div>
+    <h1 class="wordmark">{cn_month}<span class="dot">·</span>实体月读</h1>
+    <div class="edition">{edition_line}</div>
+    <div class="rule"></div>
+  </header>
+  <section class="lead">
+    <div class="lead-label">卷首 · The Month in One Line</div>
+    <h2 class="lead-title">{esc(lead_title)}</h2>
+    <p class="lead-body">{esc(lead_body)}</p>
+    <div class="nav-chips">{chips_html}</div>
+  </section>
+  {ai_note}
+  <div class="sec-head"><span class="en">Mainlines</span><h2>本月三条主线</h2></div>
+{trends_html}
+  <div class="sec-head"><span class="en">Topics</span><h2>十大热门话题</h2></div>
+{topics_html}
+  {pull_html}
+{synthesis_section}
+{forecast_section}
+  <div class="sec-head"><span class="en">Insights</span><h2>行业洞察与建议</h2></div>
+{insights_html}
+  <div class="sec-head"><span class="en">Archive</span><h2>本期日期索引</h2></div>
+  <div class="index">
+{index_html}
   </div>
+  <footer class="footer">老许聊实体 · 每月底自动生成 · 数据来源：每日实体生意日报</footer>
+</div>
 </body>
 </html>
 """

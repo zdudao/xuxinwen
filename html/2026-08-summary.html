@@ -3,130 +3,248 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>老许聊实体 - 2026年8月新闻汇总</title>
+<title>老许聊实体 · 2026年8月月度深读</title>
+<meta name="description" content="2026年8月实体商业月度深读：三条主线、十大话题、信号合流与下月预判。">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../donate.css">
 <style>
-  * { box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    margin: 0; padding: 24px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-  }
-  .container { max-width: 1000px; margin: 0 auto; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
-  .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 40px; text-align: center; }
-  .header h1 { font-size: 32px; margin: 0 0 8px 0; }
-  .header .subtitle { font-size: 16px; opacity: 0.8; margin-top: 8px; }
-  .header .stats { display: flex; justify-content: center; gap: 40px; margin-top: 24px; }
-  .stat-item { text-align: center; }
-  .stat-value { font-size: 36px; font-weight: 700; color: #fbbf24; }
-  .stat-label { font-size: 14px; opacity: 0.8; margin-top: 4px; }
-  .content { padding: 40px; }
-  .section { margin-bottom: 40px; }
-  .section-title { font-size: 20px; font-weight: 600; color: #1a1a2e; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #e5e7eb; position: relative; }
-  .section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 60px; height: 2px; background: linear-gradient(90deg, #667eea, #764ba2); }
-  .summary-card { background: linear-gradient(135deg, #f8fafc, #f1f5f9); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
-  .summary-card h3 { color: #1a1a2e; margin: 0 0 16px 0; font-size: 18px; }
-  .summary-card p { color: #475569; line-height: 1.7; margin: 0; font-size: 15px; }
-  .trend-list { list-style: none; padding: 0; margin: 0; }
-  .trend-item { display: flex; align-items: flex-start; padding: 16px; border-radius: 10px; margin-bottom: 12px; background: #f8fafc; transition: all 0.3s ease; }
-  .trend-item:hover { background: #e2e8f0; transform: translateX(8px); }
-  .trend-number { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; flex-shrink: 0; margin-right: 16px; }
-  .trend-content { flex: 1; }
-  .trend-title { font-weight: 600; color: #1a1a2e; margin-bottom: 4px; }
-  .trend-desc { font-size: 14px; color: #64748b; line-height: 1.5; }
-  .news-calendar { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
-  .calendar-item { background: #f8fafc; border-radius: 10px; padding: 16px; transition: all 0.3s ease; }
-  .calendar-item:hover { background: #e2e8f0; transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-  .calendar-date { font-size: 20px; font-weight: 700; color: #667eea; margin-bottom: 8px; }
-  .calendar-title { font-size: 14px; color: #334155; line-height: 1.4; }
-  .calendar-link { color: inherit; text-decoration: none; }
-  .highlight-box { background: linear-gradient(135deg, #fef3c7, #fde68a); border-left: 4px solid #f59e0b; padding: 20px; border-radius: 0 10px 10px 0; margin-bottom: 24px; }
-  .highlight-box h4 { color: #92400e; margin: 0 0 8px 0; font-size: 16px; }
-  .highlight-box p { color: #78350f; margin: 0; font-size: 14px; line-height: 1.6; }
-  .footer { background: #f8fafc; padding: 24px; text-align: center; border-top: 1px solid #e5e7eb; }
-  .footer p { color: #64748b; margin: 0; font-size: 14px; }
-  @media (max-width: 768px) {
-    .header .stats { gap: 20px; }
-    .stat-value { font-size: 28px; }
-    .content { padding: 24px; }
-    .news-calendar { grid-template-columns: 1fr; }
+  /* ── 特稿版 · 杂志长读（与日报同一视觉语言：纸面 + 印章红 + 衬线） ── */
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  :root{--bg:#FBF7F0;--ink:#201B16;--muted:#776B5E;--faint:#A99C8B;
+    --hair:rgba(32,27,22,.15);--accent:#A8321F;--wash:rgba(168,50,31,.06);--card:#FFFFFF;--w:720px;
+    --serif:'Noto Serif SC','Songti SC',serif;--sans:'Inter','Noto Sans SC',-apple-system,'Microsoft YaHei',sans-serif}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:2.0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:#fff}
+  .container{max-width:var(--w);margin:0 auto;padding:0 30px 110px}
+  .rule{height:1px;background:var(--hair)}
+  .masthead{padding:72px 0 30px;text-align:center}
+  .kicker{font-size:11px;letter-spacing:.42em;color:var(--muted);text-transform:uppercase;padding:16px 0 12px;font-weight:500}
+  .wordmark{font-family:var(--serif);font-weight:900;font-size:clamp(34px,6.6vw,52px);letter-spacing:.03em;line-height:1.06}
+  .wordmark .dot{color:var(--accent)}
+  .edition{font-size:12.5px;letter-spacing:.15em;color:var(--faint);padding:14px 0 16px;font-variant-numeric:tabular-nums}
+  .lead{position:relative;padding:34px 0 30px 30px;margin:6px 0;border-left:3px solid var(--accent)}
+  .lead-label{font-size:11px;letter-spacing:.32em;color:var(--accent);font-weight:600;margin-bottom:14px;text-transform:uppercase}
+  .lead-title{font-family:var(--serif);font-weight:700;font-size:clamp(23px,4.6vw,32px);line-height:1.32;margin-bottom:14px}
+  .lead-body{font-size:16.5px;color:var(--muted);line-height:2.05;max-width:46em}
+  .lead-body::first-letter{font-family:var(--serif);float:left;font-size:62px;line-height:.84;padding:8px 12px 0 0;color:var(--accent);font-weight:900}
+  .nav-chips{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 2px}
+  .chip{font-size:12px;letter-spacing:.05em;color:var(--muted);border:1px solid var(--hair);border-radius:999px;padding:5px 13px}
+  .chip b{color:var(--accent);font-weight:600;margin-right:7px;font-family:var(--serif)}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin:64px 0 22px}
+  .sec-head .en{font-size:10px;letter-spacing:.4em;color:var(--faint);text-transform:uppercase;font-weight:500}
+  .sec-head h2{font-family:var(--serif);font-size:25px;font-weight:700;letter-spacing:.02em}
+  .sec-head::after{content:"";flex:1;height:1px;background:var(--hair)}
+  .note{font-size:12.5px;color:var(--faint);border:1px dashed var(--hair);padding:12px 16px;margin-top:18px;border-radius:4px}
+  .trend{padding:34px 0;border-bottom:1px solid var(--hair)}
+  .trend:last-of-type{border-bottom:none}
+  .t-head{display:flex;align-items:flex-start;gap:16px;margin-bottom:14px}
+  .t-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.14em;font-weight:700;flex-shrink:0;padding-top:6px}
+  .t-title{font-family:var(--serif);font-size:23px;font-weight:700;line-height:1.45}
+  .t-desc{font-size:15.5px;color:var(--muted);line-height:1.9;margin-bottom:12px}
+  .t-field{display:grid;grid-template-columns:74px 1fr;gap:16px;padding:9px 0 9px 2px;margin-top:4px}
+  .f-lbl{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;padding-top:5px;color:var(--muted)}
+  .t-field.judge .f-lbl{color:var(--accent)}
+  .f-body{font-size:14.5px;line-height:2.0;max-width:46em}
+  .t-field.judge .f-body{color:var(--muted)}
+  .t-field.act .f-body{border-left:2px solid var(--accent);padding-left:14px}
+  .topic{display:grid;grid-template-columns:34px 1fr;gap:14px;padding:17px 0;border-bottom:1px solid var(--hair)}
+  .topic:last-of-type{border-bottom:none}
+  .tp-num{font-family:var(--serif);font-size:14px;color:var(--faint);font-weight:700;padding-top:4px;font-variant-numeric:tabular-nums}
+  .tp-title{font-family:var(--serif);font-size:18px;font-weight:700;line-height:1.5;margin-bottom:7px}
+  .tp-judge{font-size:14.5px;color:var(--muted);line-height:1.9}
+  .tp-act{font-size:13px;color:var(--accent);line-height:1.75;margin-top:7px;padding-left:12px;border-left:2px solid var(--accent)}
+  .pull{font-family:var(--serif);font-size:23px;font-weight:700;line-height:1.6;padding:34px 0 34px 30px;border-left:3px solid var(--accent);margin:24px 0 10px;color:var(--ink)}
+  .chain{background:var(--card);border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:4px;padding:20px 22px;margin-bottom:14px;box-shadow:0 1px 3px rgba(32,27,22,.05)}
+  .chain h4{font-family:var(--serif);font-size:16px;font-weight:700;margin-bottom:9px}
+  .chain p{font-size:14px;color:var(--muted);line-height:1.9}
+  .fc-call{background:var(--wash);border-left:3px solid var(--accent);padding:20px 22px;font-size:16px;line-height:1.95;margin-bottom:16px}
+  .fc-watch{list-style:none}
+  .fc-watch li{position:relative;padding:12px 0 12px 22px;border-bottom:1px solid var(--hair);font-size:14px;line-height:1.8}
+  .fc-watch li::before{content:'▸';position:absolute;left:0;color:var(--accent)}
+  .ins{padding:22px 24px;margin-bottom:14px;background:var(--card);border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:4px;box-shadow:0 1px 3px rgba(32,27,22,.05)}
+  .ins .i-label{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px}
+  .ins .i-label .zh{margin-left:10px;letter-spacing:.12em;color:var(--muted);font-size:12px}
+  .ins p{font-size:14.5px;line-height:1.95}
+  .index{display:flex;flex-wrap:wrap;gap:6px 16px}
+  .ix{font-size:12.5px;color:var(--muted);display:inline-flex;gap:8px;padding:5px 0;max-width:340px}
+  .ix .ix-date{color:var(--accent);font-variant-numeric:tabular-nums;font-weight:600;flex-shrink:0}
+  .ix:hover{color:var(--ink)}
+  .footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--hair);text-align:center;font-size:12px;color:var(--faint);letter-spacing:.08em}
+  @media (max-width:560px){
+    .container{padding:0 18px 72px}
+    .t-field{grid-template-columns:1fr;gap:2px}
+    .lead{padding-left:18px}
+    .pull{font-size:17px;padding-left:18px}
+    .masthead{padding-top:36px}
   }
 </style>
-<link rel="stylesheet" href="../donate.css">
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>📊 2026年8月新闻汇总</h1>
-      <div class="subtitle">老许聊实体 - 月度商业资讯总结与分析</div>
-      <div class="stats">          <div class="stat-item"><div class="stat-value">30</div><div class="stat-label">新闻天数</div></div>
-          <div class="stat-item"><div class="stat-value">240+</div><div class="stat-label">热点新闻</div></div>
-          <div class="stat-item"><div class="stat-value">10</div><div class="stat-label">核心主题</div></div>
-          <div class="stat-item"><div class="stat-value">持续更新</div><div class="stat-label">阅读人次</div></div></div>
-    </div>
-    <div class="content">
-      <div class="section">
-        <h2 class="section-title">📈 月度核心趋势</h2>
-              <div class="summary-card"><h3>胖东来闭店掀桌</h3><p>关店止损、不涨租让利商户，头部玩家用反常识动作逼全行业重算成本账。</p></div>
-      <div class="summary-card"><h3>成本合规双杀</h3><p>房租暴涨叠加社保全额实缴、金税四期补税，实体店利润被两头挤压。</p></div>
-      <div class="summary-card"><h3>消费K型分化</h3><p>LV闭店、白酒金饰遇冷，山姆与低价茶饮零食继续抢客，中间价位最难受。</p></div>
-        
-      </div>
-      <div class="section">
-        <h2 class="section-title">🔥 十大热门话题</h2>
-        <ul class="trend-list">        <li class="trend-item"><div class="trend-number">1</div><div class="trend-content"><div class="trend-title">胖东来闭店不涨租</div><div class="trend-desc">从关店掀桌到给商户减租、招刑释人员，全月最热，学的该是现金流纪律。</div></div></li>
-        <li class="trend-item"><div class="trend-number">2</div><div class="trend-content"><div class="trend-title">甲醛白菜敌敌畏消杀</div><div class="trend-desc">食安事件连发，监管风暴来袭，消杀与溯源记录成门店硬门槛。</div></div></li>
-        <li class="trend-item"><div class="trend-number">3</div><div class="trend-content"><div class="trend-title">房租暴涨与降租博弈</div><div class="trend-desc">一边房东宁空不租、一边房租暴涨，续约谈判成了实体店的生死线。</div></div></li>
-        <li class="trend-item"><div class="trend-number">4</div><div class="trend-content"><div class="trend-title">社保实缴与金税四期</div><div class="trend-desc">用工合规与税务补缴同时上桌，老板得提前把两笔隐形成本算进账。</div></div></li>
-        <li class="trend-item"><div class="trend-number">5</div><div class="trend-content"><div class="trend-title">餐饮新规与居民楼禁油烟</div><div class="trend-desc">选址逻辑被改写，无堂食外卖集聚地和居民楼下小店承压。</div></div></li>
-        <li class="trend-item"><div class="trend-number">6</div><div class="trend-content"><div class="trend-title">消费降级信号密集</div><div class="trend-desc">七夕冷清、小龙虾与洞洞鞋遇冷、开学数码涨价，非刚需品类首当其冲。</div></div></li>
-        <li class="trend-item"><div class="trend-number">7</div><div class="trend-content"><div class="trend-title">上海松绑与县域新政</div><div class="trend-desc">沪八条、公积金新政对上县域消费新政，两头的钱都在动。</div></div></li>
-        <li class="trend-item"><div class="trend-number">8</div><div class="trend-content"><div class="trend-title">高端退场</div><div class="trend-desc">LV关店、白酒崩盘、金饰销量跌，高端客流去哪了值得盯。</div></div></li>
-        <li class="trend-item"><div class="trend-number">9</div><div class="trend-content"><div class="trend-title">雪王出海与零食翻车</div><div class="trend-desc">出海扩张与赵一鸣缺斤短两同框，跑得快时品控就是命门。</div></div></li>
-        <li class="trend-item"><div class="trend-number">10</div><div class="trend-content"><div class="trend-title">山姆疯涨与情绪消费</div><div class="trend-desc">会员店逆势增长，情绪社交、贴纸式小确幸成新的流量密码。</div></div></li></ul>
-      </div>
-      <div class="section">
-        <h2 class="section-title">💡 行业洞察与建议</h2>
-        
-        <div class="highlight-box"><h4>🎯 机会点</h4><p>房东心态正在松动、县域消费新政已落地，正是谈降租、锁短约、下沉开小店拿补贴的窗口；同时押刚需高频与性价比选品。</p></div>
-        <div class="highlight-box"><h4>⚠️ 风险提示</h4><p>食安监管风暴会连带整条街；房租、社保全额实缴、金税四期补税三笔账一起算，现金流薄的店先倒，此时硬扛扩张最危险。</p></div>
-        <div class="highlight-box"><h4>📋 行动建议</h4><p>本周做三件事：查供应商票据和消杀记录；拿胖东来不涨租案例去跟房东谈减租延租；砍低动销SKU，压到刚需高频，留足三个月现金。</p></div>
-      </div>
-      <div class="section">
-        <h2 class="section-title">📅 每日新闻速览</h2>
-        <div class="news-calendar">          <a href="2026-08-05/13-18.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-05</div><div class="calendar-title">2026-08-05商业资讯</div></div></a>
-          <a href="2026-08-05/13-43.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-05</div><div class="calendar-title">2026-08-05商业资讯</div></div></a>
-          <a href="2026-08-06/14-28.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-06</div><div class="calendar-title">2026-08-06商业资讯</div></div></a>
-          <a href="2026-08-07/14-42.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-07</div><div class="calendar-title">2026-08-07商业资讯</div></div></a>
-          <a href="2026-08-08/16-54.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-08</div><div class="calendar-title">2026-08-08商业资讯</div></div></a>
-          <a href="2026-08-09/18-23.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-09</div><div class="calendar-title">2026-08-09商业资讯</div></div></a>
-          <a href="2026-08-10/18-39.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-10</div><div class="calendar-title">2026-08-10商业资讯</div></div></a>
-          <a href="2026-08-11/19-43.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-11</div><div class="calendar-title">租金降了房东不租，于东来65亿当包租公，星巴克只坐不买，无堂食外卖集聚地，豆包收佣争议</div></div></a>
-          <a href="2026-08-12/14-13.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-12</div><div class="calendar-title">李嘉诚撤退、胖东来关店、赵一鸣缺斤短两，实体店老板必读的三大警示</div></div></a>
-          <a href="2026-08-13/15-41.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-13</div><div class="calendar-title">胖东来闭店、餐饮新规、4S店爆改、雪王出海、上海书展文创，实体店老板必读的今日信号</div></div></a>
-          <a href="2026-08-13/16-42.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-13</div><div class="calendar-title">今日实体商业要闻</div></div></a>
-          <a href="2026-08-13/17-02.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-13</div><div class="calendar-title">胖东来闭店掀桌、银行办结婚证、可乐被判死刑、居民楼禁油烟，实体店老板必看的今日信号</div></div></a>
-          <a href="2026-08-14/16-57.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-14</div><div class="calendar-title">胖东来闭店效应、小龙虾遇冷、社保全额实缴、五粮液挺价、油价下调</div></div></a>
-          <a href="2026-08-15/16-15.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-15</div><div class="calendar-title">旺旺危机、胖东来招刑释、消费降级，实体店老板如何应对？</div></div></a>
-          <a href="2026-08-16/16-16.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-16</div><div class="calendar-title">胖东来闭店、洞洞鞋遇冷、青海拉面改名、旺旺减糖，实体店老板该咋看</div></div></a>
-          <a href="2026-08-17/16-30.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-17</div><div class="calendar-title">胖东来不涨租、卫龙转型、暑期游乱象，实体店老板必读的今日信号</div></div></a>
-          <a href="2026-08-18/16-22.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-18</div><div class="calendar-title">县域消费新政落地，BBA降价，榴莲价跌，实体店如何接招？</div></div></a>
-          <a href="2026-08-19/16-23.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-19</div><div class="calendar-title">羽生结弦打假杨国福，王石再创业，七夕冷清，瑞幸不联名，胖东来招聘引热议</div></div></a>
-          <a href="2026-08-20/16-24.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-20</div><div class="calendar-title">沪八条、香港楼市、火灾、外卖亏钱、宇树大跌，今日实体商业五大信号</div></div></a>
-          <a href="2026-08-21/16-26.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-21</div><div class="calendar-title">上海政策松绑、LV关店、泡泡玛特跌、猪茅亏损，实体老板如何应对？</div></div></a>
-          <a href="2026-08-22/16-16.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-22</div><div class="calendar-title">LV闭店、雪王翻车、华强北欧洲客，实体店冷暖自知</div></div></a>
-          <a href="2026-08-23/16-17.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-23</div><div class="calendar-title">社区商业新变局，餐饮成本警钟，监管风暴来袭</div></div></a>
-          <a href="2026-08-24/16-35.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-24</div><div class="calendar-title">敌敌畏消杀、甲醛白菜、泔水禁令，食品安全警钟长鸣；人形机器人落地难，零售新变局</div></div></a>
-          <a href="2026-08-25/16-29.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-25</div><div class="calendar-title">飞机餐成本30元仍难吃，汽车裁员5万，公积金新政，甲醛白菜，东方甄选转型</div></div></a>
-          <a href="2026-08-26/16-29.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-26</div><div class="calendar-title">房租暴涨、甲醛白菜、AI赚钱，实体店老板今天该看什么？</div></div></a>
-          <a href="2026-08-28/02-29.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-28</div><div class="calendar-title">万科半年报、SK海力士跑路、金税四期补税、央视批手办、甲醛白菜，实体店老板需警惕的5大信号</div></div></a>
-          <a href="2026-08-29/03-43.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-29</div><div class="calendar-title">房租暴涨、房贷延长、现房销售，实体店与楼市双重变局，老板如何破局？</div></div></a>
-          <a href="2026-08-29/21-28.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-29</div><div class="calendar-title">面包店空架、山姆脱毛、瑞幸贴纸，实体店流量新密码，情绪社交吃水果</div></div></a>
-          <a href="2026-08-30/21-24.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-30</div><div class="calendar-title">奥康亏损、药店关店、金饰销量跌，实体店如何破局？</div></div></a>
-          <a href="2026-08-31/23-36.html" class="calendar-link"><div class="calendar-item"><div class="calendar-date">08-31</div><div class="calendar-title">中海150亿拿地、山姆会员疯涨、白酒崩盘、开学数码涨价，实体商业冰火两重天</div></div></a></div>
-      </div>
-    </div>
-    <div class="footer"><p>老许聊实体 · 每月底自动生成 · 数据来源：每日实体生意日报</p></div>
+<div class="container">
+  <header class="masthead">
+    <div class="rule"></div>
+    <div class="kicker">实体商业 · 月度深读</div>
+    <h1 class="wordmark">2026年8月<span class="dot">·</span>实体月读</h1>
+    <div class="edition">2026.08.01 — 08.31　·　共 30 期　·　老许聊实体</div>
+    <div class="rule"></div>
+  </header>
+  <section class="lead">
+    <div class="lead-label">卷首 · The Month in One Line</div>
+    <h2 class="lead-title">三张账单同期到期</h2>
+    <p class="lead-body">社保全额实缴、房租暴涨、金税四期补税，不是三件事，是同一次清算：靠不缴社保、低租金、不入账撑起来的利润被一次性收走。它指向同一个结论——2026下半年实体店比拼的不是营业额，是合规之后的净利率。</p>
+    <div class="nav-chips"><span class="chip"><b>01</b>成本三杀正式落地</span><span class="chip"><b>02</b>最懂行的人先撤了</span><span class="chip"><b>03</b>消费裂成两半</span></div>
+  </section>
+  
+  <div class="sec-head"><span class="en">Mainlines</span><h2>本月三条主线</h2></div>
+<article class="trend">
+  <div class="t-head"><span class="t-num">01</span><h3 class="t-title">成本三杀正式落地</h3></div>
+  <p class="t-desc">房租暴涨、社保全额实缴、金税四期补税，一个月内三条成本线同时抬高，很多老板发现流水没掉、利润没了。</p>
+  <div class="t-field judge"><span class="f-lbl">判断</span><p class="f-body">过去靠少缴、拖缴、不入账挤出来的利润，被合规化一次性收走。房租是房东转嫁持有成本，社保是人口结构倒逼，金税是数据打通。实体店的对手不再是隔壁店，是成本结构本身。</p></div>
+  <div class="t-field act"><span class="f-lbl">动作</span><p class="f-body">本周按新标准重算房租、社保、税三项后的净利率，低于8%的门店立刻谈租约或换址。</p></div>
+</article>
+<article class="trend">
+  <div class="t-head"><span class="t-num">02</span><h3 class="t-title">最懂行的人先撤了</h3></div>
+  <p class="t-desc">于东来65亿转做包租公、胖东来接连闭店、李嘉诚撤退、LV关店、奥康亏损、药店成片关，零售老手集体离场。</p>
+  <div class="t-field judge"><span class="f-lbl">判断</span><p class="f-body">不是他们不会开店，是终端坪效模型跑不通了：客流被线上和会员店分走，租金却不跌。聪明钱从「经营门店」转向「持有资产收租」，信号很明确——开店赚钱的时代，让位给持有赚钱。</p></div>
+  <div class="t-field act"><span class="f-lbl">动作</span><p class="f-body">别赌新店翻盘。先关掉连续三个月现金流为负的店，把现金换成续约筹码或轻资产合作。</p></div>
+</article>
+<article class="trend">
+  <div class="t-head"><span class="t-num">03</span><h3 class="t-title">消费裂成两半</h3></div>
+  <p class="t-desc">山姆会员疯涨、榴莲价跌、BBA降价，另一边白酒崩盘、七夕冷清、金饰销量跌、小龙虾遇冷，同一个月冷热两极。</p>
+  <div class="t-field judge"><span class="f-lbl">判断</span><p class="f-body">中间价位正在消失：要么极致性价比，靠降价、会员制、大包装；要么强情绪价值，靠场景和谈资。客单价靠「有点贵但值」撑着的品牌，最先被挤出去。两头不靠的店最危险。</p></div>
+  <div class="t-field act"><span class="f-lbl">动作</span><p class="f-body">砍掉中间价位SKU，选一边站：要么把一个爆款做到极致便宜，要么把情绪场景做透。</p></div>
+</article>
+  <div class="sec-head"><span class="en">Topics</span><h2>十大热门话题</h2></div>
+<article class="topic">
+  <div class="tp-num">01</div>
+  <div>
+    <h3 class="tp-title">胖东来闭店转做包租公</h3>
+    <p class="tp-judge">于东来65亿转做包租公、胖东来接连闭店、坚持不涨租、招聘引热议，整个8月都在刷屏。　闭店不是败退，是把低效门店换成稳定租金，用不涨租换商户长期绑定。他赌的是资产和口碑，不是单店流水，这套逻辑普通老板学不了，但看得懂。</p>
+    <p class="tp-act">算清自己门店是资产还是负债，租约到期前比较「自持划算」还是「续租划算」。</p>
   </div>
+</article>
+<article class="topic">
+  <div class="tp-num">02</div>
+  <div>
+    <h3 class="tp-title">社保全额实缴</h3>
+    <p class="tp-judge">社保全额实缴被反复点名，餐饮、零售等用工密集门店首当其冲，人力成本从隐性变显性。　过去靠少缴撑住的岗位，现在要真金白银。人力成本刚性上涨会直接压缩门店用工弹性，排班结构、兼职工比例、岗位合并都得重算，这不是涨一点工资的事。</p>
+    <p class="tp-act">本周重排班表，非核心岗位改小时工加兼职，测出人均产出的红线。</p>
+  </div>
+</article>
+<article class="topic">
+  <div class="tp-num">03</div>
+  <div>
+    <h3 class="tp-title">房租暴涨与楼市变局</h3>
+    <p class="tp-judge">8月下旬房租暴涨与房贷延长、现房销售同期出现，商铺端和住宅端的租售逻辑一起被改写。　房东在住宅端被房贷拉长、现金流吃紧，转头向商铺提租补血。短期租金难降，但空置率上行后，议价权会回到租户手里，就看谁熬得住。</p>
+    <p class="tp-act">趁空置率上行期，用长租换低价，签三年递增不超5%的租约。</p>
+  </div>
+</article>
+<article class="topic">
+  <div class="tp-num">04</div>
+  <div>
+    <h3 class="tp-title">食品安全监管风暴</h3>
+    <p class="tp-judge">敌敌畏消杀、甲醛白菜、泔水禁令接连曝光，居民楼禁油烟、餐饮新规同步收紧，监管集中落地。　监管从查结果转向查过程，上游一次出事，终端门店跟着塌。消费者对看不见的环节极度敏感，这会加速客流倒向有溯源能力的渠道，小店的信任成本反而在上升。</p>
+    <p class="tp-act">把主要食材供应商资质和检测报告贴到店内，顺手做一次后厨流程自查。</p>
+  </div>
+</article>
+<article class="topic">
+  <div class="tp-num">05</div>
+  <div>
+    <h3 class="tp-title">金税四期补税</h3>
+    <p class="tp-judge">金税四期补税案例被密集提及，个体户和小微门店过去收付不入账的玩法，风险集中暴露。　银行、平台、发票数据打通后，流水即证据。补税不只补本金，还有滞纳金，一次就能吃掉半年净利。合规成本从可选项变成了入场券，侥幸空间基本归零。</p>
+    <p class="tp-act">让会计做一次流水与申报比对，有缺口主动补，别等通知上门。</p>
+  </div>
+</article>
+<article class="topic">
+  <div class="tp-num">06</div>
+  <div>
+    <h3 class="tp-title">山姆疯涨与白酒崩盘</h3>
+    <p class="tp-judge">山姆会员疯涨、榴莲价格下跌，同期白酒崩盘、五粮液被迫挺价，高端礼赠场景明显退潮。　会员制用确定性低价换家庭复购，正在吃掉中产日常采购；面子消费退潮，礼赠型商品失速。一个向上一个向下，最难受的是夹在中间靠渠道差价吃饭的生意。</p>
+    <p class="tp-act">对照自己的品类：日常刚需就拼供应链，礼赠面子就尽快止损。</p>
+  </div>
+</article>
+<article class="topic">
+  <div class="tp-num">07</div>
+  <div>
+    <h3 class="tp-title">政策松绑与县域新政</h3>
+    <p class="tp-judge">沪八条、上海政策松绑、县域消费新政落地、公积金新政，政策端在给消费和开店松绑。　大城市放松是稳资产，县域新政是找增量。红利不会平均分配，会集中流向能带动就业和本地税源的连锁、品牌和服务业态，个体户能不能接住要看本地细则。</p>
+    <p class="tp-act">查本地县域消费新政细则，看租金减免、装修补贴能不能落到自己头上。</p>
+  </div>
+</article>
+<article class="topic">
+  <div class="tp-num">08</div>
+  <div>
+    <h3 class="tp-title">外卖与平台佣金</h3>
+    <p class="tp-judge">无堂食外卖集聚地引发关注，外卖亏钱、豆包收佣争议同时出现，平台与商家的分成矛盾摆上台面。　平台流量越来越贵，纯外卖模型的净利被佣金和配送费吃光。无堂食集聚地本质是商家抱团降租求生，但同质化竞争更惨烈，最后拼的是谁的单店成本更低。</p>
+    <p class="tp-act">算清每单外卖的真实净利，低于盈亏线的菜品直接下架或调价。</p>
+  </div>
+</article>
+<article class="topic">
+  <div class="tp-num">09</div>
+  <div>
+    <h3 class="tp-title">楼市资金向核心集中</h3>
+    <p class="tp-judge">万科半年报承压、李嘉诚撤退、SK海力士跑路，同期中海150亿拿地，资金一边撤一边抄底。　这不是普跌，是分层。钱只认核心地段和确定现金流，商业地产同理：边缘商圈的铺子会越来越难租、越来越难卖，流动性比价格更重要。</p>
+    <p class="tp-act">手里有非核心商圈铺位别硬扛，尽早挂出，或转做仓配、社区自提点。</p>
+  </div>
+</article>
+<article class="topic">
+  <div class="tp-num">10</div>
+  <div>
+    <h3 class="tp-title">情绪社交成本月流量密码</h3>
+    <p class="tp-judge">星巴克只坐不买、面包店空架、瑞幸不联名改贴纸、上海书展文创热，情绪型消费成了流量入口。　年轻人买的是参与感和谈资，不是商品本身。空间免费坐、贴纸能晒、文创能发圈，都是低成本获客手段。门店从卖货场变成内容场，不会做内容的店流量只会更贵。</p>
+    <p class="tp-act">设计一个能拍照发圈的免费小道具或角落，成本压到千元内，先测流量。</p>
+  </div>
+</article>
+  <blockquote class="pull">它指向同一个结论——2026下半年实体店比拼的不是营业额，是合规之后的净利率。</blockquote>
+<div class="sec-head"><span class="en">Convergence</span><h2>信号合流 · 新闻之间的因果</h2></div>
+<div class="chain"><h4>三张账单同期到期</h4><p>社保全额实缴、房租暴涨、金税四期补税，不是三件事，是同一次清算：靠不缴社保、低租金、不入账撑起来的利润被一次性收走。它指向同一个结论——2026下半年实体店比拼的不是营业额，是合规之后的净利率。</p></div>
+<div class="chain"><h4>最懂行的在卖店收租</h4><p>于东来65亿转做包租公又坚持不涨租、胖东来接连闭店、李嘉诚撤退、LV关店、奥康与药店成片关店，同期中海150亿拿地。零售老手集体撤出经营、把钱压向资产和核心地段——门店这门生意的回报率，已经低于持有物业。</p></div>
+<div class="chain"><h4>信任崩了，会员制起来</h4><p>甲醛白菜、敌敌畏消杀、泔水禁令、山姆脱毛、飞机餐30元难吃、赵一鸣缺斤短两、打假杨国福——上游和终端同时失信。消费者转身用会员费投票给敢标来源的渠道，山姆会员疯涨就是这枚硬币的反面。</p></div>
+<div class="sec-head"><span class="en">Forecast</span><h2>下月预判 · 盯住这几个信号</h2></div>
+<div class="fc-call">9月是三件事的集中兑付期：社保实缴走完第一个完整缴费月，一批商铺租约到期重签，开学季和中秋备货同时启动。老板最先感受到的是用工成本跳涨和房东试探性提租，随后是粮油、包装的备货成本传导。这个月扛不住的店，会最先出现在社区餐饮和临街小店。</div>
+<ul class="fc-watch"><li>本地社保全额实缴的落地力度，是否出现集中补缴通知或灵活用工替代</li>
+<li>核心商圈商铺租金挂牌价与实际成交价的背离，以及空置率变化</li>
+<li>金税四期对个体户和小微门店的核税口径细则与补税案例数量</li></ul>
+  <div class="sec-head"><span class="en">Insights</span><h2>行业洞察与建议</h2></div>
+<div class="ins"><div class="i-label">Opportunity<span class="zh">机会点</span></div><p>机会在两头：一是承接头部退场留下的低成本资源，关店潮释放的成熟店长、二手设备、优质点位，9月议价最松；二是县域新政和公积金新政带来的本地增量，做刚需、做社区、做复购。食品安全风波里，敢公开供应链来源的小店反而拿到信任红利。</p></div>
+<div class="ins"><div class="i-label">Risk<span class="zh">风险提示</span></div><p>最大风险是用去年的模型开今年的店：租金、社保、税三项全变了，拿旧数据算的回本周期全是假的，一开就是亏损店。其次是食品安全，一次甲醛白菜式曝光，十年口碑归零。第三是外卖依赖，佣金和配送费继续涨，纯外卖店毫无议价权。</p></div>
+<div class="ins"><div class="i-label">Action<span class="zh">行动建议</span></div><p>本周做三件事：一，拿真实流水重算净利率，把社保和税按新标准计入，低于8%的店列进观察名单；二，翻出租赁合同，趁空置率上行期谈续约，争取长租低价；三，花半天把主要食材供应商的证照和检测报告做成公示牌贴在门口，成本极低，信任回报极高。</p></div>
+  <div class="sec-head"><span class="en">Archive</span><h2>本期日期索引</h2></div>
+  <div class="index">
+<a class="ix" href="2026-08-05/13-18.html"><span class="ix-date">08-05</span>2026-08-05商业资讯</a>
+<a class="ix" href="2026-08-05/13-43.html"><span class="ix-date">08-05</span>2026-08-05商业资讯</a>
+<a class="ix" href="2026-08-06/14-28.html"><span class="ix-date">08-06</span>2026-08-06商业资讯</a>
+<a class="ix" href="2026-08-07/14-42.html"><span class="ix-date">08-07</span>2026-08-07商业资讯</a>
+<a class="ix" href="2026-08-08/16-54.html"><span class="ix-date">08-08</span>2026-08-08商业资讯</a>
+<a class="ix" href="2026-08-09/18-23.html"><span class="ix-date">08-09</span>2026-08-09商业资讯</a>
+<a class="ix" href="2026-08-10/18-39.html"><span class="ix-date">08-10</span>2026-08-10商业资讯</a>
+<a class="ix" href="2026-08-11/19-43.html"><span class="ix-date">08-11</span>租金降了房东不租，于东来65亿当包租公，星巴克只坐不…</a>
+<a class="ix" href="2026-08-12/14-13.html"><span class="ix-date">08-12</span>李嘉诚撤退、胖东来关店、赵一鸣缺斤短两，实体店老板必…</a>
+<a class="ix" href="2026-08-13/15-41.html"><span class="ix-date">08-13</span>胖东来闭店、餐饮新规、4S店爆改、雪王出海、上海书展…</a>
+<a class="ix" href="2026-08-13/16-42.html"><span class="ix-date">08-13</span>今日实体商业要闻</a>
+<a class="ix" href="2026-08-13/17-02.html"><span class="ix-date">08-13</span>胖东来闭店掀桌、银行办结婚证、可乐被判死刑、居民楼禁…</a>
+<a class="ix" href="2026-08-14/16-57.html"><span class="ix-date">08-14</span>胖东来闭店效应、小龙虾遇冷、社保全额实缴、五粮液挺价…</a>
+<a class="ix" href="2026-08-15/16-15.html"><span class="ix-date">08-15</span>旺旺危机、胖东来招刑释、消费降级，实体店老板如何应对…</a>
+<a class="ix" href="2026-08-16/16-16.html"><span class="ix-date">08-16</span>胖东来闭店、洞洞鞋遇冷、青海拉面改名、旺旺减糖，实体…</a>
+<a class="ix" href="2026-08-17/16-30.html"><span class="ix-date">08-17</span>胖东来不涨租、卫龙转型、暑期游乱象，实体店老板必读的…</a>
+<a class="ix" href="2026-08-18/16-22.html"><span class="ix-date">08-18</span>县域消费新政落地，BBA降价，榴莲价跌，实体店如何接…</a>
+<a class="ix" href="2026-08-19/16-23.html"><span class="ix-date">08-19</span>羽生结弦打假杨国福，王石再创业，七夕冷清，瑞幸不联名…</a>
+<a class="ix" href="2026-08-20/16-24.html"><span class="ix-date">08-20</span>沪八条、香港楼市、火灾、外卖亏钱、宇树大跌，今日实体…</a>
+<a class="ix" href="2026-08-21/16-26.html"><span class="ix-date">08-21</span>上海政策松绑、LV关店、泡泡玛特跌、猪茅亏损，实体老…</a>
+<a class="ix" href="2026-08-22/16-16.html"><span class="ix-date">08-22</span>LV闭店、雪王翻车、华强北欧洲客，实体店冷暖自知</a>
+<a class="ix" href="2026-08-23/16-17.html"><span class="ix-date">08-23</span>社区商业新变局，餐饮成本警钟，监管风暴来袭</a>
+<a class="ix" href="2026-08-24/16-35.html"><span class="ix-date">08-24</span>敌敌畏消杀、甲醛白菜、泔水禁令，食品安全警钟长鸣；人…</a>
+<a class="ix" href="2026-08-25/16-29.html"><span class="ix-date">08-25</span>飞机餐成本30元仍难吃，汽车裁员5万，公积金新政，甲…</a>
+<a class="ix" href="2026-08-26/16-29.html"><span class="ix-date">08-26</span>房租暴涨、甲醛白菜、AI赚钱，实体店老板今天该看什么…</a>
+<a class="ix" href="2026-08-28/02-29.html"><span class="ix-date">08-28</span>万科半年报、SK海力士跑路、金税四期补税、央视批手办…</a>
+<a class="ix" href="2026-08-29/03-43.html"><span class="ix-date">08-29</span>房租暴涨、房贷延长、现房销售，实体店与楼市双重变局，…</a>
+<a class="ix" href="2026-08-29/21-28.html"><span class="ix-date">08-29</span>面包店空架、山姆脱毛、瑞幸贴纸，实体店流量新密码，情…</a>
+<a class="ix" href="2026-08-30/21-24.html"><span class="ix-date">08-30</span>奥康亏损、药店关店、金饰销量跌，实体店如何破局？</a>
+<a class="ix" href="2026-08-31/23-36.html"><span class="ix-date">08-31</span>中海150亿拿地、山姆会员疯涨、白酒崩盘、开学数码涨…</a>
+  </div>
+  <footer class="footer">老许聊实体 · 每月底自动生成 · 数据来源：每日实体生意日报</footer>
+</div>
 </body>
 </html>
