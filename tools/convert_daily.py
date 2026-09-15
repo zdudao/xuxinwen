@@ -1087,7 +1087,7 @@ def _norm_link(u: str) -> str:
     u = (u or "").strip().lower()
     u = re.sub(r"^https?://", "", u)
     u = re.sub(r"^www\.", "", u)
-    u = re.sub(r"[?#].*$", "", u)   # 去掉查询串 / 锚点
+    u = re.sub(r"#.*$", "", u)      # 仅去锚点；查询串常含条目ID（如 weibo/贴吧），整段砍掉会把不同条目压成同一键导致误删
     return u.rstrip("/")
 
 
@@ -1147,11 +1147,19 @@ def _seed_seen_from_latest(html_root: str) -> dict:
         return {}
     seen = {}
     ts = _now_iso()
-    # 终稿里每条新闻的「阅读原文」链接，与抓取源链接一致，用作去重键
-    for m in re.finditer(r'class="read-item"[^>]*?href="([^"]+)"', txt):
-        kl = "L:" + _norm_link(m.group(1))
-        if kl:
-            seen[kl] = ts
+    # 终稿里「要闻」(a.s-title) 与「深度阅读」(a.read-item) 的链接，与抓取源链接一致，用作去重键；
+    # 同时收标题键做双保险。
+    for m in re.finditer(r'<a class="s-title" href="([^"]+)"[^>]*>([^<]*)</a>', txt):
+        link = html_mod.unescape(m.group(1)).strip()
+        if link:
+            seen["L:" + _norm_link(link)] = ts
+        title = html_mod.unescape(m.group(2)).strip()
+        if title:
+            seen["T:" + _norm_title(title)] = ts
+    for m in re.finditer(r'<a class="read-item" href="([^"]+)"', txt):
+        link = html_mod.unescape(m.group(1)).strip()
+        if link:
+            seen["L:" + _norm_link(link)] = ts
     return seen
 
 
