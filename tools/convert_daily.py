@@ -1065,6 +1065,141 @@ def inject_summary_links(index_path: str) -> None:
 # 5. 主流程
 # ══════════════════════════════════════════════════════════════
 
+# ══════════════════════════════════════════════════════════════
+# 跨期去重：记住上一期用过的条目，本期剔除，保证前后不重复
+# 数据源不提供单条新闻的发布时间，故用「内容比对」实现干净的滚动窗口
+# ══════════════════════════════════════════════════════════════
+from pathlib import Path
+
+SEEN_TTL_DAYS = 7  # 已报条目记忆窗口（天）；超过则遗忘，允许旧闻再次升温时复出
+STATE_DIR = Path(__file__).resolve().parent.parent / ".xuxinwen-state"
+STATE_PATH = STATE_DIR / "last_report.json"
+
+
+def _norm_title(t: str) -> str:
+    t = (t or "").lower()
+    t = re.sub(r"\s+", "", t)
+    t = re.sub(r"[^\w一-鿿]", "", t)  # 仅留字母数字与汉字
+    return t
+
+
+def _norm_link(u: str) -> str:
+    u = (u or "").strip().lower()
+    u = re.sub(r"^https?://", "", u)
+    u = re.sub(r"^www\.", "", u)
+    u = re.sub(r"[?#].*$", "", u)   # 去掉查询串 / 锚点
+    return u.rstrip("/")
+
+
+def _keys_of(item: dict) -> set:
+    ks = set()
+    if item.get("link"):
+        ks.add("L:" + _norm_link(item["link"]))
+    if item.get("title"):
+        ks.add("T:" + _norm_title(item["title"]))
+    return ks
+
+
+def _now_iso() -> str:
+    return datetime.datetime.now(
+        datetime.timezone(datetime.timedelta(hours=8))).isoformat()
+
+
+def _parse_iso(s):
+    try:
+        return datetime.datetime.fromisoformat(s)
+    except Exception:
+        return None
+
+
+def load_seen() -> dict:
+    """返回 {key: 最后出现时间ISO}；文件缺失 / 损坏返回空字典。"""
+    if not STATE_PATH.exists():
+        return {}
+    try:
+        obj = json.loads(STATE_PATH.read_text(encoding="utf-8"))
+        return obj.get("seen", {}) or {}
+    except Exception:
+        return {}
+
+
+def save_seen(seen: dict) -> None:
+    STATE_DIR.mkdir(parents=True, exist_ok=True)
+    STATE_PATH.write_text(
+        json.dumps({"version": 1, "updated_at": _now_iso(), "seen": seen},
+                   ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+
+def _seed_seen_from_latest(html_root: str) -> dict:
+    """首次部署无状态时，从最近一期已生成日报里取链接做底，避免上线首日就重复。"""
+    root = Path(html_root) / "html"
+    if not root.exists():
+        return {}
+    files = sorted(root.glob("*/*.html"))
+    if not files:
+        return {}
+    latest = files[-1]
+    try:
+        txt = latest.read_text(encoding="utf-8")
+    except Exception:
+        return {}
+    seen = {}
+    ts = _now_iso()
+    # 终稿里每条新闻的「阅读原文」链接，与抓取源链接一致，用作去重键
+    for m in re.finditer(r'class="read-item"[^>]*?href="([^"]+)"', txt):
+        kl = "L:" + _norm_link(m.group(1))
+        if kl:
+            seen[kl] = ts
+    return seen
+
+
+def dedup_data(data: dict, html_root: str) -> int:
+    """就地剔除上一期已报条目；返回剔除数量。记忆写入 .xuxinwen-state/last_report.json。"""
+    seen = load_seen()
+    if not seen:
+        seen = _seed_seen_from_latest(html_root)
+
+    def _kept(items):
+        return [it for it in items if not (_keys_of(it) & seen.keys())]
+
+    trial_groups = [_kept(g["items"]) for g in data.get("groups", [])]
+    trial_rss = _kept(data.get("rss_items", []))
+    kept_total = sum(len(x) for x in trial_groups) + len(trial_rss)
+    orig_total = sum(g["count"] for g in data.get("groups", [])) + len(data.get("rss_items", []))
+
+    # 无论是否启用去重，都把本期条目并入记忆（带当前时间）
+    now = _now_iso()
+    merged = dict(seen)
+    for g in data.get("groups", []):
+        for it in g["items"]:
+            for k in _keys_of(it):
+                merged[k] = now
+    for it in data.get("rss_items", []):
+        for k in _keys_of(it):
+            merged[k] = now
+    cutoff = (datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8)))
+              - datetime.timedelta(days=SEEN_TTL_DAYS))
+    merged = {k: v for k, v in merged.items()
+              if _parse_iso(v) is None or _parse_iso(v) >= cutoff}
+    save_seen(merged)
+
+    MIN_KEEP = 5
+    if kept_total < MIN_KEEP and orig_total >= MIN_KEEP:
+        print(f"[warn] 去重后仅剩 {kept_total} 条（<{MIN_KEEP}），本期停用去重以免日报过空；记忆已更新",
+              file=sys.stderr)
+        return 0
+
+    dropped = orig_total - kept_total
+    for g, kp in zip(data["groups"], trial_groups):
+        g["items"] = kp
+        g["count"] = len(kp)
+    data["rss_items"] = trial_rss
+    print(f"[ok] 跨期去重: 剔除 {dropped} 条已报内容，保留 {kept_total} 条")
+    return dropped
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="TrendRadar → 黑红日报 + 首页")
     ap.add_argument("--input", default="", help="TrendRadar 原始 HTML 路径（非月总结模式必填）")
@@ -1096,6 +1231,9 @@ def main() -> int:
     print(f"[ok] 解析完成: {data['date']} {data['hh_mm']}, "
           f"{sum(g['count'] for g in data['groups'])} 条新闻, {len(data['rss_items'])} 篇深度, "
           f"{len(data['ai_blocks'])} 个分析块")
+
+    # 跨期去重：剔除上一期已报内容，保证前后不重复（记忆存于 .xuxinwen-state/）
+    dedup_data(data, args.output_dir)
 
     # AI 生成
     ai = {}

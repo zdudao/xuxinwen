@@ -3,3 +3,11 @@ sample-daily-structured.html
 sample-vA-dark.html
 sample-vB-light.html
 sample-upgraded-2026-08-11.html
+
+# 本机生成的社媒素材（抖音图文 / 公众号文章 / 体检报告），只存本地、不上传网站
+/publish/
+/.venv/
+
+# Python 缓存
+__pycache__/
+*.pyc

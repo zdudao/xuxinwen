@@ -2,8 +2,8 @@ name: 每日实体生意日报
 
 on:
   schedule:
-    # UTC 08:00 = 北京时间 16:00
-    - cron: "0 8 * * *"
+    # UTC 02:00 = 北京时间 10:00（每天早上 10 点出报）
+    - cron: "0 2 * * *"
   workflow_dispatch:
 
 permissions:
