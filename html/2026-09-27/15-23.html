@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老许聊实体 · 09月27日实体生意日报</title>
+<meta name="description" content="今日实体商业要闻速览，每天 5 分钟，看透实体生意。">
+<meta property="og:title" content="老许聊实体 · 实体生意日报">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="老许聊实体">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../donate.css">
+<style>
+  :root{
+    --bg:#100E0C; --ink:#EDE7DD; --muted:#9C9388; --faint:#635B51;
+    --hair:rgba(237,231,221,0.12); --accent:#D2553F; --accent-soft:rgba(210,85,63,0.14); --accent-wash:rgba(210,85,63,0.08);
+    --serif:'Noto Serif SC','Songti SC',serif;
+    --sans:'Inter','Noto Sans SC',-apple-system,'Microsoft YaHei',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit;text-decoration:none}
+  img,svg,video{max-width:100%;height:auto}
+  ::selection{background:var(--accent);color:#fff}
+  .container{max-width:780px;margin:0 auto;padding:0 24px 96px}
+
+  .masthead{padding:56px 0 30px;text-align:center}
+  .rule{height:1px;background:var(--hair);width:100%}
+  .kicker{font-size:11px;letter-spacing:.42em;color:var(--muted);text-transform:uppercase;padding:18px 0 14px;font-weight:500}
+  .wordmark{font-family:var(--serif);font-weight:900;font-size:clamp(34px,7vw,52px);letter-spacing:.04em;line-height:1;color:var(--ink)}
+  .wordmark .dot{color:var(--accent)}
+  .edition{font-size:12.5px;letter-spacing:.18em;color:var(--faint);padding:16px 0 18px;font-variant-numeric:tabular-nums}
+  .edition .prev{margin-left:14px;font-size:11px;letter-spacing:.06em;color:var(--muted)}
+  .edition .prev:hover{color:var(--accent)}
+
+  .lead{position:relative;padding:30px 0 30px 26px;margin:8px 0 6px;border-left:3px solid var(--accent)}
+  .lead::before{content:"";position:absolute;left:-3px;top:0;width:3px;height:0;background:var(--accent);transition:height .3s ease}
+  .lead:hover::before{height:100%}
+  .lead-label{font-size:11px;letter-spacing:.34em;color:var(--accent);font-weight:600;margin-bottom:14px;text-transform:uppercase}
+  .lead-title{font-family:var(--serif);font-weight:700;font-size:clamp(22px,4.4vw,30px);line-height:1.32;color:var(--ink);margin-bottom:14px}
+  .lead-meta{font-size:12.5px;color:var(--faint);letter-spacing:.04em;font-variant-numeric:tabular-nums}
+
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin:48px 0 20px}
+  .sec-head .en{font-size:10px;letter-spacing:.4em;color:var(--faint);text-transform:uppercase;font-weight:500}
+  .sec-head h2{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);letter-spacing:.02em}
+  .sec-head::after{content:"";flex:1;height:1px;background:var(--hair)}
+
+  .action-card{background:#16130F;border:1px solid var(--hair);border-radius:4px;padding:24px 26px;margin-bottom:14px}
+  .action-card .ac-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.2em;font-weight:700}
+  .action-card .ac-title{font-size:17px;font-weight:700;color:var(--ink);margin:6px 0 14px;font-family:var(--serif)}
+  .action-card .ac-seg{margin-bottom:12px}
+  .action-card .ac-seg:last-child{margin-bottom:0}
+  .action-card .ac-seg .seg-lbl{display:block;font-size:10px;font-weight:600;letter-spacing:.28em;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
+  .action-card .ac-seg p{font-size:14px;color:var(--ink);line-height:1.75;max-width:45em}
+  .action-card .ac-seg p strong{color:var(--accent);font-weight:600}
+
+  .signals{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .signal{background:#16130F;border:1px solid var(--hair);border-radius:4px;padding:20px 22px}
+  .signal .s-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--accent);text-transform:uppercase;margin-bottom:12px;padding-bottom:4px;border-bottom:1px solid var(--accent)}
+  .signal .s-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.5;font-family:var(--serif)}
+  .signal .s-desc{font-size:13px;color:var(--muted);line-height:1.7}
+
+  .story{padding:28px 0;border-bottom:1px solid var(--hair);scroll-margin-top:20px}
+  .story:first-of-type{padding-top:8px}
+  .story-head{display:flex;align-items:flex-start;gap:18px;margin-bottom:18px}
+  .story .s-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.14em;font-weight:700;line-height:1.6;flex-shrink:0;padding-top:4px}
+  .story .s-title{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--ink);line-height:1.45;letter-spacing:.01em}
+  .story .s-title:hover{color:var(--accent)}
+  .story .s-src{margin-top:8px;font-size:11.5px;color:var(--faint);letter-spacing:.06em}
+  .story .s-src .sep{color:var(--faint);margin:0 8px}
+  .story .s-src a:hover{color:var(--accent)}
+  .field{display:grid;grid-template-columns:88px 1fr;gap:18px;padding:12px 0 12px 4px}
+  .field .f-lbl{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;padding-top:5px}
+  .field .f-lbl .f-en{display:block;font-size:9px;letter-spacing:.3em;color:var(--faint);font-weight:500;margin-top:2px}
+  .field .f-body{font-size:14px;color:var(--ink);line-height:1.8;max-width:46em}
+  .field .f-body strong{color:var(--accent);font-weight:600}
+  .field.sec .f-lbl{color:var(--muted)}
+  .field.judge .f-lbl{color:var(--accent)}
+  .field.act .f-lbl{color:var(--muted)}
+  .field.judge .f-body{color:var(--muted)}
+  .field.act .f-body{border-left:2px solid var(--accent);padding-left:14px}
+
+  .read{margin-top:4px}
+  .read-item{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:15px 4px;border-bottom:1px solid var(--hair);transition:background .2s,padding-left .2s}
+  .read-item:hover{background:var(--accent-wash);padding-left:12px}
+  .read-item .r-src{font-size:11px;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;font-weight:600}
+  .read-item .r-title{font-size:14.5px;color:var(--ink);line-height:1.6}
+  .read-item:hover .r-title{color:var(--accent)}
+
+  .insight-block{padding:24px 26px;margin-bottom:14px;background:#16130F;border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:4px}
+  .insight-block h3{font-size:12px;font-weight:600;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:14px}
+  .insight-block p{font-size:14px;color:var(--ink);line-height:1.85;max-width:48em}
+  .insight-block .lbl{color:var(--muted);font-weight:600}
+
+  .footer{margin-top:72px;padding-top:34px;border-top:1px solid var(--hair);text-align:center}
+  .footer .f-main{font-family:var(--serif);font-size:14px;color:var(--ink);letter-spacing:.08em}
+  .footer .f-copy{font-size:11.5px;color:var(--faint);margin-top:16px;font-variant-numeric:tabular-nums;letter-spacing:.06em}
+  .footer .f-copy a{color:var(--muted);text-decoration:underline}
+  .footer .f-copy a:hover{color:var(--accent)}
+
+  .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  /* ── 自适应：同一页面按屏幕宽度自动重排（桌面 / 平板 / 手机） ── */
+  @media (max-width:900px){
+    .container{padding:0 22px 84px}
+    .masthead{padding:44px 0 26px}
+    .sec-head{margin:40px 0 18px}
+    .lead{padding:26px 0 26px 22px}
+    .field{grid-template-columns:76px 1fr;gap:14px}
+    .read-item{grid-template-columns:82px 1fr;gap:14px}
+  }
+  @media (max-width:600px){
+    .container{padding:0 18px 64px}
+    body{line-height:1.75}
+    .masthead{padding:32px 0 20px}
+    .kicker{letter-spacing:.3em;padding:12px 0 10px}
+    .edition{padding:12px 0 14px}
+    .edition .prev{display:block;margin:6px 0 0}
+    .lead{padding:22px 0 22px 16px;margin:6px 0 4px;border-left-width:2px}
+    .lead-label{letter-spacing:.24em;margin-bottom:10px}
+    .lead-title{font-size:clamp(20px,5.8vw,25px)}
+    .sec-head{margin:34px 0 14px;gap:10px}
+    .sec-head .en{letter-spacing:.28em}
+    .sec-head h2{font-size:19px}
+    .signals{grid-template-columns:1fr;gap:10px}
+    .signal{padding:16px 16px}
+    .action-card,.insight-block{padding:18px 17px;border-radius:3px}
+    .action-card .ac-seg p,.insight-block p{font-size:13.5px;line-height:1.72}
+    .story{padding:22px 0}
+    .story-head{flex-direction:column;gap:6px;margin-bottom:14px}
+    .story .s-title{font-size:17.5px}
+    .field{grid-template-columns:1fr;gap:2px;padding:10px 0}
+    .field .f-lbl{padding-top:0}
+    .field .f-lbl .f-en{display:inline;margin:0 0 0 6px}
+    .field .f-body{font-size:13.5px;line-height:1.75}
+    .field.act .f-body{padding-left:12px}
+    .read-item{grid-template-columns:1fr;gap:4px;padding:13px 2px}
+    .read-item:hover{padding-left:2px}
+    .footer{margin-top:52px;padding-top:26px}
+  }
+  @media (max-width:380px){
+    .container{padding:0 14px 56px}
+    .wordmark{letter-spacing:.02em}
+    .story .s-title{font-size:16.5px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="masthead">
+    <div class="rule"></div>
+    <div class="kicker">实体商业 · 每日内参</div>
+    <h1 class="wordmark">老许聊实体<span class="dot">.</span></h1>
+    <div class="edition">第 95 期　·　2026年09月27日　·　每日更新<a class="prev" href="../2026-09-26/">← 上一期</a></div>
+    <div class="rule"></div>
+  </header>
+
+  <div class="lead reveal">
+    <div class="lead-label">今日头条 · TODAY</div>
+    <div class="lead-title">老年一日聚、景区3000万招NPC、自己做月饼、五仁回收千元一吨、茅台新品秒罄</div>
+    <div class="lead-meta">2026年09月27日　·　阅读约 6 分钟　·　共 7 条</div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Action</span><h2>今日行动建议</h2></div>
+  <div class="action-card reveal">
+    <div class="ac-num">01</div>
+    <div class="ac-title">盯紧老年社交场景</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>人均百元的老年人一日聚在热搜走红，说明银发群体有社交和轻消费需求。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>老年人生意不是低价团，而是有尊严、有内容的轻社交，复购率高。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>餐饮店可推**老年主题下午茶或包场聚会**，定价百元左右，提供拍照、茶点、简单活动，**主动联系社区老年社团**。</p></div>
+  </div>
+  <div class="action-card reveal">
+    <div class="ac-num">02</div>
+    <div class="ac-title">中秋做体验不做货</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>自己做月饼和五金月饼上热搜，五仁回收价低，说明月饼礼盒滞销，自制体验火。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>月饼作为礼品在衰退，作为体验在上升，门店可借势做DIY活动引流。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>烘焙店、餐饮店可办**月饼DIY工坊**，收体验费，材料用五仁等低成本原料，**把顾客变成传播者**。</p></div>
+  </div>
+  <div class="action-card reveal">
+    <div class="ac-num">03</div>
+    <div class="ac-title">别碰伪需求营销</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>山西景区3000万招NPC引发热议，茅台新品1分钟售罄，两者都是话题驱动。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>小实体学不了大预算，但可以学制造小话题，用真实内容换流量。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>门店可设**打卡点或互动角色**，成本几百元，拍短视频发本地生活平台，**坚持每周更新**。</p></div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Signals</span><h2>信号速览</h2></div>
+  <div class="signals reveal">
+    <div class="signal"><span class="s-tag">银发经济</span><div class="s-title">老年人一日聚</div><div class="s-desc">人均百元，老年人社交聚会成新消费场景</div></div>
+    <div class="signal"><span class="s-tag">景区营销</span><div class="s-title">3000万招NPC</div><div class="s-desc">山西景区重金求关注，话题营销还是真突围</div></div>
+    <div class="signal"><span class="s-tag">月饼DIY</span><div class="s-title">自己做月饼</div><div class="s-desc">中秋自制月饼热潮，体验式消费受追捧</div></div>
+    <div class="signal"><span class="s-tag">供应链</span><div class="s-title">五仁回收热</div><div class="s-desc">五仁月饼回收价千元一吨，原料再利用</div></div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Stories</span><h2>今日 7 条要闻</h2></div>
+  <article class="story reveal" id="s01">
+    <div class="story-head">
+      <span class="s-num">01</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E4%BA%BA%E5%9D%87%E7%99%BE%E5%85%83%E7%9A%84%E8%80%81%E5%B9%B4%E4%BA%BA%E2%80%9C%E4%B8%80%E6%97%A5%E8%81%9A%E2%80%9D%E7%81%AB%E4%BA%86" target="_blank" rel="noopener">人均百元的老年人“一日聚”火了</a>
+        <div class="s-src">百度热搜<span class="sep">·</span><a href="https://www.baidu.com/s?wd=%E4%BA%BA%E5%9D%87%E7%99%BE%E5%85%83%E7%9A%84%E8%80%81%E5%B9%B4%E4%BA%BA%E2%80%9C%E4%B8%80%E6%97%A5%E8%81%9A%E2%80%9D%E7%81%AB%E4%BA%86" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">人均百元的老年人“一日聚”登上百度热搜，成为消费新现象。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">银发群体不再只满足于带孙子，他们愿意为社交和体验买单，且对价格敏感但接受百元级。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">实体店可推出**老年聚会套餐**，包含茶歇、场地、简单活动，通过社区推广，**强调安全与氛围**。</p></div>
+  </article>
+  <article class="story reveal" id="s02">
+    <div class="story-head">
+      <span class="s-num">02</span>
+      <div>
+        <a class="s-title" href="https://www.thepaper.cn/newsDetail_forward_34149469" target="_blank" rel="noopener">山西一景区3000万元招NPC，是话题营销还是突围之计？澎湃记者实地调查</a>
+        <div class="s-src">澎湃新闻<span class="sep">·</span><a href="https://www.thepaper.cn/newsDetail_forward_34149469" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">山西一景区花3000万元招NPC，澎湃记者实地调查是话题营销还是突围之计。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">景区流量焦虑严重，重金招人本质是制造话题，但若内容跟不上，热度难持续。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">小商家不必模仿烧钱，可**用低成本角色扮演或互动游戏**制造记忆点，**把顾客体验拍成内容**。</p></div>
+  </article>
+  <article class="story reveal" id="s03">
+    <div class="story-head">
+      <span class="s-num">03</span>
+      <div>
+        <a class="s-title" href="https://search.bilibili.com/all?keyword=%E8%87%AA%E5%B7%B1%E5%81%9A%E6%9C%88%E9%A5%BC%E8%BF%87%E4%B8%AD%E7%A7%8B%E4%BB%80%E4%B9%88%E4%BD%93%E9%AA%8C" target="_blank" rel="noopener">自己做月饼过中秋什么体验</a>
+        <div class="s-src">bilibili 热搜<span class="sep">·</span><a href="https://search.bilibili.com/all?keyword=%E8%87%AA%E5%B7%B1%E5%81%9A%E6%9C%88%E9%A5%BC%E8%BF%87%E4%B8%AD%E7%A7%8B%E4%BB%80%E4%B9%88%E4%BD%93%E9%AA%8C" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">B站热搜出现“自己做月饼过中秋什么体验”，用户分享自制月饼过程。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">年轻人把中秋仪式感从买转向做，体验式消费崛起，传统月饼礼盒受冲击。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">餐饮门店可开设**月饼DIY体验课**，按人头收费，材料成本低，**顺便卖饮品和伴手礼**。</p></div>
+  </article>
+  <article class="story reveal" id="s04">
+    <div class="story-head">
+      <span class="s-num">04</span>
+      <div>
+        <a class="s-title" href="https://search.bilibili.com/all?keyword=%E4%BA%94%E9%87%91%E6%9C%88%E9%A5%BC" target="_blank" rel="noopener">五金月饼</a>
+        <div class="s-src">bilibili 热搜<span class="sep">·</span><a href="https://search.bilibili.com/all?keyword=%E4%BA%94%E9%87%91%E6%9C%88%E9%A5%BC" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">B站热搜出现“五金月饼”，网友调侃五仁月饼硬如五金。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">五仁月饼被玩梗，说明传统口味在年轻人中认知老化，但话题度极高。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">可借梗做**“五金月饼挑战”**活动，吸引年轻人到店试吃并拍视频，**把槽点变卖点**。</p></div>
+  </article>
+  <article class="story reveal" id="s05">
+    <div class="story-head">
+      <span class="s-num">05</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E4%BA%94%E4%BB%81%E6%9C%88%E9%A5%BC%E6%88%90%E5%9B%9E%E6%94%B6%E9%A6%99%E9%A5%BD%E9%A5%BD+1000%E5%85%83%E4%B8%80%E5%90%A8" target="_blank" rel="noopener">五仁月饼成回收香饽饽 1000元一吨</a>
+        <div class="s-src">百度热搜<span class="sep">·</span><a href="https://www.baidu.com/s?wd=%E4%BA%94%E4%BB%81%E6%9C%88%E9%A5%BC%E6%88%90%E5%9B%9E%E6%94%B6%E9%A6%99%E9%A5%BD%E9%A5%BD+1000%E5%85%83%E4%B8%80%E5%90%A8" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">五仁月饼成回收香饽饽，回收价1000元一吨。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">月饼过度生产导致大量剩余，回收主要用于饲料或原料再利用，反映礼盒市场萎缩。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">中小商家**不要压货月饼礼盒**，可转向散装或现烤，**与回收渠道保持联系**减少损耗。</p></div>
+  </article>
+  <article class="story reveal" id="s06">
+    <div class="story-head">
+      <span class="s-num">06</span>
+      <div>
+        <a class="s-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E4%B8%89%E6%98%9F%E5%86%B0%E7%AE%B1%E6%9B%B4%E6%96%B0%E5%90%8E%E5%8F%98%E7%A0%96%2C%E9%A3%9F%E6%9D%90%E6%8A%A5%E5%BA%9F&amp;amp;topic_id=28365823" target="_blank" rel="noopener">三星冰箱更新后变砖,食材报废</a>
+        <div class="s-src">贴吧<span class="sep">·</span><a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E4%B8%89%E6%98%9F%E5%86%B0%E7%AE%B1%E6%9B%B4%E6%96%B0%E5%90%8E%E5%8F%98%E7%A0%96%2C%E9%A3%9F%E6%9D%90%E6%8A%A5%E5%BA%9F&amp;amp;topic_id=28365823" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">三星冰箱更新后变砖，食材报废，用户在贴吧反馈。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">智能家电系统更新风险转嫁给消费者，食材损失无人赔，暴露售后短板。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">餐饮店**谨慎采购智能设备**，重要冷柜选机械温控，**定期备份数据并保留维修凭证**。</p></div>
+  </article>
+  <article class="story reveal" id="s07">
+    <div class="story-head">
+      <span class="s-num">07</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E8%8C%85%E5%8F%B0%E6%96%B0%E5%93%811%E5%88%86%E9%92%9F%E5%94%AE%E7%BD%84+%E5%AE%9A%E4%BB%B72199%E5%85%83" target="_blank" rel="noopener">茅台新品1分钟售罄 定价2199元</a>
+        <div class="s-src">百度热搜<span class="sep">·</span><a href="https://www.baidu.com/s?wd=%E8%8C%85%E5%8F%B0%E6%96%B0%E5%93%811%E5%88%86%E9%92%9F%E5%94%AE%E7%BD%84+%E5%AE%9A%E4%BB%B72199%E5%85%83" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">茅台新品1分钟售罄，定价2199元。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">高端消费依然有强购买力，茅台品牌溢价和稀缺营销奏效，但普通实体难复制。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">实体店可学**限量+预售**模式，推特色产品制造稀缺感，**用小程序或社群锁客**。</p></div>
+  </article>
+  <div class="sec-head reveal"><span class="en">Readings</span><h2>深度阅读</h2></div>
+  <div class="read reveal">
+    <a class="read-item" href="https://www.tmtpost.com/8152919.html" target="_blank" rel="noopener"><span class="r-src">钛媒体</span><span class="r-title">京东101HOME落地静安寺：线下家居卖场，该换个活法了</span></a>
+    <a class="read-item" href="https://www.woshipm.com/share/6470406.html" target="_blank" rel="noopener"><span class="r-src">人人都是产品经理</span><span class="r-title">充电站和加油站，到底算不算同一门生意？</span></a>
+    <a class="read-item" href="https://www.yunyingpai.com/work/1063666.html" target="_blank" rel="noopener"><span class="r-src">运营派</span><span class="r-title">代言翻车，我不背锅</span></a>
+  </div>
+  <div class="sec-head reveal"><span class="en">Insight</span><h2>老许研判</h2></div>
+  <div class="insight-block reveal">
+    <h3>核心热点态势</h3>
+<p>圈层热点。银发经济「一日聚」和景区NPC招商两条线并行，指向同一个底层逻辑：线下体验型消费正在重新定价。</p>
+<p style="margin-top:12px">【宏观主线】</p>
+<p>人均百元老年社交局和3000万招NPC，本质都是卖「参与感」而非卖货。中秋月饼话题（自己做、五金月饼、五仁回收）是季节性流量窗口，但已从消费话题滑向猎奇话题。</p>
+<p style="margin-top:12px">【微观领域】</p>
+<p>1. 老年「一日聚」验证了下沉市场对低价社交场景的刚需；</p>
+<p>2. 景区NPC高薪本质是内容营销，不是用工需求；</p>
+<p>3. 外卖骑手50单赚2.7元暴露平台抽成结构问题；</p>
+<p>4. 月饼回收价1000/吨说明节后供应链尾货处理是门被忽视的生意。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>舆论风向争议</h3>
+<p style="margin-top:12px">【情绪光谱】</p>
+<p>主流声音认可老年社交局和景区营销的创新，潜流暗涌集中在外卖平台抽成的愤怒。</p>
+<p style="margin-top:12px">【核心矛盾】</p>
+<p>1. 骑手50单赚2.7元，公众质疑平台分配机制；</p>
+<p>2. 景区3000万招NPC，有人叫好有人骂作秀浪费钱；</p>
+<p>3. 月饼出口话题下，国人对传统食品的嫌弃与自豪感交织。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>异动与弱信号</h3>
+<p>「人均百元老年人一日聚」仅在百度热搜出现1次，但知乎暂无讨论，属于百度中老年用户群的原生热点，尚未跨平台共振。</p>
+<p>「配送50骑手赚2.7」从贴吧发酵，微博未见跟进，是典型的底层从业者抱怨帖，尚未进入主流视野，但这类信号历史上多次演变为舆论风暴。</p>
+<p>「五仁月饼回收」与「自己做月饼」在百度和B站同时出现，跨平台共振，说明节后食品供应链话题有延展性。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>研判策略建议</h3>
+<p style="margin-top:12px">1. 实体商家：节后立即联系本地月饼经销商或食品厂，以吨为单位回收五仁等滞销月饼，拆馅料做烘焙原料或饲料转售，成本门槛约5000-10000元，需提前确认下游买家。</p>
+<p style="margin-top:12px">2. 创业者：在三四线城市社区周边租用小茶馆或活动室，复制「老年人一日聚」模式，人均80-120元含茶水简餐和社交活动，启动成本约2-3万元（含首月租金和基础设备），核心是找到社区里有号召力的退休意见领袖做种子用户。</p>
+<p style="margin-top:12px">3. 实体商家：外卖平台抽成矛盾持续发酵，有堂食能力的门店应加速建私域微信群，用「到店自取享折扣」引导客户绕过平台，成本几乎为零，但需要坚持三个月以上才见效。</p>
+<p>4. 景区/商圈运营者：NPC营销不要盲目砸钱，先用1-2万元预算做周末快闪角色扮演测试客流反应，数据跑通再放大，避免一次性重投入打水漂。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>独立源点速览</h3>
+<p>[知乎]:</p>
+<p>热榜被亚运会、中美关系、AI理论等话题占据，与实体商业直接相关内容仅「交个朋友溜溜凳发霉」一条，反映直播渠道品控问题。整体对线下实体商家参考价值有限，但品控信任可成为线下店差异化卖点。</p>
+<p>[华尔街见闻]:</p>
+<p>全版聚焦中美关系、AI军备竞赛、美股资金流向，无任何实体商业相关信号。唯一间接关联是欧洲油价飙升带动电车销量激增50%，提示国内新能源车周边实体服务（充电桩、改装）仍有窗口期。</p>
+  </div>
+  <footer class="footer reveal">
+    <div class="f-main">老许聊实体</div>
+    <div class="f-copy">每天 5 分钟，看透实体生意　·　第 95 期 · 2026年09月27日　·　共 7 条 / 255 条</div>
+  </footer>
+</div>
+
+<script>
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+<script src="../../donate.js" data-donate-img="../../donate.png"></script>
+</body>
+</html>
