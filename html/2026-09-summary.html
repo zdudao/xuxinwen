@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老许聊实体 · 2026年9月月度深读</title>
+<meta name="description" content="2026年9月实体商业月度深读：三条主线、十大话题、信号合流与下月预判。">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../donate.css">
+<style>
+  /* ── 特稿版 · 杂志长读（与日报同一视觉语言：纸面 + 印章红 + 衬线） ── */
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  :root{--bg:#FBF7F0;--ink:#201B16;--muted:#776B5E;--faint:#A99C8B;
+    --hair:rgba(32,27,22,.15);--accent:#A8321F;--wash:rgba(168,50,31,.06);--card:#FFFFFF;--w:720px;
+    --serif:'Noto Serif SC','Songti SC',serif;--sans:'Inter','Noto Sans SC',-apple-system,'Microsoft YaHei',sans-serif}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:2.0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit;text-decoration:none}
+  img,svg,video{max-width:100%;height:auto}
+  ::selection{background:var(--accent);color:#fff}
+  .container{max-width:var(--w);margin:0 auto;padding:0 30px 110px}
+  .rule{height:1px;background:var(--hair)}
+  .masthead{padding:72px 0 30px;text-align:center}
+  .kicker{font-size:11px;letter-spacing:.42em;color:var(--muted);text-transform:uppercase;padding:16px 0 12px;font-weight:500}
+  .wordmark{font-family:var(--serif);font-weight:900;font-size:clamp(34px,6.6vw,52px);letter-spacing:.03em;line-height:1.06}
+  .wordmark .dot{color:var(--accent)}
+  .edition{font-size:12.5px;letter-spacing:.15em;color:var(--faint);padding:14px 0 16px;font-variant-numeric:tabular-nums}
+  .lead{position:relative;padding:34px 0 30px 30px;margin:6px 0;border-left:3px solid var(--accent)}
+  .lead-label{font-size:11px;letter-spacing:.32em;color:var(--accent);font-weight:600;margin-bottom:14px;text-transform:uppercase}
+  .lead-title{font-family:var(--serif);font-weight:700;font-size:clamp(23px,4.6vw,32px);line-height:1.32;margin-bottom:14px}
+  .lead-body{font-size:16.5px;color:var(--muted);line-height:2.05;max-width:46em}
+  .lead-body::first-letter{font-family:var(--serif);float:left;font-size:62px;line-height:.84;padding:8px 12px 0 0;color:var(--accent);font-weight:900}
+  .nav-chips{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 2px}
+  .chip{font-size:12px;letter-spacing:.05em;color:var(--muted);border:1px solid var(--hair);border-radius:999px;padding:5px 13px}
+  .chip b{color:var(--accent);font-weight:600;margin-right:7px;font-family:var(--serif)}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin:64px 0 22px}
+  .sec-head .en{font-size:10px;letter-spacing:.4em;color:var(--faint);text-transform:uppercase;font-weight:500}
+  .sec-head h2{font-family:var(--serif);font-size:25px;font-weight:700;letter-spacing:.02em}
+  .sec-head::after{content:"";flex:1;height:1px;background:var(--hair)}
+  .note{font-size:12.5px;color:var(--faint);border:1px dashed var(--hair);padding:12px 16px;margin-top:18px;border-radius:4px}
+  .trend{padding:34px 0;border-bottom:1px solid var(--hair)}
+  .trend:last-of-type{border-bottom:none}
+  .t-head{display:flex;align-items:flex-start;gap:16px;margin-bottom:14px}
+  .t-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.14em;font-weight:700;flex-shrink:0;padding-top:6px}
+  .t-title{font-family:var(--serif);font-size:23px;font-weight:700;line-height:1.45}
+  .t-desc{font-size:15.5px;color:var(--muted);line-height:1.9;margin-bottom:12px}
+  .t-field{display:grid;grid-template-columns:74px 1fr;gap:16px;padding:9px 0 9px 2px;margin-top:4px}
+  .f-lbl{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;padding-top:5px;color:var(--muted)}
+  .t-field.judge .f-lbl{color:var(--accent)}
+  .f-body{font-size:14.5px;line-height:2.0;max-width:46em}
+  .t-field.judge .f-body{color:var(--muted)}
+  .t-field.act .f-body{border-left:2px solid var(--accent);padding-left:14px}
+  .topic{display:grid;grid-template-columns:34px 1fr;gap:14px;padding:17px 0;border-bottom:1px solid var(--hair)}
+  .topic:last-of-type{border-bottom:none}
+  .tp-num{font-family:var(--serif);font-size:14px;color:var(--faint);font-weight:700;padding-top:4px;font-variant-numeric:tabular-nums}
+  .tp-title{font-family:var(--serif);font-size:18px;font-weight:700;line-height:1.5;margin-bottom:7px}
+  .tp-judge{font-size:14.5px;color:var(--muted);line-height:1.9}
+  .tp-act{font-size:13px;color:var(--accent);line-height:1.75;margin-top:7px;padding-left:12px;border-left:2px solid var(--accent)}
+  .pull{font-family:var(--serif);font-size:23px;font-weight:700;line-height:1.6;padding:34px 0 34px 30px;border-left:3px solid var(--accent);margin:24px 0 10px;color:var(--ink)}
+  .chain{background:var(--card);border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:4px;padding:20px 22px;margin-bottom:14px;box-shadow:0 1px 3px rgba(32,27,22,.05)}
+  .chain h4{font-family:var(--serif);font-size:16px;font-weight:700;margin-bottom:9px}
+  .chain p{font-size:14px;color:var(--muted);line-height:1.9}
+  .fc-call{background:var(--wash);border-left:3px solid var(--accent);padding:20px 22px;font-size:16px;line-height:1.95;margin-bottom:16px}
+  .fc-watch{list-style:none}
+  .fc-watch li{position:relative;padding:12px 0 12px 22px;border-bottom:1px solid var(--hair);font-size:14px;line-height:1.8}
+  .fc-watch li::before{content:'▸';position:absolute;left:0;color:var(--accent)}
+  .ins{padding:22px 24px;margin-bottom:14px;background:var(--card);border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:4px;box-shadow:0 1px 3px rgba(32,27,22,.05)}
+  .ins .i-label{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px}
+  .ins .i-label .zh{margin-left:10px;letter-spacing:.12em;color:var(--muted);font-size:12px}
+  .ins p{font-size:14.5px;line-height:1.95}
+  .index{display:flex;flex-wrap:wrap;gap:6px 16px}
+  .ix{font-size:12.5px;color:var(--muted);display:inline-flex;gap:8px;padding:5px 0;max-width:340px}
+  .ix .ix-date{color:var(--accent);font-variant-numeric:tabular-nums;font-weight:600;flex-shrink:0}
+  .ix:hover{color:var(--ink)}
+  .footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--hair);text-align:center;font-size:12px;color:var(--faint);letter-spacing:.08em}
+  /* ── 自适应：同一页面按屏幕宽度自动重排（桌面 / 平板 / 手机） ── */
+  @media (max-width:900px){
+    .container{padding:0 26px 96px}
+    .masthead{padding:56px 0 26px}
+    .sec-head{margin:52px 0 20px}
+    .lead{padding:30px 0 26px 24px}
+    .lead-body{font-size:16px;line-height:1.95}
+    .t-field{grid-template-columns:68px 1fr;gap:14px}
+  }
+  @media (max-width:600px){
+    .container{padding:0 18px 72px}
+    body{line-height:1.85}
+    .masthead{padding:38px 0 22px}
+    .kicker{letter-spacing:.3em;padding:12px 0 10px}
+    .edition{letter-spacing:.1em}
+    .nav-chips{gap:7px;margin:18px 0 2px}
+    .chip{font-size:11.5px;padding:5px 11px}
+    .lead{padding:24px 0 22px 16px;margin:6px 0;border-left-width:2px}
+    .lead-label{letter-spacing:.24em;margin-bottom:10px}
+    .lead-title{font-size:clamp(20px,5.8vw,25px);line-height:1.34}
+    .lead-body{font-size:15.5px;line-height:1.85}
+    .lead-body::first-letter{font-size:46px;padding:6px 10px 0 0}
+    .sec-head{margin:42px 0 16px;gap:10px}
+    .sec-head .en{letter-spacing:.28em}
+    .sec-head h2{font-size:21px}
+    .trend{padding:26px 0}
+    .t-head{gap:12px;margin-bottom:11px}
+    .t-title{font-size:20px;line-height:1.42}
+    .t-desc{font-size:15px;line-height:1.8;margin-bottom:10px}
+    .t-field{grid-template-columns:1fr;gap:2px;padding:8px 0 8px 2px}
+    .f-lbl{letter-spacing:.18em;padding-top:0}
+    .f-body{font-size:14.5px;line-height:1.85}
+    .t-field.act .f-body{padding-left:12px}
+    .topic{grid-template-columns:26px 1fr;gap:10px;padding:15px 0}
+    .tp-title{font-size:17px;line-height:1.45}
+    .tp-judge{font-size:14px;line-height:1.8}
+    .tp-act{font-size:12.5px;line-height:1.7;padding-left:10px}
+    .pull{font-size:18px;line-height:1.55;padding:26px 0 26px 16px;margin:20px 0 8px;border-left-width:2px}
+    .chain{padding:16px;border-radius:3px}
+    .chain h4{font-size:15px}
+    .chain p{font-size:13.5px;line-height:1.8}
+    .fc-call{padding:16px;font-size:15px;line-height:1.85}
+    .fc-watch li{padding:10px 0 10px 18px;font-size:13.5px;line-height:1.75}
+    .ins{padding:17px;border-radius:3px}
+    .ins p{font-size:14px;line-height:1.8}
+    .ins .i-label{letter-spacing:.2em;margin-bottom:8px}
+    .index{gap:4px 12px}
+    .ix{max-width:100%;font-size:13px;padding:7px 0}
+    .footer{margin-top:46px;padding-top:22px}
+  }
+  @media (max-width:380px){
+    .container{padding:0 14px 60px}
+    .wordmark{letter-spacing:.02em}
+    .lead-body::first-letter{font-size:40px;padding:5px 8px 0 0}
+    .topic{grid-template-columns:22px 1fr;gap:8px}
+    .t-num,.tp-num{font-size:12px}
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="masthead">
+    <div class="rule"></div>
+    <div class="kicker">实体商业 · 月度深读</div>
+    <h1 class="wordmark">2026年9月<span class="dot">·</span>实体月读</h1>
+    <div class="edition">2026.09.01 — 09.30　·　共 31 期　·　老许聊实体</div>
+    <div class="rule"></div>
+  </header>
+  <section class="lead">
+    <div class="lead-label">卷首 · The Month in One Line</div>
+    <h2 class="lead-title">成本三杀与消费疲软夹击</h2>
+    <p class="lead-body">房租高企+社保纠纷+金税四期推进，叠加社零仅增0.4%、月饼白酒遇冷，成本升而消费降，实体店利润被双向挤压，现金流断裂风险陡增。</p>
+    <div class="nav-chips"><span class="chip"><b>01</b>成本三杀挤压实体利润</span><span class="chip"><b>02</b>信任危机倒逼透明经营</span><span class="chip"><b>03</b>存量时代消费分级加剧</span></div>
+  </section>
+  
+  <div class="sec-head"><span class="en">Mainlines</span><h2>本月三条主线</h2></div>
+<article class="trend">
+  <div class="t-head"><span class="t-num">01</span><h3 class="t-title">成本三杀挤压实体利润</h3></div>
+  <p class="t-desc">9月房租高企、社保纠纷频发、金税四期推进，叠加平台抽成引众怒，实体店成本全面上升。</p>
+  <div class="t-field judge"><span class="f-lbl">判断</span><p class="f-body">房租、社保、税务合规三座大山同时压来，过去靠低社保、避税省下的利润空间被彻底封死，实体店进入硬成本竞争时代。</p></div>
+  <div class="t-field act"><span class="f-lbl">动作</span><p class="f-body">立即核算真实用工成本，优化排班与社保合规方案，提价或调整产品结构保毛利。</p></div>
+</article>
+<article class="trend">
+  <div class="t-head"><span class="t-num">02</span><h3 class="t-title">信任危机倒逼透明经营</h3></div>
+  <p class="t-desc">预制菜信任危机、西贝关店传闻、硫磺笋监管慢、冻牛肉缩水、麦当劳食安翻车，餐饮信任跌至冰点。</p>
+  <div class="t-field judge"><span class="f-lbl">判断</span><p class="f-body">消费者对食材来源和加工方式空前敏感，信息不对称的暴利模式终结，透明化、现制化成为生存底线。</p></div>
+  <div class="t-field act"><span class="f-lbl">动作</span><p class="f-body">明厨亮灶、公示食材溯源，砍掉模糊预制菜，用现炒现做重建信任。</p></div>
+</article>
+<article class="trend">
+  <div class="t-head"><span class="t-num">03</span><h3 class="t-title">存量时代消费分级加剧</h3></div>
+  <p class="t-desc">社零仅增0.4%，月饼白酒遇冷，山姆爆单，量贩零食整改，高端与平价冰火两重天。</p>
+  <div class="t-field judge"><span class="f-lbl">判断</span><p class="f-body">消费力分层，中间地带最危险，要么极致性价比，要么极致体验，平庸门店加速出清。</p></div>
+  <div class="t-field act"><span class="f-lbl">动作</span><p class="f-body">明确自身定位，要么降本做平价爆款，要么提体验做高溢价，砍掉鸡肋产品线。</p></div>
+</article>
+  <div class="sec-head"><span class="en">Topics</span><h2>十大热门话题</h2></div>
+<article class="topic">
+  <div class="tp-num">01</div>
+  <div>
+    <h3 class="tp-title">预制菜信任危机</h3>
+    <p class="tp-judge">西贝关店传闻引爆预制菜争议，消费者对餐厅使用预制菜强烈不满，监管滞后。　餐饮工业化与消费者知情权冲突，隐瞒使用预制菜等于埋雷，一旦曝光客流断崖。</p>
+    <p class="tp-act">主动公示菜品制作方式，现制菜做卖点，预制菜明示并降价。</p>
+  </div>
+</article>
+<article class="topic">
+  <div class="tp-num">02</div>
+  <div>
+    <h3 class="tp-title">平台抽成引众怒</h3>
+    <p class="tp-judge">美团抽成再引商家抗议，外卖平台高佣金挤压利润，多地餐饮协会发声。　平台流量成本已超线下房租，外卖沦为赔本赚吆喝，商家议价权缺失。</p>
+    <p class="tp-act">测算外卖真实利润，减少低价引流品，发力私域和到店自提。</p>
+  </div>
+</article>
+<article class="topic">
+  <div class="tp-num">03</div>
+  <div>
+    <h3 class="tp-title">量贩零食整改</h3>
+    <p class="tp-judge">量贩零食店被严查，部分门店因食品安全、价格欺诈等问题停业整改。　野蛮扩张期结束，监管收紧将淘汰一批加盟商，供应链和合规能力成生死线。</p>
+    <p class="tp-act">加盟前查总部资质与供应链，已开店者立即自查标签与保质期。</p>
+  </div>
+</article>
+<article class="topic">
+  <div class="tp-num">04</div>
+  <div>
+    <h3 class="tp-title">社保纠纷频发</h3>
+    <p class="tp-judge">多起社保纠纷案曝光，员工维权意识增强，企业未足额缴纳面临重罚。　社保合规成本显性化，过去靠不缴社保省钱的模式不可持续，用工成本将普涨。</p>
+    <p class="tp-act">尽快规范社保缴纳，用灵活用工或兼职优化人力结构。</p>
+  </div>
+</article>
+<article class="topic">
+  <div class="tp-num">05</div>
+  <div>
+    <h3 class="tp-title">仅退款乱象停业</h3>
+    <p class="tp-judge">女装店因仅退款被迫停业，恶意退款成风，商家维权困难。　平台规则偏向消费者，实体店线上化面临高退货风险，利润被薅羊毛。</p>
+    <p class="tp-act">线上店设置合理退货门槛，保留证据申诉，重心回归线下体验。</p>
+  </div>
+</article>
+<article class="topic">
+  <div class="tp-num">06</div>
+  <div>
+    <h3 class="tp-title">月饼白酒旺季不旺</h3>
+    <p class="tp-judge">中秋月饼卖不动，白酒旺季遇冷，五仁回收千元一吨，人情消费萎缩。　送礼经济退潮，消费者更务实，节庆礼盒暴利时代结束，日常化产品更稳。</p>
+    <p class="tp-act">减少节庆礼盒备货，转向日常小包装、高复购产品。</p>
+  </div>
+</article>
+<article class="topic">
+  <div class="tp-num">07</div>
+  <div>
+    <h3 class="tp-title">山姆爆单与换帅</h3>
+    <p class="tp-judge">山姆月饼不打折卖爆，采购换帅，会员店模式持续挤压传统商超。　会员店用极致选品和供应链效率赢得中产，传统超市不转型只能等死。</p>
+    <p class="tp-act">学习山姆单品爆款逻辑，精简SKU，做深少数高复购品类。</p>
+  </div>
+</article>
+<article class="topic">
+  <div class="tp-num">08</div>
+  <div>
+    <h3 class="tp-title">商K关店潮整治</h3>
+    <p class="tp-judge">商K大整治，多地关店潮，娱乐场所合规成本飙升。　灰色地带被清理，夜间经济洗牌，合规娱乐和餐饮融合业态有机会。</p>
+    <p class="tp-act">避开灰色业态，转型做合规的餐酒馆、livehouse等夜间消费。</p>
+  </div>
+</article>
+<article class="topic">
+  <div class="tp-num">09</div>
+  <div>
+    <h3 class="tp-title">楼市领先消费复苏</h3>
+    <p class="tp-judge">沪八条激活楼市，上海金九破万套，北京现房销售落地，房贷贴息。　楼市企稳是消费复苏先行指标，家装、家居、社区商业将滞后受益。</p>
+    <p class="tp-act">关注周边新交付楼盘，提前布局家装、家政、社区餐饮。</p>
+  </div>
+</article>
+<article class="topic">
+  <div class="tp-num">10</div>
+  <div>
+    <h3 class="tp-title">老年一日聚与宠物经济</h3>
+    <p class="tp-judge">老年一日聚兴起，宠物经济达3126亿，银发与宠物成新增长点。　人口结构变化催生新需求，老年社交和宠物服务供给不足，竞争小。</p>
+    <p class="tp-act">评估周边老年或宠物客群，增设适老套餐或宠物友好服务。</p>
+  </div>
+</article>
+  
+<div class="sec-head"><span class="en">Convergence</span><h2>信号合流 · 新闻之间的因果</h2></div>
+<div class="chain"><h4>成本三杀与消费疲软夹击</h4><p>房租高企+社保纠纷+金税四期推进，叠加社零仅增0.4%、月饼白酒遇冷，成本升而消费降，实体店利润被双向挤压，现金流断裂风险陡增。</p></div>
+<div class="chain"><h4>信任崩塌与监管收紧共振</h4><p>预制菜信任危机+硫磺笋监管慢+冻牛肉缩水+量贩零食整改，消费者不信任与监管补刀同时发生，靠信息不对称赚钱的店将批量出局。</p></div>
+<div class="chain"><h4>平台霸权与线上化陷阱</h4><p>美团抽成引众怒+仅退款停业+直播翻车，平台规则让商家线上化沦为赔本买卖，倒逼实体店回归线下体验和私域运营。</p></div>
+<div class="sec-head"><span class="en">Forecast</span><h2>下月预判 · 盯住这几个信号</h2></div>
+<div class="fc-call">下月成本压力继续显性化，社保合规和税务稽查案例增多，预制菜信任危机向更多连锁品牌蔓延，国庆后消费疲软显现，实体店将先感受到客流下滑和平台抽成挤压，关店率或上升。</div>
+<ul class="fc-watch"><li>本地社保稽查和劳动仲裁案例数量</li>
+<li>餐饮门店的关店率和转让挂牌量</li>
+<li>平台抽成比例调整及商家抗议动态</li></ul>
+  <div class="sec-head"><span class="en">Insights</span><h2>行业洞察与建议</h2></div>
+<div class="ins"><div class="i-label">Opportunity<span class="zh">机会点</span></div><p>楼市企稳带动社区商业回暖，老年一日聚、宠物经济、平价现制餐饮需求旺盛，抓住周边新交付楼盘和银发客群，做深社区刚需服务。</p></div>
+<div class="ins"><div class="i-label">Risk<span class="zh">风险提示</span></div><p>预制菜信任危机可能误伤现制餐厅，社保和税务合规成本突然增加，平台抽成和仅退款持续侵蚀利润，现金流紧张的门店易猝死。</p></div>
+<div class="ins"><div class="i-label">Action<span class="zh">行动建议</span></div><p>本周核算社保和税务合规成本，调整菜单砍掉模糊预制菜，上线私域社群减少平台依赖，与周边新楼盘物业谈合作引流。</p></div>
+  <div class="sec-head"><span class="en">Archive</span><h2>本期日期索引</h2></div>
+  <div class="index">
+<a class="ix" href="2026-09-01/20-51.html"><span class="ix-date">09-01</span>手机涨价、胖东来破15亿、沃尔玛30年、曹县汉服过半…</a>
+<a class="ix" href="2026-09-02/20-21.html"><span class="ix-date">09-02</span>沪八条激活楼市，皮鞋遇冷、陪拍兴起，江西小炒扩张，香…</a>
+<a class="ix" href="2026-09-03/20-20.html"><span class="ix-date">09-03</span>海景房、费大厨出海、淘宝宕机、火灾频发，实体店老板今…</a>
+<a class="ix" href="2026-09-04/20-20.html"><span class="ix-date">09-04</span>强二线房价腰斩，女装店遭仅退款停业，香港大药房借尸还…</a>
+<a class="ix" href="2026-09-05/19-27.html"><span class="ix-date">09-05</span>客厅失意义、卤味关店、仅退款停业、社保纠纷、染色莴笋…</a>
+<a class="ix" href="2026-09-06/19-48.html"><span class="ix-date">09-06</span>卤味关店、民宿空置、零食严查，实体店老板必看的三大信…</a>
+<a class="ix" href="2026-09-07/21-46.html"><span class="ix-date">09-07</span>民宿空置、量贩零食被查、智能眼镜退货高，实体店老板如…</a>
+<a class="ix" href="2026-09-08/20-21.html"><span class="ix-date">09-08</span>茅台涨价、太子奶创始人离世、燃油车销量下滑，实体店老…</a>
+<a class="ix" href="2026-09-09/20-33.html"><span class="ix-date">09-09</span>lululemon遭弃、量贩零食整改、神药直播被起底…</a>
+<a class="ix" href="2026-09-10/20-27.html"><span class="ix-date">09-10</span>量贩零食整改，直播挤爆，用工双标，服贸会风向</a>
+<a class="ix" href="2026-09-11/20-25.html"><span class="ix-date">09-11</span>金店失联,火锅加盟血亏,阴阳菜单罚20万,短剧超爱优…</a>
+<a class="ix" href="2026-09-12/19-47.html"><span class="ix-date">09-12</span>马勒别墅口袋公园开放，千叶珠宝老板失联，高校买房当宿…</a>
+<a class="ix" href="2026-09-13/20-54.html"><span class="ix-date">09-13</span>烧烤店被恶意投诉停业，景区造假无人问津，电视没人看，…</a>
+<a class="ix" href="2026-09-14/22-32.html"><span class="ix-date">09-14</span>高校爆改宿舍、钟薛高复活、胖东来四年合同、宠物经济3…</a>
+<a class="ix" href="2026-09-15/20-31.html"><span class="ix-date">09-15</span>上海楼市金九破万套，海底捞股价新低，胖东来四年合同制…</a>
+<a class="ix" href="2026-09-16/15-02.html"><span class="ix-date">09-16</span>文物流拍降价，充电免费试点，影院跨界求生，问界开饭店…</a>
+<a class="ix" href="2026-09-17/13-22.html"><span class="ix-date">09-17</span>钟薛高重启，野人先生认怂，胖东来福利，康佳退市，张一…</a>
+<a class="ix" href="2026-09-17/14-57.html"><span class="ix-date">09-17</span>猪景房8888元一晚，外卖小哥登顶亚洲，罗永浩再开炮…</a>
+<a class="ix" href="2026-09-18/14-54.html"><span class="ix-date">09-18</span>存量时代，城市更新，苹果排队，菜市场存废，烟草间距，…</a>
+<a class="ix" href="2026-09-19/14-53.html"><span class="ix-date">09-19</span>西贝倒闭传闻，商K关店潮，于东来人设，擦边营销翻车</a>
+<a class="ix" href="2026-09-20/15-18.html"><span class="ix-date">09-20</span>西贝辟谣倒闭，超长蛋挞爆单，硫磺笋监管慢半拍，冻牛肉…</a>
+<a class="ix" href="2026-09-21/15-27.html"><span class="ix-date">09-21</span>存量时代，西贝关店，预制菜信任危机，摆摊创业，直播翻…</a>
+<a class="ix" href="2026-09-22/15-05.html"><span class="ix-date">09-22</span>酒店抢公寓、山姆月饼不打折卖爆、共享充电宝差价25%…</a>
+<a class="ix" href="2026-09-23/15-02.html"><span class="ix-date">09-23</span>商K大整治、酒店月租抢客、敌敌畏消杀被罚、山姆换帅、…</a>
+<a class="ix" href="2026-09-24/14-59.html"><span class="ix-date">09-24</span>楼市领先消费复苏，山姆采购换帅，月饼白酒遇冷，平台抽…</a>
+<a class="ix" href="2026-09-25/14-54.html"><span class="ix-date">09-25</span>北京现房销售落地，麻辣烫出海，麦当劳食安翻车，美团抽…</a>
+<a class="ix" href="2026-09-26/14-54.html"><span class="ix-date">09-26</span>苹果商业逻辑,泡面限定款,招聘禁用模糊词,实体店启示</a>
+<a class="ix" href="2026-09-27/15-23.html"><span class="ix-date">09-27</span>老年一日聚、景区3000万招NPC、自己做月饼、五仁…</a>
+<a class="ix" href="2026-09-28/16-02.html"><span class="ix-date">09-28</span>京东开商场，预制菜C端难，鹤岗买房热，蛋挞玩邪修，大…</a>
+<a class="ix" href="2026-09-29/15-42.html"><span class="ix-date">09-29</span>蛋挞爆红、仅退款乱象、贷款中介解散、瑞幸翻车，实体老…</a>
+<a class="ix" href="2026-09-30/15-45.html"><span class="ix-date">09-30</span>房贷贴息落地，物业侵占被罚，机器人进店，国庆消费分化</a>
+  </div>
+  <footer class="footer">老许聊实体 · 每月底自动生成 · 数据来源：每日实体生意日报</footer>
+</div>
+</body>
+</html>
