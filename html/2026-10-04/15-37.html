@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老许聊实体 · 10月04日实体生意日报</title>
+<meta name="description" content="今日实体商业要闻速览，每天 5 分钟，看透实体生意。">
+<meta property="og:title" content="老许聊实体 · 实体生意日报">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="老许聊实体">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../donate.css">
+<style>
+  :root{
+    --bg:#100E0C; --ink:#EDE7DD; --muted:#9C9388; --faint:#635B51;
+    --hair:rgba(237,231,221,0.12); --accent:#D2553F; --accent-soft:rgba(210,85,63,0.14); --accent-wash:rgba(210,85,63,0.08);
+    --serif:'Noto Serif SC','Songti SC',serif;
+    --sans:'Inter','Noto Sans SC',-apple-system,'Microsoft YaHei',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit;text-decoration:none}
+  img,svg,video{max-width:100%;height:auto}
+  ::selection{background:var(--accent);color:#fff}
+  .container{max-width:780px;margin:0 auto;padding:0 24px 96px}
+
+  .masthead{padding:56px 0 30px;text-align:center}
+  .rule{height:1px;background:var(--hair);width:100%}
+  .kicker{font-size:11px;letter-spacing:.42em;color:var(--muted);text-transform:uppercase;padding:18px 0 14px;font-weight:500}
+  .wordmark{font-family:var(--serif);font-weight:900;font-size:clamp(34px,7vw,52px);letter-spacing:.04em;line-height:1;color:var(--ink)}
+  .wordmark .dot{color:var(--accent)}
+  .edition{font-size:12.5px;letter-spacing:.18em;color:var(--faint);padding:16px 0 18px;font-variant-numeric:tabular-nums}
+  .edition .prev{margin-left:14px;font-size:11px;letter-spacing:.06em;color:var(--muted)}
+  .edition .prev:hover{color:var(--accent)}
+
+  .lead{position:relative;padding:30px 0 30px 26px;margin:8px 0 6px;border-left:3px solid var(--accent)}
+  .lead::before{content:"";position:absolute;left:-3px;top:0;width:3px;height:0;background:var(--accent);transition:height .3s ease}
+  .lead:hover::before{height:100%}
+  .lead-label{font-size:11px;letter-spacing:.34em;color:var(--accent);font-weight:600;margin-bottom:14px;text-transform:uppercase}
+  .lead-title{font-family:var(--serif);font-weight:700;font-size:clamp(22px,4.4vw,30px);line-height:1.32;color:var(--ink);margin-bottom:14px}
+  .lead-meta{font-size:12.5px;color:var(--faint);letter-spacing:.04em;font-variant-numeric:tabular-nums}
+
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin:48px 0 20px}
+  .sec-head .en{font-size:10px;letter-spacing:.4em;color:var(--faint);text-transform:uppercase;font-weight:500}
+  .sec-head h2{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);letter-spacing:.02em}
+  .sec-head::after{content:"";flex:1;height:1px;background:var(--hair)}
+
+  .action-card{background:#16130F;border:1px solid var(--hair);border-radius:4px;padding:24px 26px;margin-bottom:14px}
+  .action-card .ac-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.2em;font-weight:700}
+  .action-card .ac-title{font-size:17px;font-weight:700;color:var(--ink);margin:6px 0 14px;font-family:var(--serif)}
+  .action-card .ac-seg{margin-bottom:12px}
+  .action-card .ac-seg:last-child{margin-bottom:0}
+  .action-card .ac-seg .seg-lbl{display:block;font-size:10px;font-weight:600;letter-spacing:.28em;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
+  .action-card .ac-seg p{font-size:14px;color:var(--ink);line-height:1.75;max-width:45em}
+  .action-card .ac-seg p strong{color:var(--accent);font-weight:600}
+
+  .signals{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .signal{background:#16130F;border:1px solid var(--hair);border-radius:4px;padding:20px 22px}
+  .signal .s-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--accent);text-transform:uppercase;margin-bottom:12px;padding-bottom:4px;border-bottom:1px solid var(--accent)}
+  .signal .s-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.5;font-family:var(--serif)}
+  .signal .s-desc{font-size:13px;color:var(--muted);line-height:1.7}
+
+  .story{padding:28px 0;border-bottom:1px solid var(--hair);scroll-margin-top:20px}
+  .story:first-of-type{padding-top:8px}
+  .story-head{display:flex;align-items:flex-start;gap:18px;margin-bottom:18px}
+  .story .s-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.14em;font-weight:700;line-height:1.6;flex-shrink:0;padding-top:4px}
+  .story .s-title{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--ink);line-height:1.45;letter-spacing:.01em}
+  .story .s-title:hover{color:var(--accent)}
+  .story .s-src{margin-top:8px;font-size:11.5px;color:var(--faint);letter-spacing:.06em}
+  .story .s-src .sep{color:var(--faint);margin:0 8px}
+  .story .s-src a:hover{color:var(--accent)}
+  .field{display:grid;grid-template-columns:88px 1fr;gap:18px;padding:12px 0 12px 4px}
+  .field .f-lbl{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;padding-top:5px}
+  .field .f-lbl .f-en{display:block;font-size:9px;letter-spacing:.3em;color:var(--faint);font-weight:500;margin-top:2px}
+  .field .f-body{font-size:14px;color:var(--ink);line-height:1.8;max-width:46em}
+  .field .f-body strong{color:var(--accent);font-weight:600}
+  .field.sec .f-lbl{color:var(--muted)}
+  .field.judge .f-lbl{color:var(--accent)}
+  .field.act .f-lbl{color:var(--muted)}
+  .field.judge .f-body{color:var(--muted)}
+  .field.act .f-body{border-left:2px solid var(--accent);padding-left:14px}
+
+  .read{margin-top:4px}
+  .read-item{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:15px 4px;border-bottom:1px solid var(--hair);transition:background .2s,padding-left .2s}
+  .read-item:hover{background:var(--accent-wash);padding-left:12px}
+  .read-item .r-src{font-size:11px;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;font-weight:600}
+  .read-item .r-title{font-size:14.5px;color:var(--ink);line-height:1.6}
+  .read-item:hover .r-title{color:var(--accent)}
+
+  .insight-block{padding:24px 26px;margin-bottom:14px;background:#16130F;border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:4px}
+  .insight-block h3{font-size:12px;font-weight:600;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:14px}
+  .insight-block p{font-size:14px;color:var(--ink);line-height:1.85;max-width:48em}
+  .insight-block .lbl{color:var(--muted);font-weight:600}
+
+  .footer{margin-top:72px;padding-top:34px;border-top:1px solid var(--hair);text-align:center}
+  .footer .f-main{font-family:var(--serif);font-size:14px;color:var(--ink);letter-spacing:.08em}
+  .footer .f-copy{font-size:11.5px;color:var(--faint);margin-top:16px;font-variant-numeric:tabular-nums;letter-spacing:.06em}
+  .footer .f-copy a{color:var(--muted);text-decoration:underline}
+  .footer .f-copy a:hover{color:var(--accent)}
+
+  .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  /* ── 自适应：同一页面按屏幕宽度自动重排（桌面 / 平板 / 手机） ── */
+  @media (max-width:900px){
+    .container{padding:0 22px 84px}
+    .masthead{padding:44px 0 26px}
+    .sec-head{margin:40px 0 18px}
+    .lead{padding:26px 0 26px 22px}
+    .field{grid-template-columns:76px 1fr;gap:14px}
+    .read-item{grid-template-columns:82px 1fr;gap:14px}
+  }
+  @media (max-width:600px){
+    .container{padding:0 18px 64px}
+    body{line-height:1.75}
+    .masthead{padding:32px 0 20px}
+    .kicker{letter-spacing:.3em;padding:12px 0 10px}
+    .edition{padding:12px 0 14px}
+    .edition .prev{display:block;margin:6px 0 0}
+    .lead{padding:22px 0 22px 16px;margin:6px 0 4px;border-left-width:2px}
+    .lead-label{letter-spacing:.24em;margin-bottom:10px}
+    .lead-title{font-size:clamp(20px,5.8vw,25px)}
+    .sec-head{margin:34px 0 14px;gap:10px}
+    .sec-head .en{letter-spacing:.28em}
+    .sec-head h2{font-size:19px}
+    .signals{grid-template-columns:1fr;gap:10px}
+    .signal{padding:16px 16px}
+    .action-card,.insight-block{padding:18px 17px;border-radius:3px}
+    .action-card .ac-seg p,.insight-block p{font-size:13.5px;line-height:1.72}
+    .story{padding:22px 0}
+    .story-head{flex-direction:column;gap:6px;margin-bottom:14px}
+    .story .s-title{font-size:17.5px}
+    .field{grid-template-columns:1fr;gap:2px;padding:10px 0}
+    .field .f-lbl{padding-top:0}
+    .field .f-lbl .f-en{display:inline;margin:0 0 0 6px}
+    .field .f-body{font-size:13.5px;line-height:1.75}
+    .field.act .f-body{padding-left:12px}
+    .read-item{grid-template-columns:1fr;gap:4px;padding:13px 2px}
+    .read-item:hover{padding-left:2px}
+    .footer{margin-top:52px;padding-top:26px}
+  }
+  @media (max-width:380px){
+    .container{padding:0 14px 56px}
+    .wordmark{letter-spacing:.02em}
+    .story .s-title{font-size:16.5px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="masthead">
+    <div class="rule"></div>
+    <div class="kicker">实体商业 · 每日内参</div>
+    <h1 class="wordmark">老许聊实体<span class="dot">.</span></h1>
+    <div class="edition">第 102 期　·　2026年10月04日　·　每日更新<a class="prev" href="../2026-10-03/">← 上一期</a></div>
+    <div class="rule"></div>
+  </header>
+
+  <div class="lead reveal">
+    <div class="lead-label">今日头条 · TODAY</div>
+    <div class="lead-title">二手房放量，月供逼近房租，演唱会救厂，假日补贴</div>
+    <div class="lead-meta">2026年10月04日　·　阅读约 6 分钟　·　共 8 条</div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Action</span><h2>今日行动建议</h2></div>
+  <div class="action-card reveal">
+    <div class="ac-num">01</div>
+    <div class="ac-title">重估租金与月供的账</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>部分一线城市月供已接近房租，租售比逼近临界点</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>这意味着商铺或住宅持有成本相对租金不再离谱，房东降价空间收窄</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>续租谈判前先查同地段月供水平，**用月供倒推房东底价**，别被租金惯性锚定</p></div>
+  </div>
+  <div class="action-card reveal">
+    <div class="ac-num">02</div>
+    <div class="ac-title">盯住二手房成交热区</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>金九核心城市二手房持续放量，新房重现日光</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>二手房成交活跃区往往伴随人口净流入和社区成熟，是开店选址的先行指标</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>把当地二手房成交TOP3板块列出来，**优先考察这些区域的社区底商**，别只看商场</p></div>
+  </div>
+  <div class="action-card reveal">
+    <div class="ac-num">03</div>
+    <div class="ac-title">把假日流量变留量</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>国庆期间鹳雀楼签名打卡、南宁早市逛吃等烟火气内容刷屏</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>假日流量来得猛去得快，靠自然客流撑不起日常，必须用活动锁客</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>国庆最后两天推**到店打卡送小食**，引导加企微进群，把假期人流转成私域复购</p></div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Signals</span><h2>信号速览</h2></div>
+  <div class="signals reveal">
+    <div class="signal"><span class="s-tag">租售倒挂</span><div class="s-title">月供逼近房租</div><div class="s-desc">一线城市买房月供与租金差距收窄，持有成本逻辑生变</div></div>
+    <div class="signal"><span class="s-tag">流量爆点</span><div class="s-title">演唱会带厂</div><div class="s-desc">一场演出救活面包厂，情绪流量正成为实体救命稻草</div></div>
+    <div class="signal"><span class="s-tag">假日补贴</span><div class="s-title">优惠激活购物</div><div class="s-desc">多重优惠叠加，国庆消费靠补贴驱动而非自然回暖</div></div>
+    <div class="signal"><span class="s-tag">选址信号</span><div class="s-title">二手房放量</div><div class="s-desc">核心城市二手房成交持续放量，人流迁移方向要重估</div></div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Stories</span><h2>今日 8 条要闻</h2></div>
+  <article class="story reveal" id="s01">
+    <div class="story-head">
+      <span class="s-num">01</span>
+      <div>
+        <a class="s-title" href="https://www.thepaper.cn/newsDetail_forward_34194913" target="_blank" rel="noopener">楼市“金九”兑现：核心城市二手房成交持续放量，新房重现“日光”</a>
+        <div class="s-src">澎湃新闻<span class="sep">·</span><a href="https://www.thepaper.cn/newsDetail_forward_34194913" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">楼市金九兑现，核心城市二手房成交持续放量，新房重现日光现象。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">成交回暖集中在核心城市，说明资金和人口仍在向确定性区域收缩，非核心区更难。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">选址优先看二手房成交活跃的成熟社区，**跟着真实换手的人流走**，别赌新区规划。</p></div>
+  </article>
+  <article class="story reveal" id="s02">
+    <div class="story-head">
+      <span class="s-num">02</span>
+      <div>
+        <a class="s-title" href="https://wallstreetcn.com/articles/3782966" target="_blank" rel="noopener">供平过租的重要信号</a>
+        <div class="s-src">华尔街见闻<span class="sep">·</span><a href="https://wallstreetcn.com/articles/3782966" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">华尔街见闻指出，供平过租成为重要信号，即月供与租金接近。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">月供和房租打平，意味着持有房产的相对成本下降，房东扛价能力增强，租客议价空间变小。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">签租约前算清同地段月供，**用月供做谈判锚点**，别接受明显高于月供的租金。</p></div>
+  </article>
+  <article class="story reveal" id="s03">
+    <div class="story-head">
+      <span class="s-num">03</span>
+      <div>
+        <a class="s-title" href="https://s.weibo.com/weibo?q=%23%E8%94%A1%E5%A4%A9%E5%87%A4%E5%8E%BB%E4%B8%96%E5%BD%93%E6%97%A5%E6%AD%A3%E5%B8%A6%E5%87%86%E4%B9%B0%E5%AE%B6%E7%9C%8B%E6%A5%BC%23" target="_blank" rel="noopener">蔡天凤去世当日正带准买家看楼</a>
+        <div class="s-src">微博<span class="sep">·</span><a href="https://s.weibo.com/weibo?q=%23%E8%94%A1%E5%A4%A9%E5%87%A4%E5%8E%BB%E4%B8%96%E5%BD%93%E6%97%A5%E6%AD%A3%E5%B8%A6%E5%87%86%E4%B9%B0%E5%AE%B6%E7%9C%8B%E6%A5%BC%23" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">蔡天凤去世当日正带准买家看楼，事件引发关注。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">极端个案虽不构成趋势，但提醒看铺看楼时的人身与交易安全常被忽视。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">带看或看铺尽量**两人同行、告知行程**，签约前核实产权与对方身份，别省这一步。</p></div>
+  </article>
+  <article class="story reveal" id="s04">
+    <div class="story-head">
+      <span class="s-num">04</span>
+      <div>
+        <a class="s-title" href="https://www.douyin.com/hot/2680075" target="_blank" rel="noopener">国庆来鹳雀楼签名打卡</a>
+        <div class="s-src">抖音<span class="sep">·</span><a href="https://www.douyin.com/hot/2680075" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">国庆期间鹳雀楼推出签名打卡活动，在抖音引发参与。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">景区用低门槛打卡动作撬动短视频传播，本质是把游客变成内容生产者。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">门店可设**一面打卡墙加一句签名口号**，引导顾客拍视频发抖音，用UGC换免费曝光。</p></div>
+  </article>
+  <article class="story reveal" id="s05">
+    <div class="story-head">
+      <span class="s-num">05</span>
+      <div>
+        <a class="s-title" href="https://s.weibo.com/weibo?q=%23%E5%BE%90%E8%89%AF%E6%BC%94%E5%94%B1%E4%BC%9A%E6%95%91%E6%B4%BB%E4%BA%86%E5%8D%B3%E5%B0%86%E5%80%92%E9%97%AD%E7%9A%84%E9%9D%A2%E5%8C%85%E5%8E%82%23" target="_blank" rel="noopener">徐良演唱会救活了即将倒闭的面包厂</a>
+        <div class="s-src">微博<span class="sep">·</span><a href="https://s.weibo.com/weibo?q=%23%E5%BE%90%E8%89%AF%E6%BC%94%E5%94%B1%E4%BC%9A%E6%95%91%E6%B4%BB%E4%BA%86%E5%8D%B3%E5%B0%86%E5%80%92%E9%97%AD%E7%9A%84%E9%9D%A2%E5%8C%85%E5%8E%82%23" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">徐良演唱会带动周边消费，救活了一家即将倒闭的面包厂。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">一场演出能在短期内制造爆发式需求，说明情绪流量对实体供应链有真实拉动。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">关注本地演出、赛事档期，**提前备货并做联名限定**，把一次性人流吃干榨净。</p></div>
+  </article>
+  <article class="story reveal" id="s06">
+    <div class="story-head">
+      <span class="s-num">06</span>
+      <div>
+        <a class="s-title" href="https://www.douyin.com/hot/2679972" target="_blank" rel="noopener">在南宁逛吃烟火气早市</a>
+        <div class="s-src">抖音<span class="sep">·</span><a href="https://www.douyin.com/hot/2679972" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">南宁烟火气早市在抖音走红，逛吃内容持续刷屏。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">早市烟火气自带流量，说明消费者对真实、低价、有场景感的线下体验需求旺盛。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">若做早餐或小吃，**把摊位做成可拍可逛的场景**，用抖音同城标签引流到店。</p></div>
+  </article>
+  <article class="story reveal" id="s07">
+    <div class="story-head">
+      <span class="s-num">07</span>
+      <div>
+        <a class="s-title" href="https://www.toutiao.com/trending/7692354997040906303/" target="_blank" rel="noopener">部分一线城市月供接近房租说明啥</a>
+        <div class="s-src">今日头条<span class="sep">·</span><a href="https://www.toutiao.com/trending/7692354997040906303/" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">部分一线城市月供接近房租，引发讨论说明啥。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">月供与房租接近，意味着买房与租房的现金流差距缩小，租赁市场的定价逻辑被改写。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">重估门店租金合理性，**用月供倒推可承受租金上限**，续约时争取更短租期和弹性条款。</p></div>
+  </article>
+  <article class="story reveal" id="s08">
+    <div class="story-head">
+      <span class="s-num">08</span>
+      <div>
+        <a class="s-title" href="https://www.douyin.com/hot/2680902" target="_blank" rel="noopener">多重优惠叠加激活假日购物车</a>
+        <div class="s-src">抖音<span class="sep">·</span><a href="https://www.douyin.com/hot/2680902" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">国庆期间多重优惠叠加，激活假日购物车。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">消费靠补贴和优惠驱动，说明自然需求偏弱，价格敏感度仍是主导。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">别只跟风打折，**设计满减加赠品组合**，保住毛利的同时让顾客感觉占到便宜。</p></div>
+  </article>
+  <div class="sec-head reveal"><span class="en">Readings</span><h2>深度阅读</h2></div>
+  <div class="read reveal">
+    <a class="read-item" href="https://www.woshipm.com/share/6473514.html" target="_blank" rel="noopener"><span class="r-src">人人都是产品经理</span><span class="r-title">传统百货商场的没落与存续</span></a>
+    <a class="read-item" href="https://www.yunyingpai.com/news/1064442.html" target="_blank" rel="noopener"><span class="r-src">运营派</span><span class="r-title">这届中产，不想再开网红民宿的盲盒了</span></a>
+  </div>
+  <div class="sec-head reveal"><span class="en">Insight</span><h2>老许研判</h2></div>
+  <div class="insight-block reveal">
+    <h3>核心热点态势</h3>
+<p>圈层热点为主，暂无全网霸屏级实体商业话题。</p>
+<p style="margin-top:12px">【宏观主线】</p>
+<p>楼市「金九」兑现与「供平过租」信号共振，指向核心城市二手房放量、租售比逆转，商铺租金逻辑生变——当房租低于月供，实体选址的算盘要重打。</p>
+<p style="margin-top:12px">【微观领域】</p>
+<p>1. 人形机器人进驻爱仕达百家终端，门店运营自动化从概念走向落地；</p>
+<p>2. 抖音「国庆打卡」「早市烟火气」显示假日流量向线下场景倾斜；</p>
+<p>3. 多重优惠叠加激活假日购物车，说明促消费仍是主旋律。</p>
+<p style="margin-top:12px">对实体商家启示：选址要重新算租售比，流量要向假日场景和本地烟火气靠拢。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>舆论风向争议</h3>
+<p style="margin-top:12px">【情绪光谱】</p>
+<p>主流声音欢呼楼市回暖、消费复苏；潜流暗涌则担忧「供平过租」是资产贬值前兆、月供接近房租说明接盘风险大。</p>
+<p style="margin-top:12px">【核心矛盾】</p>
+<p>1. 楼市回暖是真需求还是最后的疯狂？2. 机器人上岗是降本还是抢饭碗？</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>异动与弱信号</h3>
+<p>跨平台共振弱，但有一条暗线值得盯：华尔街见闻「供平过租」与今日头条「月供接近房租」在同一时段不同平台出现，这是同一底层信号在财经与民生两端同时冒头，说明租售比逆转已从小众财经话题向大众认知扩散。知乎景区文创「冤种三件套」与抖音假期打卡形成对照，暗示线下文创同质化严重、消费者已审美疲劳，这是选址与选品时要警惕的信号。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>研判策略建议</h3>
+<p style="margin-top:12px">1. 实体商家：盯紧「供平过租」信号，若所在城市出现租售比逆转，说明商铺租金有下行压力，此时谈续租或换址是窗口期，成本门槛：0元（先调研再行动）。</p>
+<p style="margin-top:12px">2. 创业者：假日流量（国庆打卡、早市烟火气）证明线下体验仍有红利，建议低成本试错——先摆摊或快闪店验证选品，成本门槛：500-3000元，跑通模型再考虑开店。</p>
+<p style="margin-top:12px">3. 门店运营者：人形机器人进驻百家终端的案例说明自动化降本是趋势，但中小商家不必跟风，先算清人工成本与设备投入的回本周期，避免为概念买单。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>独立源点速览</h3>
+<p>[知乎]:</p>
+<p>热榜被社会话题和体育赛事占据，与实体商业直接相关的是「景区文创冤种三件套」——文创同质化引发消费者反感，这对做线下零售和景区生意的商家是选品警示：别扎堆做护手霜冰箱贴，差异化才是活路。</p>
+<p>[华尔街见闻]:</p>
+<p>「供平过租的重要信号」是本期与实体商业最相关的条目，指向租金与持有成本倒挂，直接冲击商铺选址逻辑。其余内容偏全球宏观与AI投资，对中小实体商家参考价值有限。</p>
+  </div>
+  <footer class="footer reveal">
+    <div class="f-main">老许聊实体</div>
+    <div class="f-copy">每天 5 分钟，看透实体生意　·　第 102 期 · 2026年10月04日　·　共 8 条 / 255 条</div>
+  </footer>
+</div>
+
+<script>
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+<script src="../../donate.js" data-donate-img="../../donate.png"></script>
+</body>
+</html>
