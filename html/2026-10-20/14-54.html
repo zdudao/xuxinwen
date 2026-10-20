@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老许聊实体 · 10月20日实体生意日报</title>
+<meta name="description" content="今日实体商业要闻速览，每天 5 分钟，看透实体生意。">
+<meta property="og:title" content="老许聊实体 · 实体生意日报">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="老许聊实体">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../donate.css">
+<style>
+  :root{
+    --bg:#100E0C; --ink:#EDE7DD; --muted:#9C9388; --faint:#635B51;
+    --hair:rgba(237,231,221,0.12); --accent:#D2553F; --accent-soft:rgba(210,85,63,0.14); --accent-wash:rgba(210,85,63,0.08);
+    --serif:'Noto Serif SC','Songti SC',serif;
+    --sans:'Inter','Noto Sans SC',-apple-system,'Microsoft YaHei',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit;text-decoration:none}
+  img,svg,video{max-width:100%;height:auto}
+  ::selection{background:var(--accent);color:#fff}
+  .container{max-width:780px;margin:0 auto;padding:0 24px 96px}
+
+  .masthead{padding:56px 0 30px;text-align:center}
+  .rule{height:1px;background:var(--hair);width:100%}
+  .kicker{font-size:11px;letter-spacing:.42em;color:var(--muted);text-transform:uppercase;padding:18px 0 14px;font-weight:500}
+  .wordmark{font-family:var(--serif);font-weight:900;font-size:clamp(34px,7vw,52px);letter-spacing:.04em;line-height:1;color:var(--ink)}
+  .wordmark .dot{color:var(--accent)}
+  .edition{font-size:12.5px;letter-spacing:.18em;color:var(--faint);padding:16px 0 18px;font-variant-numeric:tabular-nums}
+  .edition .prev{margin-left:14px;font-size:11px;letter-spacing:.06em;color:var(--muted)}
+  .edition .prev:hover{color:var(--accent)}
+
+  .lead{position:relative;padding:30px 0 30px 26px;margin:8px 0 6px;border-left:3px solid var(--accent)}
+  .lead::before{content:"";position:absolute;left:-3px;top:0;width:3px;height:0;background:var(--accent);transition:height .3s ease}
+  .lead:hover::before{height:100%}
+  .lead-label{font-size:11px;letter-spacing:.34em;color:var(--accent);font-weight:600;margin-bottom:14px;text-transform:uppercase}
+  .lead-title{font-family:var(--serif);font-weight:700;font-size:clamp(22px,4.4vw,30px);line-height:1.32;color:var(--ink);margin-bottom:14px}
+  .lead-meta{font-size:12.5px;color:var(--faint);letter-spacing:.04em;font-variant-numeric:tabular-nums}
+
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin:48px 0 20px}
+  .sec-head .en{font-size:10px;letter-spacing:.4em;color:var(--faint);text-transform:uppercase;font-weight:500}
+  .sec-head h2{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);letter-spacing:.02em}
+  .sec-head::after{content:"";flex:1;height:1px;background:var(--hair)}
+
+  .action-card{background:#16130F;border:1px solid var(--hair);border-radius:4px;padding:24px 26px;margin-bottom:14px}
+  .action-card .ac-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.2em;font-weight:700}
+  .action-card .ac-title{font-size:17px;font-weight:700;color:var(--ink);margin:6px 0 14px;font-family:var(--serif)}
+  .action-card .ac-seg{margin-bottom:12px}
+  .action-card .ac-seg:last-child{margin-bottom:0}
+  .action-card .ac-seg .seg-lbl{display:block;font-size:10px;font-weight:600;letter-spacing:.28em;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
+  .action-card .ac-seg p{font-size:14px;color:var(--ink);line-height:1.75;max-width:45em}
+  .action-card .ac-seg p strong{color:var(--accent);font-weight:600}
+
+  .signals{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .signal{background:#16130F;border:1px solid var(--hair);border-radius:4px;padding:20px 22px}
+  .signal .s-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--accent);text-transform:uppercase;margin-bottom:12px;padding-bottom:4px;border-bottom:1px solid var(--accent)}
+  .signal .s-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.5;font-family:var(--serif)}
+  .signal .s-desc{font-size:13px;color:var(--muted);line-height:1.7}
+
+  .story{padding:28px 0;border-bottom:1px solid var(--hair);scroll-margin-top:20px}
+  .story:first-of-type{padding-top:8px}
+  .story-head{display:flex;align-items:flex-start;gap:18px;margin-bottom:18px}
+  .story .s-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.14em;font-weight:700;line-height:1.6;flex-shrink:0;padding-top:4px}
+  .story .s-title{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--ink);line-height:1.45;letter-spacing:.01em}
+  .story .s-title:hover{color:var(--accent)}
+  .story .s-src{margin-top:8px;font-size:11.5px;color:var(--faint);letter-spacing:.06em}
+  .story .s-src .sep{color:var(--faint);margin:0 8px}
+  .story .s-src a:hover{color:var(--accent)}
+  .field{display:grid;grid-template-columns:88px 1fr;gap:18px;padding:12px 0 12px 4px}
+  .field .f-lbl{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;padding-top:5px}
+  .field .f-lbl .f-en{display:block;font-size:9px;letter-spacing:.3em;color:var(--faint);font-weight:500;margin-top:2px}
+  .field .f-body{font-size:14px;color:var(--ink);line-height:1.8;max-width:46em}
+  .field .f-body strong{color:var(--accent);font-weight:600}
+  .field.sec .f-lbl{color:var(--muted)}
+  .field.judge .f-lbl{color:var(--accent)}
+  .field.act .f-lbl{color:var(--muted)}
+  .field.judge .f-body{color:var(--muted)}
+  .field.act .f-body{border-left:2px solid var(--accent);padding-left:14px}
+
+  .read{margin-top:4px}
+  .read-item{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:15px 4px;border-bottom:1px solid var(--hair);transition:background .2s,padding-left .2s}
+  .read-item:hover{background:var(--accent-wash);padding-left:12px}
+  .read-item .r-src{font-size:11px;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;font-weight:600}
+  .read-item .r-title{font-size:14.5px;color:var(--ink);line-height:1.6}
+  .read-item:hover .r-title{color:var(--accent)}
+
+  .insight-block{padding:24px 26px;margin-bottom:14px;background:#16130F;border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:4px}
+  .insight-block h3{font-size:12px;font-weight:600;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:14px}
+  .insight-block p{font-size:14px;color:var(--ink);line-height:1.85;max-width:48em}
+  .insight-block .lbl{color:var(--muted);font-weight:600}
+
+  .footer{margin-top:72px;padding-top:34px;border-top:1px solid var(--hair);text-align:center}
+  .footer .f-main{font-family:var(--serif);font-size:14px;color:var(--ink);letter-spacing:.08em}
+  .footer .f-copy{font-size:11.5px;color:var(--faint);margin-top:16px;font-variant-numeric:tabular-nums;letter-spacing:.06em}
+  .footer .f-copy a{color:var(--muted);text-decoration:underline}
+  .footer .f-copy a:hover{color:var(--accent)}
+
+  .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  /* ── 自适应：同一页面按屏幕宽度自动重排（桌面 / 平板 / 手机） ── */
+  @media (max-width:900px){
+    .container{padding:0 22px 84px}
+    .masthead{padding:44px 0 26px}
+    .sec-head{margin:40px 0 18px}
+    .lead{padding:26px 0 26px 22px}
+    .field{grid-template-columns:76px 1fr;gap:14px}
+    .read-item{grid-template-columns:82px 1fr;gap:14px}
+  }
+  @media (max-width:600px){
+    .container{padding:0 18px 64px}
+    body{line-height:1.75}
+    .masthead{padding:32px 0 20px}
+    .kicker{letter-spacing:.3em;padding:12px 0 10px}
+    .edition{padding:12px 0 14px}
+    .edition .prev{display:block;margin:6px 0 0}
+    .lead{padding:22px 0 22px 16px;margin:6px 0 4px;border-left-width:2px}
+    .lead-label{letter-spacing:.24em;margin-bottom:10px}
+    .lead-title{font-size:clamp(20px,5.8vw,25px)}
+    .sec-head{margin:34px 0 14px;gap:10px}
+    .sec-head .en{letter-spacing:.28em}
+    .sec-head h2{font-size:19px}
+    .signals{grid-template-columns:1fr;gap:10px}
+    .signal{padding:16px 16px}
+    .action-card,.insight-block{padding:18px 17px;border-radius:3px}
+    .action-card .ac-seg p,.insight-block p{font-size:13.5px;line-height:1.72}
+    .story{padding:22px 0}
+    .story-head{flex-direction:column;gap:6px;margin-bottom:14px}
+    .story .s-title{font-size:17.5px}
+    .field{grid-template-columns:1fr;gap:2px;padding:10px 0}
+    .field .f-lbl{padding-top:0}
+    .field .f-lbl .f-en{display:inline;margin:0 0 0 6px}
+    .field .f-body{font-size:13.5px;line-height:1.75}
+    .field.act .f-body{padding-left:12px}
+    .read-item{grid-template-columns:1fr;gap:4px;padding:13px 2px}
+    .read-item:hover{padding-left:2px}
+    .footer{margin-top:52px;padding-top:26px}
+  }
+  @media (max-width:380px){
+    .container{padding:0 14px 56px}
+    .wordmark{letter-spacing:.02em}
+    .story .s-title{font-size:16.5px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="masthead">
+    <div class="rule"></div>
+    <div class="kicker">实体商业 · 每日内参</div>
+    <h1 class="wordmark">老许聊实体<span class="dot">.</span></h1>
+    <div class="edition">第 118 期　·　2026年10月20日　·　每日更新<a class="prev" href="../2026-10-19/">← 上一期</a></div>
+    <div class="rule"></div>
+  </header>
+
+  <div class="lead reveal">
+    <div class="lead-label">今日头条 · TODAY</div>
+    <div class="lead-title">二手房连涨七个月，小米造车商标，机器人4S店，黄金遇冷，星巴克入座收费</div>
+    <div class="lead-meta">2026年10月20日　·　阅读约 6 分钟　·　共 9 条</div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Action</span><h2>今日行动建议</h2></div>
+  <div class="action-card reveal">
+    <div class="ac-num">01</div>
+    <div class="ac-title">盯紧二手房回暖信号</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>一线城市二手房价格连续7个月环比上涨，全国新建商品房库存持续下降。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>地产链条触底回暖，装修、家居、社区餐饮等实体业态将率先受益。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>在**一线及强二线城市**核心社区周边提前布局门店，**锁定3-5年租约**，抢占回暖红利。</p></div>
+  </div>
+  <div class="action-card reveal">
+    <div class="ac-num">02</div>
+    <div class="ac-title">黄金珠宝店要换打法</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>结婚买黄金的人少了，传统婚庆黄金消费明显降温。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>婚庆需求萎缩不可逆，黄金珠宝店靠“结婚刚需”吃饭的模式已经走不通。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>把产品重心转向**日常佩戴、投资金条、古法金**，用**小红书种草+到店体验**吸引年轻自购客群。</p></div>
+  </div>
+  <div class="action-card reveal">
+    <div class="ac-num">03</div>
+    <div class="ac-title">餐饮入座规则要透明</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>星巴克回应“消费才能入座”提示牌，引发消费者对门店规则的讨论。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>消费者对“隐性规则”越来越敏感，门店规则不透明会直接反噬口碑。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>把入座、低消、服务费等规则**明示在门口和菜单**，培训员工**统一话术**，避免临时加价式冲突。</p></div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Signals</span><h2>信号速览</h2></div>
+  <div class="signals reveal">
+    <div class="signal"><span class="s-tag">地产回暖</span><div class="s-title">二手房连涨七月</div><div class="s-desc">一线城市二手房价格连续7个月环比上涨，商业地产信心在修复。</div></div>
+    <div class="signal"><span class="s-tag">跨界造车</span><div class="s-title">小米连申8商标</div><div class="s-desc">小米一口气申报8款汽车商标，跨界布局加速，实体店或迎新品类。</div></div>
+    <div class="signal"><span class="s-tag">机器人零售</span><div class="s-title">机器人4S店来了</div><div class="s-desc">刘强东要开全国最大机器人4S店，零售业态向智能硬件服务延伸。</div></div>
+    <div class="signal"><span class="s-tag">政策扩内需</span><div class="s-title">发改委促消费</div><div class="s-desc">发改委研究制定扩大内需方案，政策红利将逐步释放到实体消费。</div></div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Stories</span><h2>今日 9 条要闻</h2></div>
+  <article class="story reveal" id="s01">
+    <div class="story-head">
+      <span class="s-num">01</span>
+      <div>
+        <a class="s-title" href="https://www.thepaper.cn/newsDetail_forward_34280880" target="_blank" rel="noopener">一线城市二手房价格连续7个月环比上涨，全国新建商品房库存持续下降</a>
+        <div class="s-src">澎湃新闻<span class="sep">·</span><a href="https://www.thepaper.cn/newsDetail_forward_34280880" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">一线城市二手房价格连续7个月环比上涨，全国新建商品房库存持续下降。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">地产是实体商业的先行指标，二手房回暖意味着社区人流和消费力在修复，但传导到开店端有时滞。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">**关注核心社区底商**，优先签**3年以上租约**锁定成本，装修、家居、社区餐饮可提前卡位。</p></div>
+  </article>
+  <article class="story reveal" id="s02">
+    <div class="story-head">
+      <span class="s-num">02</span>
+      <div>
+        <a class="s-title" href="https://s.weibo.com/weibo?q=%23%E5%B0%8F%E7%B1%B3%E4%B8%80%E5%8F%A3%E6%B0%94%E7%94%B3%E6%8A%A5%E4%BA%868%E6%AC%BE%E6%B1%BD%E8%BD%A6%E5%95%86%E6%A0%87%23" target="_blank" rel="noopener">小米一口气申报了8款汽车商标</a>
+        <div class="s-src">微博<span class="sep">·</span><a href="https://s.weibo.com/weibo?q=%23%E5%B0%8F%E7%B1%B3%E4%B8%80%E5%8F%A3%E6%B0%94%E7%94%B3%E6%8A%A5%E4%BA%868%E6%AC%BE%E6%B1%BD%E8%BD%A6%E5%95%86%E6%A0%87%23" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">小米一口气申报了8款汽车商标，覆盖多个车型命名方向。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">小米造车从单品走向矩阵，线下门店将承载汽车展示、试驾、交付，实体零售空间价值被重估。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">购物中心招商可**主动对接小米汽车**，社区店老板关注**汽车后市场**（洗美、充电）的配套机会。</p></div>
+  </article>
+  <article class="story reveal" id="s03">
+    <div class="story-head">
+      <span class="s-num">03</span>
+      <div>
+        <a class="s-title" href="https://www.toutiao.com/trending/7697543480939282474/" target="_blank" rel="noopener">刘强东要开全国最大机器人4S店吗</a>
+        <div class="s-src">今日头条<span class="sep">·</span><a href="https://www.toutiao.com/trending/7697543480939282474/" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">刘强东要开全国最大机器人4S店，引发行业关注。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">机器人从线上走到线下体验店，说明高客单价智能硬件需要实体场景做信任背书和售后服务。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">有场地的老板可研究**智能硬件体验店**加盟或联营，用**体验+服务**做差异化，别只卖货。</p></div>
+  </article>
+  <article class="story reveal" id="s04">
+    <div class="story-head">
+      <span class="s-num">04</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E7%BB%93%E5%A9%9A%E4%B9%B0%E9%BB%84%E9%87%91%E7%9A%84%E4%BA%BA%E5%B0%91%E4%BA%86" target="_blank" rel="noopener">结婚买黄金的人少了</a>
+        <div class="s-src">百度热搜<span class="sep">·</span><a href="https://www.baidu.com/s?wd=%E7%BB%93%E5%A9%9A%E4%B9%B0%E9%BB%84%E9%87%91%E7%9A%84%E4%BA%BA%E5%B0%91%E4%BA%86" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">结婚买黄金的人少了，婚庆黄金消费明显降温。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">结婚率下降叠加年轻人消费观变化，黄金珠宝的婚庆刚需逻辑正在瓦解，门店必须找新客群。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">**砍掉过度依赖婚庆的SKU**，加码日常佩戴和投资金条，用**以旧换新**和**轻定制**留住老客。</p></div>
+  </article>
+  <article class="story reveal" id="s05">
+    <div class="story-head">
+      <span class="s-num">05</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E6%98%9F%E5%B7%B4%E5%85%8B%E5%9B%9E%E5%BA%94%E2%80%9C%E6%B6%88%E8%B4%B9%E6%89%8D%E8%83%BD%E5%85%A5%E5%BA%A7%E2%80%9D%E6%8F%90%E7%A4%BA%E7%89%8C" target="_blank" rel="noopener">星巴克回应“消费才能入座”提示牌</a>
+        <div class="s-src">百度热搜<span class="sep">·</span><a href="https://www.baidu.com/s?wd=%E6%98%9F%E5%B7%B4%E5%85%8B%E5%9B%9E%E5%BA%94%E2%80%9C%E6%B6%88%E8%B4%B9%E6%89%8D%E8%83%BD%E5%85%A5%E5%BA%A7%E2%80%9D%E6%8F%90%E7%A4%BA%E7%89%8C" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">星巴克回应“消费才能入座”提示牌，称是为了维护门店秩序。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">咖啡店座位是稀缺资源，规则透明化是趋势，但执行方式直接影响品牌好感度。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">餐饮老板把**入座规则、低消标准**写在显眼处，员工培训**统一解释话术**，避免现场冲突。</p></div>
+  </article>
+  <article class="story reveal" id="s06">
+    <div class="story-head">
+      <span class="s-num">06</span>
+      <div>
+        <a class="s-title" href="https://s.weibo.com/weibo?q=%23%E8%91%A3%E6%98%8E%E7%8F%A0%E7%A7%B0%E6%A9%98%E5%AD%901%E5%9D%975%E5%A4%AA%E8%B4%B5%E4%B8%8D%E5%87%86%E5%8D%96%23" target="_blank" rel="noopener">董明珠称橘子1块5太贵不准卖</a>
+        <div class="s-src">微博<span class="sep">·</span><a href="https://s.weibo.com/weibo?q=%23%E8%91%A3%E6%98%8E%E7%8F%A0%E7%A7%B0%E6%A9%98%E5%AD%901%E5%9D%975%E5%A4%AA%E8%B4%B5%E4%B8%8D%E5%87%86%E5%8D%96%23" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">董明珠称橘子1块5太贵不准卖，引发对门店定价的讨论。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">大佬亲自管定价，说明微利时代门店对成本极度敏感，但一刀切限价可能伤及品质和员工积极性。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">建立**分级定价机制**，引流品限价、利润品放开，用**数据**而不是个人意志定价格。</p></div>
+  </article>
+  <article class="story reveal" id="s07">
+    <div class="story-head">
+      <span class="s-num">07</span>
+      <div>
+        <a class="s-title" href="https://s.weibo.com/weibo?q=%23%E5%A4%A9%E7%8C%AB%E5%8F%8C11%E9%A6%96%E6%AC%A1%E5%8D%96%E6%95%B4%E8%BD%A6%23" target="_blank" rel="noopener">天猫双11首次卖整车</a>
+        <div class="s-src">微博<span class="sep">·</span><a href="https://s.weibo.com/weibo?q=%23%E5%A4%A9%E7%8C%AB%E5%8F%8C11%E9%A6%96%E6%AC%A1%E5%8D%96%E6%95%B4%E8%BD%A6%23" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">天猫双11首次卖整车，电商平台把汽车搬进大促。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">整车线上化说明高客单价商品也在被电商渗透，线下4S店和汽车服务店压力加大。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">汽车相关实体店要**强化试驾、交付、售后**等线上替代不了的服务，用**体验**守住客流。</p></div>
+  </article>
+  <article class="story reveal" id="s08">
+    <div class="story-head">
+      <span class="s-num">08</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E8%AE%A9%E5%88%9B%E6%96%B0%E5%8A%BF%E8%83%BD%E8%BF%9B%E4%B8%80%E6%AD%A5%E6%BF%80%E5%8F%91%E6%B6%88%E8%B4%B9%E6%BD%9C%E8%83%BD" target="_blank" rel="noopener">让创新势能进一步激发消费潜能</a>
+        <div class="s-src">百度热搜<span class="sep">·</span><a href="https://www.baidu.com/s?wd=%E8%AE%A9%E5%88%9B%E6%96%B0%E5%8A%BF%E8%83%BD%E8%BF%9B%E4%B8%80%E6%AD%A5%E6%BF%80%E5%8F%91%E6%B6%88%E8%B4%B9%E6%BD%9C%E8%83%BD" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">让创新势能进一步激发消费潜能，政策层面持续强调创新消费场景。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">政策信号明确：创新业态、新场景是扩内需抓手，实体店要主动往“新”上靠。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">关注**首店经济、夜间经济、体验式消费**的补贴政策，把门店改造和**政策申报**结合起来。</p></div>
+  </article>
+  <article class="story reveal" id="s09">
+    <div class="story-head">
+      <span class="s-num">09</span>
+      <div>
+        <a class="s-title" href="https://www.cls.cn/detail/2509343" target="_blank" rel="noopener">国家发改委：正在研究制定扩大内需战略实施方案</a>
+        <div class="s-src">财联社热门<span class="sep">·</span><a href="https://www.cls.cn/detail/2509343" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">国家发改委表示正在研究制定扩大内需战略实施方案。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">扩内需方案落地前，政策预期会先影响商业地产和消费信心，实体老板要提前卡位。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">**盯紧地方商务局**的配套细则，提前准备**促消费项目申报**，用政策资金撬动门店升级。</p></div>
+  </article>
+  <div class="sec-head reveal"><span class="en">Readings</span><h2>深度阅读</h2></div>
+  <div class="read reveal">
+    <a class="read-item" href="https://www.yunyingpai.com/news/1066282.html" target="_blank" rel="noopener"><span class="r-src">运营派</span><span class="r-title">低价、AI与平台之外：重新理解沃尔玛美国的增长</span></a>
+    <a class="read-item" href="https://www.tmtpost.com/8174088.html" target="_blank" rel="noopener"><span class="r-src">钛媒体</span><span class="r-title">万象城为何偏爱“收编”餐饮首店</span></a>
+  </div>
+  <div class="sec-head reveal"><span class="en">Insight</span><h2>老许研判</h2></div>
+  <div class="insight-block reveal">
+    <h3>核心热点态势</h3>
+<p>圈层热点为主，实体商业信号散点化。宏观主线为「政策托底+消费分层」：发改委研究扩大内需方案、二手房价格连涨但成交分化，说明居民资产负债表修复慢于预期，实体消费决策更趋谨慎。</p>
+<p style="margin-top:12px">微观领域：①餐饮端星巴克「消费入座」与董明珠「橘子1块5不准卖」同框，反映门店坪效焦虑与定价权博弈；②小米8款汽车商标、刘强东机器人4S店，大厂用高频流量反向切线下体验场景；③汇源停产果汁、天猫双11卖整车，供应链与渠道规则加速重构；④结婚买黄金减少，婚庆类实体客单价承压。对实体商家的启示：客流不是等来的，是场景设计出来的。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>舆论风向争议</h3>
+<p style="margin-top:12px">【情绪光谱】</p>
+<p>主流声音对政策扩内需持观望，潜流暗涌集中在「消费降级羞耻」——星巴克被批「赶客」、董明珠被追着骂「抠门」。</p>
+<p style="margin-top:12px">【核心矛盾】</p>
+<p>①门店设最低消费是生存底线还是自断客流；②大厂线下店是引流样板还是挤压小商户；③黄金婚庆遇冷是周期还是代际消费观断裂。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>异动与弱信号</h3>
+<p style="margin-top:12px">跨平台共振特征明显：董明珠「橘子1块5」在微博与知乎双榜发酵（知乎第7位讨论技校禁恋爱），从「价格管控」漂移到「管理边界」争议；星巴克提示牌从百度热搜向贴吧扩散，呈现「一线白领吐槽、下沉市场无感」的圈层割裂。轨迹突变方面，二手房涨价话题排名18但出现仅1次，属「僵尸热点」——政策面暖但大众体感冷，实体商家不可据此加杠杆扩店。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>研判策略建议</h3>
+<p style="margin-top:12px">后续推演：双11整车线上化将带动「线下提车+周边服务」商圈热，但仅利好有停车位的大型商业体；星巴克入座争议会倒逼中小咖啡茶饮店明示「低消规则」，模糊地带将被平台差评放大。</p>
+<p style="margin-top:12px">1. 实体商家：立即做「低消替代方案」——用9.9元小食或会员积分换座替代硬性提示牌，成本300元内打印物料+1天员工话术培训，避免差评反噬。</p>
+<p style="margin-top:12px">2. 创业者：盯「大厂线下店周边3公里」做配套，如机器人4S店旁开快修充电、小米汽车商标落地后做贴膜改色，启动成本2-5万元，租共享工位或与现有汽修店分时合作，不重资产押注。</p>
+<p style="margin-top:12px">3. 所有门店：四季度锁定3个月能源与包装耗材价格，对冲油价连涨风险。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>独立源点速览</h3>
+<p>[知乎]:</p>
+<p>前20条中实体商业相关仅董明珠技校管理争议一条，折射公众对「强管控式经营」敏感；GDP4.6%讨论热度第18，民间更关注收入而非总量，实体商家应少讲宏观多讲性价比。</p>
+<p>[华尔街见闻]:</p>
+<p>美油八连涨、法国骚乱源于能源涨价，是实体店成本端最硬信号；央行非银流动性工具与减持新规利好股市但难短期传导至街边店，四季度锁价保现金流优先。</p>
+  </div>
+  <footer class="footer reveal">
+    <div class="f-main">老许聊实体</div>
+    <div class="f-copy">每天 5 分钟，看透实体生意　·　第 118 期 · 2026年10月20日　·　共 9 条 / 255 条</div>
+  </footer>
+</div>
+
+<script>
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+<script src="../../donate.js" data-donate-img="../../donate.png"></script>
+</body>
+</html>
