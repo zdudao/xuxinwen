@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老许聊实体 · 10月25日实体生意日报</title>
+<meta name="description" content="今日实体商业要闻速览，每天 5 分钟，看透实体生意。">
+<meta property="og:title" content="老许聊实体 · 实体生意日报">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="老许聊实体">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../donate.css">
+<style>
+  :root{
+    --bg:#100E0C; --ink:#EDE7DD; --muted:#9C9388; --faint:#635B51;
+    --hair:rgba(237,231,221,0.12); --accent:#D2553F; --accent-soft:rgba(210,85,63,0.14); --accent-wash:rgba(210,85,63,0.08);
+    --serif:'Noto Serif SC','Songti SC',serif;
+    --sans:'Inter','Noto Sans SC',-apple-system,'Microsoft YaHei',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit;text-decoration:none}
+  img,svg,video{max-width:100%;height:auto}
+  ::selection{background:var(--accent);color:#fff}
+  .container{max-width:780px;margin:0 auto;padding:0 24px 96px}
+
+  .masthead{padding:56px 0 30px;text-align:center}
+  .rule{height:1px;background:var(--hair);width:100%}
+  .kicker{font-size:11px;letter-spacing:.42em;color:var(--muted);text-transform:uppercase;padding:18px 0 14px;font-weight:500}
+  .wordmark{font-family:var(--serif);font-weight:900;font-size:clamp(34px,7vw,52px);letter-spacing:.04em;line-height:1;color:var(--ink)}
+  .wordmark .dot{color:var(--accent)}
+  .edition{font-size:12.5px;letter-spacing:.18em;color:var(--faint);padding:16px 0 18px;font-variant-numeric:tabular-nums}
+  .edition .prev{margin-left:14px;font-size:11px;letter-spacing:.06em;color:var(--muted)}
+  .edition .prev:hover{color:var(--accent)}
+
+  .lead{position:relative;padding:30px 0 30px 26px;margin:8px 0 6px;border-left:3px solid var(--accent)}
+  .lead::before{content:"";position:absolute;left:-3px;top:0;width:3px;height:0;background:var(--accent);transition:height .3s ease}
+  .lead:hover::before{height:100%}
+  .lead-label{font-size:11px;letter-spacing:.34em;color:var(--accent);font-weight:600;margin-bottom:14px;text-transform:uppercase}
+  .lead-title{font-family:var(--serif);font-weight:700;font-size:clamp(22px,4.4vw,30px);line-height:1.32;color:var(--ink);margin-bottom:14px}
+  .lead-meta{font-size:12.5px;color:var(--faint);letter-spacing:.04em;font-variant-numeric:tabular-nums}
+
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin:48px 0 20px}
+  .sec-head .en{font-size:10px;letter-spacing:.4em;color:var(--faint);text-transform:uppercase;font-weight:500}
+  .sec-head h2{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);letter-spacing:.02em}
+  .sec-head::after{content:"";flex:1;height:1px;background:var(--hair)}
+
+  .action-card{background:#16130F;border:1px solid var(--hair);border-radius:4px;padding:24px 26px;margin-bottom:14px}
+  .action-card .ac-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.2em;font-weight:700}
+  .action-card .ac-title{font-size:17px;font-weight:700;color:var(--ink);margin:6px 0 14px;font-family:var(--serif)}
+  .action-card .ac-seg{margin-bottom:12px}
+  .action-card .ac-seg:last-child{margin-bottom:0}
+  .action-card .ac-seg .seg-lbl{display:block;font-size:10px;font-weight:600;letter-spacing:.28em;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
+  .action-card .ac-seg p{font-size:14px;color:var(--ink);line-height:1.75;max-width:45em}
+  .action-card .ac-seg p strong{color:var(--accent);font-weight:600}
+
+  .signals{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .signal{background:#16130F;border:1px solid var(--hair);border-radius:4px;padding:20px 22px}
+  .signal .s-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--accent);text-transform:uppercase;margin-bottom:12px;padding-bottom:4px;border-bottom:1px solid var(--accent)}
+  .signal .s-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.5;font-family:var(--serif)}
+  .signal .s-desc{font-size:13px;color:var(--muted);line-height:1.7}
+
+  .story{padding:28px 0;border-bottom:1px solid var(--hair);scroll-margin-top:20px}
+  .story:first-of-type{padding-top:8px}
+  .story-head{display:flex;align-items:flex-start;gap:18px;margin-bottom:18px}
+  .story .s-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.14em;font-weight:700;line-height:1.6;flex-shrink:0;padding-top:4px}
+  .story .s-title{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--ink);line-height:1.45;letter-spacing:.01em}
+  .story .s-title:hover{color:var(--accent)}
+  .story .s-src{margin-top:8px;font-size:11.5px;color:var(--faint);letter-spacing:.06em}
+  .story .s-src .sep{color:var(--faint);margin:0 8px}
+  .story .s-src a:hover{color:var(--accent)}
+  .field{display:grid;grid-template-columns:88px 1fr;gap:18px;padding:12px 0 12px 4px}
+  .field .f-lbl{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;padding-top:5px}
+  .field .f-lbl .f-en{display:block;font-size:9px;letter-spacing:.3em;color:var(--faint);font-weight:500;margin-top:2px}
+  .field .f-body{font-size:14px;color:var(--ink);line-height:1.8;max-width:46em}
+  .field .f-body strong{color:var(--accent);font-weight:600}
+  .field.sec .f-lbl{color:var(--muted)}
+  .field.judge .f-lbl{color:var(--accent)}
+  .field.act .f-lbl{color:var(--muted)}
+  .field.judge .f-body{color:var(--muted)}
+  .field.act .f-body{border-left:2px solid var(--accent);padding-left:14px}
+
+  .read{margin-top:4px}
+  .read-item{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:15px 4px;border-bottom:1px solid var(--hair);transition:background .2s,padding-left .2s}
+  .read-item:hover{background:var(--accent-wash);padding-left:12px}
+  .read-item .r-src{font-size:11px;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;font-weight:600}
+  .read-item .r-title{font-size:14.5px;color:var(--ink);line-height:1.6}
+  .read-item:hover .r-title{color:var(--accent)}
+
+  .insight-block{padding:24px 26px;margin-bottom:14px;background:#16130F;border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:4px}
+  .insight-block h3{font-size:12px;font-weight:600;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:14px}
+  .insight-block p{font-size:14px;color:var(--ink);line-height:1.85;max-width:48em}
+  .insight-block .lbl{color:var(--muted);font-weight:600}
+
+  .footer{margin-top:72px;padding-top:34px;border-top:1px solid var(--hair);text-align:center}
+  .footer .f-main{font-family:var(--serif);font-size:14px;color:var(--ink);letter-spacing:.08em}
+  .footer .f-copy{font-size:11.5px;color:var(--faint);margin-top:16px;font-variant-numeric:tabular-nums;letter-spacing:.06em}
+  .footer .f-copy a{color:var(--muted);text-decoration:underline}
+  .footer .f-copy a:hover{color:var(--accent)}
+
+  .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  /* ── 自适应：同一页面按屏幕宽度自动重排（桌面 / 平板 / 手机） ── */
+  @media (max-width:900px){
+    .container{padding:0 22px 84px}
+    .masthead{padding:44px 0 26px}
+    .sec-head{margin:40px 0 18px}
+    .lead{padding:26px 0 26px 22px}
+    .field{grid-template-columns:76px 1fr;gap:14px}
+    .read-item{grid-template-columns:82px 1fr;gap:14px}
+  }
+  @media (max-width:600px){
+    .container{padding:0 18px 64px}
+    body{line-height:1.75}
+    .masthead{padding:32px 0 20px}
+    .kicker{letter-spacing:.3em;padding:12px 0 10px}
+    .edition{padding:12px 0 14px}
+    .edition .prev{display:block;margin:6px 0 0}
+    .lead{padding:22px 0 22px 16px;margin:6px 0 4px;border-left-width:2px}
+    .lead-label{letter-spacing:.24em;margin-bottom:10px}
+    .lead-title{font-size:clamp(20px,5.8vw,25px)}
+    .sec-head{margin:34px 0 14px;gap:10px}
+    .sec-head .en{letter-spacing:.28em}
+    .sec-head h2{font-size:19px}
+    .signals{grid-template-columns:1fr;gap:10px}
+    .signal{padding:16px 16px}
+    .action-card,.insight-block{padding:18px 17px;border-radius:3px}
+    .action-card .ac-seg p,.insight-block p{font-size:13.5px;line-height:1.72}
+    .story{padding:22px 0}
+    .story-head{flex-direction:column;gap:6px;margin-bottom:14px}
+    .story .s-title{font-size:17.5px}
+    .field{grid-template-columns:1fr;gap:2px;padding:10px 0}
+    .field .f-lbl{padding-top:0}
+    .field .f-lbl .f-en{display:inline;margin:0 0 0 6px}
+    .field .f-body{font-size:13.5px;line-height:1.75}
+    .field.act .f-body{padding-left:12px}
+    .read-item{grid-template-columns:1fr;gap:4px;padding:13px 2px}
+    .read-item:hover{padding-left:2px}
+    .footer{margin-top:52px;padding-top:26px}
+  }
+  @media (max-width:380px){
+    .container{padding:0 14px 56px}
+    .wordmark{letter-spacing:.02em}
+    .story .s-title{font-size:16.5px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="masthead">
+    <div class="rule"></div>
+    <div class="kicker">实体商业 · 每日内参</div>
+    <h1 class="wordmark">老许聊实体<span class="dot">.</span></h1>
+    <div class="edition">第 123 期　·　2026年10月25日　·　每日更新<a class="prev" href="../2026-10-24/">← 上一期</a></div>
+    <div class="rule"></div>
+  </header>
+
+  <div class="lead reveal">
+    <div class="lead-label">今日头条 · TODAY</div>
+    <div class="lead-title">打馕阿达西走红，水贝被挤爆，金饰价格跳水，肯德基投诉胖哥俩，桂花丰收</div>
+    <div class="lead-meta">2026年10月25日　·　阅读约 6 分钟　·　共 8 条</div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Action</span><h2>今日行动建议</h2></div>
+  <div class="action-card reveal">
+    <div class="ac-num">01</div>
+    <div class="ac-title">素人爆红别只羡慕</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>西安打馕摊主阿达西被流量选中，大学生骑车20多公里专程赶来。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>流量偏爱有烟火气的真实人设，实体店老板自己就是最好的IP。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>别急着投流，先**把门店日常拍成连续剧**，用真实场景和手艺建立信任，流量来了才接得住。</p></div>
+  </div>
+  <div class="action-card reveal">
+    <div class="ac-num">02</div>
+    <div class="ac-title">金价跳水别盲目抄底</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>金饰克价较一个月前跌约100元，深圳水贝被挤爆。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>刚需和投资需求短期释放，但价格波动大，零售商库存风险上升。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>零售店**按需补货、快进快出**，别赌单边行情；可推以小克重、高工费产品锁定毛利。</p></div>
+  </div>
+  <div class="action-card reveal">
+    <div class="ac-num">03</div>
+    <div class="ac-title">供应链红利要抢早</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>中国桂花第一村5天收花7万斤，鲜花集中上市。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>产地集中放量意味着短期原料价格有优势，但窗口期短。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>做烘焙、茶饮、香氛的老板**立刻联系产地锁价锁量**，开发桂花季限定产品，抢第一波热度。</p></div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Signals</span><h2>信号速览</h2></div>
+  <div class="signals reveal">
+    <div class="signal"><span class="s-tag">素人爆红</span><div class="s-title">打馕阿达西走红</div><div class="s-desc">西安打馕摊主被流量选中，市民自发维护秩序。</div></div>
+    <div class="signal"><span class="s-tag">黄金抢购</span><div class="s-title">水贝被挤爆</div><div class="s-desc">深圳水贝黄金市场人流爆满，金饰克价跌约百元。</div></div>
+    <div class="signal"><span class="s-tag">金价跳水</span><div class="s-title">金饰克价跌穿1200</div><div class="s-desc">国内金饰价格较一个月前跌约100元，引发消费波动。</div></div>
+    <div class="signal"><span class="s-tag">供应链</span><div class="s-title">桂花村5天收7万斤</div><div class="s-desc">中国桂花第一村鲜花集中上市，供应链短时放量。</div></div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Stories</span><h2>今日 8 条要闻</h2></div>
+  <article class="story reveal" id="s01">
+    <div class="story-head">
+      <span class="s-num">01</span>
+      <div>
+        <a class="s-title" href="https://www.thepaper.cn/newsDetail_forward_34324765" target="_blank" rel="noopener">西安打馕“阿达西”走红：有大学生骑车20多公里专程赶来，有市民自发给大家写号维护秩序</a>
+        <div class="s-src">澎湃新闻<span class="sep">·</span><a href="https://www.thepaper.cn/newsDetail_forward_34324765" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">西安打馕摊主阿达西走红，有大学生骑车20多公里专程赶来，市民自发写号维护秩序。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">流量再次证明：真实、有手艺、有烟火气的素人比精致营销更打动人。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">实体店老板**把自己变成门店IP**，用短视频记录手艺和日常，积累信任资产。</p></div>
+  </article>
+  <article class="story reveal" id="s02">
+    <div class="story-head">
+      <span class="s-num">02</span>
+      <div>
+        <a class="s-title" href="https://www.thepaper.cn/newsDetail_forward_34325424" target="_blank" rel="noopener">被流量“选中”的打馕“阿达西”</a>
+        <div class="s-src">澎湃新闻<span class="sep">·</span><a href="https://www.thepaper.cn/newsDetail_forward_34325424" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">澎湃新闻聚焦被流量选中的打馕阿达西，探讨素人爆红现象。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">平台需要新鲜面孔，素人爆红周期短，接不住就散。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">流量来时**快速设计承接动作**：限购、预约、周边产品，把围观变复购。</p></div>
+  </article>
+  <article class="story reveal" id="s03">
+    <div class="story-head">
+      <span class="s-num">03</span>
+      <div>
+        <a class="s-title" href="https://s.weibo.com/weibo?q=%23%E6%B7%B1%E5%9C%B3%E6%B0%B4%E8%B4%9D%E8%A2%AB%E6%8C%A4%E7%88%86%23" target="_blank" rel="noopener">深圳水贝被挤爆</a>
+        <div class="s-src">微博<span class="sep">·</span><a href="https://s.weibo.com/weibo?q=%23%E6%B7%B1%E5%9C%B3%E6%B0%B4%E8%B4%9D%E8%A2%AB%E6%8C%A4%E7%88%86%23" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">深圳水贝黄金市场被挤爆，消费者集中入场购金。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">金价回调触发刚需和抄底需求，但人流集中也考验门店承接能力。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">黄金零售店**做好限流和预约**，主推小克重、高毛利款式，避免只赚人气不赚钱。</p></div>
+  </article>
+  <article class="story reveal" id="s04">
+    <div class="story-head">
+      <span class="s-num">04</span>
+      <div>
+        <a class="s-title" href="https://www.toutiao.com/trending/7700442295597796883/" target="_blank" rel="noopener">金饰克价较一个月前跌了约100元</a>
+        <div class="s-src">今日头条<span class="sep">·</span><a href="https://www.toutiao.com/trending/7700442295597796883/" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">金饰克价较一个月前跌了约100元，国内金饰克价跌穿1200元。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">价格跳水刺激短期消费，但持续下跌预期会让部分消费者观望。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">老板**别囤货赌涨**，用克减、工费优惠加快周转，同时推以旧换新锁定老客。</p></div>
+  </article>
+  <article class="story reveal" id="s05">
+    <div class="story-head">
+      <span class="s-num">05</span>
+      <div>
+        <a class="s-title" href="https://www.cls.cn/detail/2514282" target="_blank" rel="noopener">【早报】美发布新版对外投资限制拟议规则，商务部回应；国内金饰克价跌穿1200元</a>
+        <div class="s-src">财联社热门<span class="sep">·</span><a href="https://www.cls.cn/detail/2514282" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">美发布新版对外投资限制拟议规则，商务部回应；国内金饰克价跌穿1200元。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">外部政策不确定性叠加金价波动，实体老板更需关注现金流安全。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">涉及跨境供应链的老板**梳理投资和采购敞口**，金饰零售端保持低库存快周转。</p></div>
+  </article>
+  <article class="story reveal" id="s06">
+    <div class="story-head">
+      <span class="s-num">06</span>
+      <div>
+        <a class="s-title" href="https://s.weibo.com/weibo?q=%23%E9%87%91%E9%A5%B0%E4%BB%B7%E6%A0%BC%E8%B7%B3%E6%B0%B4%E4%BA%86%23" target="_blank" rel="noopener">金饰价格跳水了</a>
+        <div class="s-src">微博<span class="sep">·</span><a href="https://s.weibo.com/weibo?q=%23%E9%87%91%E9%A5%B0%E4%BB%B7%E6%A0%BC%E8%B7%B3%E6%B0%B4%E4%BA%86%23" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">微博话题“金饰价格跳水了”引发广泛讨论。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">社交媒体放大价格敏感，消费者比价更快，门店溢价空间被压缩。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">老板**主动透明报价**，用服务、款式和售后建立差异，别只拼克价。</p></div>
+  </article>
+  <article class="story reveal" id="s07">
+    <div class="story-head">
+      <span class="s-num">07</span>
+      <div>
+        <a class="s-title" href="https://www.thepaper.cn/newsDetail_forward_34325596" target="_blank" rel="noopener">言短意长｜肯德基员工就不能投诉胖哥俩了？</a>
+        <div class="s-src">澎湃新闻<span class="sep">·</span><a href="https://www.thepaper.cn/newsDetail_forward_34325596" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">澎湃新闻评论肯德基员工投诉胖哥俩事件，讨论餐饮企业员工维权边界。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">餐饮行业用工矛盾公开化，品牌声誉和员工管理风险上升。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">老板**建立内部投诉通道**，定期培训管理层，把劳资矛盾化解在门店。</p></div>
+  </article>
+  <article class="story reveal" id="s08">
+    <div class="story-head">
+      <span class="s-num">08</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E2%80%9C%E4%B8%AD%E5%9B%BD%E6%A1%82%E8%8A%B1%E7%AC%AC%E4%B8%80%E6%9D%91%E2%80%9D5%E5%A4%A9%E6%94%B6%E8%8A%B17%E4%B8%87%E6%96%A4" target="_blank" rel="noopener">“中国桂花第一村”5天收花7万斤</a>
+        <div class="s-src">百度热搜<span class="sep">·</span><a href="https://www.baidu.com/s?wd=%E2%80%9C%E4%B8%AD%E5%9B%BD%E6%A1%82%E8%8A%B1%E7%AC%AC%E4%B8%80%E6%9D%91%E2%80%9D5%E5%A4%A9%E6%94%B6%E8%8A%B17%E4%B8%87%E6%96%A4" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">中国桂花第一村5天收花7万斤，鲜花集中上市。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">产地放量带来短期原料红利，但鲜花保质期短，窗口稍纵即逝。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">做食品、饮品、香氛的老板**尽快锁价锁量**，开发桂花季限定产品抢热度。</p></div>
+  </article>
+  <div class="sec-head reveal"><span class="en">Readings</span><h2>深度阅读</h2></div>
+  <div class="read reveal">
+    <a class="read-item" href="https://www.yunyingpai.com/news/1065326.html" target="_blank" rel="noopener"><span class="r-src">运营派</span><span class="r-title">好的商业模式三句话就能讲清楚：从真伪需求判断到护城河构建的实战指南</span></a>
+    <a class="read-item" href="https://www.tmtpost.com/8180843.html" target="_blank" rel="noopener"><span class="r-src">钛媒体</span><span class="r-title">海外网红，被国产工厂集体“收编”？</span></a>
+    <a class="read-item" href="https://www.woshipm.com/ai/6483874.html" target="_blank" rel="noopener"><span class="r-src">人人都是产品经理</span><span class="r-title">AI短剧公司几乎不要基础岗，老干妈用AI把600人裁到48人，国办发文，AI赢，不能让劳动者输</span></a>
+  </div>
+  <div class="sec-head reveal"><span class="en">Insight</span><h2>老许研判</h2></div>
+  <div class="insight-block reveal">
+    <h3>核心热点态势</h3>
+<p>圈层热点为主，实体商业信号集中在「低成本引流」与「金价波动」两条线。</p>
+<p style="margin-top:12px">【宏观主线】</p>
+<p>流量正在向“非标准化个体经营者”倾斜——西安打馕「阿达西」靠一个馕坑被流量选中，大学生骑20公里、市民自发写号维持秩序，说明线下“真人+真手艺+可围观”的场景仍是短视频时代最强的获客资产。</p>
+<p style="margin-top:12px">【微观领域】</p>
+<p style="margin-top:12px">1. 打馕摊：零装修、零营销，靠打卡传播获客；</p>
+<p>2. 深圳水贝被挤爆+金饰克价跌穿1200元：金价回调立刻催生线下抢购人流，珠宝零售出现“跌价即引流”的反常窗口；</p>
+<p>3. 「中国桂花第一村」5天收花7万斤：上游农产品短周期放量，下游烘焙、茶饮、香氛小店有原料成本下探机会。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>舆论风向争议</h3>
+<p style="margin-top:12px">【情绪光谱】</p>
+<p>主流是围观式羡慕与打卡热情，潜流是对“流量能否变现、红完就凉”的质疑。</p>
+<p style="margin-top:12px">【核心矛盾】</p>
+<p>1. 流量红利VS承接能力：摊位产能有限，人流来了接不住反而砸口碑；</p>
+<p>2. 金价下跌被解读为“抄底机会”，但商家库存贬值风险无人提；</p>
+<p>3. 胖哥俩与肯德基投诉之争，暴露连锁品牌对差评的容错度差异。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>异动与弱信号</h3>
+<p style="margin-top:12px">跨平台共振明显：金价话题在财联社、微博、今日头条三端同步发酵，从“宏观金价”迅速下沉到“水贝抢购”的线下场景，属典型的由财经端向消费端传导。打馕摊在澎湃连发两稿，从人物报道转为流量机制分析，说明媒体在做“可复制性”追问，此类话题通常48小时内会引来模仿者扎堆。目前未见实体倒闭类异常信号。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>研判策略建议</h3>
+<p style="margin-top:12px">1. 实体商家：若你有手艺型单品（现做面食、现烤、现磨），立刻用手机固定机位拍“制作过程+排队现场”，成本0元，重点拍“人在等”的画面而非产品特写；同时准备限购与排队号牌，防止爆红后体验崩塌。</p>
+<p style="margin-top:12px">2. 创业者：金价回调期不要追“囤金开店”，水贝式抢购是一线批发集散地的特有现象，下沉市场无此客流基础；可关注桂花等短周期农产品的原料采购窗口，做小批量季节限定产品试水，试错成本控制在3000元以内（一批原料+摆摊或店中店档口）。</p>
+<p style="margin-top:12px">3. 谨慎提示：模仿打馕摊模式的人会在一周内出现，流量窗口极短，别为赶热度付转让费或长租，先以临时摊位或周末市集验证，单次投入不超过5000元。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>独立源点速览</h3>
+<p>[知乎]:</p>
+<p>热榜以社会争议与猎奇问题为主，与实体商业直接相关的仅「西红柿不好吃」触及生鲜供应链口感取舍，以及劳力士诈骗案反映高客单珠宝交易的信任成本，可作门店防诈与选品参考。</p>
+<p>[华尔街见闻]:</p>
+<p>AI资本开支与芯片短缺信号密集，反向印证线上流量与平台成本长期走高；对实体商家而言，无直接机会，但提示不要押注平台买量，应沉淀到店复购。</p>
+  </div>
+  <footer class="footer reveal">
+    <div class="f-main">老许聊实体</div>
+    <div class="f-copy">每天 5 分钟，看透实体生意　·　第 123 期 · 2026年10月25日　·　共 8 条 / 255 条</div>
+  </footer>
+</div>
+
+<script>
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+<script src="../../donate.js" data-donate-img="../../donate.png"></script>
+</body>
+</html>
