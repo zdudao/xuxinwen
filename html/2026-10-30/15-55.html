@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老许聊实体 · 10月30日实体生意日报</title>
+<meta name="description" content="今日实体商业要闻速览，每天 5 分钟，看透实体生意。">
+<meta property="og:title" content="老许聊实体 · 实体生意日报">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="老许聊实体">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../donate.css">
+<style>
+  :root{
+    --bg:#100E0C; --ink:#EDE7DD; --muted:#9C9388; --faint:#635B51;
+    --hair:rgba(237,231,221,0.12); --accent:#D2553F; --accent-soft:rgba(210,85,63,0.14); --accent-wash:rgba(210,85,63,0.08);
+    --serif:'Noto Serif SC','Songti SC',serif;
+    --sans:'Inter','Noto Sans SC',-apple-system,'Microsoft YaHei',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit;text-decoration:none}
+  img,svg,video{max-width:100%;height:auto}
+  ::selection{background:var(--accent);color:#fff}
+  .container{max-width:780px;margin:0 auto;padding:0 24px 96px}
+
+  .masthead{padding:56px 0 30px;text-align:center}
+  .rule{height:1px;background:var(--hair);width:100%}
+  .kicker{font-size:11px;letter-spacing:.42em;color:var(--muted);text-transform:uppercase;padding:18px 0 14px;font-weight:500}
+  .wordmark{font-family:var(--serif);font-weight:900;font-size:clamp(34px,7vw,52px);letter-spacing:.04em;line-height:1;color:var(--ink)}
+  .wordmark .dot{color:var(--accent)}
+  .edition{font-size:12.5px;letter-spacing:.18em;color:var(--faint);padding:16px 0 18px;font-variant-numeric:tabular-nums}
+  .edition .prev{margin-left:14px;font-size:11px;letter-spacing:.06em;color:var(--muted)}
+  .edition .prev:hover{color:var(--accent)}
+
+  .lead{position:relative;padding:30px 0 30px 26px;margin:8px 0 6px;border-left:3px solid var(--accent)}
+  .lead::before{content:"";position:absolute;left:-3px;top:0;width:3px;height:0;background:var(--accent);transition:height .3s ease}
+  .lead:hover::before{height:100%}
+  .lead-label{font-size:11px;letter-spacing:.34em;color:var(--accent);font-weight:600;margin-bottom:14px;text-transform:uppercase}
+  .lead-title{font-family:var(--serif);font-weight:700;font-size:clamp(22px,4.4vw,30px);line-height:1.32;color:var(--ink);margin-bottom:14px}
+  .lead-meta{font-size:12.5px;color:var(--faint);letter-spacing:.04em;font-variant-numeric:tabular-nums}
+
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin:48px 0 20px}
+  .sec-head .en{font-size:10px;letter-spacing:.4em;color:var(--faint);text-transform:uppercase;font-weight:500}
+  .sec-head h2{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);letter-spacing:.02em}
+  .sec-head::after{content:"";flex:1;height:1px;background:var(--hair)}
+
+  .action-card{background:#16130F;border:1px solid var(--hair);border-radius:4px;padding:24px 26px;margin-bottom:14px}
+  .action-card .ac-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.2em;font-weight:700}
+  .action-card .ac-title{font-size:17px;font-weight:700;color:var(--ink);margin:6px 0 14px;font-family:var(--serif)}
+  .action-card .ac-seg{margin-bottom:12px}
+  .action-card .ac-seg:last-child{margin-bottom:0}
+  .action-card .ac-seg .seg-lbl{display:block;font-size:10px;font-weight:600;letter-spacing:.28em;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
+  .action-card .ac-seg p{font-size:14px;color:var(--ink);line-height:1.75;max-width:45em}
+  .action-card .ac-seg p strong{color:var(--accent);font-weight:600}
+
+  .signals{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .signal{background:#16130F;border:1px solid var(--hair);border-radius:4px;padding:20px 22px}
+  .signal .s-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--accent);text-transform:uppercase;margin-bottom:12px;padding-bottom:4px;border-bottom:1px solid var(--accent)}
+  .signal .s-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.5;font-family:var(--serif)}
+  .signal .s-desc{font-size:13px;color:var(--muted);line-height:1.7}
+
+  .story{padding:28px 0;border-bottom:1px solid var(--hair);scroll-margin-top:20px}
+  .story:first-of-type{padding-top:8px}
+  .story-head{display:flex;align-items:flex-start;gap:18px;margin-bottom:18px}
+  .story .s-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.14em;font-weight:700;line-height:1.6;flex-shrink:0;padding-top:4px}
+  .story .s-title{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--ink);line-height:1.45;letter-spacing:.01em}
+  .story .s-title:hover{color:var(--accent)}
+  .story .s-src{margin-top:8px;font-size:11.5px;color:var(--faint);letter-spacing:.06em}
+  .story .s-src .sep{color:var(--faint);margin:0 8px}
+  .story .s-src a:hover{color:var(--accent)}
+  .field{display:grid;grid-template-columns:88px 1fr;gap:18px;padding:12px 0 12px 4px}
+  .field .f-lbl{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;padding-top:5px}
+  .field .f-lbl .f-en{display:block;font-size:9px;letter-spacing:.3em;color:var(--faint);font-weight:500;margin-top:2px}
+  .field .f-body{font-size:14px;color:var(--ink);line-height:1.8;max-width:46em}
+  .field .f-body strong{color:var(--accent);font-weight:600}
+  .field.sec .f-lbl{color:var(--muted)}
+  .field.judge .f-lbl{color:var(--accent)}
+  .field.act .f-lbl{color:var(--muted)}
+  .field.judge .f-body{color:var(--muted)}
+  .field.act .f-body{border-left:2px solid var(--accent);padding-left:14px}
+
+  .read{margin-top:4px}
+  .read-item{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:15px 4px;border-bottom:1px solid var(--hair);transition:background .2s,padding-left .2s}
+  .read-item:hover{background:var(--accent-wash);padding-left:12px}
+  .read-item .r-src{font-size:11px;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;font-weight:600}
+  .read-item .r-title{font-size:14.5px;color:var(--ink);line-height:1.6}
+  .read-item:hover .r-title{color:var(--accent)}
+
+  .insight-block{padding:24px 26px;margin-bottom:14px;background:#16130F;border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:4px}
+  .insight-block h3{font-size:12px;font-weight:600;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:14px}
+  .insight-block p{font-size:14px;color:var(--ink);line-height:1.85;max-width:48em}
+  .insight-block .lbl{color:var(--muted);font-weight:600}
+
+  .footer{margin-top:72px;padding-top:34px;border-top:1px solid var(--hair);text-align:center}
+  .footer .f-main{font-family:var(--serif);font-size:14px;color:var(--ink);letter-spacing:.08em}
+  .footer .f-copy{font-size:11.5px;color:var(--faint);margin-top:16px;font-variant-numeric:tabular-nums;letter-spacing:.06em}
+  .footer .f-copy a{color:var(--muted);text-decoration:underline}
+  .footer .f-copy a:hover{color:var(--accent)}
+
+  .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  /* ── 自适应：同一页面按屏幕宽度自动重排（桌面 / 平板 / 手机） ── */
+  @media (max-width:900px){
+    .container{padding:0 22px 84px}
+    .masthead{padding:44px 0 26px}
+    .sec-head{margin:40px 0 18px}
+    .lead{padding:26px 0 26px 22px}
+    .field{grid-template-columns:76px 1fr;gap:14px}
+    .read-item{grid-template-columns:82px 1fr;gap:14px}
+  }
+  @media (max-width:600px){
+    .container{padding:0 18px 64px}
+    body{line-height:1.75}
+    .masthead{padding:32px 0 20px}
+    .kicker{letter-spacing:.3em;padding:12px 0 10px}
+    .edition{padding:12px 0 14px}
+    .edition .prev{display:block;margin:6px 0 0}
+    .lead{padding:22px 0 22px 16px;margin:6px 0 4px;border-left-width:2px}
+    .lead-label{letter-spacing:.24em;margin-bottom:10px}
+    .lead-title{font-size:clamp(20px,5.8vw,25px)}
+    .sec-head{margin:34px 0 14px;gap:10px}
+    .sec-head .en{letter-spacing:.28em}
+    .sec-head h2{font-size:19px}
+    .signals{grid-template-columns:1fr;gap:10px}
+    .signal{padding:16px 16px}
+    .action-card,.insight-block{padding:18px 17px;border-radius:3px}
+    .action-card .ac-seg p,.insight-block p{font-size:13.5px;line-height:1.72}
+    .story{padding:22px 0}
+    .story-head{flex-direction:column;gap:6px;margin-bottom:14px}
+    .story .s-title{font-size:17.5px}
+    .field{grid-template-columns:1fr;gap:2px;padding:10px 0}
+    .field .f-lbl{padding-top:0}
+    .field .f-lbl .f-en{display:inline;margin:0 0 0 6px}
+    .field .f-body{font-size:13.5px;line-height:1.75}
+    .field.act .f-body{padding-left:12px}
+    .read-item{grid-template-columns:1fr;gap:4px;padding:13px 2px}
+    .read-item:hover{padding-left:2px}
+    .footer{margin-top:52px;padding-top:26px}
+  }
+  @media (max-width:380px){
+    .container{padding:0 14px 56px}
+    .wordmark{letter-spacing:.02em}
+    .story .s-title{font-size:16.5px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="masthead">
+    <div class="rule"></div>
+    <div class="kicker">实体商业 · 每日内参</div>
+    <h1 class="wordmark">老许聊实体<span class="dot">.</span></h1>
+    <div class="edition">第 128 期　·　2026年10月30日　·　每日更新<a class="prev" href="../2026-10-29/">← 上一期</a></div>
+    <div class="rule"></div>
+  </header>
+
+  <div class="lead reveal">
+    <div class="lead-label">今日头条 · TODAY</div>
+    <div class="lead-title">王石入局城市更新，BBA不进商场，21万家理发店注销，消费入座边界重申，双11宠物经济</div>
+    <div class="lead-meta">2026年10月30日　·　阅读约 6 分钟　·　共 10 条</div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Action</span><h2>今日行动建议</h2></div>
+  <div class="action-card reveal">
+    <div class="ac-num">01</div>
+    <div class="ac-title">别急着抄底大店</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>理发、驿站等刚需小店批量转让注销，快剪却排队，两极分化明显。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>不是需求没了，是重资产、高客单模型被低价的标准化服务挤压，中间地带最危险。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>选址前先算清**单客服务时长与翻台率**，宁可做小而快的标准店，也别接高租金大店转手。</p></div>
+  </div>
+  <div class="action-card reveal">
+    <div class="ac-num">02</div>
+    <div class="ac-title">蹭座红利结束了</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>星巴克、宜家等重申消费入座，免费空间被系统性收回。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>门店空间正从引流工具变成要计费的资产，靠免费座位攒人气的打法失效。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>重算**每平米产出**，把座位和空间设计成能转化的消费场景，别指望白坐的人流。</p></div>
+  </div>
+  <div class="action-card reveal">
+    <div class="ac-num">03</div>
+    <div class="ac-title">盯住存量改造</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>王石携万科旧将成立城市更新公司，看好城市化存量机遇。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>增量开发见顶，老商圈、老社区改造会释放一批低成本优质铺位和配套需求。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>主动对接本地**城市更新与旧改项目**，提前卡位社区型小业态的位置。</p></div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Signals</span><h2>信号速览</h2></div>
+  <div class="signals reveal">
+    <div class="signal"><span class="s-tag">城市更新</span><div class="s-title">王石重返地产</div><div class="s-desc">王石携万科旧将做城市更新，存量改造窗口开启。</div></div>
+    <div class="signal"><span class="s-tag">快剪逆袭</span><div class="s-title">理发店大洗牌</div><div class="s-desc">一季度21.3万家理发店注销，10元快剪却排队。</div></div>
+    <div class="signal"><span class="s-tag">消费入座</span><div class="s-title">入座边界收紧</div><div class="s-desc">星巴克到宜家重申消费入座，免费蹭座时代收尾。</div></div>
+    <div class="signal"><span class="s-tag">宠物经济</span><div class="s-title">双11猫主子</div><div class="s-desc">宠物消费成双11硬支出，主粮用品复购稳。</div></div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Stories</span><h2>今日 10 条要闻</h2></div>
+  <article class="story reveal" id="s01">
+    <div class="story-head">
+      <span class="s-num">01</span>
+      <div>
+        <a class="s-title" href="https://www.thepaper.cn/newsDetail_forward_34361355" target="_blank" rel="noopener">王石重回房地产？携万科旧将成立城市更新公司：“中国城市化依然充满机遇”</a>
+        <div class="s-src">澎湃新闻<span class="sep">·</span><a href="https://www.thepaper.cn/newsDetail_forward_34361355" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">王石携万科旧将成立城市更新公司，称中国城市化依然充满机遇。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">地产大佬转做存量改造，说明增量开发红利结束，老城区、老商业体的翻新是下一轮主战场。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">关注本地旧改、老商圈改造动态，**提前摸底改造片区的铺位与客流**，别等租金涨了才进场。</p></div>
+  </article>
+  <article class="story reveal" id="s02">
+    <div class="story-head">
+      <span class="s-num">02</span>
+      <div>
+        <a class="s-title" href="https://www.zhihu.com/question/2001260067715044038" target="_blank" rel="noopener">为什么 BBA 不进商场开店？</a>
+        <div class="s-src">知乎<span class="sep">·</span><a href="https://www.zhihu.com/question/2001260067715044038" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">知乎讨论 BBA 为何不进商场开店，引发对高端汽车渠道选址的讨论。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">高端品牌算的是坪效与品牌调性，商场客流不等于成交客户，重决策品类更看重独立展厅。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">别盲目迷信商场流量，**按品类决策链路选位置**，高客单重体验的业态要独立空间。</p></div>
+  </article>
+  <article class="story reveal" id="s03">
+    <div class="story-head">
+      <span class="s-num">03</span>
+      <div>
+        <a class="s-title" href="https://www.zhihu.com/question/458627547" target="_blank" rel="noopener">菜鸟驿站为什么那么多转让的？</a>
+        <div class="s-src">知乎<span class="sep">·</span><a href="https://www.zhihu.com/question/458627547" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">知乎热议菜鸟驿站大量转让，折射末端网点盈利困境。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">驿站靠派件费薄利，人力租金上涨后单点模型跑不通，转让是成本挤压的结果。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">想接驿站先算**派件量与人工成本**，别只看转让费便宜，最好叠加零售或社区服务增收。</p></div>
+  </article>
+  <article class="story reveal" id="s04">
+    <div class="story-head">
+      <span class="s-num">04</span>
+      <div>
+        <a class="s-title" href="https://www.zhihu.com/question/2099409874731758206" target="_blank" rel="noopener">2026 年一季度 21.3 万家理发店注销，10 元快剪却排长队，理发行业怎么了？为啥越来越多人选择快剪？</a>
+        <div class="s-src">知乎<span class="sep">·</span><a href="https://www.zhihu.com/question/2099409874731758206" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">2026年一季度21.3万家理发店注销，10元快剪却排长队。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">消费者砍掉溢价服务，回归基础剪发，标准化低价模型正在吃掉传统理发店的客群。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">服务型小店要**砍掉冗余项目、压缩客单**，用快和标准化留住高频刚需客。</p></div>
+  </article>
+  <article class="story reveal" id="s05">
+    <div class="story-head">
+      <span class="s-num">05</span>
+      <div>
+        <a class="s-title" href="https://www.toutiao.com/trending/7702309935372861481/" target="_blank" rel="noopener">我们党有其他政党都不具有的强大优势</a>
+        <div class="s-src">今日头条<span class="sep">·</span><a href="https://www.toutiao.com/trending/7702309935372861481/" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">一篇关于政党优势的时政文章登上头条热榜。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">时政内容与实体经营关联弱，但反映平台流量向政策解读倾斜。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">老板可留意**政策风向与地方扶持信息**，但别把精力耗在与生意无关的热搜上。</p></div>
+  </article>
+  <article class="story reveal" id="s06">
+    <div class="story-head">
+      <span class="s-num">06</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E6%9B%BE%E7%BB%8F%E9%A3%8E%E9%9D%A1%E7%9A%84%E6%97%A5%E7%B3%BB%E8%BD%A6%E4%B8%8D%E5%86%8D%E5%90%83%E9%A6%99%E4%BA%86" target="_blank" rel="noopener">曾经风靡的日系车不再吃香了</a>
+        <div class="s-src">百度热搜<span class="sep">·</span><a href="https://www.baidu.com/s?wd=%E6%9B%BE%E7%BB%8F%E9%A3%8E%E9%9D%A1%E7%9A%84%E6%97%A5%E7%B3%BB%E8%BD%A6%E4%B8%8D%E5%86%8D%E5%90%83%E9%A6%99%E4%BA%86" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">日系车不再吃香登上热搜，合资品牌市场份额承压。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">消费偏好转向新能源与性价比，合资品牌溢价被削，连带影响汽车后市场与周边业态。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">做汽车相关生意的，**及时调整品牌与服务结构**，往新能源配套和性价比服务靠。</p></div>
+  </article>
+  <article class="story reveal" id="s07">
+    <div class="story-head">
+      <span class="s-num">07</span>
+      <div>
+        <a class="s-title" href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E8%8B%B9%E6%9E%9C%E5%8F%91%E5%B8%83%E9%A6%96%E6%AC%BE%E8%A7%A6%E5%B1%8FMacBook+Pro&amp;amp;topic_id=28368466" target="_blank" rel="noopener">苹果发布首款触屏MacBook Pro</a>
+        <div class="s-src">贴吧<span class="sep">·</span><a href="https://tieba.baidu.com/hottopic/browse/hottopic?amp%3Btopic_name=%E8%8B%B9%E6%9E%9C%E5%8F%91%E5%B8%83%E9%A6%96%E6%AC%BE%E8%A7%A6%E5%B1%8FMacBook+Pro&amp;amp;topic_id=28368466" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">苹果发布首款触屏 MacBook Pro。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">硬件迭代会带动配件、维修、周边零售的一波换新需求，但节奏取决于实际销量。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">数码周边店可**提前备触屏相关配件与保护类商品**，小批量试水别压货。</p></div>
+  </article>
+  <article class="story reveal" id="s08">
+    <div class="story-head">
+      <span class="s-num">08</span>
+      <div>
+        <a class="s-title" href="https://www.thepaper.cn/newsDetail_forward_34359088" target="_blank" rel="noopener">众声｜从星巴克到宜家，“消费入座”的边界再一次被重申</a>
+        <div class="s-src">澎湃新闻<span class="sep">·</span><a href="https://www.thepaper.cn/newsDetail_forward_34359088" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">澎湃众声讨论从星巴克到宜家的消费入座边界再次被重申。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">免费空间被收回，说明门店开始为座位定价，靠环境引流而不消费的模式难持续。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">门店要**明确入座与消费规则**，把空间做成能变现的场景，别让免费座位吃掉利润。</p></div>
+  </article>
+  <article class="story reveal" id="s09">
+    <div class="story-head">
+      <span class="s-num">09</span>
+      <div>
+        <a class="s-title" href="https://s.weibo.com/weibo?q=%23%E8%BF%99%E4%B8%AA%E5%8F%8C11%E6%88%91%E4%B8%BA%E7%8C%AB%E4%B8%BB%E5%AD%90%E8%8A%B1%E4%BA%86%E5%A4%9A%E5%B0%91%E9%92%B1%23" target="_blank" rel="noopener">这个双11我为猫主子花了多少钱</a>
+        <div class="s-src">微博<span class="sep">·</span><a href="https://s.weibo.com/weibo?q=%23%E8%BF%99%E4%B8%AA%E5%8F%8C11%E6%88%91%E4%B8%BA%E7%8C%AB%E4%B8%BB%E5%AD%90%E8%8A%B1%E4%BA%86%E5%A4%9A%E5%B0%91%E9%92%B1%23" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">微博话题讨论双11为宠物花了多少钱。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">宠物消费是少见的抗周期支出，主粮、用品复购稳定，情感驱动强。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">社区店可**小步试水宠物主粮与用品**，用高频复购带动到店，别一上来铺大货。</p></div>
+  </article>
+  <article class="story reveal" id="s10">
+    <div class="story-head">
+      <span class="s-num">10</span>
+      <div>
+        <a class="s-title" href="https://www.douyin.com/hot/2720702" target="_blank" rel="noopener">比冬天先来的是一顿热火锅</a>
+        <div class="s-src">抖音<span class="sep">·</span><a href="https://www.douyin.com/hot/2720702" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">抖音热传比冬天先来的是一顿热火锅，火锅消费提前升温。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">季节转换带来餐饮品类轮动，火锅、热食类客流提前启动，是短期流量窗口。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">餐饮老板**提前备货、上暖冬套餐**，用团购和短视频抢这波换季客流。</p></div>
+  </article>
+  <div class="sec-head reveal"><span class="en">Readings</span><h2>深度阅读</h2></div>
+  <div class="read reveal">
+    <a class="read-item" href="https://www.tmtpost.com/8186671.html" target="_blank" rel="noopener"><span class="r-src">钛媒体</span><span class="r-title">宜家中国正在把自己打散</span></a>
+    <a class="read-item" href="https://www.yunyingpai.com/news/1067949.html" target="_blank" rel="noopener"><span class="r-src">运营派</span><span class="r-title">情绪消费崩了？</span></a>
+    <a class="read-item" href="https://www.woshipm.com/share/6486550.html" target="_blank" rel="noopener"><span class="r-src">人人都是产品经理</span><span class="r-title">泡泡玛特与蜜雪冰城：优势还在，为什么海外增长变难了？</span></a>
+  </div>
+  <div class="sec-head reveal"><span class="en">Insight</span><h2>老许研判</h2></div>
+  <div class="insight-block reveal">
+    <h3>核心热点态势</h3>
+<p>圈层热点为主，实体生意话题在知乎集中发酵而非全网霸屏。</p>
+<p style="margin-top:12px">【宏观主线】</p>
+<p>实体供给端在主动出清：理发行业一季度注销21.3万家与10元快剪排长队同时发生，菜鸟驿站大面积转让，本质都是「重服务、重人力、低毛利」业态在租金与人力成本下被挤压，消费者用脚投票转向极致性价比。</p>
+<p style="margin-top:12px">【微观领域】</p>
+<p>1. 王石携旧部做城市更新，指向存量商业地产改造机会。</p>
+<p>2. BBA不进商场开店，反映高租金大店模型失效。</p>
+<p>3. 星巴克宜家重申消费入座，线下门店开始为「不付费占座」算账。</p>
+<p>4. 双11宠物消费，社区宠物店仍有稳定客单。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>舆论风向争议</h3>
+<p style="margin-top:12px">【情绪光谱】</p>
+<p>主流声音同情小店主「干不下去」，潜流暗涌则指驿站转让是「嫌累不嫌亏」的懒人创业。</p>
+<p style="margin-top:12px">【核心矛盾】</p>
+<p>1. 快剪排队是消费降级还是效率回归，两种解读指向完全不同的开店策略。</p>
+<p>2. 驿站转让暴露加盟费收割与真实盈利的落差。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>异动与弱信号</h3>
+<p>理发店注销与驿站转让在知乎同时上榜、菜鸟系与快剪话题形成「个体小店生存」共振，说明这不是单点事件而是同一轮实体洗牌。跨平台看，抖音火锅、微博双11消费属季节常规流量，无异常共振；王石城市更新仅在澎湃与地产圈发酵，尚未扩散到大众端，属早期信号。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>研判策略建议</h3>
+<p style="margin-top:12px">1. 实体商家：立刻砍掉对预付卡和储值现金流的依赖，把服务拆成可单次计价的标准化套餐，快剪模型可复制到美甲、洗鞋、宠物洗澡，核心是「不办卡、不推销、翻台快」。选址避开商场主力层，选社区口与菜市场旁的临街小铺，30平米内、月租控制在预估流水15%以内。改造成本门槛约1万至3万元（剪具、镜台、简易装修）。</p>
+<p style="margin-top:12px">2. 创业者：菜鸟驿站类加盟要算三笔账——转让费、日均件量与派费单价、人力是否全家上阵，件量低于日均600件且需雇人的，基本是给平台和上家打工。若要做社区生意，优先选自带流量的刚需缺口（如快剪、修鞋、干洗代收），启动成本控制在3万元内，先摆摊或短租1个月试水再签长约。</p>
+<p>3. 关注王石城市更新信号的老旧商铺持有者：存量商业改造会增加社区型物业供给，租金谈判窗口可能在下半年打开，续租时争取阶梯租金而非一次性长租。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>独立源点速览</h3>
+<p>[知乎]:</p>
+<p style="margin-top:12px">实体话题扎堆前20：BBA不进商场说明大店高租金模型失效，21.3万家理发店注销与快剪排队并存是模型切换而非行业复苏，驿站转让暴露加盟收割。红果短剧登顶属文娱热点，与实体无关，可忽略。</p>
+<p>[华尔街见闻]:</p>
+<p>全球科技股血洗、币安被盗63亿美元、谷歌创纪录暴跌，均为资本与科技层面，对线下实体直接影响有限。唯一可参考的是消费与广告预算可能收紧，社区门店的线上投流成本或短期下行。</p>
+  </div>
+  <footer class="footer reveal">
+    <div class="f-main">老许聊实体</div>
+    <div class="f-copy">每天 5 分钟，看透实体生意　·　第 128 期 · 2026年10月30日　·　共 10 条 / 255 条</div>
+  </footer>
+</div>
+
+<script>
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+<script src="../../donate.js" data-donate-img="../../donate.png"></script>
+</body>
+</html>
