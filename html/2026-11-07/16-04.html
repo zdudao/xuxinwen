@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老许聊实体 · 11月07日实体生意日报</title>
+<meta name="description" content="今日实体商业要闻速览，每天 5 分钟，看透实体生意。">
+<meta property="og:title" content="老许聊实体 · 实体生意日报">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="老许聊实体">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../donate.css">
+<style>
+  :root{
+    --bg:#100E0C; --ink:#EDE7DD; --muted:#9C9388; --faint:#635B51;
+    --hair:rgba(237,231,221,0.12); --accent:#D2553F; --accent-soft:rgba(210,85,63,0.14); --accent-wash:rgba(210,85,63,0.08);
+    --serif:'Noto Serif SC','Songti SC',serif;
+    --sans:'Inter','Noto Sans SC',-apple-system,'Microsoft YaHei',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit;text-decoration:none}
+  img,svg,video{max-width:100%;height:auto}
+  ::selection{background:var(--accent);color:#fff}
+  .container{max-width:780px;margin:0 auto;padding:0 24px 96px}
+
+  .masthead{padding:56px 0 30px;text-align:center}
+  .rule{height:1px;background:var(--hair);width:100%}
+  .kicker{font-size:11px;letter-spacing:.42em;color:var(--muted);text-transform:uppercase;padding:18px 0 14px;font-weight:500}
+  .wordmark{font-family:var(--serif);font-weight:900;font-size:clamp(34px,7vw,52px);letter-spacing:.04em;line-height:1;color:var(--ink)}
+  .wordmark .dot{color:var(--accent)}
+  .edition{font-size:12.5px;letter-spacing:.18em;color:var(--faint);padding:16px 0 18px;font-variant-numeric:tabular-nums}
+  .edition .prev{margin-left:14px;font-size:11px;letter-spacing:.06em;color:var(--muted)}
+  .edition .prev:hover{color:var(--accent)}
+
+  .lead{position:relative;padding:30px 0 30px 26px;margin:8px 0 6px;border-left:3px solid var(--accent)}
+  .lead::before{content:"";position:absolute;left:-3px;top:0;width:3px;height:0;background:var(--accent);transition:height .3s ease}
+  .lead:hover::before{height:100%}
+  .lead-label{font-size:11px;letter-spacing:.34em;color:var(--accent);font-weight:600;margin-bottom:14px;text-transform:uppercase}
+  .lead-title{font-family:var(--serif);font-weight:700;font-size:clamp(22px,4.4vw,30px);line-height:1.32;color:var(--ink);margin-bottom:14px}
+  .lead-meta{font-size:12.5px;color:var(--faint);letter-spacing:.04em;font-variant-numeric:tabular-nums}
+
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin:48px 0 20px}
+  .sec-head .en{font-size:10px;letter-spacing:.4em;color:var(--faint);text-transform:uppercase;font-weight:500}
+  .sec-head h2{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);letter-spacing:.02em}
+  .sec-head::after{content:"";flex:1;height:1px;background:var(--hair)}
+
+  .action-card{background:#16130F;border:1px solid var(--hair);border-radius:4px;padding:24px 26px;margin-bottom:14px}
+  .action-card .ac-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.2em;font-weight:700}
+  .action-card .ac-title{font-size:17px;font-weight:700;color:var(--ink);margin:6px 0 14px;font-family:var(--serif)}
+  .action-card .ac-seg{margin-bottom:12px}
+  .action-card .ac-seg:last-child{margin-bottom:0}
+  .action-card .ac-seg .seg-lbl{display:block;font-size:10px;font-weight:600;letter-spacing:.28em;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
+  .action-card .ac-seg p{font-size:14px;color:var(--ink);line-height:1.75;max-width:45em}
+  .action-card .ac-seg p strong{color:var(--accent);font-weight:600}
+
+  .signals{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .signal{background:#16130F;border:1px solid var(--hair);border-radius:4px;padding:20px 22px}
+  .signal .s-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--accent);text-transform:uppercase;margin-bottom:12px;padding-bottom:4px;border-bottom:1px solid var(--accent)}
+  .signal .s-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.5;font-family:var(--serif)}
+  .signal .s-desc{font-size:13px;color:var(--muted);line-height:1.7}
+
+  .story{padding:28px 0;border-bottom:1px solid var(--hair);scroll-margin-top:20px}
+  .story:first-of-type{padding-top:8px}
+  .story-head{display:flex;align-items:flex-start;gap:18px;margin-bottom:18px}
+  .story .s-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.14em;font-weight:700;line-height:1.6;flex-shrink:0;padding-top:4px}
+  .story .s-title{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--ink);line-height:1.45;letter-spacing:.01em}
+  .story .s-title:hover{color:var(--accent)}
+  .story .s-src{margin-top:8px;font-size:11.5px;color:var(--faint);letter-spacing:.06em}
+  .story .s-src .sep{color:var(--faint);margin:0 8px}
+  .story .s-src a:hover{color:var(--accent)}
+  .field{display:grid;grid-template-columns:88px 1fr;gap:18px;padding:12px 0 12px 4px}
+  .field .f-lbl{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;padding-top:5px}
+  .field .f-lbl .f-en{display:block;font-size:9px;letter-spacing:.3em;color:var(--faint);font-weight:500;margin-top:2px}
+  .field .f-body{font-size:14px;color:var(--ink);line-height:1.8;max-width:46em}
+  .field .f-body strong{color:var(--accent);font-weight:600}
+  .field.sec .f-lbl{color:var(--muted)}
+  .field.judge .f-lbl{color:var(--accent)}
+  .field.act .f-lbl{color:var(--muted)}
+  .field.judge .f-body{color:var(--muted)}
+  .field.act .f-body{border-left:2px solid var(--accent);padding-left:14px}
+
+  .read{margin-top:4px}
+  .read-item{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:15px 4px;border-bottom:1px solid var(--hair);transition:background .2s,padding-left .2s}
+  .read-item:hover{background:var(--accent-wash);padding-left:12px}
+  .read-item .r-src{font-size:11px;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;font-weight:600}
+  .read-item .r-title{font-size:14.5px;color:var(--ink);line-height:1.6}
+  .read-item:hover .r-title{color:var(--accent)}
+
+  .insight-block{padding:24px 26px;margin-bottom:14px;background:#16130F;border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:4px}
+  .insight-block h3{font-size:12px;font-weight:600;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:14px}
+  .insight-block p{font-size:14px;color:var(--ink);line-height:1.85;max-width:48em}
+  .insight-block .lbl{color:var(--muted);font-weight:600}
+
+  .footer{margin-top:72px;padding-top:34px;border-top:1px solid var(--hair);text-align:center}
+  .footer .f-main{font-family:var(--serif);font-size:14px;color:var(--ink);letter-spacing:.08em}
+  .footer .f-copy{font-size:11.5px;color:var(--faint);margin-top:16px;font-variant-numeric:tabular-nums;letter-spacing:.06em}
+  .footer .f-copy a{color:var(--muted);text-decoration:underline}
+  .footer .f-copy a:hover{color:var(--accent)}
+
+  .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  /* ── 自适应：同一页面按屏幕宽度自动重排（桌面 / 平板 / 手机） ── */
+  @media (max-width:900px){
+    .container{padding:0 22px 84px}
+    .masthead{padding:44px 0 26px}
+    .sec-head{margin:40px 0 18px}
+    .lead{padding:26px 0 26px 22px}
+    .field{grid-template-columns:76px 1fr;gap:14px}
+    .read-item{grid-template-columns:82px 1fr;gap:14px}
+  }
+  @media (max-width:600px){
+    .container{padding:0 18px 64px}
+    body{line-height:1.75}
+    .masthead{padding:32px 0 20px}
+    .kicker{letter-spacing:.3em;padding:12px 0 10px}
+    .edition{padding:12px 0 14px}
+    .edition .prev{display:block;margin:6px 0 0}
+    .lead{padding:22px 0 22px 16px;margin:6px 0 4px;border-left-width:2px}
+    .lead-label{letter-spacing:.24em;margin-bottom:10px}
+    .lead-title{font-size:clamp(20px,5.8vw,25px)}
+    .sec-head{margin:34px 0 14px;gap:10px}
+    .sec-head .en{letter-spacing:.28em}
+    .sec-head h2{font-size:19px}
+    .signals{grid-template-columns:1fr;gap:10px}
+    .signal{padding:16px 16px}
+    .action-card,.insight-block{padding:18px 17px;border-radius:3px}
+    .action-card .ac-seg p,.insight-block p{font-size:13.5px;line-height:1.72}
+    .story{padding:22px 0}
+    .story-head{flex-direction:column;gap:6px;margin-bottom:14px}
+    .story .s-title{font-size:17.5px}
+    .field{grid-template-columns:1fr;gap:2px;padding:10px 0}
+    .field .f-lbl{padding-top:0}
+    .field .f-lbl .f-en{display:inline;margin:0 0 0 6px}
+    .field .f-body{font-size:13.5px;line-height:1.75}
+    .field.act .f-body{padding-left:12px}
+    .read-item{grid-template-columns:1fr;gap:4px;padding:13px 2px}
+    .read-item:hover{padding-left:2px}
+    .footer{margin-top:52px;padding-top:26px}
+  }
+  @media (max-width:380px){
+    .container{padding:0 14px 56px}
+    .wordmark{letter-spacing:.02em}
+    .story .s-title{font-size:16.5px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="masthead">
+    <div class="rule"></div>
+    <div class="kicker">实体商业 · 每日内参</div>
+    <h1 class="wordmark">老许聊实体<span class="dot">.</span></h1>
+    <div class="edition">第 136 期　·　2026年11月07日　·　每日更新<a class="prev" href="../2026-11-06/">← 上一期</a></div>
+    <div class="rule"></div>
+  </header>
+
+  <div class="lead reveal">
+    <div class="lead-label">今日头条 · TODAY</div>
+    <div class="lead-title">进博会磁吸力，咖啡祛魅，外卖员安全，假货暴利，家电过冬</div>
+    <div class="lead-meta">2026年11月07日　·　阅读约 6 分钟　·　共 11 条</div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Action</span><h2>今日行动建议</h2></div>
+  <div class="action-card reveal">
+    <div class="ac-num">01</div>
+    <div class="ac-title">借进博会找进口好货</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>进博会磁吸力持续增强，全球新品好物集中亮相，进口消费热度上升。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>进口好物正从一线城市向区域门店渗透，差异化选品是实体店破卷的抓手。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>盯紧进博会新品清单，挑1-2个高频复购品类做**小批量试销**，先测动销再谈独家。</p></div>
+  </div>
+  <div class="action-card reveal">
+    <div class="ac-num">02</div>
+    <div class="ac-title">咖啡店别再卖身份感</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>大众对咖啡祛魅，喝咖啡被视为打工日常，高档光环消退。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>咖啡从社交货币变刚需提神，拼的是性价比和出杯效率，不是装修和故事。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>砍掉虚高溢价产品，主推**高频平价套餐**，用出杯速度和复购率算账，别赌网红打卡。</p></div>
+  </div>
+  <div class="action-card reveal">
+    <div class="ac-num">03</div>
+    <div class="ac-title">选品先查授权链路</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>成本41元卖到2388元的假货链条被曝光，暴利背后是消费者被割。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>假货暴利短期诱人，但一旦被查，门店信誉和现金流一起崩，得不偿失。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>进货必须**索证索票、核对授权**，高毛利品类优先选可溯源渠道，别碰来路不明的低价货。</p></div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Signals</span><h2>信号速览</h2></div>
+  <div class="signals reveal">
+    <div class="signal"><span class="s-tag">进博会</span><div class="s-title">进博会磁吸力增强</div><div class="s-desc">全球好物加速涌入，进口供应链成实体店新机会</div></div>
+    <div class="signal"><span class="s-tag">咖啡祛魅</span><div class="s-title">咖啡走下神坛</div><div class="s-desc">从高档象征变打工标配，平价咖啡赛道更卷</div></div>
+    <div class="signal"><span class="s-tag">假货暴利</span><div class="s-title">41元成本卖2388</div><div class="s-desc">暴利假货链条曝光，选品与授权风险再敲警钟</div></div>
+    <div class="signal"><span class="s-tag">家电过冬</span><div class="s-title">家电集体过冬</div><div class="s-desc">行业需求疲软，实体家电门店承压加剧</div></div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Stories</span><h2>今日 11 条要闻</h2></div>
+  <article class="story reveal" id="s01">
+    <div class="story-head">
+      <span class="s-num">01</span>
+      <div>
+        <a class="s-title" href="https://www.thepaper.cn/newsDetail_forward_34422242" target="_blank" rel="noopener">武汉大学继续教育学院回应“学生将同学诱骗至缅甸”：涉事人员非武大学生</a>
+        <div class="s-src">澎湃新闻<span class="sep">·</span><a href="https://www.thepaper.cn/newsDetail_forward_34422242" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">武汉大学继续教育学院回应网传学生诱骗同学至缅甸，称涉事人员非武大学生。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">涉缅骗局持续发酵，舆论容易误伤高校与实体招工渠道，招聘背调的重要性被放大。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">招人时**核实身份与出境记录**，对“高薪海外岗”话术保持警惕，别让门店成为骗局跳板。</p></div>
+  </article>
+  <article class="story reveal" id="s02">
+    <div class="story-head">
+      <span class="s-num">02</span>
+      <div>
+        <a class="s-title" href="https://search.bilibili.com/all?keyword=%E8%BF%9B%E5%8D%9A%E6%96%B0%E5%93%81%E6%B1%87%E5%B8%A6%E7%9C%8B%E5%85%A8%E7%90%83%E5%A5%BD%E7%89%A9" target="_blank" rel="noopener">进博新品汇带看全球好物</a>
+        <div class="s-src">bilibili 热搜<span class="sep">·</span><a href="https://search.bilibili.com/all?keyword=%E8%BF%9B%E5%8D%9A%E6%96%B0%E5%93%81%E6%B1%87%E5%B8%A6%E7%9C%8B%E5%85%A8%E7%90%83%E5%A5%BD%E7%89%A9" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">进博新品汇集中带看全球好物，进口新品通过进博会平台进入大众视野。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">进博会是进口货的风向标，能提前看到下一波消费热点和供应链机会。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">关注进博新品动向，挑适合本地客群的品类**先小单试水**，验证后再放量。</p></div>
+  </article>
+  <article class="story reveal" id="s03">
+    <div class="story-head">
+      <span class="s-num">03</span>
+      <div>
+        <a class="s-title" href="https://s.weibo.com/weibo?q=%236%E5%9B%BE%E7%9C%8B%E8%BF%9B%E5%8D%9A%E4%BC%9A%E7%A3%81%E5%90%B8%E5%8A%9B%E6%8C%81%E7%BB%AD%E5%A2%9E%E5%BC%BA%23" target="_blank" rel="noopener">6图看进博会磁吸力持续增强</a>
+        <div class="s-src">微博<span class="sep">·</span><a href="https://s.weibo.com/weibo?q=%236%E5%9B%BE%E7%9C%8B%E8%BF%9B%E5%8D%9A%E4%BC%9A%E7%A3%81%E5%90%B8%E5%8A%9B%E6%8C%81%E7%BB%AD%E5%A2%9E%E5%BC%BA%23" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">6图看进博会磁吸力持续增强，参展与采购热度不减。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">磁吸力增强说明全球品牌仍看好中国市场，进口供给端在加速下沉。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">实体店可主动对接进口经销商，**用差异化进口货**做引流，避开同质化价格战。</p></div>
+  </article>
+  <article class="story reveal" id="s04">
+    <div class="story-head">
+      <span class="s-num">04</span>
+      <div>
+        <a class="s-title" href="https://www.zhihu.com/question/2102124807307227549" target="_blank" rel="noopener">为啥以前观念里会觉得喝咖啡很高档，现在却觉得喝咖啡的只是打工牛马？是咖啡变便宜了还是大众对咖啡祛魅了？</a>
+        <div class="s-src">知乎<span class="sep">·</span><a href="https://www.zhihu.com/question/2102124807307227549" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">知乎讨论咖啡从高档象征变为打工日常，是变便宜还是大众祛魅。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">咖啡祛魅本质是供给过剩加消费理性，身份溢价被挤干，回归提神刚需。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">咖啡门店别再讲格调故事，**算清单杯成本和复购**，用平价高频产品守住客流。</p></div>
+  </article>
+  <article class="story reveal" id="s05">
+    <div class="story-head">
+      <span class="s-num">05</span>
+      <div>
+        <a class="s-title" href="https://www.zhihu.com/question/2102146187449127924" target="_blank" rel="noopener">墨尔本一中国外卖员被刺身亡，疑因餐车被流浪汉踢翻与之发生争执，熊猫外卖称正了解情况，哪些信息值得关注？</a>
+        <div class="s-src">知乎<span class="sep">·</span><a href="https://www.zhihu.com/question/2102146187449127924" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">墨尔本一中国外卖员被刺身亡，疑因餐车被流浪汉踢翻发生争执，熊猫外卖称正了解情况。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">海外外卖配送安全风险凸显，骑手与餐车资产的安全管理是平台和商家的共同课题。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">做外卖的老板要给骑手**明确冲突避险规则**，餐车资产加锁加固，人身安全永远排第一。</p></div>
+  </article>
+  <article class="story reveal" id="s06">
+    <div class="story-head">
+      <span class="s-num">06</span>
+      <div>
+        <a class="s-title" href="https://www.zhihu.com/question/456755817" target="_blank" rel="noopener">为什么很多人都说江浙沪是美食荒漠？</a>
+        <div class="s-src">知乎<span class="sep">·</span><a href="https://www.zhihu.com/question/456755817" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">知乎热议江浙沪是否为美食荒漠，引发地域饮食讨论。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">“美食荒漠”是口味偏好和传播声量的错位，不代表当地餐饮没生意，而是缺记忆点。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">别跟风自嘲，**做透本地口味+一个爆款记忆点**，让外地客也愿意专程来吃。</p></div>
+  </article>
+  <article class="story reveal" id="s07">
+    <div class="story-head">
+      <span class="s-num">07</span>
+      <div>
+        <a class="s-title" href="https://news.ifeng.com/c/8xpomQ9dhrE" target="_blank" rel="noopener">男子花11元拍走鹤岗一套房，拍卖公司回应</a>
+        <div class="s-src">凤凰网<span class="sep">·</span><a href="https://news.ifeng.com/c/8xpomQ9dhrE" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">男子花11元拍走鹤岗一套房，拍卖公司回应相关情况。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">低价拍卖房多是营销噱头或特殊标的，捡漏背后往往有产权、税费等隐性成本。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">开店选址别被**超低价物业**冲昏头，先查产权、人流和租约，算清隐性成本再下手。</p></div>
+  </article>
+  <article class="story reveal" id="s08">
+    <div class="story-head">
+      <span class="s-num">08</span>
+      <div>
+        <a class="s-title" href="https://news.ifeng.com/c/8xrLSoN1su4" target="_blank" rel="noopener">别买，全是假的！成本41元，卖到2388元</a>
+        <div class="s-src">凤凰网<span class="sep">·</span><a href="https://news.ifeng.com/c/8xrLSoN1su4" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">媒体曝光成本41元卖到2388元的假货链条，提醒消费者别买全是假的。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">暴利假货靠信息差收割，实体店若沾边，短期赚钱长期毁招牌。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">选品坚持**正品授权、索证索票**，高毛利品类优先可溯源渠道，别为暴利赌门店信誉。</p></div>
+  </article>
+  <article class="story reveal" id="s09">
+    <div class="story-head">
+      <span class="s-num">09</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=999%E5%85%83%E5%A4%A7%E5%8C%85%E5%AD%901%E5%85%83%E8%B5%B7%E6%8B%8D+%E8%A2%AB336%E5%85%83%E6%8B%8D%E8%B5%B0" target="_blank" rel="noopener">999元大包子1元起拍 被336元拍走</a>
+        <div class="s-src">百度热搜<span class="sep">·</span><a href="https://www.baidu.com/s?wd=999%E5%85%83%E5%A4%A7%E5%8C%85%E5%AD%901%E5%85%83%E8%B5%B7%E6%8B%8D+%E8%A2%AB336%E5%85%83%E6%8B%8D%E8%B5%B0" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">999元大包子1元起拍，最终被336元拍走，引发关注。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">低价起拍是引流玩法，成交价才是真实价值，营销噱头能带流量但难带复购。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">做活动可以玩起拍引流，但要**设计好到店转化**，别只赚吆喝不赚客单。</p></div>
+  </article>
+  <article class="story reveal" id="s10">
+    <div class="story-head">
+      <span class="s-num">10</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E5%AE%B6%E7%94%B5%E8%A1%8C%E4%B8%9A%E9%9B%86%E4%BD%93%E8%BF%87%E5%86%AC" target="_blank" rel="noopener">家电行业集体过冬</a>
+        <div class="s-src">百度热搜<span class="sep">·</span><a href="https://www.baidu.com/s?wd=%E5%AE%B6%E7%94%B5%E8%A1%8C%E4%B8%9A%E9%9B%86%E4%BD%93%E8%BF%87%E5%86%AC" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">家电行业集体过冬，需求疲软、竞争加剧成为行业共识。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">家电进入存量博弈，靠新品拉动的时代过去，服务和以旧换新成关键抓手。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">家电门店收缩SKU，**押注以旧换新和安装服务**，用服务黏住老客再带新客。</p></div>
+  </article>
+  <article class="story reveal" id="s11">
+    <div class="story-head">
+      <span class="s-num">11</span>
+      <div>
+        <a class="s-title" href="https://www.douyin.com/hot/2734302" target="_blank" rel="noopener">进博会助力全球创新落地</a>
+        <div class="s-src">抖音<span class="sep">·</span><a href="https://www.douyin.com/hot/2734302" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">进博会助力全球创新落地，创新产品借助平台加速进入中国市场。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">创新落地意味着新品类窗口期变短，先接住的人吃到红利，后跟进的人只能拼价格。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">盯住进博会创新品类，**抢时间差上架试销**，用首批用户反馈快速决定加不加码。</p></div>
+  </article>
+  <div class="sec-head reveal"><span class="en">Readings</span><h2>深度阅读</h2></div>
+  <div class="read reveal">
+    <a class="read-item" href="https://www.tmtpost.com/8196555.html" target="_blank" rel="noopener"><span class="r-src">钛媒体</span><span class="r-title">县城理发店，批量消失了？</span></a>
+    <a class="read-item" href="https://www.yunyingpai.com/user/1068933.html" target="_blank" rel="noopener"><span class="r-src">运营派</span><span class="r-title">情绪消费崛起，一杯奶茶藏着多少生意？</span></a>
+  </div>
+  <div class="sec-head reveal"><span class="en">Insight</span><h2>老许研判</h2></div>
+  <div class="insight-block reveal">
+    <h3>核心热点态势</h3>
+<p>圈层热点为主，实体相关信号分散。全网霸屏的是进博会，但落到线下商家只是围观。</p>
+<p style="margin-top:12px">【宏观主线】</p>
+<p style="margin-top:12px">消费端在收缩：家电行业集体过冬、咖啡从高档消费品祛魅为打工人刚需，说明客单价在往下走，消费者只买值得买的东西。</p>
+<p style="margin-top:12px">【微观领域】</p>
+<p>1. 进博会三平台上榜，全球好物是选品风向标，不是普通人能碰的生意；</p>
+<p>2. 成本41卖2388元的假货新闻，暴露出信息差生意的高毛利与高风险；</p>
+<p>3. 鹤岗11元拍房、999元大包子1元起拍被336元成交，说明拍卖式引流在眼球上有效但成交价说明价值回归；</p>
+<p>4. 墨尔本外卖员事件提醒外卖赛道的社会风险。</p>
+<p style="margin-top:12px">对实体商家启示：消费降级是主线，别赌高毛利，赌复购。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>舆论风向争议</h3>
+<p style="margin-top:12px">【情绪光谱】</p>
+<p>主流是消费祛魅下的务实省钱心态，潜流是对溢价的强烈不信任。</p>
+<p style="margin-top:12px">【核心矛盾】</p>
+<p style="margin-top:12px">1. 咖啡祛魅：是消费降级还是行业成熟，两派对撕；</p>
+<p>2. 江浙沪美食荒漠：地域黑背后是本地口味与连锁标准化之争；</p>
+<p>3. 假货暴利41元卖2388元，愤怒情绪指向中小商家赚快钱。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>异动与弱信号</h3>
+<p style="margin-top:12px">跨平台共振明显：进博会在抖音（排名3）、微博（排名3）、bilibili（排名6）三平台同时上榜，属于官方主导的强推流量，热度高但转化低，实体会展经济概念易被炒。反常识信号是家电过冬（百度第9）与进博会全球好物同框，供给端在扩张、需求端在收缩，剪刀差值得实体商家警惕。知乎单一话题外卖员事件从热榜第4进入独立展示区第4，平台内部共振但未破圈。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>研判策略建议</h3>
+<p style="margin-top:12px">后续推演：进博会热度会在3天内快速回落，不会转化为实体客流；家电过冬是持续性话题，未来围绕降价促销、以旧换新的本地商机将增加；咖啡祛魅讨论会持续发酵，平价小店进一步挤压精品店。</p>
+<p style="margin-top:12px">1. 实体商家：盯住咖啡祛魅背后的平价需求，社区店可做9.9元档现磨+外带窗口，用低价单品带客流、靠搭配简餐提客单，试点成本2-5万元（含二手设备与三个月租金），先在1个小区试跑两个月再决定是否扩店。</p>
+<p style="margin-top:12px">2. 创业者：家电过冬是二手回收与维修的窗口期，可做社区家电清洗维修组队，工具+培训成本5000元以内，靠小区群与快递驿站点位获客，不做门店只做上门，先验证月单量过50单再加人。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>独立源点速览</h3>
+<p>[知乎]:</p>
+<p>热榜被电竞与通勤情绪类话题占据，实体信号仅两条：咖啡祛魅讨论指向平价咖啡消费趋势，江浙沪美食荒漠争议反映连锁标准化与本地口味的张力，两者都是选品与定位的参考。</p>
+<p>[华尔街见闻]:</p>
+<p>美联储加息预期升温、科技股暴跌、AI算力租赁收缩，全球资金面偏紧。对中小实体商家的间接影响是消费信贷与租金环境，短期无实质变化，不宜据此做开店决策。</p>
+  </div>
+  <footer class="footer reveal">
+    <div class="f-main">老许聊实体</div>
+    <div class="f-copy">每天 5 分钟，看透实体生意　·　第 136 期 · 2026年11月07日　·　共 11 条 / 255 条</div>
+  </footer>
+</div>
+
+<script>
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+<script src="../../donate.js" data-donate-img="../../donate.png"></script>
+</body>
+</html>
