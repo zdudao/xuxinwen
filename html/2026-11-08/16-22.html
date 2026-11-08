@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老许聊实体 · 11月08日实体生意日报</title>
+<meta name="description" content="今日实体商业要闻速览，每天 5 分钟，看透实体生意。">
+<meta property="og:title" content="老许聊实体 · 实体生意日报">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="老许聊实体">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../donate.css">
+<style>
+  :root{
+    --bg:#100E0C; --ink:#EDE7DD; --muted:#9C9388; --faint:#635B51;
+    --hair:rgba(237,231,221,0.12); --accent:#D2553F; --accent-soft:rgba(210,85,63,0.14); --accent-wash:rgba(210,85,63,0.08);
+    --serif:'Noto Serif SC','Songti SC',serif;
+    --sans:'Inter','Noto Sans SC',-apple-system,'Microsoft YaHei',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit;text-decoration:none}
+  img,svg,video{max-width:100%;height:auto}
+  ::selection{background:var(--accent);color:#fff}
+  .container{max-width:780px;margin:0 auto;padding:0 24px 96px}
+
+  .masthead{padding:56px 0 30px;text-align:center}
+  .rule{height:1px;background:var(--hair);width:100%}
+  .kicker{font-size:11px;letter-spacing:.42em;color:var(--muted);text-transform:uppercase;padding:18px 0 14px;font-weight:500}
+  .wordmark{font-family:var(--serif);font-weight:900;font-size:clamp(34px,7vw,52px);letter-spacing:.04em;line-height:1;color:var(--ink)}
+  .wordmark .dot{color:var(--accent)}
+  .edition{font-size:12.5px;letter-spacing:.18em;color:var(--faint);padding:16px 0 18px;font-variant-numeric:tabular-nums}
+  .edition .prev{margin-left:14px;font-size:11px;letter-spacing:.06em;color:var(--muted)}
+  .edition .prev:hover{color:var(--accent)}
+
+  .lead{position:relative;padding:30px 0 30px 26px;margin:8px 0 6px;border-left:3px solid var(--accent)}
+  .lead::before{content:"";position:absolute;left:-3px;top:0;width:3px;height:0;background:var(--accent);transition:height .3s ease}
+  .lead:hover::before{height:100%}
+  .lead-label{font-size:11px;letter-spacing:.34em;color:var(--accent);font-weight:600;margin-bottom:14px;text-transform:uppercase}
+  .lead-title{font-family:var(--serif);font-weight:700;font-size:clamp(22px,4.4vw,30px);line-height:1.32;color:var(--ink);margin-bottom:14px}
+  .lead-meta{font-size:12.5px;color:var(--faint);letter-spacing:.04em;font-variant-numeric:tabular-nums}
+
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin:48px 0 20px}
+  .sec-head .en{font-size:10px;letter-spacing:.4em;color:var(--faint);text-transform:uppercase;font-weight:500}
+  .sec-head h2{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);letter-spacing:.02em}
+  .sec-head::after{content:"";flex:1;height:1px;background:var(--hair)}
+
+  .action-card{background:#16130F;border:1px solid var(--hair);border-radius:4px;padding:24px 26px;margin-bottom:14px}
+  .action-card .ac-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.2em;font-weight:700}
+  .action-card .ac-title{font-size:17px;font-weight:700;color:var(--ink);margin:6px 0 14px;font-family:var(--serif)}
+  .action-card .ac-seg{margin-bottom:12px}
+  .action-card .ac-seg:last-child{margin-bottom:0}
+  .action-card .ac-seg .seg-lbl{display:block;font-size:10px;font-weight:600;letter-spacing:.28em;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
+  .action-card .ac-seg p{font-size:14px;color:var(--ink);line-height:1.75;max-width:45em}
+  .action-card .ac-seg p strong{color:var(--accent);font-weight:600}
+
+  .signals{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .signal{background:#16130F;border:1px solid var(--hair);border-radius:4px;padding:20px 22px}
+  .signal .s-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--accent);text-transform:uppercase;margin-bottom:12px;padding-bottom:4px;border-bottom:1px solid var(--accent)}
+  .signal .s-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.5;font-family:var(--serif)}
+  .signal .s-desc{font-size:13px;color:var(--muted);line-height:1.7}
+
+  .story{padding:28px 0;border-bottom:1px solid var(--hair);scroll-margin-top:20px}
+  .story:first-of-type{padding-top:8px}
+  .story-head{display:flex;align-items:flex-start;gap:18px;margin-bottom:18px}
+  .story .s-num{font-family:var(--serif);font-size:13px;color:var(--accent);letter-spacing:.14em;font-weight:700;line-height:1.6;flex-shrink:0;padding-top:4px}
+  .story .s-title{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--ink);line-height:1.45;letter-spacing:.01em}
+  .story .s-title:hover{color:var(--accent)}
+  .story .s-src{margin-top:8px;font-size:11.5px;color:var(--faint);letter-spacing:.06em}
+  .story .s-src .sep{color:var(--faint);margin:0 8px}
+  .story .s-src a:hover{color:var(--accent)}
+  .field{display:grid;grid-template-columns:88px 1fr;gap:18px;padding:12px 0 12px 4px}
+  .field .f-lbl{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;padding-top:5px}
+  .field .f-lbl .f-en{display:block;font-size:9px;letter-spacing:.3em;color:var(--faint);font-weight:500;margin-top:2px}
+  .field .f-body{font-size:14px;color:var(--ink);line-height:1.8;max-width:46em}
+  .field .f-body strong{color:var(--accent);font-weight:600}
+  .field.sec .f-lbl{color:var(--muted)}
+  .field.judge .f-lbl{color:var(--accent)}
+  .field.act .f-lbl{color:var(--muted)}
+  .field.judge .f-body{color:var(--muted)}
+  .field.act .f-body{border-left:2px solid var(--accent);padding-left:14px}
+
+  .read{margin-top:4px}
+  .read-item{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:15px 4px;border-bottom:1px solid var(--hair);transition:background .2s,padding-left .2s}
+  .read-item:hover{background:var(--accent-wash);padding-left:12px}
+  .read-item .r-src{font-size:11px;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;font-weight:600}
+  .read-item .r-title{font-size:14.5px;color:var(--ink);line-height:1.6}
+  .read-item:hover .r-title{color:var(--accent)}
+
+  .insight-block{padding:24px 26px;margin-bottom:14px;background:#16130F;border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:4px}
+  .insight-block h3{font-size:12px;font-weight:600;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:14px}
+  .insight-block p{font-size:14px;color:var(--ink);line-height:1.85;max-width:48em}
+  .insight-block .lbl{color:var(--muted);font-weight:600}
+
+  .footer{margin-top:72px;padding-top:34px;border-top:1px solid var(--hair);text-align:center}
+  .footer .f-main{font-family:var(--serif);font-size:14px;color:var(--ink);letter-spacing:.08em}
+  .footer .f-copy{font-size:11.5px;color:var(--faint);margin-top:16px;font-variant-numeric:tabular-nums;letter-spacing:.06em}
+  .footer .f-copy a{color:var(--muted);text-decoration:underline}
+  .footer .f-copy a:hover{color:var(--accent)}
+
+  .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  /* ── 自适应：同一页面按屏幕宽度自动重排（桌面 / 平板 / 手机） ── */
+  @media (max-width:900px){
+    .container{padding:0 22px 84px}
+    .masthead{padding:44px 0 26px}
+    .sec-head{margin:40px 0 18px}
+    .lead{padding:26px 0 26px 22px}
+    .field{grid-template-columns:76px 1fr;gap:14px}
+    .read-item{grid-template-columns:82px 1fr;gap:14px}
+  }
+  @media (max-width:600px){
+    .container{padding:0 18px 64px}
+    body{line-height:1.75}
+    .masthead{padding:32px 0 20px}
+    .kicker{letter-spacing:.3em;padding:12px 0 10px}
+    .edition{padding:12px 0 14px}
+    .edition .prev{display:block;margin:6px 0 0}
+    .lead{padding:22px 0 22px 16px;margin:6px 0 4px;border-left-width:2px}
+    .lead-label{letter-spacing:.24em;margin-bottom:10px}
+    .lead-title{font-size:clamp(20px,5.8vw,25px)}
+    .sec-head{margin:34px 0 14px;gap:10px}
+    .sec-head .en{letter-spacing:.28em}
+    .sec-head h2{font-size:19px}
+    .signals{grid-template-columns:1fr;gap:10px}
+    .signal{padding:16px 16px}
+    .action-card,.insight-block{padding:18px 17px;border-radius:3px}
+    .action-card .ac-seg p,.insight-block p{font-size:13.5px;line-height:1.72}
+    .story{padding:22px 0}
+    .story-head{flex-direction:column;gap:6px;margin-bottom:14px}
+    .story .s-title{font-size:17.5px}
+    .field{grid-template-columns:1fr;gap:2px;padding:10px 0}
+    .field .f-lbl{padding-top:0}
+    .field .f-lbl .f-en{display:inline;margin:0 0 0 6px}
+    .field .f-body{font-size:13.5px;line-height:1.75}
+    .field.act .f-body{padding-left:12px}
+    .read-item{grid-template-columns:1fr;gap:4px;padding:13px 2px}
+    .read-item:hover{padding-left:2px}
+    .footer{margin-top:52px;padding-top:26px}
+  }
+  @media (max-width:380px){
+    .container{padding:0 14px 56px}
+    .wordmark{letter-spacing:.02em}
+    .story .s-title{font-size:16.5px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="masthead">
+    <div class="rule"></div>
+    <div class="kicker">实体商业 · 每日内参</div>
+    <h1 class="wordmark">老许聊实体<span class="dot">.</span></h1>
+    <div class="edition">第 137 期　·　2026年11月08日　·　每日更新<a class="prev" href="../2026-11-07/">← 上一期</a></div>
+    <div class="rule"></div>
+  </header>
+
+  <div class="lead reveal">
+    <div class="lead-label">今日头条 · TODAY</div>
+    <div class="lead-title">汽车慢卖时代, 山姆渠道价差, 胖东来选品信任, 仅退款乱象, 双十一快递减负</div>
+    <div class="lead-meta">2026年11月08日　·　阅读约 6 分钟　·　共 11 条</div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Action</span><h2>今日行动建议</h2></div>
+  <div class="action-card reveal">
+    <div class="ac-num">01</div>
+    <div class="ac-title">把价差做成明牌</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>山姆同款加拿大鹅便宜5000元被热搜放大，消费者开始拿会员店当比价标尺。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>价差本身不是护城河，能持续拿到低价货源、并把价差讲清楚才是。普通门店拼不过价，就拼透明和选品解释。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>梳理3个高频比价品类，主动在店内和社群标注**同款对比与差价原因**，把价格疑虑提前打消，别等顾客拿着手机来问。</p></div>
+  </div>
+  <div class="action-card reveal">
+    <div class="ac-num">02</div>
+    <div class="ac-title">选品先查产地底账</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>胖东来因洗发水产地问题连续回应，说明再强的口碑也扛不住供应链信息不清。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>消费者不是不信品牌，是不信说不清来源的货。选品环节的产地、批次、资质，正在变成门店的隐形执照。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>对在售洗护、食品做一次**产地与批次自查**，把供应商资质和产地信息做成可查台账，出问题第一时间给结论而不是给情绪。</p></div>
+  </div>
+  <div class="action-card reveal">
+    <div class="ac-num">03</div>
+    <div class="ac-title">退货规则要写死</div>
+    <div class="ac-seg"><span class="seg-lbl">现象</span><p>22件演出服穿完就退，仅退款白嫖乱象被媒体点名，平台规则面临收紧压力。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">判断</span><p>规则宽松期靠流量，规则收紧期靠留证。门店和线上卖家都该把退货标准前置，别把纠纷留到售后。</p></div>
+    <div class="ac-seg"><span class="seg-lbl">动作</span><p>把**拆封、使用痕迹、时效**写进退换说明并留影像凭证，高客单商品加一道发货前确认，减少扯皮成本。</p></div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Signals</span><h2>信号速览</h2></div>
+  <div class="signals reveal">
+    <div class="signal"><span class="s-tag">渠道价差</span><div class="s-title">山姆价差成卖点</div><div class="s-desc">同款加拿大鹅便宜5000元，会员店靠渠道议价抢客</div></div>
+    <div class="signal"><span class="s-tag">信任危机</span><div class="s-title">选品翻车频发</div><div class="s-desc">胖东来洗发水产地被质疑，选品信任比流量更贵</div></div>
+    <div class="signal"><span class="s-tag">规则收紧</span><div class="s-title">仅退款遭反噬</div><div class="s-desc">穿完就退的演出服，正在逼平台收紧规则</div></div>
+    <div class="signal"><span class="s-tag">成本修复</span><div class="s-title">双十一不再爆单</div><div class="s-desc">快递一线从冲量转向降本修复盈利，节奏变了</div></div>
+  </div>
+  <div class="sec-head reveal"><span class="en">Stories</span><h2>今日 11 条要闻</h2></div>
+  <article class="story reveal" id="s01">
+    <div class="story-head">
+      <span class="s-num">01</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E6%96%B0%E8%BD%A6%E4%B8%BA%E4%BB%80%E4%B9%88%E8%B6%8A%E6%9D%A5%E8%B6%8A%E9%9A%BE%E2%80%9C%E6%85%A2%E6%85%A2%E5%8D%96%E2%80%9D" target="_blank" rel="noopener">新车为什么越来越难“慢慢卖”</a>
+        <div class="s-src">百度热搜<span class="sep">·</span><a href="https://www.baidu.com/s?wd=%E6%96%B0%E8%BD%A6%E4%B8%BA%E4%BB%80%E4%B9%88%E8%B6%8A%E6%9D%A5%E8%B6%8A%E9%9A%BE%E2%80%9C%E6%85%A2%E6%85%A2%E5%8D%96%E2%80%9D" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">新车销售周期拉长，“慢慢卖”越来越难，车企与经销商面临库存和资金压力。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">车市从卖方市场转向买方市场，压库模式失效，门店靠等客上门只会越等越亏。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">有车相关生意的老板，把**周转天数**当第一指标，宁可少备货也别压死现金流。</p></div>
+  </article>
+  <article class="story reveal" id="s02">
+    <div class="story-head">
+      <span class="s-num">02</span>
+      <div>
+        <a class="s-title" href="https://www.toutiao.com/trending/7705633703178879514/" target="_blank" rel="noopener">大三男生做AI漫剧营收超300万</a>
+        <div class="s-src">今日头条<span class="sep">·</span><a href="https://www.toutiao.com/trending/7705633703178879514/" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">大三男生做AI漫剧营收超300万，引发对AI内容创业的关注。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">AI把内容生产成本打下来，个人和小团队能跑出营收，但爆款依赖平台流量，不是稳定生意。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">想切入的老板先做**小成本试单**，验证变现路径再扩，别一上来就压设备和人力。</p></div>
+  </article>
+  <article class="story reveal" id="s03">
+    <div class="story-head">
+      <span class="s-num">03</span>
+      <div>
+        <a class="s-title" href="https://s.weibo.com/weibo?q=%23%E5%A4%A7%E4%B8%89%E7%94%B7%E7%94%9F%E5%AE%BF%E8%88%8D%E6%89%8B%E6%90%93AI%E6%BC%AB%E5%89%A7%E5%88%9B%E6%94%B6200%E4%B8%87%23" target="_blank" rel="noopener">大三男生宿舍手搓AI漫剧创收200万</a>
+        <div class="s-src">微博<span class="sep">·</span><a href="https://s.weibo.com/weibo?q=%23%E5%A4%A7%E4%B8%89%E7%94%B7%E7%94%9F%E5%AE%BF%E8%88%8D%E6%89%8B%E6%90%93AI%E6%BC%AB%E5%89%A7%E5%88%9B%E6%94%B6200%E4%B8%87%23" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">同一男生被报道在宿舍手搓AI漫剧创收200万，与300万说法并存。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">同一事件数字口径不一，说明这类创收故事传播中容易被放大，看热闹可以，照搬要谨慎。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">看到“低成本高营收”案例，先问**成本结构和退款率**，再决定要不要跟。</p></div>
+  </article>
+  <article class="story reveal" id="s04">
+    <div class="story-head">
+      <span class="s-num">04</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E5%B1%B1%E5%A7%86%E5%8D%96%E5%8A%A0%E6%8B%BF%E5%A4%A7%E9%B9%85+%E6%9C%89%E5%90%8C%E6%AC%BE%E4%BE%BF%E5%AE%9C5000%E5%85%83" target="_blank" rel="noopener">山姆卖加拿大鹅 有同款便宜5000元</a>
+        <div class="s-src">百度热搜<span class="sep">·</span><a href="https://www.baidu.com/s?wd=%E5%B1%B1%E5%A7%86%E5%8D%96%E5%8A%A0%E6%8B%BF%E5%A4%A7%E9%B9%85+%E6%9C%89%E5%90%8C%E6%AC%BE%E4%BE%BF%E5%AE%9C5000%E5%85%83" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">山姆售卖的加拿大鹅同款比其他渠道便宜约5000元，引发比价讨论。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">会员店用渠道议价把高价商品打成引流款，消费者对“渠道价差”越来越敏感。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">门店可借势做**同款比价与搭配推荐**，把比价流量转成到店理由。</p></div>
+  </article>
+  <article class="story reveal" id="s05">
+    <div class="story-head">
+      <span class="s-num">05</span>
+      <div>
+        <a class="s-title" href="https://www.thepaper.cn/newsDetail_forward_34427663" target="_blank" rel="noopener">三丽鸥再回应终止《VIVANT》联名产品：如果会让中国消费者难过就不该做</a>
+        <div class="s-src">澎湃新闻<span class="sep">·</span><a href="https://www.thepaper.cn/newsDetail_forward_34427663" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">三丽鸥再回应终止《VIVANT》联名产品，称若会让中国消费者难过就不该做。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">联名不是签个IP就完事，舆情和价值观风险正在成为联名的前置成本。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">做联名前先做**舆情尽调**，合同里写清终止与库存处理条款，别让联名变库存。</p></div>
+  </article>
+  <article class="story reveal" id="s06">
+    <div class="story-head">
+      <span class="s-num">06</span>
+      <div>
+        <a class="s-title" href="https://www.douyin.com/hot/2735405" target="_blank" rel="noopener">拜见珠海巨无霸菠萝包大王</a>
+        <div class="s-src">抖音<span class="sep">·</span><a href="https://www.douyin.com/hot/2735405" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">珠海巨无霸菠萝包大王在抖音走红，大单品加地域标签带来到店流量。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">短视频时代，一个足够夸张的单品就能撑起一家店的传播，关键是能不能接住客流。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">设计一款**可拍照、可复购**的招牌单品，把流量接成会员和复购，而不是只火三天。</p></div>
+  </article>
+  <article class="story reveal" id="s07">
+    <div class="story-head">
+      <span class="s-num">07</span>
+      <div>
+        <a class="s-title" href="https://www.baidu.com/s?wd=%E8%83%96%E4%B8%9C%E6%9D%A5%E5%9B%9E%E5%BA%94%E2%80%9C%E6%B4%97%E5%8F%91%E6%B0%B4%E4%BA%A7%E5%9C%B0%E9%80%A0%E5%81%87%E2%80%9D" target="_blank" rel="noopener">胖东来回应“洗发水产地造假”</a>
+        <div class="s-src">百度热搜<span class="sep">·</span><a href="https://www.baidu.com/s?wd=%E8%83%96%E4%B8%9C%E6%9D%A5%E5%9B%9E%E5%BA%94%E2%80%9C%E6%B4%97%E5%8F%91%E6%B0%B4%E4%BA%A7%E5%9C%B0%E9%80%A0%E5%81%87%E2%80%9D" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">胖东来回应洗发水产地造假质疑，称将核查相关商品信息。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">选品信任是商超最贵的资产，一次产地争议就足以动摇顾客对整店的判断。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">把**供应商溯源**做成常态动作，出事先给事实和处置方案，别让客服话术顶在前面。</p></div>
+  </article>
+  <article class="story reveal" id="s08">
+    <div class="story-head">
+      <span class="s-num">08</span>
+      <div>
+        <a class="s-title" href="https://news.ifeng.com/c/8xsjrioAQW7" target="_blank" rel="noopener">事关卡蓓诺洗发水，胖东来最新回应</a>
+        <div class="s-src">凤凰网<span class="sep">·</span><a href="https://news.ifeng.com/c/8xsjrioAQW7" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">胖东来就卡蓓诺洗发水事件再作最新回应，继续说明核查与处理进展。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">连续回应说明事件仍在发酵，消费者要的是可验证的处理结果，不是态度表演。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">建立**问题商品下架与公示**流程，处理结果公开到门店和社群，把危机变成信任修复。</p></div>
+  </article>
+  <article class="story reveal" id="s09">
+    <div class="story-head">
+      <span class="s-num">09</span>
+      <div>
+        <a class="s-title" href="https://www.thepaper.cn/newsDetail_forward_34430071" target="_blank" rel="noopener">新闻周刊丨22件演出服满身污渍穿完就退，仅退款“白嫖”乱象如何治理？</a>
+        <div class="s-src">澎湃新闻<span class="sep">·</span><a href="https://www.thepaper.cn/newsDetail_forward_34430071" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">22件演出服满身污渍穿完就退，仅退款“白嫖”乱象引发治理讨论。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">平台偏袒买家的规则正在被滥用，商家成本最终会摊到所有消费者头上。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">高退货品类加**发货留证和使用痕迹判定**，把规则成本挡在售后之前。</p></div>
+  </article>
+  <article class="story reveal" id="s10">
+    <div class="story-head">
+      <span class="s-num">10</span>
+      <div>
+        <a class="s-title" href="https://www.zhihu.com/question/2102464702701725670" target="_blank" rel="noopener">优酷被指在剧中插入占 1/3 屏幕，持续 10 秒的巨大广告，其回应可快进或自行关闭，你怎么看这种弹幕广告？</a>
+        <div class="s-src">知乎<span class="sep">·</span><a href="https://www.zhihu.com/question/2102464702701725670" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">优酷被指在剧中插入占约三分之一屏幕、持续10秒的巨大广告，回应称可快进或关闭。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">平台在会员收入见顶后加大广告变现，用户体验被反复试探，注意力越来越贵。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">投放别只买曝光，算**完播与转化**，把预算放到能带来到店和复购的渠道上。</p></div>
+  </article>
+  <article class="story reveal" id="s11">
+    <div class="story-head">
+      <span class="s-num">11</span>
+      <div>
+        <a class="s-title" href="https://www.cls.cn/detail/2528125" target="_blank" rel="noopener">告别集中爆单！“双十一”快递一线经营“减负” 降本与修复盈利并进</a>
+        <div class="s-src">财联社热门<span class="sep">·</span><a href="https://www.cls.cn/detail/2528125" target="_blank" rel="noopener">原链</a></div>
+      </div>
+    </div>
+    <div class="field sec"><span class="f-lbl">核心事件<span class="f-en">FACT</span></span><p class="f-body">“双十一”快递一线告别集中爆单，转向降本与修复盈利并进。</p></div>
+    <div class="field judge"><span class="f-lbl">背景判断<span class="f-en">READ</span></span><p class="f-body">单量集中爆发不再是唯一目标，快递网点从冲量转向算账，说明低价换量模式走到头。</p></div>
+    <div class="field act"><span class="f-lbl">行动参考<span class="f-en">ACT</span></span><p class="f-body">商家提前和快递谈**阶梯价与时效保障**，别把大促利润全交给物流和退货。</p></div>
+  </article>
+  <div class="sec-head reveal"><span class="en">Readings</span><h2>深度阅读</h2></div>
+  <div class="read reveal">
+    <a class="read-item" href="https://www.woshipm.com/share/6490579.html" target="_blank" rel="noopener"><span class="r-src">人人都是产品经理</span><span class="r-title">“美团”连下两城：先买“叮咚”后砸“300亿”，五部门发文，即时零售的终局，真的变了？</span></a>
+    <a class="read-item" href="https://www.yunyingpai.com/news/1068972.html" target="_blank" rel="noopener"><span class="r-src">运营派</span><span class="r-title">奥乐齐，为什么能卖得又好又便宜？</span></a>
+    <a class="read-item" href="https://www.tmtpost.com/8197335.html" target="_blank" rel="noopener"><span class="r-src">钛媒体</span><span class="r-title">在芬兰卖二手衣服，已经成了一门大生意</span></a>
+  </div>
+  <div class="sec-head reveal"><span class="en">Insight</span><h2>老许研判</h2></div>
+  <div class="insight-block reveal">
+    <h3>核心热点态势</h3>
+<p>圈层热点，实体商业无霸屏级事件，但多条暗线指向同一件事：流量成本与信任成本双升。</p>
+<p style="margin-top:12px">【宏观主线】</p>
+<p>内容端AI化与平台端规则收紧同步发生，倒逼实体商家从“买流量”转向“做信任资产”。</p>
+<p style="margin-top:12px">【微观领域】</p>
+<p>1. 「大三男生做AI漫剧营收超300万」与「54岁大哥自学AI短剧登顶」同框，说明内容生产门槛坍塌，实体店短视频获客可自建不再外包。</p>
+<p>2. 「山姆卖加拿大鹅便宜5000元」验证会员仓储店的选品议价仍是线下最强护城河。</p>
+<p>3. 「胖东来回应洗发水产地造假」显示消费者对商超信任极度敏感，信任一旦动摇即全网放大。</p>
+<p>4. 「双十一快递告别集中爆单」意味着大促脉冲式流量减弱，日常经营能力比拼开始。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>舆论风向争议</h3>
+<p style="margin-top:12px">【情绪光谱】</p>
+<p>主流愤怒指向平台规则，潜流焦虑来自实体老板对“流量不可控”的无力感。</p>
+<p style="margin-top:12px">【核心矛盾】</p>
+<p>1. 消费者骂「仅退款白嫖」，商家却依赖平台流量不敢反抗。</p>
+<p>2. 优酷巨型广告被骂，说明用户愿为“无打扰体验”付费，线下门店清静环境反成卖点。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>异动与弱信号</h3>
+<p style="margin-top:12px">跨平台共振明显：AI短剧造富话题在今日头条（第4）与知乎（第19）双端同时起量，且知乎侧已从“羡慕”转向“普通人能否复制”的追问，属话题深化期而非初爆。</p>
+<p style="margin-top:12px">【轨迹突变】</p>
+<p>「胖东来洗发水」百度和凤凰双平台同日出现，属危机型回榜，说明区域零售标杆的每一次回应都被全网审视。无僵尸话题复活迹象，整体为平稳长尾。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>研判策略建议</h3>
+<p style="margin-top:12px">1. 实体商家：把店拍成“连续剧”。用手机+免费AI剪辑工具，每天发1条门店日常（后厨、选品、顾客故事），连续30天测出本地流量池。成本门槛：0元，仅时间成本，不投流先测自然曝光。</p>
+<p style="margin-top:12px">2. 创业者：模仿山姆逻辑做“社区小店版选品”。锁定3-5个高频刚需品，用会员储值卡（99元起）提前锁客，用确定性低价换复购。成本门槛：5000-2万元，先小批量试单再压货。</p>
+<p style="margin-top:12px">风险提示：AI内容红利会被快速摊薄，别押注“做账号卖货”；「仅退款」类平台规则风险仍在，线下交易尽量引导当面验货结账。</p>
+  </div>
+  <div class="insight-block reveal">
+    <h3>独立源点速览</h3>
+<p>[知乎]:</p>
+<p>优酷巨型弹幕广告登顶，用户对强制广告容忍度见底，反衬线下门店“无打扰体验”的价值。AI短剧创富追问（第19）已从猎奇转向可行性拷问，说明流量造富叙事开始祛魅，实体老板别盲目追风口。</p>
+<p>[华尔街见闻]:</p>
+<p>磁带闷声发财（第6）是给实体选品的强信号：冷门刚需品类竞争小、复购稳。AI泡沫争论（高盛类比1998）提示工具类投入要克制，先看它能否直接带来进店客流再谈投入。</p>
+  </div>
+  <footer class="footer reveal">
+    <div class="f-main">老许聊实体</div>
+    <div class="f-copy">每天 5 分钟，看透实体生意　·　第 137 期 · 2026年11月08日　·　共 11 条 / 255 条</div>
+  </footer>
+</div>
+
+<script>
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+<script src="../../donate.js" data-donate-img="../../donate.png"></script>
+</body>
+</html>
